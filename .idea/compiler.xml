@@ -17,47 +17,12 @@
       <profile default="true" name="Default" enabled="false">
         <processorPath useClasspath="true" />
       </profile>
-      <profile default="false" name="Annotation profile for iedu-manage" enabled="true">
+      <profile default="false" name="Annotation profile for ijurong-common" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="iedu-manage" />
-      </profile>
-      <profile default="false" name="Annotation profile for iedu-common" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="iedu-common" />
-      </profile>
-      <profile default="false" name="Annotation profile for iedu-shiro" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="iedu-shiro" />
-      </profile>
-      <profile default="false" name="Annotation profile for iedu_solr" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="iedu_solr" />
-      </profile>
-      <profile default="false" name="Annotation profile for iedu-sso" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="iedu-sso" />
-      </profile>
-      <profile default="false" name="Annotation profile for ijurong-manage" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="ijurong-manage" />
+        <module name="ijurong-common" />
       </profile>
       <profile default="false" name="Annotation profile for ijurong-shiro" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
@@ -66,13 +31,6 @@
         <processorPath useClasspath="true" />
         <module name="ijurong-shiro" />
       </profile>
-      <profile default="false" name="Annotation profile for ijurong-common" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="ijurong-common" />
-      </profile>
       <profile default="false" name="Annotation profile for ijurong-sso" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
@@ -80,14 +38,15 @@
         <processorPath useClasspath="true" />
         <module name="ijurong-sso" />
       </profile>
+      <profile default="false" name="Annotation profile for ijurong-manage" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ijurong-manage" />
+      </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="iedu" target="1.7" />
-      <module name="iedu-common" target="1.7" />
-      <module name="iedu-manage" target="1.7" />
-      <module name="iedu-shiro" target="1.7" />
-      <module name="iedu-sso" target="1.7" />
-      <module name="iedu_solr" target="1.7" />
       <module name="ijurong-common" target="1.7" />
       <module name="ijurong-manage" target="1.7" />
       <module name="ijurong-shiro" target="1.7" />
