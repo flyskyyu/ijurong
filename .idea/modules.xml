@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/iedu.iml" filepath="$PROJECT_DIR$/iedu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ijurong-common/iedu-common.iml" filepath="$PROJECT_DIR$/ijurong-common/iedu-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/iedu-common/iedu-common.iml" filepath="$PROJECT_DIR$/iedu-common/iedu-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/iedu-manage/iedu-manage.iml" filepath="$PROJECT_DIR$/iedu-manage/iedu-manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/iedu-shiro/iedu-shiro.iml" filepath="$PROJECT_DIR$/iedu-shiro/iedu-shiro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ijurong-sso/iedu-sso.iml" filepath="$PROJECT_DIR$/ijurong-sso/iedu-sso.iml" />
+      <module fileurl="file://$PROJECT_DIR$/iedu-sso/iedu-sso.iml" filepath="$PROJECT_DIR$/iedu-sso/iedu-sso.iml" />
+      <module fileurl="file://$PROJECT_DIR$/iedu_solr/iedu_solr.iml" filepath="$PROJECT_DIR$/iedu_solr/iedu_solr.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ijurong-common/ijurong-common.iml" filepath="$PROJECT_DIR$/ijurong-common/ijurong-common.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ijurong-manage/ijurong-manage.iml" filepath="$PROJECT_DIR$/ijurong-manage/ijurong-manage.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ijurong-shiro/ijurong-shiro.iml" filepath="$PROJECT_DIR$/ijurong-shiro/ijurong-shiro.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ijurong-sso/ijurong-sso.iml" filepath="$PROJECT_DIR$/ijurong-sso/ijurong-sso.iml" />
+      <module fileurl="file://$PROJECT_DIR$/wisdom-platform.iml" filepath="$PROJECT_DIR$/wisdom-platform.iml" />
+    </modules>
+  </component>
+</project>

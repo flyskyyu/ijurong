@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="ijurong-manage:war">
+    <output-path>$PROJECT_DIR$/ijurong-manage/target</output-path>
+    <root id="archive" name="ijurong-manage.war">
+      <element id="artifact" artifact-name="ijurong-manage:war exploded" />
+    </root>
+  </artifact>
+</component>

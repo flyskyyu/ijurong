@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <script type="text/javascript" src="/views/js/jquery-easyui-1.4/jquery.min.js"></script>
+    <title>登录页</title>
+    <script>
+        $(function()
+        {
+            $("#login").bind("click", function () {
+
+                $.ajax({ url: "http://localhost:8080/server/testpost", success: function(data){
+                    alert(data);
+                }});
+            })
+        });
+
+    </script>
+</head>
+<body>
+登录页
+<input id="login" type="button"value="登录">
+
+</body>
+</html>
