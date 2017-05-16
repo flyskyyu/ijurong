@@ -45,11 +45,11 @@
         	<i class="home"><a href="javascript:;"></a></i>
         	<div class="nav-wrap">
                 <ul class="nav ue-clear">
-                    <li><a href="javascript:;">平台管理</a></li>
-                    <li><a href="javascript:;">公文流转</a></li>
-                    <li><a href="javascript:;">单位支部</a></li>
-                    <li><a href="javascript:;">党员服务</a></li>
-                    <li><a href="javascript:;">互动交流</a></li>
+                    <li><a href="javascript:;" id="platformManage">平台管理</a></li>
+                    <li><a href="javascript:;" id="officialManage">公文流转</a></li>
+                    <li><a href="javascript:;" id="companyManage">单位支部</a></li>
+                    <li><a href="javascript:;" id="partyMemberManage">党员服务</a></li>
+                    <li><a href="javascript:;" id="interactiveManage">互动交流</a></li>
                 </ul>
             </div>
             <div class="nav-btn">
@@ -59,7 +59,7 @@
         </div>
     </div>
     <div id="bd">
-        <iframe width="100%" height="100%" id="mainIframe" src="nav.html" frameborder="0"></iframe>
+        <iframe width="100%" height="100%" id="mainIframe" src="platformManage.html" frameborder="0"></iframe>
     </div>
     
     <div id="ft" class="ue-clear">
@@ -157,7 +157,7 @@ $('.exitDialog input[type=button]').click(function(e) {
 	$('.nav-btn a').click(function(e) {
 		var tempWidth = totalWidth - ( Math.abs($('.nav').css('left').split('p')[0]) + $('.nav-wrap').width() );
         if($(this).hasClass('nav-prev-btn')){
-			if( parseInt($('.nav').css('left').split('p')[0])  < 0){
+			if( parseInt($('.nav').css('left').split('p')[0]) < 0){
 				current--;
 				Math.abs($('.nav').css('left').split('p')[0]) > 93 ? $('.nav').animate({'left': currentLeft()}, 200) : $('.nav').animate({'left': 0}, 200);
 			}
@@ -198,6 +198,52 @@ $('.exitDialog input[type=button]').click(function(e) {
 	$('.logo-icon').click(function(e) {
          $(this).toggleClass('active'); 
 	     $('.system-switch').toggle();
+    });
+
+    $('#platformManage').click(function()
+    {
+        var src=$('#mainIframe').attr("src");
+
+        if(src.indexOf("platformManage") < 0)
+        {
+            $('#mainIframe').attr("src","platformManage.html");
+        }
+    });
+    $('#officialManage').click(function()
+    {
+        var src=$('#mainIframe').attr("src");
+
+        if(src.indexOf("officialManage") < 0)
+        {
+            $('#mainIframe').attr("src","officialManage.html");
+        }
+    });
+    $('#companyManage').click(function()
+    {
+        var src=$('#mainIframe').attr("src");
+
+        if(src.indexOf("companyManage") < 0)
+        {
+            $('#mainIframe').attr("src","companyManage.html");
+        }
+    });
+    $('#partyMemberManage').click(function()
+    {
+        var src=$('#mainIframe').attr("src");
+
+        if(src.indexOf("partyMemberManage") < 0)
+        {
+            $('#mainIframe').attr("src","partyMemberManage.html");
+        }
+    });
+    $('#interactiveManage').click(function()
+    {
+        var src=$('#mainIframe').attr("src");
+
+        if(src.indexOf("interactiveManage") < 0)
+        {
+            $('#mainIframe').attr("src","interactiveManage.html");
+        }
     });
 	
 	hideElement($('.user-opt'), $('.more-info'), function(current, target){
