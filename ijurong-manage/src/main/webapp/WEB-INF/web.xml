@@ -125,13 +125,8 @@
         <load-on-startup>1</load-on-startup>
     </servlet>
 
-
     <servlet-mapping>
         <servlet-name>ijurongServlet</servlet-name>
-        <!--
-            可用： *.xxx，/，/xxx/*
-            不可用：/*
-         -->
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
