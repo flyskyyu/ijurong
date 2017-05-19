@@ -29,8 +29,8 @@ pageEncoding="UTF-8" %>
                 	<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">新闻管理</span></a>
                     <ul class="subnav  current">
 						<li class="subnav-li" href="index" data-id="1"style="display: none" ><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">首页</span></a></li>
-						<li class="subnav-li" href="platformManage/news" data-id="2"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻管理</span></a></li>
-						<li class="subnav-li" href="platformManage/news_type" data-id="3"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻分类管理</span></a></li>
+						<li class="subnav-li" href="platform/news" data-id="2"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻管理</span></a></li>
+						<li class="subnav-li" href="platform/news_type" data-id="3"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻分类管理</span></a></li>
                     </ul>
                 </li>
                 <li class="nav-li">
@@ -79,8 +79,28 @@ pageEncoding="UTF-8" %>
 				<li class="nav-li">
 					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">单位支部管理</span></a>
 					<ul class="subnav">
-						<li class="subnav-li" href="platformManage/news" data-id="32"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻管理</span></a></li>
-						<li class="subnav-li" href="platformManage/news_type" data-id="33"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻分类管理</span></a></li>
+						<li class="subnav-li" href="company/company" data-id="32"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">单位管理</span></a></li>
+						<li class="subnav-li" href="platform/party" data-id="33"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">支部管理</span></a></li>
+					</ul>
+				</li>
+				<li class="nav-li current">
+					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">志愿者管理</span></a>
+					<ul class="subnav">
+						<li class="subnav-li" data-id="34"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">志愿者管理</span></a></li>
+					</ul>
+				</li>
+				<li class="nav-li">
+					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">组织活动</span></a>
+					<ul class="subnav">
+						<li class="subnav-li" data-id="35"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党建专题活动</span></a></li>
+						<li class="subnav-li" data-id="36"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">教育教学活动</span></a></li>
+						<li class="subnav-li" data-id="37"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">志愿者活动</span></a></li>
+					</ul>
+				</li>
+				<li class="nav-li last-nav-li">
+					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">教学资源</span></a>
+					<ul class="subnav">
+						<li class="subnav-li" data-id="38"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">教学资源</span></a></li>
 					</ul>
 				</li>
 			</ul>
