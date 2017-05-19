@@ -5,20 +5,20 @@ pageEncoding="UTF-8" %>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../css/style.css" />
-<link rel="stylesheet" type="text/css" href="../css/WdatePicker.css" />
-<link rel="stylesheet" type="text/css" href="../css/skin_/form.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/WdatePicker.css" />
+<link rel="stylesheet" type="text/css" href="/css/skin_/form.css" />
 <link href="../umeditor/themes/default/_css/umeditor.css" type="text/css" rel="stylesheet">
-<script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/global.js"></script>
-<script type="text/javascript" src="../js/jquery.select.js"></script>
-<script type="text/javascript" src="../js/WdatePicker.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/global.js"></script>
+<script type="text/javascript" src="/js/jquery.select.js"></script>
+<script type="text/javascript" src="/js/WdatePicker.js"></script>
 <script type="text/javascript">
 window.UMEDITOR_HOME_URL = 'umeditor/';  // 请换成绝对路径
 </script>
-<script type="text/javascript" src="../js/umeditor.config.js"></script>
-<script type="text/javascript" src="../js/editor_api.js"></script>
-<script type="text/javascript" src="../umeditor/lang/zh-cn/zh-cn.js"></script>
+<script type="text/javascript" src="/js/umeditor.config.js"></script>
+<script type="text/javascript" src="/js/editor_api.js"></script>
+<script type="text/javascript" src="/umeditor/lang/zh-cn/zh-cn.js"></script>
 <title>基础信息</title>
 </head>
 

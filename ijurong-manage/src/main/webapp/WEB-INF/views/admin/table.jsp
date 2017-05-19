@@ -5,10 +5,10 @@ pageEncoding="UTF-8" %>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../css/style.css" />
-<link rel="stylesheet" type="text/css" href="../css/WdatePicker.css" />
-<link rel="stylesheet" type="text/css" href="../css/skin_/table.css" />
-<link rel="stylesheet" type="text/css" href="../css/jquery.grid.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/WdatePicker.css" />
+<link rel="stylesheet" type="text/css" href="/css/skin_/table.css" />
+<link rel="stylesheet" type="text/css" href="/css/jquery.grid.css" />
 
 
 <title>表格</title>
@@ -126,13 +126,13 @@ pageEncoding="UTF-8" %>
     </div>
 </div>
 </body>
-<script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/global.js"></script>
-<script type="text/javascript" src="../js/jquery.select.js"></script>
-<script type="text/javascript" src="../js/core.js"></script>
-<script type="text/javascript" src="../js/jquery.pagination.js"></script>
-<script type="text/javascript" src="../js/jquery.grid.js"></script>
-<script type="text/javascript" src="../js/WdatePicker.js"></script>
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/global.js"></script>
+<script type="text/javascript" src="/js/jquery.select.js"></script>
+<script type="text/javascript" src="/js/core.js"></script>
+<script type="text/javascript" src="/js/jquery.pagination.js"></script>
+<script type="text/javascript" src="/js/jquery.grid.js"></script>
+<script type="text/javascript" src="/js/WdatePicker.js"></script>
 <script type="text/javascript">
 	$('select').select();
 	var head = [{

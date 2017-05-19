@@ -5,11 +5,11 @@ pageEncoding="UTF-8" %>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../css/style.css" />
-<link rel="stylesheet" href="../css/zTreeStyle/zTreeStyle.css" type="text/css">
-<link rel="stylesheet" type="text/css" href="../css/skin_/nav.css" />
-<script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/global.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" href="/css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="/css/skin_/nav.css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/global.js"></script>
 <title>底部内容页</title>
 </head>
 
@@ -131,9 +131,9 @@ pageEncoding="UTF-8" %>
     <div class="opt-panel-bl"></div>
 </div>
 </body>
-<script type="text/javascript" src="../js/nav.js"></script>
-<script type="text/javascript" src="../js/Menu.js"></script>
-<script type="text/javascript" src="../js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="/js/nav.js"></script>
+<script type="text/javascript" src="/js/Menu.js"></script>
+<script type="text/javascript" src="/js/jquery.ztree.core-3.5.js"></script>
 <script type="text/javascript">
 	var menu = new Menu({
 		defaultSelect: $('.nav').find('li[data-id="1"]')	
@@ -145,30 +145,30 @@ pageEncoding="UTF-8" %>
 		var zNodes =[
 			{ name:"新闻管理",
 			   children: [
-				 { name:"新闻视频管理",icon:'img/skin_/leftlist.png'},
-				 { name:"新闻频道管理",icon:'img/skin_/leftlist.png'},
-				 { name:"地方新闻管理",icon:'img/skin_/leftlist.png'}
+				 { name:"新闻视频管理",icon:'/img/skin_/leftlist.png'},
+				 { name:"新闻频道管理",icon:'/img/skin_/leftlist.png'},
+				 { name:"地方新闻管理",icon:'/img/skin_/leftlist.png'}
 			]},
 			{ name:"用户信息设置", open:true,
 			   children: [
-				 { name:"首页", checked:true,icon:'img/skin_/leftlist.png'},
-				 { name:"表单",icon:'img/skin_/leftlist.png'},
-				 { name:"表格",icon:'img/skin_/leftlist.png'},
-				 { name:"自定义设置",icon:'img/skin_/leftlist.png'}
+				 { name:"首页", checked:true,icon:'/img/skin_/leftlist.png'},
+				 { name:"表单",icon:'/img/skin_/leftlist.png'},
+				 { name:"表格",icon:'/img/skin_/leftlist.png'},
+				 { name:"自定义设置",icon:'/img/skin_/leftlist.png'}
 			]},
 			{ name:"工作安排",
 			   children: [
-				 { name:"工作安排",icon:'img/skin_/leftlist.png'},
-				 { name:"安排管理",icon:'img/skin_/leftlist.png'},
-				 { name:"类型选择",icon:'img/skin_/leftlist.png'},
-				 { name:"自定义设置",icon:'img/skin_/leftlist.png'}
+				 { name:"工作安排",icon:'/img/skin_/leftlist.png'},
+				 { name:"安排管理",icon:'/img/skin_/leftlist.png'},
+				 { name:"类型选择",icon:'/img/skin_/leftlist.png'},
+				 { name:"自定义设置",icon:'/img/skin_/leftlist.png'}
 			]},
 			{ name:"数据管理",
 			   children: [
-				 { name:"工作安排",icon:'img/skin_/leftlist.png'},
-				 { name:"安排管理",icon:'img/skin_/leftlist.png'},
-				 { name:"类型选择",icon:'img/skin_/leftlist.png'},
-				 { name:"自定义设置",icon:'img/skin_/leftlist.png'}
+				 { name:"工作安排",icon:'/img/skin_/leftlist.png'},
+				 { name:"安排管理",icon:'/img/skin_/leftlist.png'},
+				 { name:"类型选择",icon:'/img/skin_/leftlist.png'},
+				 { name:"自定义设置",icon:'/img/skin_/leftlist.png'}
 			]}
 		];
 

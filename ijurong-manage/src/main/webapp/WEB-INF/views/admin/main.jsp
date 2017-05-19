@@ -5,11 +5,11 @@ pageEncoding="UTF-8" %>
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="../css/style.css" />
-<link rel="stylesheet" type="text/css" href="../css/skin_/main.css" />
-<link rel="stylesheet" type="text/css" href="../css/jquery.dialog.css" />
-<script type="text/javascript" src="../js/jquery.js"></script>
-<script type="text/javascript" src="../js/global.js"></script>
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link rel="stylesheet" type="text/css" href="/css/skin_/main.css" />
+<link rel="stylesheet" type="text/css" href="/css/jquery.dialog.css" />
+<script type="text/javascript" src="/js/jquery.js"></script>
+<script type="text/javascript" src="/js/global.js"></script>
 <title>数字管理系统</title>
 </head>
 
@@ -114,8 +114,8 @@ pageEncoding="UTF-8" %>
 </div>
 
 </body>
-<script type="text/javascript" src="../js/core.js"></script>
-<script type="text/javascript" src="../js/jquery.dialog.js"></script>
+<script type="text/javascript" src="/js/core.js"></script>
+<script type="text/javascript" src="/js/jquery.dialog.js"></script>
 <script type="text/javascript">
 $("#bd").height($(window).height()-$("#hd").outerHeight()-26);
 
