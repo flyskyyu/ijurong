@@ -1,7 +1,5 @@
 package com.party.ijurong.bean;
 
-import com.party.ijurong.pojo.SysUser;
-
 import java.io.Serializable;
 
 /**
@@ -11,10 +9,6 @@ public class SimpleUser implements Serializable{
     private Integer userId;
     private String userName;
 
-    public SimpleUser(SysUser user) {
-        this.userId = user.getUserId();
-        this.userName = user.getUserName();
-    }
 
     public SimpleUser() {
 
