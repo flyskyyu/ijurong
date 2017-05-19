@@ -81,14 +81,29 @@
 
     function formatOperation(value, rowData, rowIndex) {
       var result = "";
-      if (rowData.level == '0') {
-        result = '<a style="color:red;text-decoration:none;">管理员</a>';
-      } else {
+//      if (rowData.level == '0') {
+//        result = '<a style="color:red;text-decoration:none;">管理员</a>';
+//      } else {
         result = '<a href="#" onclick="openDialog(' + rowIndex
         + ')" style="color:green;text-decoration:none;">操作</a>';
-      }
+//      }
       return result;
     }
+
+
+    function formatType(value, rowData, rowIndex) {
+      if (value == '1')
+        return '<span>国企</span>';
+      if (value == '2')
+        return '<span>民营</span>';
+      if (value == '3')
+        return '<span>外资</span>';
+      if (value == '4')
+        return '<span>合资</span>';
+      if (value == '5')
+        return '<span>其他</span>';
+    }
+
 
     function openDialog(id) {
       $('#company_grid').datagrid('selectRow', id);
@@ -119,16 +134,16 @@
             data-options="iconCls:'icon-remove'" id="btn_remove">删除</a>
     </div>
   </div>
-  <table id="company_grid" style="width: auto; height: 638px"
+  <table id="company_grid" style="width: auto; height: auto"
          class="easyui-datagrid"
-         data-options="pagination:true,pageSize:20,fit:true,fitColumns:true,rownumbers:true,singleSelect:true,url:'findCompanys',striped:true,toolbar:'#drug_biologicals_toolbar'">
+         data-options="pagination:true,pageSize:20,fit:true,fitColumns:true,rownumbers:true,singleSelect:true,url:'findCompanys',striped:true,toolbar:'#companys_toolbar'">
     <thead>
     <tr>
       <th field="id" hidden="true"></th>
-      <th field="name" width="30">企业名称</th>
-      <th field="type" width="20">公司类型</th>
-      <th field="address" width="20">公司地址</th>
-      <th field="phone" width="20">公司电话</th>
+      <th data-options="field:'name',align:'center'" width="30">企业名称</th>
+      <th data-options="field:'type',align:'center',formatter:formatType"  width="20">公司类型</th>
+      <th data-options="field:'address',align:'center'" width="20">公司地址</th>
+      <th data-options="field:'phone',align:'center'" width="20">公司电话</th>
       <th
               data-options="field:'id1',align:'center',width:50,formatter:formatOperation"
               width="20">操作</th>
@@ -165,11 +180,18 @@
             class="dialog_table" cellpadding="0">
       <tr>
         <td>企业名称:</td>
-        <td class="field_color"><input type="text" name="name" /></td>
+        <td class="field_color"><input type="text" name="name" data-options="required:true" /></td>
       </tr>
       <tr>
         <td>公司类型:</td>
-        <td class="field_color"><input type="text" name="type" /></td>
+        <td class="field_color"><select name="type"
+                                        class="easyui-combobox" style="width: 153px">
+          <option value="1">国企</option>
+          <option value="2">民营</option>
+          <option value="3">外资</option>
+          <option value="4">合资</option>
+          <option value="5">其他</option>
+        </select></td>
       </tr>
       <tr>
         <td>公司地址:</td>
@@ -185,7 +207,7 @@
       </tr>
       <tr>
         <td>成立时间:</td>
-        <td class="field_color"><input type="text" name="create_date" /></td>
+        <td class="field_color"><input class="easyui-datetimebox" name="createTime" style="width: 150px"></td>
       </tr>
     </table>
     <input type="hidden" value="0" name="id" id="id" />

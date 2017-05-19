@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
  * History:
  * maurice 16/02/12 1.0 build this moudle
  */
-@RequestMapping("views")
+@RequestMapping("admin")
 @Controller
 public class PageController {
 
