@@ -61,7 +61,7 @@ pageEncoding="UTF-8" %>
         </div>
     </div>
     <div id="bd">
-        <iframe width="100%" height="100%" id="mainIframe" src="platformManage.html" frameborder="0"></iframe>
+        <iframe width="100%" height="100%" id="mainIframe" src="menu" frameborder="0"></iframe>
     </div>
     
     <div id="ft" class="ue-clear">
@@ -202,52 +202,32 @@ $('.exitDialog input[type=button]').click(function(e) {
 	     $('.system-switch').toggle();
     });
 
-//    $('#platformManage').click(function()
-//    {
-//        var src=$('#mainIframe').attr("src");
-//
-//        if(src.indexOf("platformManage") < 0)
-//        {
-//            $('#mainIframe').attr("src","platformManage.html");
-//        }
-//    });
-//    $('#officialManage').click(function()
-//    {
-//        var src=$('#mainIframe').attr("src");
-//
-//        if(src.indexOf("officialManage") < 0)
-//        {
-//            $('#mainIframe').attr("src","officialManage.html");
-//        }
-//    });
-//    $('#companyManage').click(function()
-//    {
-//        var src=$('#mainIframe').attr("src");
-//
-//        if(src.indexOf("companyManage") < 0)
-//        {
-//            $('#mainIframe').attr("src","companyManage.html");
-//        }
-//    });
-//    $('#partyMemberManage').click(function()
-//    {
-//        var src=$('#mainIframe').attr("src");
-//
-//        if(src.indexOf("partyMemberManage") < 0)
-//        {
-//            $('#mainIframe').attr("src","partyMemberManage.html");
-//        }
-//    });
-//    $('#interactiveManage').click(function()
-//    {
-//        var src=$('#mainIframe').attr("src");
-//
-//        if(src.indexOf("interactiveManage") < 0)
-//        {
-//            $('#mainIframe').attr("src","interactiveManage.html");
-//        }
-//    });
-//
+    $('#platformManage').click(function()
+    {
+        $($('#mainIframe')[0].contentWindow.document).find(".nav").hide();
+        $($('#mainIframe')[0].contentWindow.document).find("#nav_platformManage").show()
+    });
+    $('#officialManage').click(function()
+    {
+        $($('#mainIframe')[0].contentWindow.document).find(".nav").hide();
+        $($('#mainIframe')[0].contentWindow.document).find("#nav_officialManage").show()
+    });
+    $('#companyManage').click(function()
+    {
+        $($('#mainIframe')[0].contentWindow.document).find(".nav").hide();
+        $($('#mainIframe')[0].contentWindow.document).find("#nav_companyManage").show()
+    });
+    $('#partyMemberManage').click(function()
+    {
+        $($('#mainIframe')[0].contentWindow.document).find(".nav").hide();
+        $($('#mainIframe')[0].contentWindow.document).find("#nav_partyMemberManage").show()
+    });
+    $('#interactiveManage').click(function()
+    {
+        $($('#mainIframe')[0].contentWindow.document).find(".nav").hide();
+        $($('#mainIframe')[0].contentWindow.document).find("#nav_interactiveManage").show()
+    });
+
 	hideElement($('.user-opt'), $('.more-info'), function(current, target){
 
 		$('.more-info').removeClass('active'); 
