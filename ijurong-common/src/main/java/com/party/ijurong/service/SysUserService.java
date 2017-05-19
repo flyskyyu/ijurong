@@ -1,7 +1,6 @@
 package com.party.ijurong.service;
 
 import com.party.ijurong.pojo.SysUser;
-import com.sun.tools.internal.xjc.reader.xmlschema.bindinfo.BIConversion;
 import org.springframework.stereotype.Service;
 
 /**

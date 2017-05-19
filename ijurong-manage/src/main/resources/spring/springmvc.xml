@@ -18,13 +18,19 @@
     <!-- 不处理静态资源 -->
     <mvc:default-servlet-handler/>
 
+    <!-- 静态资源(js、image等)的访问 -->
+    <mvc:resources mapping="/css/**" location="/WEB-INF/views/admin/css/"/>
+    <mvc:resources mapping="/img/**" location="/WEB-INF/views/admin/img/"/>
+    <mvc:resources mapping="/js/**" location="/WEB-INF/views/admin/js/"/>
+    <mvc:resources mapping="/umeditor/**" location="/WEB-INF/views/admin/umeditor/"/>
+
     <!-- 定义试图解析器 -->
     <!--
         Example: prefix="/WEB-INF/jsp/", suffix=".jsp", viewname="test" -> "/WEB-INF/jsp/test.jsp"
      -->
     <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/views/"/>
-        <property name="suffix" value=".html"/>
+        <property name="prefix" value="/WEB-INF/views/admin/"/>
+        <property name="suffix" value=".jsp"/>
     </bean>
 
     <!-- 文件上传解析器 -->
