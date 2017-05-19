@@ -20,9 +20,9 @@ public class EnterpriseInfoService  extends BaseService<EnterpriseInfo>{
      * @param rows
      * @return
      */
-    public Page<EnterpriseInfo> findCompanysByCompany(EnterpriseInfo enterpriseInfo, int page, int rows) {
+    public Page<EnterpriseInfo> findEnterpriseInfosByEnterpriseInfo(EnterpriseInfo enterpriseInfo, int page, int rows) {
         RowBounds rowBounds=new RowBounds((page - 1) * rows,page*rows);
-        List<EnterpriseInfo> list = mapper.selectByRowBounds(enterpriseInfo, rowBounds);
+        List<EnterpriseInfo> list = mapper.selectByRowBounds(enterpriseInfo, rowBounds);//like 需要重写
         long count = mapper.selectByRowBounds(enterpriseInfo,new RowBounds()).size();
         return new Page<EnterpriseInfo>(count, list);
     }
@@ -32,7 +32,7 @@ public class EnterpriseInfoService  extends BaseService<EnterpriseInfo>{
      * @param name
      * @return
      */
-    public long findCompanysByName(String name)
+    public long findEnterpriseInfosByName(String name)
     {
         EnterpriseInfo enterpriseInfo=new EnterpriseInfo();
         enterpriseInfo.setName(name);
@@ -43,7 +43,7 @@ public class EnterpriseInfoService  extends BaseService<EnterpriseInfo>{
      * 添加企业
      * @param enterpriseInfo
      */
-    public void insertCompany(EnterpriseInfo enterpriseInfo)
+    public void insertEnterpriseInfo(EnterpriseInfo enterpriseInfo)
     {
         mapper.insert(enterpriseInfo);
     }
@@ -52,7 +52,7 @@ public class EnterpriseInfoService  extends BaseService<EnterpriseInfo>{
      * 更新企业
      * @param enterpriseInfo
      */
-    public void updateCompany(EnterpriseInfo enterpriseInfo)
+    public void updateEnterpriseInfo(EnterpriseInfo enterpriseInfo)
     {
         mapper.updateByPrimaryKeySelective(enterpriseInfo);
     }
@@ -61,7 +61,7 @@ public class EnterpriseInfoService  extends BaseService<EnterpriseInfo>{
      * 删除企业
      * @param id
      */
-    public void deleteCompany(int id)
+    public void deleteEnterpriseInfo(int id)
     {
         EnterpriseInfo enterpriseInfo=new EnterpriseInfo();
         enterpriseInfo.setId(id);

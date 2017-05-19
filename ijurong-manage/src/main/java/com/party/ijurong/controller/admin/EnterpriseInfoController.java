@@ -24,35 +24,35 @@ import javax.servlet.http.HttpServletRequest;
  */
 @RequestMapping("admin/company")
 @Controller
-public class CompanyController {
+public class EnterpriseInfoController {
 
 
     @Autowired
     private EnterpriseInfoService enterpriseInfoService;
 
-    @RequestMapping(value = "/findCompanys", method = { RequestMethod.POST, RequestMethod.GET })
+    @RequestMapping(value = "/findEnterpriseInfos", method = { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
-    public Page<EnterpriseInfo> findCompanys(HttpServletRequest httpServletRequest,
-                               @ModelAttribute EnterpriseInfo hospitalUser, @RequestParam int page, @RequestParam int rows) {
-        Page<EnterpriseInfo> result = enterpriseInfoService.findCompanysByCompany(hospitalUser, page, rows);
+    public Page<EnterpriseInfo> findEnterpriseInfos(HttpServletRequest httpServletRequest,
+                               @ModelAttribute EnterpriseInfo enterpriseInfo, @RequestParam int page, @RequestParam int rows) {
+        Page<EnterpriseInfo> result = enterpriseInfoService.findEnterpriseInfosByEnterpriseInfo(enterpriseInfo, page, rows);
         return result;
     }
 
 
 
 
-    @RequestMapping(value = "addCompany", method =
+    @RequestMapping(value = "addEnterpriseInfo", method =
             { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
-    public String addCompany(HttpServletRequest httpServletRequest, @ModelAttribute EnterpriseInfo enterpriseInfo)
+    public String addEnterpriseInfo(HttpServletRequest httpServletRequest, @ModelAttribute EnterpriseInfo enterpriseInfo)
     {
-        long companyCount=enterpriseInfoService.findCompanysByName(enterpriseInfo.getName());
-        if (companyCount==0)
+        long enterpriseInfoCount=enterpriseInfoService.findEnterpriseInfosByName(enterpriseInfo.getName());
+        if (enterpriseInfoCount==0)
         {
-            enterpriseInfoService.insertCompany(enterpriseInfo);
+            enterpriseInfoService.insertEnterpriseInfo(enterpriseInfo);
             return "success";
         }
-        else if(companyCount>0)
+        else if(enterpriseInfoCount>0)
         {
             return "had";
         }
@@ -62,21 +62,21 @@ public class CompanyController {
         }
     }
 
-    @RequestMapping(value = "updateCompany", method =
+    @RequestMapping(value = "updateEnterpriseInfo", method =
             { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
-    public String updateCompany(HttpServletRequest httpServletRequest, @ModelAttribute EnterpriseInfo enterpriseInfo)
+    public String updateEnterpriseInfo(HttpServletRequest httpServletRequest, @ModelAttribute EnterpriseInfo enterpriseInfo)
     {
-        enterpriseInfoService.updateCompany(enterpriseInfo);
+        enterpriseInfoService.updateEnterpriseInfo(enterpriseInfo);
         return "success";
     }
 
-    @RequestMapping(value = "delectCompany/{id}", method =
+    @RequestMapping(value = "delectEnterpriseInfo/{id}", method =
             { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
     public String delectHospitalUser(HttpServletRequest httpServletRequest, @PathVariable int id)
     {
-        enterpriseInfoService.deleteCompany(id);
+        enterpriseInfoService.deleteEnterpriseInfo(id);
         return "success";
     }
 
