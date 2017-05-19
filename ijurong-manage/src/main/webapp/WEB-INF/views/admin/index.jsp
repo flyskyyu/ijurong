@@ -102,7 +102,7 @@ pageEncoding="UTF-8" %>
                         
                     </h2>
                     <div class="content-bd">
-                    	<img src="img/skin_/pic1.png" />
+                    	<img src="../img/skin_/pic1.png" />
                     </div>
                 </li>
                 <li class="content-item dothings">
@@ -187,7 +187,7 @@ pageEncoding="UTF-8" %>
                     	<span class="title">数据统计</span>
                     </h2>
                     <div class="content-bd">
-                    	<img src="img/skin_/pic2.png" />
+                    	<img src="../img/skin_/pic2.png" />
                     </div>
                 </li>
                 

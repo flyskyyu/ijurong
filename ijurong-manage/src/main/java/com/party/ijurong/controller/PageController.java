@@ -23,10 +23,10 @@ public class PageController {
 //        return pageName;
 //    }
 
-    @RequestMapping(value = "login", method = RequestMethod.GET)
-    public String login(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) {
-        return "login";
-    }
+
+
+
+
 
 
 }

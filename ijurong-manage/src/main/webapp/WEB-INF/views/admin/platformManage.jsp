@@ -24,9 +24,9 @@ pageEncoding="UTF-8" %>
                 <li class="nav-li  current">
                 	<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">新闻管理</span></a>
                     <ul class="subnav">
-						<li class="subnav-li" href="index.html" data-id="1"style="display: none" ><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">首页</span></a></li>
-						<li class="subnav-li" href="platformManage/news.html" data-id="2"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻管理</span></a></li>
-						<li class="subnav-li" href="platformManage/news_type.html" data-id="3"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻分类管理</span></a></li>
+						<li class="subnav-li" href="index" data-id="1"style="display: none" ><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">首页</span></a></li>
+						<li class="subnav-li" href="platformManage/news" data-id="2"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻管理</span></a></li>
+						<li class="subnav-li" href="platformManage/news_type" data-id="3"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻分类管理</span></a></li>
                     </ul>
                 </li>
                 <li class="nav-li">
