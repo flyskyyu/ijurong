@@ -9,24 +9,34 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * 通用的页面跳转Controller
- * 
- * @author zhijun
+ * Copyright ©, 2016-2056
+ * FileName:  AdminController
  *
+ * @author CS-711701-00027
+ * @version 1.0
+ * @Date: 2017/5/16
+ * Description:
+ * Function List:
+ * 1. -------
+ * History:
+ * maurice 16/02/12 1.0 build this moudle
  */
-@RequestMapping("admin")
+@RequestMapping("views")
 @Controller
 public class PageController {
 
-//    @RequestMapping(value = "{pageName}", method = RequestMethod.GET)
-//    public String toPage(@PathVariable("pageName") String pageName,HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) {
-//        return pageName;
-//    }
+    @RequestMapping(value = "{page}", method = RequestMethod.GET)
+    public String toPage1(@PathVariable("page") String pageName) {
+        return pageName;
+    }
 
+    @RequestMapping(value = "{page}/{page1}", method = RequestMethod.GET)
+    public String toPage2(@PathVariable("page") String pageName, @PathVariable("page1") String pageName1) {
+        return pageName + "/" + pageName1;
+    }
 
-
-
-
-
-
+    @RequestMapping(value = "{page}/{page1}/{page2}", method = RequestMethod.GET)
+    public String toPage3(@PathVariable("page") String pageName,  @PathVariable("page1") String pageName1,  @PathVariable("page2") String pageName2) {
+        return pageName + "/" + pageName1 + "/" + pageName2;
+    }
 }

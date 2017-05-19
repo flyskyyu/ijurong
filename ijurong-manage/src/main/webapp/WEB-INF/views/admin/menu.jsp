@@ -1,15 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" %>
+<%
+	String path = request.getContextPath();
+	String basePath = request.getScheme()+"://" +request.getServerName()+":" +request.getServerPort()+path+"/" ;
+%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="/css/style.css" />
-<link rel="stylesheet" href="/css/zTreeStyle/zTreeStyle.css" type="text/css">
-<link rel="stylesheet" type="text/css" href="/css/skin_/nav.css" />
-<script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/global.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/style.css" />
+<link rel="stylesheet" href="<%=basePath%>css/zTreeStyle/zTreeStyle.css" type="text/css">
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/skin_/nav.css" />
+<script type="text/javascript" src="<%=basePath%>js/jquery.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/global.js"></script>
 <title>底部内容页</title>
 </head>
 
@@ -82,11 +86,10 @@ pageEncoding="UTF-8" %>
 			</ul>
 
 			<ul class="nav" id="nav_partyMemberManage" style="display: none;">
-				<li class="nav-li">
-					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">党员管理</span></a>
-					<ul class="subnav">
-						<li class="subnav-li" href="platformManage/news" data-id="42"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻管理</span></a></li>
-						<li class="subnav-li" href="platformManage/news_type" data-id="43"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻分类管理</span></a></li>
+				<li class="nav-li  current">
+					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">党员信息管理</span></a>
+					<ul class="subnav  current">
+						<li class="subnav-li" href="member/list" data-id="41"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党员查询</span></a></li>
 					</ul>
 				</li>
 			</ul>
@@ -111,7 +114,7 @@ pageEncoding="UTF-8" %>
         	<div class="title">
                 <i class="sidebar-show"></i>
                 <ul class="tab ue-clear">
-                   
+
                 </ul>
                 <i class="tab-more"></i>
                 <i class="tab-close"></i>
@@ -131,9 +134,9 @@ pageEncoding="UTF-8" %>
     <div class="opt-panel-bl"></div>
 </div>
 </body>
-<script type="text/javascript" src="/js/nav.js"></script>
-<script type="text/javascript" src="/js/Menu.js"></script>
-<script type="text/javascript" src="/js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/nav.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/Menu.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/jquery.ztree.core-3.5.js"></script>
 <script type="text/javascript">
 	var menu = new Menu({
 		defaultSelect: $('.nav').find('li[data-id="1"]')	
@@ -172,7 +175,7 @@ pageEncoding="UTF-8" %>
 			]}
 		];
 
-	$.fn.zTree.init($(".tree"), setting, zNodes);
+	//$.fn.zTree.init($(".tree"), setting, zNodes);
 	
 	
 	$('.sidebar h2').click(function(e) {

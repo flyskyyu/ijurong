@@ -2,450 +2,108 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e92a032f-c895-457f-b367-ade433712479" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/emotion/images/0.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/zTreeStyle/img/diy/1_close.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/zTreeStyle/img/diy/1_open.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/zTreeStyle/img/diy/2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/zTreeStyle/img/diy/3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/zTreeStyle/img/diy/4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/zTreeStyle/img/diy/5.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/zTreeStyle/img/diy/6.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/zTreeStyle/img/diy/7.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/zTreeStyle/img/diy/8.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/zTreeStyle/img/diy/9.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/addimage.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/addimage.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/alldeletebtnhoverskin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/alldeletebtnhoverskin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/alldeletebtnupskin(冲突时的文件备份2014-04-30 19-06-37).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/alldeletebtnupskin(冲突时的文件备份2014-04-30 19-06-37).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/alldeletebtnupskin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/alldeletebtnupskin.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/background.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/background.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/emotion/images/bface.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/skin/whyGreen/bg.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/button.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/button.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/images/caret.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/video/images/center_focus.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/dialog/centerleft.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/dialog/centerright.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/emotion/images/cface.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/opt/cleft.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/image/images/close(冲突时的文件备份2014-04-30 19-06-38).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/close.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/image/images/close.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/images/close.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/close1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/close2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/close3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/close4.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/switch-system/closed.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/copy(冲突时的文件备份2014-04-30 19-06-38).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/copy(冲突时的文件备份2014-04-30 19-06-39).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/copy.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/zh-cn/images/copy.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/copy.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/zh-cn/images/copy.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/opt/cright.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/date.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/skin/datePicker.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/opt/dcenter.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/deletedisable.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/deletedisable.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/deleteenable.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/deleteenable.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/dialog_bottom.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/dialog_left.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/dialog_right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/dialogbg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/dialogbtn.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/opt/dleft.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/dialog/downcenter.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/dialog/downleft.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/dialog/dright.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/opt/dright.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/emotion/images/fface.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/filebg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/footerbg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/footerright.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/formbtnbg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/formula/images/formula.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/gdt.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/switch-system/h.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/home.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/hoverclose.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/i.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/ico01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/ico01_1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/ico02.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/ico02_1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/ico03.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/ico03_1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/ico04.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/ico04_1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/icon1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/icon2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/images/icons.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/images/icons.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/skin/default/img.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/skin/whyGreen/img.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/zh-cn/images/imglabel(冲突时的文件备份2014-04-30 19-06-41).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/imglabel.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/zh-cn/images/imglabel.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/imglabel.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/zh-cn/images/imglabel.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/inputbg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/inputxl.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/emotion/images/jxface2.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/lastnavbg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/video/images/left_focus.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/left_tree.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/leftbg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/lefticon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/leftlist.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/leftmenu.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/leftmenu1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/leftmenubg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/leftmenubg1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/leftright.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/dialog/lefttop.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/leftyy.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/leftyy1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/zTreeStyle/img/line_conn.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/listbackground.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/listbackground.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/zTreeStyle/img/loading.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/localimage(冲突时的文件备份2014-04-30 19-06-41).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/localimage(冲突时的文件备份2014-04-30 19-06-41).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/localimage.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/zh-cn/images/localimage.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/localimage.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/zh-cn/images/localimage.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/loginbox.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/loginbtn.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/loginbtn_active.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/loginlight.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/loginlogo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/loginname.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/loginstyleinput.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/loginstylexl.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/mbbg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/msg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/music.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/zh-cn/images/music.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/music.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/zh-cn/images/music.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/new.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/emotion/images/neweditor-tab-bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/video/images/none_focus.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/images/ok(冲突时的文件备份2014-04-30 19-06-37).gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/images/ok.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/p01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/p02.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/p03.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/p04.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/pagebg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/pageleftright.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/passwordinput.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/pic1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/pic2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/plist.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/images/pop-bg(冲突时的文件备份2014-04-30 19-06-38).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/images/pop-bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/px.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/quit.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/radio.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/radiochecked.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/video/images/right_focus.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/dialog/righttop.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/rotateleftdisable.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/rotateleftdisable.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/rotateleftenable(冲突时的文件备份2014-04-30 19-06-38).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/rotateleftenable(冲突时的文件备份2014-04-30 19-06-38).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/rotateleftenable.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/rotateleftenable.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/rotaterightdisable(冲突时的文件备份2014-04-30 19-06-37).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/rotaterightdisable(冲突时的文件备份2014-04-30 19-06-37).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/rotaterightdisable.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/rotaterightdisable.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/rotaterightenable(冲突时的文件备份2014-04-30 19-06-38).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/rotaterightenable(冲突时的文件备份2014-04-30 19-06-38).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/rotaterightenable.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/rotaterightenable.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/switch-system/sdown.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/searchbg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/select_hover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/select_normal.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/skin-bg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/skinicon.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/skinxl.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/switch-system/sleft.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/images/spacer.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/switch-system/sright.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/systemlogo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/t01.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/t02.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/t03.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/t04.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/t05.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/t06.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/t07.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/t08.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/t09.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/t10.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/tab1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/tab2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/switch-system/tabright.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/switch-system/tabrighthover.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/opt/tcenter.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/emotion/images/tface.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/thbg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/thbtm.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/opt/tleft.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/toleft.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/toolbarbg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/topbg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/dialog/topcenter.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/switch-system/toplist.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/topxl.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/toright.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/opt/tright.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/uew_icon12.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/uew_icon2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/custom-theme/images/ui-bg_flat_0_aaaaaa_40x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/custom-theme/images/ui-bg_flat_75_ffffff_40x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/custom-theme/images/ui-bg_glass_55_fbf9ee_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/custom-theme/images/ui-bg_glass_65_ffffff_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/custom-theme/images/ui-bg_glass_75_dadada_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/custom-theme/images/ui-bg_glass_75_e6e6e6_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/custom-theme/images/ui-bg_glass_95_fef1ec_1x400.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/custom-theme/images/ui-bg_highlight-soft_75_cccccc_1x100.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/custom-theme/images/ui-icons_222222_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/custom-theme/images/ui-icons_2e83ff_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/custom-theme/images/ui-icons_454545_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/custom-theme/images/ui-icons_888888_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/custom-theme/images/ui-icons_cd0a0a_256x240.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/images/upload.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/zh-cn/images/upload.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/images/upload.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/zh-cn/images/upload.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/image/images/upload1(冲突时的文件备份2014-04-30 19-06-37).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/image/images/upload1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/image/images/upload2(冲突时的文件备份2014-04-30 19-06-39).png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/image/images/upload2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/userface.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/userfacebg.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/userinput.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/userxl.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/images/videologo(冲突时的文件备份2014-04-30 19-06-39).gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/images/videologo.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/emotion/images/wface.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/opt/xljt.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/emotion/images/yface.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/switch-system/yj.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/switch-system/yjl.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/img/skin_/yzminput.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/zTreeStyle/img/zTreeStandard.gif" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/zTreeStyle/img/zTreeStandard.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/core/Editor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/core/EventBase.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/Menu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/core/Range.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/core/Selection.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/WdatePicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/skin/WdatePicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/WdatePicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/adapter/adapter.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/adapter/autofloat.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/autosave.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/autoupload(冲突时的文件备份2014-04-30 19-06-41).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/autoupload.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/skin_/base.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/basestyle.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/core/browser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/button(冲突时的文件备份2014-04-30 19-06-37).css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/adapter/button(冲突时的文件备份2014-04-30 19-06-37).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/button(冲突时的文件备份2014-04-30 19-06-40).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/button.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/adapter/button.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/button.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/buttoncombobox(冲突时的文件备份2014-04-30 19-06-39).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/buttoncombobox.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/buttonicon.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/calendar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/cleardoc.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/colorpicker(冲突时的文件备份2014-04-30 19-06-38).css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/colorpicker(冲突时的文件备份2014-04-30 19-06-39).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/colorpicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/colorpicker.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/colorsplitbutton(冲突时的文件备份2014-04-30 19-06-38).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/colorsplitbutton.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/combobox(冲突时的文件备份2014-04-30 19-06-39).css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/combobox.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/adapter/combobox.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/combobox.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/comboboxmenu.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/companyManage.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/skin_/content.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/core.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/skin/default/datepicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/skin/whyGreen/datepicker.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/dialog(冲突时的文件备份2014-04-30 19-06-39).css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/dialog.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/adapter/dialog.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/dialogsize.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/core/domUtils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/dropmenu(冲突时的文件备份2014-04-30 19-06-42).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/dropmenu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/core/dtd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/editor(冲突时的文件备份2014-04-30 19-06-38).css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/editor.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/editor.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/editor_api.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/emotion/emotion(冲突时的文件备份2014-04-30 19-06-40).css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/emotion/emotion.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/emotion/emotion.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/lang/en.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/en/en.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/en/en.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/enterkey.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/core/filternode.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/core/filterword.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/font.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/skin_/form.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/form.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/formula/formula(冲突时的文件备份2014-04-30 19-06-37).css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/formula(冲突时的文件备份2014-04-30 19-06-40).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/formula/formula.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/formula/formula.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/formula.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/formula/formula.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/adapter/fullscreen.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/global.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/home.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/horizontal(冲突时的文件备份2014-04-30 19-06-39).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/horizontal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/core/htmlparser.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/image/image(冲突时的文件备份2014-04-30 19-06-41).css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/image(冲突时的文件备份2014-04-30 19-06-43).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/image/image.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/image.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/image/image.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/adapter/imagescale(冲突时的文件备份2014-04-30 19-06-42).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/adapter/imagescale.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/skin_/index.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/index.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/inserthtml.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/interactiveManage.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/custom-theme/jquery-ui-1.9.2.custom.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/jquery-ui-1.9.2.custom.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/custom-theme/jquery-ui-1.9.2.custom.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/jquery-ui-1.9.2.custom.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/jquery.dialog.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/jquery.dialog.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/jquery.grid.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/jquery.grid.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/jquery.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/jquery.pagination.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/jquery.pagination1.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/jquery.select.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/jquery.ztree.core-3.5.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/jquery.ztree.core-3.5.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/justify(冲突时的文件备份2014-04-30 19-06-38).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/justify.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/keystrokes.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/link/link(冲突时的文件备份2014-04-30 19-06-41).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/link.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/link/link.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/list.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/skin_/login.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/login.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/login.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/skin_/main._bak.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/skin_/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/main.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/map/map.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/map/map.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/menu(冲突时的文件备份2014-04-30 19-06-39).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/menu.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/modal.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/skin_/nav.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/nav.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/platformManage/news.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/platformManage/news_type.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/core/node.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/officialManage.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/paragraph(冲突时的文件备份2014-04-30 19-06-37).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/paragraph.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/partyMemberManage.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/paste.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/platformManage.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/adapter/popup(冲突时的文件备份2014-04-30 19-06-39).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/popup(冲突时的文件备份2014-04-30 19-06-39).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/popup.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/adapter/popup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/popup.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/preview(冲突时的文件备份2014-04-30 19-06-38).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/preview.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/print(冲突时的文件备份2014-04-30 19-06-39).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/print.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/removeformat.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/scale.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/selectall(冲突时的文件备份2014-04-30 19-06-38).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/selectall.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/separator.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/separator.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/adapter/source.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/source.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/splitbutton(冲突时的文件备份2014-04-30 19-06-37).css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/splitbutton(冲突时的文件备份2014-04-30 19-06-40).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/splitbutton.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/splitbutton.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/style.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/tab(冲突时的文件备份2014-04-30 19-06-38).css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/tab(冲突时的文件备份2014-04-30 19-06-39).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/tab.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/tab.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/skin_/table.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/table.jsp" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/toolbar.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/tooltip(冲突时的文件备份2014-04-30 19-06-37).css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/tooltip(冲突时的文件备份2014-04-30 19-06-39).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/tooltip.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/tooltip.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/umeditor.config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/themes/default/_css/umeditor.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/undo.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/core/utils.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/video/video(冲突时的文件备份2014-04-30 19-06-40).css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/video(冲突时的文件备份2014-04-30 19-06-41).js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/video/video.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/plugins/video.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/dialogs/video/video.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/_src/ui/widget.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/css/zTreeStyle/zTreeStyle.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/lang/zh-cn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/lang/zh-cn/zh-cn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/umeditor/lang/zh-cn/zh-cn.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/js/lang/zh-tw.js" />
-      <change type="DELETED" beforePath="D:\WorkSpaceJava\ijurong\ijurong-manage\src\main\webapp\WEB-INF\views\user-add.jsp" afterPath="" />
-      <change type="DELETED" beforePath="D:\WorkSpaceJava\ijurong\ijurong-manage\src\main\webapp\WEB-INF\views\users.jsp" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Activity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/ActivityMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/ActivityMember.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/ActivityMemberMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Advice.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/AdviceMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Affair.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/AffairHandle.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/AffairHandleHistory.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/AffairHandleHistoryMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/AffairHandleMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/AffairMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Attachment.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/AttachmentMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Depart.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/DepartMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Departkind.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/DepartkindMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/DiscussionReply.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/DiscussionReplyMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Document.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/DocumentMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/EnterpriseInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/EnterpriseInfoMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/ExamAnswer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/ExamAnswerMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/ExamQuestion.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/ExamQuestionMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/HardMember.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/HardMemberMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/MemberAsist.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/MemberAsistMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/MemberFeedback.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/MemberFeedbackMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Message.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/MessageMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/MessageType.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/MessageTypeMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/MessageUser.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/MessageUserMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/News.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/NewsMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/NewsSpecial.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/NewsSpecialMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/PanelDiscussion.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/PanelDiscussionMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/PartyBranchInfo.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/PartyBranchInfoMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/PartyDue.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/PartyDueMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/PartyMember.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/java/com/party/ijurong/controller/admin/PartyMemberController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/PartyMemberMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/PartyWorkPublic.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/PartyWorkPublicMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Pay.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/PayMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Permission.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/PermissionMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/ProcessDefine.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/ProcessDefineMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Product.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/ProductMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Programa.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/ProgramaMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Research.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/ResearchMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Role.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/RoleMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/RolePermission.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/RolePermissionMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Service.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/ServiceMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Staff.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/StaffMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/StaffPasswd.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/StaffPasswdMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/StaffRole.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/StaffRoleMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Stafflog.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/StafflogMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/UserAnswer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/UserAnswerMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/Volunteer.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/VolunteerActivity.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/VolunteerActivityMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/VolunteerMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/contentHeader.jsp" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/member/list.jsp" />
+      <change type="DELETED" beforePath="D:\WorkSpaceJava\ijurong\ijurong-manage\src\main\java\com\party\ijurong\controller\admin\AdminController.java" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/java/com/party/ijurong/controller/PageController.java" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/java/com/party/ijurong/controller/PageController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/service/SysUserService.java" afterPath="$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/service/SysUserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-web/views/admin/companyManage.html" afterPath="$PROJECT_DIR$/ijurong-web/views/admin/companyManage.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/ijurong_manage_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/ijurong_manage_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/index.jsp" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-web/views/admin/main.html" afterPath="$PROJECT_DIR$/ijurong-web/views/admin/main.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-web/views/admin/platformManage.html" afterPath="$PROJECT_DIR$/ijurong-web/views/admin/platformManage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/form.jsp" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/form.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/home.jsp" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/home.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/index.jsp" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/login.jsp" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/main.jsp" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/main.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/menu.jsp" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/menu.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/css/skin_/nav.css" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/css/skin_/nav.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/platformManage/news.jsp" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/platformManage/news.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/platformManage/news_type.jsp" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/platformManage/news_type.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/resources/spring/springmvc.xml" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/resources/spring/springmvc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/table.jsp" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/table.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wisdom-platform.iws" />
@@ -473,124 +131,91 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ijurong-manage/pom.xml">
+      <file leaf-file-name="menu.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/menu.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="36" column="61" selection-start-line="36" selection-start-column="61" selection-end-line="36" selection-end-column="61" />
+            <state vertical-scroll-proportion="-2.4285715">
+              <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+      <file leaf-file-name="list.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/member/list.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="125" column="58" selection-start-line="125" selection-start-column="58" selection-end-line="125" selection-end-column="58" />
+            <state vertical-scroll-proportion="-4.745763">
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="demo.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ijurong-web/views/admin/demo.html">
+      <file leaf-file-name="contentHeader.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/contentHeader.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.7586207">
-              <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
+            <state vertical-scroll-proportion="-5.762712">
+              <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/index.jsp">
+      <file leaf-file-name="home.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/home.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37225044">
-              <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+            <state vertical-scroll-proportion="-4.137931">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="officialManage.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ijurong-web/views/admin/officialManage.html">
+      <file leaf-file-name="form.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/form.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.6896552">
-              <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
+            <state vertical-scroll-proportion="-1.3793104">
+              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="5" selection-end-column="2" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MessageType.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/MessageType.java">
+      <file leaf-file-name="table.jsp" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/table.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-              <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#482#483#0" expanded="false" />
-                <element signature="e#507#508#0" expanded="false" />
-                <element signature="e#577#578#0" expanded="false" />
-                <element signature="e#605#606#0" expanded="false" />
-                <element signature="e#672#673#0" expanded="false" />
-                <element signature="e#699#700#0" expanded="false" />
-                <element signature="e#774#775#0" expanded="false" />
-                <element signature="e#835#836#0" expanded="false" />
-                <element signature="e#913#914#0" expanded="false" />
-                <element signature="e#946#947#0" expanded="false" />
-                <element signature="e#1037#1038#0" expanded="false" />
-                <element signature="e#1081#1082#0" expanded="false" />
-                <element signature="e#1167#1168#0" expanded="false" />
-                <element signature="e#1202#1203#0" expanded="false" />
-                <element signature="e#1302#1303#0" expanded="false" />
-                <element signature="e#1350#1351#0" expanded="false" />
-                <element signature="e#1421#1422#0" expanded="false" />
-                <element signature="e#1450#1451#0" expanded="false" />
-                <element signature="e#1531#1532#0" expanded="false" />
-                <element signature="e#1598#1599#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="0.54844606">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AttachmentMapper.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/AttachmentMapper.java">
+      <file leaf-file-name="login.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/login.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="-7.586207">
+              <caret line="11" column="37" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="37" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimpleUser.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/bean/SimpleUser.java">
+      <file leaf-file-name="index.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
-              <folding>
-                <element signature="e#278#279#0" expanded="false" />
-                <element signature="e#307#308#0" expanded="false" />
-                <element signature="e#352#353#0" expanded="false" />
-                <element signature="e#388#389#0" expanded="false" />
-                <element signature="e#423#424#0" expanded="false" />
-                <element signature="e#454#455#0" expanded="false" />
-                <element signature="e#502#503#0" expanded="false" />
-                <element signature="e#542#543#0" expanded="false" />
-              </folding>
+            <state vertical-scroll-proportion="-17.931034">
+              <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="JsonTest.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/ijurong-common/src/test/java/com/party/ijurong/JsonTest.java">
+      <file leaf-file-name="main.jsp" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/main.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="22" column="42" selection-start-line="22" selection-start-column="42" selection-end-line="22" selection-end-column="42" />
+            <state vertical-scroll-proportion="-4.9180326">
+              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -602,6 +227,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Html5" />
+        <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -635,6 +262,29 @@
         <option value="$PROJECT_DIR$/ijurong-common/src/test/java/com/party/ijurong/JsonTest.java" />
         <option value="$PROJECT_DIR$/ijurong-web/views/admin/demo.html" />
         <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/index.jsp" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/resources/properties/db.properties" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/easyui/demo/accordion/tools.html" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/js/global.js" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/css/skin_/nav.css" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/home.jsp" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/platformManage/news_type.jsp" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/platformManage/news.jsp" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/table.jsp" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/login.jsp" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/index.jsp" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/form.jsp" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/resources/spring/springmvc.xml" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/java/com/party/ijurong/controller/admin/PartyMemberController.java" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/java/com/party/ijurong/controller/admin/AdminController.java" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/java/com/party/ijurong/controller/AdminController.java" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/resources/log4j.properties" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/java/com/party/ijurong/controller/PageController.java" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/main.jsp" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/header.jsp" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/menu.jsp" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/contentHeader.jsp" />
+        <option value="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/member/list.jsp" />
       </list>
     </option>
   </component>
@@ -718,11 +368,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ijurong-web" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
+              <option name="myItemId" value="ijurong-manage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -736,7 +382,79 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ijurong-web" />
+              <option name="myItemId" value="ijurong-manage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wisdom-platform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong-manage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wisdom-platform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong-manage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="webapp" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="WEB-INF" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
@@ -761,76 +479,6 @@
               <option name="myItemId" value="ijurong-manage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wisdom-platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ijurong" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ijurong-manage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wisdom-platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ijurong" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ijurong-manage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="WEB-INF" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="wisdom-platform" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ijurong" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="ijurong-manage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
@@ -849,6 +497,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="admin" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="member" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -875,6 +531,36 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wisdom-platform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong-manage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -930,6 +616,124 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wisdom-platform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong-manage" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wisdom-platform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong-common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wisdom-platform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong-common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wisdom-platform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong-common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wisdom-platform" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong-common" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ijurong" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -950,11 +754,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\WorkSpaceJava\ijurong\ijurong-web\views\admin\ueditor" />
-      <recent name="D:\WorkSpaceJava\ijurong\ijurong-manage\src\main\resources" />
-      <recent name="D:\WorkSpaceJava\ijurong\ijurong-manage\src\main\libs" />
-      <recent name="D:\WorkSpaceJava\ijurong\ijurong-common\src\main\java\com\party\ijurong\mapper" />
       <recent name="D:\WorkSpaceJava\ijurong\ijurong-common\src\main\java\com\party\ijurong\pojo" />
+      <recent name="D:\WorkSpaceJava\ijurong\ijurong-common\src\main\java\com\party\ijurong\mapper" />
+      <recent name="D:\WorkSpaceJava\ijurong\ijurong-manage\src\main\webapp\js" />
+      <recent name="D:\WorkSpaceJava\ijurong\ijurong-manage\src\main\webapp\easyui" />
+      <recent name="D:\WorkSpaceJava\ijurong\ijurong-web\views\admin\ueditor" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="com.party.ijurong.pojo" />
@@ -1225,18 +1029,15 @@
     </configuration>
     <configuration default="false" name="Unnamed" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.24" ALTERNATIVE_JRE_ENABLED="false" ALTERNATIVE_JRE_PATH="">
       <option name="OPEN_IN_BROWSER" value="false" />
-      <option name="UPDATING_POLICY" value="restart-server" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/jurong/" />
+      <option name="UPDATE_ON_FRAME_DEACTIVATION" value="true" />
+      <option name="UPDATING_POLICY" value="update-resources" />
       <deployment>
         <artifact name="ijurong-manage:war exploded">
           <settings>
-            <option name="CONTEXT_PATH" value="/server" />
+            <option name="CONTEXT_PATH" value="/jurong" />
           </settings>
         </artifact>
-        <file path="$PROJECT_DIR$/ijurong-web">
-          <settings>
-            <option name="CONTEXT_PATH" value="/" />
-          </settings>
-        </file>
       </deployment>
       <server-settings>
         <option name="BASE_DIRECTORY_NAME" value="Unnamed_wisdom-platform" />
@@ -1315,7 +1116,7 @@
       <workItem from="1495075188710" duration="1959000" />
       <workItem from="1495078135236" duration="4439000" />
       <workItem from="1495098838763" duration="679000" />
-      <workItem from="1495156680440" duration="3030000" />
+      <workItem from="1495156680440" duration="16634000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1495163888013</created>
@@ -1323,11 +1124,35 @@
       <option name="project" value="LOCAL" />
       <updated>1495163888013</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="update">
+      <created>1495165559294</created>
+      <option name="number" value="00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1495165559294</updated>
+    </task>
+    <task id="LOCAL-00003" summary="db地址变更">
+      <created>1495177781302</created>
+      <option name="number" value="00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1495177781302</updated>
+    </task>
+    <task id="LOCAL-00004" summary="easyui版本变更">
+      <created>1495179615738</created>
+      <option name="number" value="00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1495179615738</updated>
+    </task>
+    <task id="LOCAL-00005" summary="路径变更">
+      <created>1495182154738</created>
+      <option name="number" value="00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1495182154738</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10107000" />
+    <option name="totallyTimeSpent" value="23711000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1341,24 +1166,24 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934782" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.21956521" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2409188" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.18369566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2923913" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34021738" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934782" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="VcsContentAnnotationSettings">
@@ -1367,10 +1192,15 @@
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="false" />
     <MESSAGE value="update" />
-    <option name="LAST_COMMIT_MESSAGE" value="update" />
+    <MESSAGE value="db地址变更" />
+    <MESSAGE value="easyui版本变更" />
+    <MESSAGE value="路径变更" />
+    <option name="LAST_COMMIT_MESSAGE" value="路径变更" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="9" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -1394,54 +1224,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ijurong-web/views/admin/demo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/MessageType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#482#483#0" expanded="false" />
-            <element signature="e#507#508#0" expanded="false" />
-            <element signature="e#577#578#0" expanded="false" />
-            <element signature="e#605#606#0" expanded="false" />
-            <element signature="e#672#673#0" expanded="false" />
-            <element signature="e#699#700#0" expanded="false" />
-            <element signature="e#774#775#0" expanded="false" />
-            <element signature="e#835#836#0" expanded="false" />
-            <element signature="e#913#914#0" expanded="false" />
-            <element signature="e#946#947#0" expanded="false" />
-            <element signature="e#1037#1038#0" expanded="false" />
-            <element signature="e#1081#1082#0" expanded="false" />
-            <element signature="e#1167#1168#0" expanded="false" />
-            <element signature="e#1202#1203#0" expanded="false" />
-            <element signature="e#1302#1303#0" expanded="false" />
-            <element signature="e#1350#1351#0" expanded="false" />
-            <element signature="e#1421#1422#0" expanded="false" />
-            <element signature="e#1450#1451#0" expanded="false" />
-            <element signature="e#1531#1532#0" expanded="false" />
-            <element signature="e#1598#1599#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/AttachmentMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/bean/SimpleUser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1480,54 +1262,6 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="125" column="58" selection-start-line="125" selection-start-column="58" selection-end-line="125" selection-end-column="58" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ijurong-web/views/admin/demo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/MessageType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#482#483#0" expanded="false" />
-            <element signature="e#507#508#0" expanded="false" />
-            <element signature="e#577#578#0" expanded="false" />
-            <element signature="e#605#606#0" expanded="false" />
-            <element signature="e#672#673#0" expanded="false" />
-            <element signature="e#699#700#0" expanded="false" />
-            <element signature="e#774#775#0" expanded="false" />
-            <element signature="e#835#836#0" expanded="false" />
-            <element signature="e#913#914#0" expanded="false" />
-            <element signature="e#946#947#0" expanded="false" />
-            <element signature="e#1037#1038#0" expanded="false" />
-            <element signature="e#1081#1082#0" expanded="false" />
-            <element signature="e#1167#1168#0" expanded="false" />
-            <element signature="e#1202#1203#0" expanded="false" />
-            <element signature="e#1302#1303#0" expanded="false" />
-            <element signature="e#1350#1351#0" expanded="false" />
-            <element signature="e#1421#1422#0" expanded="false" />
-            <element signature="e#1450#1451#0" expanded="false" />
-            <element signature="e#1531#1532#0" expanded="false" />
-            <element signature="e#1598#1599#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/AttachmentMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1571,53 +1305,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/java/com/party/ijurong/controller/TestController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="32" selection-start-line="5" selection-start-column="32" selection-end-line="5" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/pojo/MessageType.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#482#483#0" expanded="false" />
-            <element signature="e#507#508#0" expanded="false" />
-            <element signature="e#577#578#0" expanded="false" />
-            <element signature="e#605#606#0" expanded="false" />
-            <element signature="e#672#673#0" expanded="false" />
-            <element signature="e#699#700#0" expanded="false" />
-            <element signature="e#774#775#0" expanded="false" />
-            <element signature="e#835#836#0" expanded="false" />
-            <element signature="e#913#914#0" expanded="false" />
-            <element signature="e#946#947#0" expanded="false" />
-            <element signature="e#1037#1038#0" expanded="false" />
-            <element signature="e#1081#1082#0" expanded="false" />
-            <element signature="e#1167#1168#0" expanded="false" />
-            <element signature="e#1202#1203#0" expanded="false" />
-            <element signature="e#1302#1303#0" expanded="false" />
-            <element signature="e#1350#1351#0" expanded="false" />
-            <element signature="e#1421#1422#0" expanded="false" />
-            <element signature="e#1450#1451#0" expanded="false" />
-            <element signature="e#1531#1532#0" expanded="false" />
-            <element signature="e#1598#1599#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/mapper/AttachmentMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="5" column="17" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/ijurong-common/src/main/java/com/party/ijurong/bean/SimpleUser.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1655,30 +1342,267 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="125" column="58" selection-start-line="125" selection-start-column="58" selection-end-line="125" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ijurong-web/views/admin/demo.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.7586207">
-          <caret line="4" column="26" selection-start-line="4" selection-start-column="26" selection-end-line="4" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ijurong-web/views/admin/officialManage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.6896552">
-          <caret line="1" column="12" selection-start-line="1" selection-start-column="12" selection-end-line="1" selection-end-column="12" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37225044">
-          <caret line="11" column="7" selection-start-line="11" selection-start-column="7" selection-end-line="11" selection-end-column="7" />
+        <state vertical-scroll-proportion="-4.137931">
+          <caret line="6" column="4" selection-start-line="6" selection-start-column="4" selection-end-line="6" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/resources/properties/db.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="3" column="26" selection-start-line="3" selection-start-column="26" selection-end-line="3" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/resources/spring/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/resources/spring/applicationContext-dao.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/easyui/themes/icons/back.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/easyui/demo/accordion/tools.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-3.4482758">
+          <caret line="5" column="69" selection-start-line="5" selection-start-column="62" selection-end-line="5" selection-end-column="69" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/js/jquery.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/easyui/jquery.min.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/css/skin_/index.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/js/global.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="100" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/css/skin_/nav.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="36" column="8" selection-start-line="36" selection-start-column="8" selection-end-line="36" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/platformManage/news_type.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.137931">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/platformManage/news.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.137931">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/css/skin_/content.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="20" column="10" selection-start-line="20" selection-start-column="10" selection-end-line="20" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="23" column="14" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/java/com/party/ijurong/controller/admin/PartyMemberController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="11" column="0" selection-start-line="11" selection-start-column="0" selection-end-line="11" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/java/com/party/ijurong/controller/TestController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="24" column="13" selection-start-line="24" selection-start-column="13" selection-end-line="24" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/resources/log4j.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1736111">
+          <caret line="5" column="39" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/resources/spring/springmvc.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.1">
+          <caret line="33" column="80" selection-start-line="33" selection-start-column="80" selection-end-line="33" selection-end-column="80" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/java/com/party/ijurong/controller/PageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="28" column="66" selection-start-line="28" selection-start-column="66" selection-end-line="28" selection-end-column="66" />
+          <folding>
+            <element signature="e#832#833#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.931034">
+          <caret line="26" column="42" selection-start-line="26" selection-start-column="42" selection-end-line="26" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-7.586207">
+          <caret line="11" column="37" selection-start-line="11" selection-start-column="33" selection-end-line="11" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/form.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.3793104">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="5" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/home.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.137931">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/main.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.9180326">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="72" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/easyui/demo/accordion/_content.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/easyui/demo/accordion/fluid.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18281536">
+          <caret line="5" column="4" selection-start-line="5" selection-start-column="4" selection-end-line="9" selection-end-column="77" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/contentHeader.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.762712">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/member/list.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-4.745763">
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/menu.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.4285715">
+          <caret line="64" column="21" selection-start-line="64" selection-start-column="21" selection-end-line="64" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/views/admin/table.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.54844606">
+          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
           <folding />
         </state>
       </provider>

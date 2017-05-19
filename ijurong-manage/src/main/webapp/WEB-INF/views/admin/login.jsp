@@ -1,14 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://" +request.getServerName()+":" +request.getServerPort()+path+"/" ;
+%>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
-<link rel="stylesheet" type="text/css" href="/css/style.css" />
-<link rel="stylesheet" type="text/css" href="/css/skin_/login.css" />
-<script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/jquery.select.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/style.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/skin_/login.css" />
+<script type="text/javascript" src="<%=basePath%>js/jquery.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/jquery.select.js"></script>
 <title>数字管理系统_用户登录</title>
 </head>
 

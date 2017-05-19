@@ -32,7 +32,7 @@
 .sidebar .nav .nav-li.last-nav-li.current{*height:auto;}
 .sidebar .nav .nav-li.last-nav-li.current .subnav{border-bottom:none;}
 /*二级菜单样式*/
-.sidebar .nav .nav-li .subnav-li:hover .subnav-text{color:#047db6; font-weight:bold;}
+.sidebar .nav .nav-li .subnav-li:hover .subnav-text{color:#047db6; }
 
 /*页面主体*/
 .main{ position:relative; padding-top:8px;}

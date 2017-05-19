@@ -1,15 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 pageEncoding="UTF-8" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://" +request.getServerName()+":" +request.getServerPort()+path+"/" ;
+%>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<link rel="stylesheet" type="text/css" href="/css/style.css" />
-<link rel="stylesheet" type="text/css" href="/css/skin_/main.css" />
-<link rel="stylesheet" type="text/css" href="/css/jquery.dialog.css" />
-<script type="text/javascript" src="/js/jquery.js"></script>
-<script type="text/javascript" src="/js/global.js"></script>
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/style.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/skin_/main.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery.dialog.css" />
+<script type="text/javascript" src="<%=basePath%>js/jquery.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/global.js"></script>
 <title>数字管理系统</title>
 </head>
 
@@ -63,7 +68,7 @@ pageEncoding="UTF-8" %>
     <div id="bd">
         <iframe width="100%" height="100%" id="mainIframe" src="menu" frameborder="0"></iframe>
     </div>
-    
+
     <div id="ft" class="ue-clear">
     	<div class="ft1 ue-clear">
         	<i class="ft-icon1"></i>
@@ -84,13 +89,13 @@ pageEncoding="UTF-8" %>
         <div class="ui-dialog-text">
         	<p class="dialog-content">你确定要退出系统？</p>
             <p class="tips">如果是请点击“确定”，否则点“取消”</p>
-            
+
             <div class="buttons">
                 <input type="button" class="button long2 ok" value="确定" />
                 <input type="button" class="button long2 normal" value="取消" />
             </div>
         </div>
-        
+
     </div>
 </div>
 
@@ -114,8 +119,8 @@ pageEncoding="UTF-8" %>
 </div>
 
 </body>
-<script type="text/javascript" src="/js/core.js"></script>
-<script type="text/javascript" src="/js/jquery.dialog.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/core.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/jquery.dialog.js"></script>
 <script type="text/javascript">
 $("#bd").height($(window).height()-$("#hd").outerHeight()-26);
 
