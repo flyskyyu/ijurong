@@ -14,13 +14,19 @@ import javax.servlet.http.HttpServletResponse;
  * @author zhijun
  *
  */
-@RequestMapping("page")
+@RequestMapping("admin")
 @Controller
 public class PageController {
 
-    @RequestMapping(value = "{pageName}", method = RequestMethod.GET)
-    public String toPage(@PathVariable("pageName") String pageName,HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) {
-        return pageName;
-    }
+//    @RequestMapping(value = "{pageName}", method = RequestMethod.GET)
+//    public String toPage(@PathVariable("pageName") String pageName,HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse) {
+//        return pageName;
+//    }
+
+
+
+
+
+
 
 }

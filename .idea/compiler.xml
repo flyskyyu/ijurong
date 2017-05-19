@@ -24,19 +24,19 @@
         <processorPath useClasspath="true" />
         <module name="ijurong-common" />
       </profile>
-      <profile default="false" name="Annotation profile for ijurong-shiro" enabled="true">
-        <sourceOutputDir name="target\generated-sources\annotations" />
-        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
-        <outputRelativeToContentRoot value="true" />
-        <processorPath useClasspath="true" />
-        <module name="ijurong-shiro" />
-      </profile>
       <profile default="false" name="Annotation profile for ijurong-sso" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
         <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
         <module name="ijurong-sso" />
+      </profile>
+      <profile default="false" name="Annotation profile for ijurong-shiro" enabled="true">
+        <sourceOutputDir name="target\generated-sources\annotations" />
+        <sourceTestOutputDir name="target\generated-test-sources\test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="ijurong-shiro" />
       </profile>
       <profile default="false" name="Annotation profile for ijurong-manage" enabled="true">
         <sourceOutputDir name="target\generated-sources\annotations" />
@@ -47,11 +47,11 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="ijurong-common" target="1.7" />
-      <module name="ijurong-manage" target="1.7" />
-      <module name="ijurong-shiro" target="1.7" />
-      <module name="ijurong-sso" target="1.7" />
-      <module name="wisdom-platform" target="1.7" />
+      <module name="ijurong-common" target="1.8" />
+      <module name="ijurong-manage" target="1.8" />
+      <module name="ijurong-shiro" target="1.8" />
+      <module name="ijurong-sso" target="1.8" />
+      <module name="wisdom-platform" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>
