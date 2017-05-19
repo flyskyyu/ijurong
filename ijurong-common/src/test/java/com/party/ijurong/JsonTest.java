@@ -1,20 +1,10 @@
 package com.party.ijurong;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.party.ijurong.common.SerializeUtils;
-import com.party.ijurong.pojo.SysUser;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
-
 /**
  * Created by Cloud on 2017/2/21.
  */
 public class JsonTest {
-    public static void main(String[] args) throws IOException {
+    /*public static void main(String[] args) throws IOException {
         SysUser user = new SysUser();
         user.setUserName("cloud");
         user.setPassword("asdfsdf");
@@ -61,5 +51,5 @@ public class JsonTest {
         ObjectMapper objectMapper = new ObjectMapper();
         System.out.println("java序列化耗时：" + (System.currentTimeMillis() - current));
 
-    }
+    }*/
 }

@@ -3,14 +3,15 @@ package com.party.ijurong.controller;
 import com.party.ijurong.bean.SimpleUser;
 import com.party.ijurong.service.ApiService;
 import com.party.ijurong.service.RedisService;
-import com.party.ijurong.service.ShiroService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.IOException;
 
@@ -26,8 +27,8 @@ public class TestController {
     private RedisService redisService;
     @Autowired
     private ApiService apiService;
-    @Autowired
-    private ShiroService shiroService;
+    /*@Autowired
+    private ShiroService shiroService;*/
     private final static Logger LOGGER = LoggerFactory.getLogger(TestController.class);
 
     @RequestMapping(value = "testpost", method = RequestMethod.GET)
@@ -42,14 +43,14 @@ public class TestController {
         return "testpost";
     }
 
-    @RequestMapping(value = "testlogin", method = RequestMethod.GET)
+    /*@RequestMapping(value = "testlogin", method = RequestMethod.GET)
     @ResponseBody
     public String testLogin() throws IOException {
         int code = shiroService.login("cloud", "123456");
 
 
         return "testpost";
-    }
+    }*/
 
     @RequestMapping(value = "auth/testauth", method = RequestMethod.GET)
     @ResponseBody
