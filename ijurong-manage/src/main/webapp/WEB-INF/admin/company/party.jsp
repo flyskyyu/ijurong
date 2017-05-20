@@ -86,6 +86,19 @@
         }
       });
     }
+
+    function doSubmitMap() {
+      $('#map_form').form('submit', {
+        success : function(data) {
+          if (data == "success") {
+            $('#map_dialog').dialog('close');
+            $('#partyBranchInfo_grid').datagrid('reload');
+          } else {
+            $.messager.alert('提示', '提交失败!');
+          }
+        }
+      });
+    }
     $(function() {
       $('#btn_add').bind('click', function() {
         partyBranchInfo_form.reset();
@@ -119,7 +132,9 @@
 //        result = '<a style="color:red;text-decoration:none;">管理员</a>';
 //      } else {
       result = '<a href="#" onclick="openDialog(' + rowIndex
-      + ')" style="color:green;text-decoration:none;">操作</a>';
+      + ')" style="color:green;text-decoration:none;">操作</a>'
+      +'  '+'<a href="#" onclick="openMapDialog(' + rowIndex
+      + ')" style="color:green;text-decoration:none;">地图</a>';
 //      }
       return result;
     }
@@ -138,6 +153,27 @@
         return '<span>其他</span>';
     }
 
+    function openMapDialog(id) {
+      map_form.reset();
+      map_form.action = 'updatePartyBranchInfo';
+      $('#partyBranchInfo_grid').datagrid('selectRow', id);
+      var rowData = $('#partyBranchInfo_grid').datagrid('getSelected');
+      if (rowData != null) {
+        $('#map_form').form('load', rowData);
+        if (rowData.longitude != "" && rowData.longitude != null) {
+          setMapPoint(rowData.longitude, rowData.latitude);
+          }
+        else
+        {
+          initMap();
+        }
+      }
+      partyBranchInfo_form.action = "updatePartyBranchInfo";
+      $('#map_dialog').dialog('setTitle', '支部地图');
+      $('#map_dialog').dialog('open');
+    }
+
+
 
     function openDialog(id) {
       $('#partyBranchInfo_grid').datagrid('selectRow', id);
@@ -147,7 +183,7 @@
         $('#partyBranchInfo_form').form('load', rowData);
 
       }
-      if(rowData.enterpriseId>0)
+      if(rowData.enterpriseId>0)//加载外键信息
       {
         $.post('findEnterpriseInfoById/' + rowData.enterpriseId, function(data) {
           $('#refGrid').combogrid('setValue', data.name);
@@ -296,5 +332,89 @@
     <input type="hidden" value="0" name="id" id="id" />
   </form>
 </div>
+
+
+<div id="map_dialog" class="easyui-dialog"
+     data-options="closed:true,
+		title:'支部地图管理',
+		modal:true,
+		resizable:true,
+		iconCls:'icon-save',
+		buttons: [{
+					id:'btn_submit',
+                    text:'提交',
+                    iconCls:'icon-ok',
+                    handler:function(){
+                        doSubmitMap();
+                    }
+                },{
+                    text:'取消',
+                    iconCls:'icon-cancel',
+                    handler:function(){
+                        $('#map_dialog').dialog('close');
+                    }
+                }]"
+     style="width: 450px; height: 660px; padding: 10px;">
+  <form id="map_form" name="map_form"
+        method="post">
+    <div id="allmap"style="width: 400px; height: 500px;"></div>
+    经度：<input type="text" id="longitude" name="longitude"><br/>
+    纬度：<input type="text" id="latitude" name="latitude">
+    <input type="hidden" value="0" name="id" />
+  </form>
+</div>
 </body>
 </html>
+<script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
+<script type="text/javascript">
+  var map;
+  var marker;
+  $(document).ready(function(){
+  // 百度地图API功能
+  map = new BMap.Map("allmap");    // 创建Map实例
+  var point = new BMap.Point(119.175093, 31.950719);//句容市政府
+  map.centerAndZoom(point, 16);
+  map.enableScrollWheelZoom(true);
+  marker = new BMap.Marker(point);  // 创建标注
+  map.addOverlay(marker);               // 将标注添加到地图中
+  marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+  marker.enableDragging();// 可拖拽
+  marker.addEventListener("dragend",attribute);
+
+  });
+
+  function attribute(){
+    var p = marker.getPosition();
+    $("#longitude").val(p.lng);
+    $("#latitude").val(p.lat);
+  }
+
+  function initMap(){
+    var point = new BMap.Point(119.175093, 31.950719);//句容市政府
+    map.centerAndZoom(point, 16);
+    map.enableScrollWheelZoom(true);
+    marker.hide();
+    marker = new BMap.Marker(point);  // 创建标注
+    map.addOverlay(marker);               // 将标注添加到地图中
+    marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+    marker.enableDragging();// 可拖拽
+    marker.addEventListener("dragend",attribute);
+  }
+
+
+  function setMapPoint(longitude,latitude)
+  {
+    var point = new BMap.Point(longitude, latitude);//句容市政府119.175093, 31.950719
+    map.centerAndZoom(point, 16);
+    map.enableScrollWheelZoom(true);
+    marker.hide();
+    marker = new BMap.Marker(point);  // 创建标注
+    map.addOverlay(marker);               // 将标注添加到地图中
+    marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+    marker.enableDragging();// 可拖拽
+    marker.addEventListener("dragend",attribute);
+  }
+
+
+
+</script>
