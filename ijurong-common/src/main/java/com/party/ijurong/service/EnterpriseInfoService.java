@@ -4,6 +4,7 @@ import com.party.ijurong.bean.Page;
 import com.party.ijurong.pojo.EnterpriseInfo;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -22,8 +23,17 @@ public class EnterpriseInfoService  extends BaseService<EnterpriseInfo>{
      */
     public Page<EnterpriseInfo> findEnterpriseInfosByEnterpriseInfo(EnterpriseInfo enterpriseInfo, int page, int rows) {
         RowBounds rowBounds=new RowBounds((page - 1) * rows,page*rows);
-        List<EnterpriseInfo> list = mapper.selectByRowBounds(enterpriseInfo, rowBounds);//like 需要重写
-        long count = mapper.selectByRowBounds(enterpriseInfo,new RowBounds()).size();
+        Example example = new Example(EnterpriseInfo.class);
+        //id > 100 && id <= 150
+        //example.createCriteria().andGreaterThan("id", 100).andLessThanOrEqualTo("id", 150);
+        //查询总数
+        //int count = example.countByExample(example);
+        //Assert.assertEquals(50, count);
+        if(enterpriseInfo.getName()!=null&&enterpriseInfo.getName()!="") {
+            example.createCriteria().andLike("name", "%" + enterpriseInfo.getName() + "%");
+        }
+        List<EnterpriseInfo> list =mapper.selectByExampleAndRowBounds(example,rowBounds); // mapper.selectByRowBounds(enterpriseInfo, rowBounds);//like 需要重写
+        long count = mapper.selectCountByExample(example);//mapper.selectByRowBounds(enterpriseInfo,new RowBounds()).size();
         return new Page<EnterpriseInfo>(count, list);
     }
 

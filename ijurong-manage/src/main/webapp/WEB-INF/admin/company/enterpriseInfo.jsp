@@ -73,6 +73,10 @@
   </style>
   <script type="text/javascript">
     function doSearch() {
+      if($('#name').val()==null||$('#name').val()=="")
+      {
+        return;
+      }
       var enterpriseInfo = {};
       enterpriseInfo.name = $('#name').val();
       $('#enterpriseInfo_grid').datagrid('load', enterpriseInfo);
