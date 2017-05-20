@@ -25,8 +25,6 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("admin/company")
 @Controller
 public class EnterpriseInfoController {
-
-
     @Autowired
     private EnterpriseInfoService enterpriseInfoService;
 
