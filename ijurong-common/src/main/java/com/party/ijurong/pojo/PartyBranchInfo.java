@@ -1,5 +1,8 @@
 package com.party.ijurong.pojo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -36,6 +39,8 @@ public class PartyBranchInfo {
      * 成立日期
      */
     @Column(name = "setup_date")
+    @JsonSerialize(using = DateSerializer.class)
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date setupDate;
 
     @Column(name = "phone_number")

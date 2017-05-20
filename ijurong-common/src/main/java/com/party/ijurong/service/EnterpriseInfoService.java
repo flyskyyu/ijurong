@@ -32,6 +32,13 @@ public class EnterpriseInfoService  extends BaseService<EnterpriseInfo>{
         return new Page<EnterpriseInfo>(count, list);
     }
 
+    public EnterpriseInfo findEnterpriseInfoById(int id) {
+        EnterpriseInfo enterpriseInfo=new EnterpriseInfo();
+        enterpriseInfo.setId(id);
+        return  mapper.selectOne(enterpriseInfo);
+    }
+
+
     /**
      * 根据名称查询企业
      * @param name

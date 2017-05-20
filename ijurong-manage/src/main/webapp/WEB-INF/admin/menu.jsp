@@ -80,7 +80,7 @@ pageEncoding="UTF-8" %>
 					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">单位支部管理</span></a>
 					<ul class="subnav">
 						<li class="subnav-li" href="company/enterpriseInfo" data-id="32"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">单位管理</span></a></li>
-						<li class="subnav-li" href="platform/party" data-id="33"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">支部管理</span></a></li>
+						<li class="subnav-li" href="company/party" data-id="33"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">支部管理</span></a></li>
 					</ul>
 				</li>
 				<li class="nav-li current">

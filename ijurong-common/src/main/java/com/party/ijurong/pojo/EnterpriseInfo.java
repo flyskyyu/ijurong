@@ -26,7 +26,7 @@ public class EnterpriseInfo {
     private String code;
 
     @Column(name = "create_date")
-    @JsonSerialize(using = DateSerializer.class)//我不知道为啥要加2个格式化
+    @JsonSerialize(using = DateSerializer.class)
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createDate;
 
