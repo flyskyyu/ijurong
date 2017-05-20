@@ -12,7 +12,6 @@ pageEncoding="UTF-8" %>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/style.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/skin_/index.css" />
 <script type="text/javascript" src="<%=basePath%>js/jquery.js"></script>
-<script type="text/javascript" src="<%=basePath%>js/global.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/jquery-ui-1.9.2.custom.min.js"></script>
 <title>首页</title>
 </head>

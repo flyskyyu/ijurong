@@ -47,12 +47,16 @@ function hideElement(currentElement, targetElement, fn) {
 				}
 			});
 		}
-		if ($.contains(currentElement[0], $target[0])) {
-			len = 1;
-		}
-		if (len == 0) {
-			currentElement.hide();
-			fn && fn(currentElement, targetElement);
+		try {
+			if ($.contains(currentElement[0], $target[0])) {
+				len = 1;
+			}
+			if (len == 0) {
+				currentElement.hide();
+				fn && fn(currentElement, targetElement);
+			}
+		} catch(e) {
+
 		}
 	});
 };

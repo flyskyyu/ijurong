@@ -1,5 +1,7 @@
 package com.party.ijurong.bean;
 
+import com.github.pagehelper.PageInfo;
+
 import java.util.List;
 
 /**
@@ -16,6 +18,11 @@ public class Page<T> {
     public Page(Long total, List<T> rows) {
         this.total = total;
         this.rows = rows;
+    }
+
+    public Page(PageInfo<T> pageInfo) {
+        this.total = pageInfo.getTotal();
+        this.rows = pageInfo.getList();
     }
 
     public Long getTotal() {
