@@ -5,9 +5,6 @@ import javax.persistence.*;
 @Table(name = "hard_member")
 public class HardMember {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
     @Column(name = "staff_id")
     private Integer staffId;
 
@@ -25,20 +22,6 @@ public class HardMember {
     private Integer isAgree;
 
     private String reply;
-
-    /**
-     * @return id
-     */
-    public Integer getId() {
-        return id;
-    }
-
-    /**
-     * @param id
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     /**
      * @return staff_id

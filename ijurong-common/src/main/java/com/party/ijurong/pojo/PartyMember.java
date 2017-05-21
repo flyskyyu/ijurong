@@ -79,6 +79,48 @@ public class PartyMember {
     private Integer joinType;
 
     /**
+     * 是否困难党员
+     */
+    @Column(name = "is_hard_member")
+    private Byte isHardMember;
+
+    /**
+     * 困难类型
+     */
+    @Column(name = "hard_type")
+    private Integer hardType;
+
+    /**
+     * 是否享受低保(minimum living allowances)
+     */
+    @Column(name = "is_enjoy_MLA")
+    private Byte isEnjoyMla;
+
+    /**
+     * 是否享受补贴
+     */
+    @Column(name = "is_enjoy_subsidy")
+    private Byte isEnjoySubsidy;
+
+    /**
+     * 健康状态
+     */
+    @Column(name = "health_status")
+    private Integer healthStatus;
+
+    /**
+     * 户口所在派出所
+     */
+    @Column(name = "police_station")
+    private String policeStation;
+
+    /**
+     * 困难情况补充
+     */
+    @Column(name = "hard_desc")
+    private String hardDesc;
+
+    /**
      * @return user_id
      */
     public Integer getUserId() {
@@ -252,5 +294,61 @@ public class PartyMember {
      */
     public void setJoinType(Integer joinType) {
         this.joinType = joinType;
+    }
+
+    public Byte getIsHardMember() {
+        return isHardMember;
+    }
+
+    public void setIsHardMember(Byte isHardMember) {
+        this.isHardMember = isHardMember;
+    }
+
+    public Integer getHardType() {
+        return hardType;
+    }
+
+    public void setHardType(Integer hardType) {
+        this.hardType = hardType;
+    }
+
+    public Byte getIsEnjoyMla() {
+        return isEnjoyMla;
+    }
+
+    public void setIsEnjoyMla(Byte isEnjoyMla) {
+        this.isEnjoyMla = isEnjoyMla;
+    }
+
+    public Byte getIsEnjoySubsidy() {
+        return isEnjoySubsidy;
+    }
+
+    public void setIsEnjoySubsidy(Byte isEnjoySubsidy) {
+        this.isEnjoySubsidy = isEnjoySubsidy;
+    }
+
+    public Integer getHealthStatus() {
+        return healthStatus;
+    }
+
+    public void setHealthStatus(Integer healthStatus) {
+        this.healthStatus = healthStatus;
+    }
+
+    public String getPoliceStation() {
+        return policeStation;
+    }
+
+    public void setPoliceStation(String policeStation) {
+        this.policeStation = policeStation;
+    }
+
+    public String getHardDesc() {
+        return hardDesc;
+    }
+
+    public void setHardDesc(String hardDesc) {
+        this.hardDesc = hardDesc;
     }
 }

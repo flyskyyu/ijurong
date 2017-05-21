@@ -113,6 +113,53 @@
                     </tr>
                     </tbody>
                 </table>
+                <div class="column"><span class="current">困难党员</span></div>
+                <table class="kv-table">
+                    <tbody>
+                    <tr>
+                        <td class="kv-label">是否困难党员</td>
+                        <td class="kv-content">
+                            <input type="radio" name="isHardMember" value="0"/>是&nbsp;&nbsp;
+                            <input type="radio" name="isHardMember" value="1"/>否
+                        </td>
+                        <td class="kv-label">是否享受低保</td>
+                        <td class="kv-content">
+                            <input type="radio" name="isEnjoyMla" value="0"/>是&nbsp;&nbsp;
+                            <input type="radio" name="isEnjoyMla" value="1"/>否
+                        </td>
+                        <td class="kv-label">是否享受优抚优恤补助</td>
+                        <td class="kv-content">
+                            <input type="radio" name="isEnjoySubsidy" value="0"/>是&nbsp;&nbsp;
+                            <input type="radio" name="isEnjoySubsidy" value="1"/>否
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="kv-label">生活困难类型</td>
+                        <td class="kv-content">
+                            <select name="hardType" class="easyui-combobox">
+                                <option value="0">请选择</option>
+                                <option value="1">家庭困难</option>
+                                <option value="2">经济困难</option>
+                            </select>
+                        </td>
+                        <td class="kv-label">健康状况</td>
+                        <td class="kv-content">
+                            <select name="healthStatus" class="easyui-combobox">
+                                <option value="0">请选择</option>
+                                <option value="1">健康</option>
+                                <option value="2">亚健康</option>
+                                <option value="3">不健康</option>
+                            </select>
+                        </td>
+                        <td class="kv-label">户口所在地派出所</td>
+                        <td class="kv-content"><input type="text" name="policeStation"/></td>
+                    </tr>
+                    <tr>
+                        <td class="kv-label">困难情况补充</td>
+                        <td class="kv-content" colspan="5"><textarea name="hardDesc" rows="8"></textarea></td>
+                    </tr>
+                    </tbody>
+                </table>
             </form>
             <div style="text-align: center;"><a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'"
                                                 id="edit_btn_add">保存</a>&nbsp;&nbsp;&nbsp;
