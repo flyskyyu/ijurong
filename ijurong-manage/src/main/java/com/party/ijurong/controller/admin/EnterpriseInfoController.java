@@ -3,8 +3,10 @@ package com.party.ijurong.controller.admin;
 import com.party.ijurong.bean.Page;
 import com.party.ijurong.pojo.EnterpriseInfo;
 import com.party.ijurong.pojo.PartyBranchInfo;
+import com.party.ijurong.pojo.Volunteer;
 import com.party.ijurong.service.EnterpriseInfoService;
 import com.party.ijurong.service.PartyBranchInfoService;
+import com.party.ijurong.service.VolunteerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -33,6 +35,11 @@ public class EnterpriseInfoController {
 
     @Autowired
     private PartyBranchInfoService partyBranchInfoService;
+
+
+    @Autowired
+    private VolunteerService volunteerService;
+
 
 
     @RequestMapping(value = "/findEnterpriseInfos", method = { RequestMethod.POST, RequestMethod.GET })
@@ -150,6 +157,54 @@ public class EnterpriseInfoController {
         return "success";
     }
 
+    
+
+    @RequestMapping(value = "/findVolunteers", method = { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public Page<Volunteer> findVolunteers(HttpServletRequest httpServletRequest,
+                                          @ModelAttribute Volunteer volunteer, @RequestParam int page, @RequestParam int rows) {
+        Page<Volunteer> result = volunteerService.findVolunteersByVolunteer(volunteer, page, rows);
+        return result;
+    }
+
+    @RequestMapping(value = "addVolunteer", method =
+            { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public String addVolunteer(HttpServletRequest httpServletRequest, @ModelAttribute Volunteer volunteer)
+    {
+        long volunteerCount=volunteerService.findVolunteersByName(volunteer.getName());
+        if (volunteerCount==0)
+        {
+            volunteerService.insertVolunteer(volunteer);
+            return "success";
+        }
+        else if(volunteerCount>0)
+        {
+            return "had";
+        }
+        else
+        {
+            return "fail";
+        }
+    }
+
+    @RequestMapping(value = "updateVolunteer", method =
+            { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public String updateVolunteer(HttpServletRequest httpServletRequest, @ModelAttribute Volunteer volunteer)
+    {
+        volunteerService.updateVolunteer(volunteer);
+        return "success";
+    }
+
+    @RequestMapping(value = "delectVolunteer/{id}", method =
+            { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public String delectVolunteer(HttpServletRequest httpServletRequest, @PathVariable int id)
+    {
+        volunteerService.deleteVolunteer(id);
+        return "success";
+    }
 
 
 

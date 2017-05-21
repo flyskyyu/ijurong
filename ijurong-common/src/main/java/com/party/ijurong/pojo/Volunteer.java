@@ -10,12 +10,12 @@ public class Volunteer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "organization_id")
-    private Integer organizationId;
+    @Column(name = "user_id")
+    private Integer userId;
 
     private String name;
 
-    private Byte sex;
+    private Integer sex;
 
     private Integer age;
 
@@ -36,7 +36,7 @@ public class Volunteer {
      */
     private String intention;
 
-    private String range;
+    private String ranges;
 
     /**
      * @return id
@@ -55,15 +55,15 @@ public class Volunteer {
     /**
      * @return organization_id
      */
-    public Integer getOrganizationId() {
-        return organizationId;
+    public Integer getUserId() {
+        return userId;
     }
 
     /**
-     * @param organizationId
+     * @param userId
      */
-    public void setOrganizationId(Integer organizationId) {
-        this.organizationId = organizationId;
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     /**
@@ -83,14 +83,14 @@ public class Volunteer {
     /**
      * @return sex
      */
-    public Byte getSex() {
+    public Integer getSex() {
         return sex;
     }
 
     /**
      * @param sex
      */
-    public void setSex(Byte sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 
@@ -189,14 +189,14 @@ public class Volunteer {
     /**
      * @return range
      */
-    public String getRange() {
-        return range;
+    public String getRanges() {
+        return ranges;
     }
 
     /**
-     * @param range
+     * @param ranges
      */
-    public void setRange(String range) {
-        this.range = range == null ? null : range.trim();
+    public void setRanges(String ranges) {
+        this.ranges = ranges == null ? null : ranges.trim();
     }
 }
