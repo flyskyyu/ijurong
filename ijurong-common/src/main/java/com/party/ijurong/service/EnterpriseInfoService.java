@@ -24,18 +24,20 @@ public class EnterpriseInfoService  extends BaseService<EnterpriseInfo>{
     public Page<EnterpriseInfo> findEnterpriseInfosByEnterpriseInfo(EnterpriseInfo enterpriseInfo, int page, int rows) {
         RowBounds rowBounds=new RowBounds((page - 1) * rows,page*rows);
         Example example = new Example(EnterpriseInfo.class);
-        //id > 100 && id <= 150
-        //example.createCriteria().andGreaterThan("id", 100).andLessThanOrEqualTo("id", 150);
-        //查询总数
-        //int count = example.countByExample(example);
-        //Assert.assertEquals(50, count);
         if(enterpriseInfo.getName()!=null&&enterpriseInfo.getName()!="") {
             example.createCriteria().andLike("name", "%" + enterpriseInfo.getName() + "%");
         }
-        List<EnterpriseInfo> list =mapper.selectByExampleAndRowBounds(example,rowBounds); // mapper.selectByRowBounds(enterpriseInfo, rowBounds);//like 需要重写
-        long count = mapper.selectCountByExample(example);//mapper.selectByRowBounds(enterpriseInfo,new RowBounds()).size();
+        List<EnterpriseInfo> list =mapper.selectByExampleAndRowBounds(example,rowBounds);
+        long count = mapper.selectCountByExample(example);
         return new Page<EnterpriseInfo>(count, list);
     }
+
+    public EnterpriseInfo findEnterpriseInfoById(int id) {
+        EnterpriseInfo enterpriseInfo=new EnterpriseInfo();
+        enterpriseInfo.setId(id);
+        return  mapper.selectOne(enterpriseInfo);
+    }
+
 
     /**
      * 根据名称查询企业
