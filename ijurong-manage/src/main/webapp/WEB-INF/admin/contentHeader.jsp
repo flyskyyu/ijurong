@@ -13,6 +13,9 @@
 <link rel="stylesheet" type="text/css"
       href="<%=basePath%>easyui/themes/gray/easyui.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>easyui/themes/icon.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/base.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/basic_info.css" />
+<link rel="stylesheet" type="text/css" href="<%=basePath%>css/custom.css" />
 <script type="text/javascript" src="<%=basePath%>easyui/jquery.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>easyui/locale/easyui-lang-zh_CN.js"></script>

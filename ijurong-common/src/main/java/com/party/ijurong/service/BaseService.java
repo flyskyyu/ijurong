@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import tk.mybatis.mapper.common.Mapper;
 import tk.mybatis.mapper.common.ids.DeleteByIdsMapper;
 import tk.mybatis.mapper.common.ids.SelectByIdsMapper;
+import tk.mybatis.mapper.entity.Example;
 
 import java.lang.reflect.ParameterizedType;
 import java.util.List;
@@ -22,7 +23,7 @@ public abstract class BaseService<T> {
      * @param id
      * @return
      */
-    public T queryById(Long id) {
+    public T queryById(Object id) {
         return this.mapper.selectByPrimaryKey(id);
     }
 
@@ -127,7 +128,7 @@ public abstract class BaseService<T> {
      * @param id
      * @return
      */
-    public Integer deleteById(Long id) {
+    public Integer deleteById(Object id) {
         return this.mapper.deleteByPrimaryKey(id);
     }
 
@@ -137,11 +138,17 @@ public abstract class BaseService<T> {
      * @param ids
      * @return
      */
-    public Integer deleteByIds(Long[] ids) {
+    public Integer deleteByIds(Object[] ids) {
         if (mapper instanceof DeleteByIdsMapper) {
             return ((DeleteByIdsMapper) mapper).deleteByIds(StringUtils.join(ids, ","));
         }
         throw new UnsupportedOperationException("不支持批量删除");
+    }
+
+    public Integer deleteByIds(String property, List<Object> values) {
+        Example example = new Example(clazz);
+        example.createCriteria().andIn(property, values);
+        return this.mapper.deleteByExample(example);
     }
 
     /**
@@ -150,7 +157,7 @@ public abstract class BaseService<T> {
      * @param ids
      * @return
      */
-    public List<T> selectByIds(Long[] ids) {
+    public List<T> selectByIds(Object[] ids) {
         if (mapper instanceof SelectByIdsMapper) {
             return ((SelectByIdsMapper) mapper).selectByIds(StringUtils.join(ids, ","));
         }

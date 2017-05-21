@@ -1,26 +1,42 @@
 package com.party.ijurong.pojo;
 
-import javax.persistence.*;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.Column;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Table(name = "party_member")
 public class PartyMember {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-
     @Column(name = "user_id")
     private Integer userId;
 
+    /**
+     * 所属党支部
+     */
     @Column(name = "party_branch_id")
     private Integer partyBranchId;
 
-    @Column(name = "current_time")
-    private Date currentTime;
+    /**
+     * 进入当前支部时间
+     */
+    @Column(name = "join_branch_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonSerialize(using = DateSerializer.class) //让返回的json日期格式为yyyy-MM-dd
+    private Date joinBranchDate;
 
+    /**
+     * 党内职务
+     */
     @Column(name = "party_position")
     private String partyPosition;
 
+    /**
+     * 月缴党费
+     */
     @Column(name = "pay_dues")
     private Long payDues;
 
@@ -28,42 +44,39 @@ public class PartyMember {
      * 申请入党日期
      */
     @Column(name = "apply_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonSerialize(using = DateSerializer.class) //让返回的json日期格式为yyyy-MM-dd
     private Date applyDate;
 
     /**
      * 列为积极分子日期
      */
     @Column(name = "positive_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonSerialize(using = DateSerializer.class) //让返回的json日期格式为yyyy-MM-dd
     private Date positiveDate;
 
     /**
      * 列为发展对象日期
      */
     @Column(name = "development_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonSerialize(using = DateSerializer.class) //让返回的json日期格式为yyyy-MM-dd
     private Date developmentDate;
 
     /**
      * 加入中共组织日期
      */
     @Column(name = "join_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonSerialize(using = DateSerializer.class) //让返回的json日期格式为yyyy-MM-dd
     private Date joinDate;
 
+    /**
+     * 加入中共组织类型
+     */
     @Column(name = "join_type")
     private Integer joinType;
-
-    /**
-     * @return id
-     */
-    public Integer getId() {
-        return id;
-    }
-
-    /**
-     * @param id
-     */
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     /**
      * @return user_id
@@ -80,56 +93,72 @@ public class PartyMember {
     }
 
     /**
-     * @return party_branch_id
+     * 获取所属党支部
+     *
+     * @return party_branch_id - 所属党支部
      */
     public Integer getPartyBranchId() {
         return partyBranchId;
     }
 
     /**
-     * @param partyBranchId
+     * 设置所属党支部
+     *
+     * @param partyBranchId 所属党支部
      */
     public void setPartyBranchId(Integer partyBranchId) {
         this.partyBranchId = partyBranchId;
     }
 
     /**
-     * @return current_time
+     * 获取进入当前支部时间
+     *
+     * @return current_time - 进入当前支部时间
      */
-    public Date getCurrentTime() {
-        return currentTime;
+    public Date getJoinBranchDate() {
+        return joinBranchDate;
     }
 
     /**
-     * @param currentTime
+     * 设置进入当前支部时间
+     *
+     * @param joinBranchDate 进入当前支部时间
      */
-    public void setCurrentTime(Date currentTime) {
-        this.currentTime = currentTime;
+    public void setJoinBranchDate(Date joinBranchDate) {
+        this.joinBranchDate = joinBranchDate;
     }
 
     /**
-     * @return party_position
+     * 获取党内职务
+     *
+     * @return party_position - 党内职务
      */
     public String getPartyPosition() {
         return partyPosition;
     }
 
     /**
-     * @param partyPosition
+     * 设置党内职务
+     *
+     * @param partyPosition 党内职务
      */
     public void setPartyPosition(String partyPosition) {
         this.partyPosition = partyPosition == null ? null : partyPosition.trim();
     }
 
     /**
-     * @return pay_dues
+     * 获取月缴党费
+     *
+     * @return pay_dues - 月缴党费
      */
     public Long getPayDues() {
         return payDues;
     }
 
     /**
-     * @param payDues
+     * 设置月缴党费
+     *
+     * @param payDues 月缴党费
      */
     public void setPayDues(Long payDues) {
         this.payDues = payDues;
@@ -208,14 +237,18 @@ public class PartyMember {
     }
 
     /**
-     * @return join_type
+     * 获取加入中共组织类型
+     *
+     * @return join_type - 加入中共组织类型
      */
     public Integer getJoinType() {
         return joinType;
     }
 
     /**
-     * @param joinType
+     * 设置加入中共组织类型
+     *
+     * @param joinType 加入中共组织类型
      */
     public void setJoinType(Integer joinType) {
         this.joinType = joinType;

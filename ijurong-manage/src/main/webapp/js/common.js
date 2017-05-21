@@ -28,8 +28,14 @@ var TT = {
 	},
 	// 格式化时间
 	formatDateTime : function(val,row){
+		if(!val) return '';
 		var now = new Date(val);
     	return now.format("yyyy-MM-dd hh:mm:ss");
+	},
+	formatDate : function(val,row){
+		if(!val) return '';
+		var now = new Date(val);
+		return now.format("yyyy-MM-dd");
 	},
 	// 格式化连接
 	formatUrl : function(val,row){
@@ -37,6 +43,35 @@ var TT = {
 			return "<a href='"+val+"' target='_blank'>查看</a>";			
 		}
 		return "";
+	},
+	// 格式化性别
+	formatSex : function(val,row){
+		if(val == 0){
+			return "男";
+		} else if(val == 1) {
+			return "女";
+		}
+		return "";
+	},
+	formatEducation: function(val, row) {
+		if(val == 1) {
+			return '小学';
+		} else if(val == 2) {
+			return '初中';
+		} else if(val == 3) {
+			return '中专';
+		} else if(val == 4) {
+			return '高中';
+		} else if(val == 5) {
+			return '大专';
+		} else if(val == 6) {
+			return '本科';
+		} else if(val == 7) {
+			return '硕士';
+		} else if(val == 8) {
+			return '博士';
+		}
+		return '';
 	},
 	// 格式化价格
 	formatPrice : function(val,row){
@@ -209,16 +244,21 @@ var TT = {
 			  }
 		  });
     },
-    getSelectionsIds : function (select){
+    getSelectionsVals : function (select, key){
+		select = select || '#tableList';
+		key = key || 'id';
     	var list = $(select);
     	var sels = list.datagrid("getSelections");
     	var ids = [];
     	for(var i in sels){
-    		ids.push(sels[i].id);
+    		ids.push(sels[i][key]);
     	}
     	ids = ids.join(",");
     	return ids;
     },
+	getSelectionsIds : function (select){
+		return TT.getSelectionsVals(select);
+	},
     
     /**
      * 初始化单图片上传组件 <br/>

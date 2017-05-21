@@ -1,11 +1,17 @@
 package com.party.ijurong.pojo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Column;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import java.util.Date;
 
 public class Staff {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "staff_id")
     private Integer staffId;
 
@@ -18,9 +24,15 @@ public class Staff {
     @Column(name = "staff_name")
     private String staffName;
 
+    /**
+     * 岗位说明
+     */
     @Column(name = "job_info")
     private String jobInfo;
 
+    /**
+     * 职务说明
+     */
     @Column(name = "manager_info")
     private String managerInfo;
 
@@ -40,11 +52,45 @@ public class Staff {
     @Column(name = "phone_number")
     private String phoneNumber;
 
+    /**
+     * 民族
+     */
+    private String nation;
+
+    /**
+     * 备用电话
+     */
+    @Column(name = "spare_phone")
+    private String sparePhone;
+
+    /**
+     * 学历
+     */
+    private Integer education;
+
+    /**
+     * 籍贯
+     */
+    @Column(name = "origin_place")
+    private String originPlace;
+
+    /**
+     * 现居地址
+     */
+    private String address;
+
+    /**
+     * 积分
+     */
+    private Integer integral;
+
     @Column(name = "dimission_tag")
     private Byte dimissionTag;
 
     private String hobby;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd") //接收的参数格式
+    @JsonSerialize(using = DateSerializer.class) //让返回的json日期格式为yyyy-MM-dd
     private Date birthday;
 
     private String remark;
@@ -115,28 +161,36 @@ public class Staff {
     }
 
     /**
-     * @return job_info
+     * 获取岗位说明
+     *
+     * @return job_info - 岗位说明
      */
     public String getJobInfo() {
         return jobInfo;
     }
 
     /**
-     * @param jobInfo
+     * 设置岗位说明
+     *
+     * @param jobInfo 岗位说明
      */
     public void setJobInfo(String jobInfo) {
         this.jobInfo = jobInfo == null ? null : jobInfo.trim();
     }
 
     /**
-     * @return manager_info
+     * 获取职务说明
+     *
+     * @return manager_info - 职务说明
      */
     public String getManagerInfo() {
         return managerInfo;
     }
 
     /**
-     * @param managerInfo
+     * 设置职务说明
+     *
+     * @param managerInfo 职务说明
      */
     public void setManagerInfo(String managerInfo) {
         this.managerInfo = managerInfo == null ? null : managerInfo.trim();
@@ -204,6 +258,114 @@ public class Staff {
      */
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber == null ? null : phoneNumber.trim();
+    }
+
+    /**
+     * 获取民族
+     *
+     * @return nation - 民族
+     */
+    public String getNation() {
+        return nation;
+    }
+
+    /**
+     * 设置民族
+     *
+     * @param nation 民族
+     */
+    public void setNation(String nation) {
+        this.nation = nation == null ? null : nation.trim();
+    }
+
+    /**
+     * 获取备用电话
+     *
+     * @return spare_phone - 备用电话
+     */
+    public String getSparePhone() {
+        return sparePhone;
+    }
+
+    /**
+     * 设置备用电话
+     *
+     * @param sparePhone 备用电话
+     */
+    public void setSparePhone(String sparePhone) {
+        this.sparePhone = sparePhone == null ? null : sparePhone.trim();
+    }
+
+    /**
+     * 获取学历
+     *
+     * @return education - 学历
+     */
+    public Integer getEducation() {
+        return education;
+    }
+
+    /**
+     * 设置学历
+     *
+     * @param education 学历
+     */
+    public void setEducation(Integer education) {
+        this.education = education;
+    }
+
+    /**
+     * 获取籍贯
+     *
+     * @return origin_place - 籍贯
+     */
+    public String getOriginPlace() {
+        return originPlace;
+    }
+
+    /**
+     * 设置籍贯
+     *
+     * @param originPlace 籍贯
+     */
+    public void setOriginPlace(String originPlace) {
+        this.originPlace = originPlace == null ? null : originPlace.trim();
+    }
+
+    /**
+     * 获取现居地址
+     *
+     * @return address - 现居地址
+     */
+    public String getAddress() {
+        return address;
+    }
+
+    /**
+     * 设置现居地址
+     *
+     * @param address 现居地址
+     */
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
+    }
+
+    /**
+     * 获取积分
+     *
+     * @return integral - 积分
+     */
+    public Integer getIntegral() {
+        return integral;
+    }
+
+    /**
+     * 设置积分
+     *
+     * @param integral 积分
+     */
+    public void setIntegral(Integer integral) {
+        this.integral = integral;
     }
 
     /**
