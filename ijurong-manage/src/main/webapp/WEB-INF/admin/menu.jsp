@@ -112,6 +112,7 @@ pageEncoding="UTF-8" %>
 						<li class="subnav-li" href="member/listPage" data-id="41"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党员信息查询</span></a></li>
 						<li class="subnav-li" href="member/listPage" data-id="42"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党费收缴管理</span></a></li>
 						<li class="subnav-li" href="memberServe/listPage" data-id="43"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党员服务记录</span></a></li>
+						<li class="subnav-li" href="excellentMember/listPage" data-id="44"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">优秀党员管理</span></a></li>
 					</ul>
 				</li>
 			</ul>

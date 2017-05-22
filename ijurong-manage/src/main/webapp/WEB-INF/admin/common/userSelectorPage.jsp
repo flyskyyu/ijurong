@@ -14,8 +14,8 @@
   <div  style="padding: 5px; height: auto">
     <div style="padding: 5px;">
       姓名：<input type="text" id="selectorName">&nbsp;<a href="#"
-                                                 class="easyui-linkbutton" id="btn_Search"
-                                                 data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
+                                                 class="easyui-linkbutton"
+                                                 data-options="iconCls:'icon-search'" onclick="selectorSearch()">查找</a>&nbsp;
     </div>
   </div>
   <table class="easyui-datagrid" id="selectorTableList" fitColumns="true" style="width:auto;"
@@ -31,7 +31,7 @@
   </table>
 </div>
 <script>
-  function doSearch() {
+  function selectorSearch() {
     var params = {};
     params.staffName = $('#selectorName').val();
     $('#selectorTableList').datagrid('load', params);

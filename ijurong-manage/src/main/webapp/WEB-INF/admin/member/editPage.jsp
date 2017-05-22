@@ -15,7 +15,7 @@
         <div title="" data-options="closable:false"
              class="basic-info panel-body panel-body-noheader panel-body-noborder"
              style="width: 100%;;">
-            <form action="<%=basePath%>admin/member/add" method="post" id="editForm">
+            <form  method="post" id="editForm">
                 <input type="hidden" name="staffId" id="staffId"/>
                 <div class="column"><span class="current">基本信息</span></div>
                 <table class="kv-table">

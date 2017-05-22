@@ -15,35 +15,21 @@
     <div title="" data-options="closable:false"
          class="basic-info panel-body panel-body-noheader panel-body-noborder"
          style="width: 100%;;">
-      <form  method="post" id="editForm">
-        <input type="hidden" name="servicedUserId" id="servicedUserId"/>
+      <form method="post" id="editForm">
+        <input type="hidden" name="userId" id="editUserId"/>
         <input type="hidden" name="id"/>
-        <div class="column"><span class="current">服务党员跟踪信息</span></div>
+        <div class="column"><span class="current">优秀党员信息</span></div>
         <table class="kv-table">
           <tbody>
           <tr>
-            <td class="kv-label">组织名称</td>
-            <td class="kv-content"><input type="text" name="organizationName"/></td>
-            <td class="kv-label">负责人姓名</td>
-            <td class="kv-content"><input type="text" name="contactPersonName"/></td>
+            <td class="kv-label">优秀党员姓名</td>
+            <td class="kv-content"><input type="text" id="editUserName" readonly style="cursor:pointer;" name="staffName"></td>
+            <td class="kv-label">当选时间</td>
+            <td class="kv-content"><input class="easyui-datebox" name="selectionDate"></td>
           </tr>
           <tr>
-            <td class="kv-label">被服务党员</td>
-            <td class="kv-content"><input type="text" id="servicedUserName" readonly style="cursor:pointer;" name="staffName"></td>
-            <td class="kv-label">服务时间</td>
-            <td class="kv-content"><input class="easyui-datebox" name="serviceDate"></td>
-          </tr>
-          <tr>
-            <td class="kv-label">地址</td>
-            <td class="kv-content" colspan="3"><input type="text" name="address"/></td>
-          </tr>
-          <tr>
-            <td class="kv-label">跟踪情况</td>
-            <td class="kv-content" colspan="3"><textarea name="situation" rows="5"></textarea></td>
-          </tr>
-          <tr>
-            <td class="kv-label">服务结果</td>
-            <td class="kv-content" colspan="3"><textarea name="result" rows="5"></textarea></td>
+            <td class="kv-label">先进事迹</td>
+            <td class="kv-content" colspan="3"><textarea name="meritoriousDeeds" rows="5"></textarea></td>
           </tr>
           </tbody>
         </table>
@@ -68,13 +54,13 @@
     onSubmit();
   });
 
-  $('#servicedUserName').click(function() {
+  $('#editUserName').click(function() {
     $('#selectorWindow').window({
       onLoad: function() {
         $('#selectorTableList').datagrid({
           onClickRow: function(rowIndex, rowData) {
-            $('#servicedUserId').val(rowData.staffId);
-            $('#servicedUserName').val(rowData.staffName);
+            $('#editUserId').val(rowData.staffId);
+            $('#editUserName').val(rowData.staffName);
             $('#selectorWindow').window('close');
           }
         });
