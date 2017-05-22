@@ -218,7 +218,7 @@
         <div title="" data-options="closable:false"
              class="basic-info panel-body panel-body-noheader panel-body-noborder"
              style="width: 100%;;">
-          <div class="column"><span class="current">志愿者管理</span></div>
+          <div class="column"><span class="current">企业管理</span></div>
           <table class="kv-table">
             <tbody>
             <tr>
