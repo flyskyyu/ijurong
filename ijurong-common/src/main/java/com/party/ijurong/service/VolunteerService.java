@@ -30,6 +30,9 @@ public class VolunteerService extends BaseService<Volunteer>{
         if(volunteer.getSex()!=null&&volunteer.getSex()!=0) {
             example.createCriteria().andEqualTo("sex",volunteer.getSex());
         }
+        if(volunteer.getIsPass()!=-1) {
+            example.createCriteria().andEqualTo("isPass",volunteer.getIsPass());
+        }
         List<Volunteer> list =mapper.selectByExampleAndRowBounds(example,rowBounds);
         long count = mapper.selectCountByExample(example);
         return new Page<Volunteer>(count, list);

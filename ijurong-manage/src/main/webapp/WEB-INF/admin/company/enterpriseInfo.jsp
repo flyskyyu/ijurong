@@ -10,60 +10,6 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>后台帐号管理</title>
   <jsp:include page="../contentHeader.jsp"/>
-  <style type="text/css">
-    input {
-      margin: 5px 5px 5px 0px;
-      font-size: 15px;
-    }
-
-    .dialog_table td {
-      text-align: right;
-      font-size: 15px;
-      width: auto;
-      background-color: #FFFFFF;
-      border: 0px;
-    }
-    .dialog_table td input{
-      width: 200px;
-      height: 20px;
-      font-size: 15px;
-      border-width: 1px;
-      border-style: solid;
-      border-left-color: #c5c5c5;
-      border-top-color: #c5c5c5;
-      border-right-color: #e0e0e0;
-      border-bottom-color: #e0e0e0;
-      outline: none;
-      padding: 0 10px;
-    }
-    .dialog_table td select {
-      width: 200px;
-      height: 20px;
-      font-size: 15px;
-      padding: 0 10px;
-    }
-    .combobox-item
-    {
-      font-size: 15px;
-      padding: 0 10px;
-    }
-    .textbox .textbox-text
-    {
-      font-size: 15px;
-      padding: 0 10px;
-    }
-
-    .dialog_table td select option{
-      font-size: 15px;
-    }
-
-    .dialog_table .field_color {
-      text-align: left;
-      background-color: white;
-      padding-left: 2px;
-    }
-
-  </style>
   <script type="text/javascript">
     function doSearch() {
       var enterpriseInfo = {};

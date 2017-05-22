@@ -12,9 +12,10 @@
   <jsp:include page="../contentHeader.jsp"/>
   <script type="text/javascript">
     function doSearch() {
-      var volunteer = {};
-      volunteer.name = $('#name').val();
-      volunteer.sex=$('#sex').val();
+        var volunteer = {};
+        volunteer.name = $('#name').val();
+        volunteer.sex=$('#sex').val();
+        volunteer.isPass=$('#isPass').val();
       $('#volunteer_grid').datagrid('load', volunteer);
     }
     function doSubmit() {
@@ -79,6 +80,18 @@
         return '<span>男</span>';
     }
 
+    function formatStatus(value, rowData, rowIndex) {
+        if (value == '0')
+            return '<span>待审核</span>';
+        if (value == '1')
+            return '<span  style="color:green">通过</span>';
+        if (value == '2')
+            return '<span  style="color:red">不通过</span>';
+        if (value == '3')
+            return '<span  style="color:#696969">暂退</span>';
+    }
+
+
 
     function openDialog(id) {
       $('#volunteer_grid').datagrid('selectRow', id);
@@ -101,11 +114,19 @@
   <div id="volunteer_toolbar" style="padding: 5px; height: auto">
     <div style="padding: 5px;">
       志愿者：<input type="text" id="name">&nbsp;
-      性别：<select id="sex" class="easyui-combobox" style="width: 200px;height: 23px;font-size: 15px;padding: 0 10px;">
+      性别：<select id="sex" class="easyui-combobox">
       <option value="0" selected>请选择</option>
       <option value="1">男</option>
       <option value="2">女</option>
-    </select>
+    </select>&nbsp;
+        状态：
+        <select id="isPass" class="easyui-combobox">
+            <option value="-1" selected>请选择</option>
+            <option value="0">待审核</option>
+            <option value="1">通过</option>
+            <option value="2">不通过</option>
+            <option value="3">暂退</option>
+        </select>
       <a href="#" class="easyui-linkbutton" id="btn_Search"
          data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
       <%--<a href="#" class="easyui-linkbutton"--%>
@@ -128,6 +149,7 @@
       <th data-options="field:'sex',align:'center',formatter:formatSex"  width="20">性别</th>
       <th data-options="field:'address',align:'center'" width="20">地址</th>
       <th data-options="field:'phoneNumber',align:'center'" width="20">电话</th>
+        <th data-options="field:'isPass',align:'center',formatter:formatStatus" width="10">状态</th>
       <th
               data-options="field:'id1',align:'center',width:50,formatter:formatOperation"
               width="20">操作</th>
@@ -204,6 +226,30 @@
                   </tr>
                   </tbody>
                 </table>
+
+            <div class="column"><span class="current">审批</span></div>
+
+            <table class="kv-table">
+                <tbody>
+                <tr>
+                    <td class="kv-label">状态</td>
+                    <td class="kv-content"><select name="isPass" class="easyui-combobox">
+                        <option value="0">待审核</option>
+                        <option value="1">通过</option>
+                        <option value="2">不通过</option>
+                        <option value="3">暂退</option>
+                    </select></td>
+                    <td class="kv-label"></td>
+                    <td class="kv-content"></td>
+                </tr>
+
+                <tr>
+                    <td class="kv-label">反馈信息</td>
+                    <td class="kv-content" colspan="3"><textarea name="feedback" rows="5"></textarea></td>
+                </tr>
+
+                </tbody>
+            </table>
             </div>
         </div>
       </div>

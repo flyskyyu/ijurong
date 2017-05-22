@@ -38,6 +38,9 @@ public class Volunteer {
 
     private String ranges;
 
+    private int isPass;
+
+    private String feedback;
     /**
      * @return id
      */
@@ -198,5 +201,21 @@ public class Volunteer {
      */
     public void setRanges(String ranges) {
         this.ranges = ranges == null ? null : ranges.trim();
+    }
+
+    public int getIsPass() {
+        return isPass;
+    }
+
+    public void setIsPass(int isPass) {
+        this.isPass = isPass;
+    }
+
+    public String getFeedback() {
+        return feedback;
+    }
+
+    public void setFeedback(String feedback) {
+        this.feedback = feedback;
     }
 }
