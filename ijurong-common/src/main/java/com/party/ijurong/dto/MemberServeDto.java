@@ -8,15 +8,6 @@ import com.party.ijurong.pojo.Staff;
  */
 public class MemberServeDto extends MemberServe{
     private String staffName;
-    private MemberServe serve;
-
-    public MemberServe getServe() {
-        return serve;
-    }
-
-    public void setServe(MemberServe serve) {
-        this.serve = serve;
-    }
 
     public String getStaffName() {
         return staffName;

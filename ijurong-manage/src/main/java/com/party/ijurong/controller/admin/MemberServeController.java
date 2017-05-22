@@ -46,4 +46,11 @@ public class MemberServeController {
         serveService.save(serve);
         return "success";
     }
+
+    @RequestMapping(value = "delete")
+    @ResponseBody
+    public String delete(Integer id) {
+        serveService.deleteById(id);
+        return "success";
+    }
 }

@@ -17,6 +17,7 @@
          style="width: 100%;;">
       <form action="<%=basePath%>admin/memberServe/add" method="post" id="editForm">
         <input type="hidden" name="servicedUserId" id="servicedUserId"/>
+        <input type="hidden" name="id"/>
         <div class="column"><span class="current">服务党员跟踪信息</span></div>
         <table class="kv-table">
           <tbody>
@@ -28,7 +29,7 @@
           </tr>
           <tr>
             <td class="kv-label">被服务党员</td>
-            <td class="kv-content"><input type="text" id="servicedUserName" readonly style="cursor:pointer;"></td>
+            <td class="kv-content"><input type="text" id="servicedUserName" readonly style="cursor:pointer;" name="staffName"></td>
             <td class="kv-label">服务时间</td>
             <td class="kv-content"><input class="easyui-datebox" name="serviceDate"></td>
           </tr>
@@ -54,6 +55,10 @@
     </div>
   </div>
 </div>
+<div id="selectorWindow" class="easyui-window" title="选择人员"
+     data-options="modal:true,closed:true,iconCls:'icon-save',href:'<%=basePath%>admin/common/userSelectorPage'"
+     style="width:60%;height:80%;padding:10px;">
+</div>
 <script type="text/javascript">
   $('#edit_btn_cancel').click(function () {
     $("#editWindow").window('close');
@@ -61,6 +66,20 @@
 
   $('#edit_btn_add').click(function () {
     onSubmit();
+  });
+
+  $('#servicedUserName').click(function() {
+    $('#selectorWindow').window({
+      onLoad: function() {
+        $('#selectorTableList').datagrid({
+          onClickRow: function(rowIndex, rowData) {
+            $('#servicedUserId').val(rowData.staffId);
+            $('#servicedUserName').val(rowData.staffName);
+            $('#selectorWindow').window('close');
+          }
+        });
+      }
+    }).window('open');
   });
 
   function onSubmit() {

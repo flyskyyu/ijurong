@@ -13,7 +13,7 @@
 </head>
 <body class="easyui-layout">
 <div region="center" style="padding: 5px;">
-  <div id="enterpriseInfo_toolbar" style="padding: 5px; height: auto">
+  <div id="search_toolbar" style="padding: 5px; height: auto">
     <div style="padding: 5px;">
       被服务党员名称：<input type="text" id="name">&nbsp;<a href="#"
                                                  class="easyui-linkbutton" id="btn_Search"
@@ -23,14 +23,13 @@
     </div>
   </div>
   <table class="easyui-datagrid" id="tableList" fitColumns="true" style="width:auto;"
-         data-options="url:'<%=basePath%>admin/memberServe/list',rownumbers:true,singleSelect:false,collapsible:false,pagination:true,method:'get',pageSize:20">
+         data-options="url:'<%=basePath%>admin/memberServe/list',rownumbers:true,singleSelect:true,collapsible:false,pagination:true,method:'get',pageSize:20">
     <thead>
     <tr>
-      <th data-options="field:'ck',checkbox:true"></th>
-      <th data-options="field:'serve.organizationName',width:100,align:'center'">组织名称</th>
-      <th data-options="field:'serve.contactPersonName',width:60,align:'center'">负责人姓名</th>
-      <th data-options="field:'staffName',width:60,formatter:TT.formatSex,align:'center'">被服务党员名称</th>
-      <th data-options="field:'serve.serviceDate',width:60,align:'center',formatter:TT.formatDate">服务时间</th>
+      <th data-options="field:'organizationName',width:100,align:'center'">组织名称</th>
+      <th data-options="field:'contactPersonName',width:60,align:'center'">负责人姓名</th>
+      <th data-options="field:'staffName',width:60,align:'center'">被服务党员名称</th>
+      <th data-options="field:'serviceDate',width:60,align:'center',formatter:TT.formatDate">服务时间</th>
       <th data-options="field:'ids',width:100,align:'center',formatter:formatOperation">操作</th>
     </tr>
     </thead>
@@ -74,10 +73,10 @@
     $('#tableList').datagrid('selectRow', rowIndex);
     var rowData = $('#tableList').datagrid('getSelected');
     if(rowData == null) return;
-    $.messager.confirm('确认','确定删除姓名为 '+rowData.staffName+' 的信息吗？',function(r){
+    $.messager.confirm('确认','确定删除被服务党员姓名为 '+rowData.staffName+' 的记录吗？',function(r){
       if (r){
-        var params = {"id":rowData.staffId};
-        $.post("<%=basePath%>admin/member/delete",params, function(data){
+        var params = {"id":rowData.id};
+        $.post("<%=basePath%>admin/memberServe/delete",params, function(data){
           if(data == 'success'){
             $("#tableList").datagrid("reload");
           } else {

@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.party.ijurong.mapper.MemberServeMapper">
-    <select id="queryServeDtoList"  parameterType="memberServeDto" resultType="memberServeDto">
-        SELECT serve.*, staff_name FROM member_serve serve, staff WHERE serve.serviced_user_id = staff.staff_id
-    </select>
-
-</mapper>

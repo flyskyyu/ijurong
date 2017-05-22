@@ -13,7 +13,7 @@
 </head>
 <body class="easyui-layout">
 <div region="center" style="padding: 5px;">
-    <div id="enterpriseInfo_toolbar" style="padding: 5px; height: auto">
+    <div id="search_toolbar" style="padding: 5px; height: auto">
         <div style="padding: 5px;">
             党员名称：<input type="text" id="name">&nbsp;<a href="#"
                                                        class="easyui-linkbutton" id="btn_Search"
@@ -23,10 +23,9 @@
         </div>
     </div>
     <table class="easyui-datagrid" id="tableList" fitColumns="true" style="width:auto;"
-           data-options="url:'<%=basePath%>admin/member/list',rownumbers:true,singleSelect:false,collapsible:false,pagination:true,method:'get',pageSize:20">
+           data-options="url:'<%=basePath%>admin/member/list',rownumbers:true,singleSelect:true,collapsible:false,pagination:true,method:'get',pageSize:20">
         <thead>
         <tr>
-            <th data-options="field:'ck',checkbox:true"></th>
             <th data-options="field:'staffName',width:100,align:'center'">姓名</th>
             <th data-options="field:'sex',width:60,formatter:TT.formatSex,align:'center'">性别</th>
             <th data-options="field:'nation',width:100,align:'center'">民族</th>
@@ -80,7 +79,7 @@
         $('#tableList').datagrid('selectRow', rowIndex);
         var rowData = $('#tableList').datagrid('getSelected');
         if(rowData == null) return;
-        $.messager.confirm('确认','确定删除姓名为 '+rowData.staffName+' 的信息吗？',function(r){
+        $.messager.confirm('确认','确定删除姓名为 '+rowData.staffName+' 的记录吗？',function(r){
             if (r){
                 var params = {"id":rowData.staffId};
                 $.post("<%=basePath%>admin/member/delete",params, function(data){
