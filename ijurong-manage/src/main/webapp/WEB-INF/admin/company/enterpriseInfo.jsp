@@ -209,100 +209,54 @@
                         $('#enterpriseInfo_dialog').dialog('close');
                     }  
                 }]"
-     style="width: 400px; height: 400px; padding: 10px;">
+     style="width: 750px; height: 400px; padding: 10px;">
   <form id="enterpriseInfo_form" name="enterpriseInfo_form"
         method="post">
-    <table
-            style='font-size: 12px; padding: 2px; border-collapse: separate;border-spacing: 5px;'
-            class="dialog_table" cellpadding="0">
-      <tr>
-        <td class="my-td">企业名称:</td>
-        <td class="field_color"><input type="text" name="name" required="true" /></td>
-      </tr>
-      <tr>
-        <td>公司类型:</td>
-        <td class="field_color"><select name="type"
-                                        class="easyui-combobox" >
-          <option value="1">国企</option>
-          <option value="2">民营</option>
-          <option value="3">外资</option>
-          <option value="4">合资</option>
-          <option value="5">其他</option>
-        </select></td>
-      </tr>
-      <tr>
-        <td>公司地址:</td>
-        <td class="field_color"><input type="text" name="address" /></td>
-      </tr>
-      <tr>
-        <td>公司电话:</td>
-        <td class="field_color"><input type="text" name="phone" validType="phone" /></td>
-      </tr>
-      <tr>
-        <td>组织机构代码:</td>
-        <td class="field_color"><input type="text" name="code" /></td>
-      </tr>
-      <tr>
-        <td>成立时间:</td>
-        <td class="field_color"><input class="easyui-datetimebox" name="createDate"></td>
-      </tr>
 
-        <%--<h2 class="subfild">--%>
-          <%--<span>基本信息</span>--%>
-        <%--</h2>--%>
-        <%--<div class="subfild-content base-info">--%>
-          <%--<div class="kv-item ue-clear">--%>
-            <%--<label><span class="impInfo">*</span>企业名称</label>--%>
-            <%--<div class="kv-item-content">--%>
-              <%--<input type="text" name="name" placeholder="文章标题" class="required">--%>
-            <%--</div>--%>
-          <%--</div>--%>
+    <div class="container">
+      <div class="content">
+        <div title="" data-options="closable:false"
+             class="basic-info panel-body panel-body-noheader panel-body-noborder"
+             style="width: 100%;;">
+          <div class="column"><span class="current">志愿者管理</span></div>
+          <table class="kv-table">
+            <tbody>
+            <tr>
+              <td class="kv-label">企业名称</td>
+              <td class="kv-content"><input type="text" name="name"/></td>
+              <td class="kv-label">公司类型</td>
+              <td class="kv-content">
+                <select name="type" class="easyui-combobox">
+                  <option value="1">国企</option>
+                  <option value="2">民营</option>
+                  <option value="3">外资</option>
+                  <option value="4">合资</option>
+                  <option value="5">其他</option>
+                </select>
+              </td>
+            </tr>
 
-          <%--<div class="kv-item ue-clear">--%>
-            <%--<label>公司类型</label>--%>
-            <%--<div class="kv-item-content">--%>
-              <%--<div id="_iSelWrap_iSel-3813" class="iselect-wrapper"><select id="iSel-3813" class="iselect">--%>
-                <%--<option value="1">国企</option>--%>
-                <%--<option value="2">民营</option>--%>
-                <%--<option value="3">外资</option>--%>
-                <%--<option value="4">合资</option>--%>
-                <%--<option value="5">其他</option>--%>
-              <%--</select></div>--%>
-            <%--</div>--%>
-          <%--</div>--%>
-
-          <%--<div class="kv-item ue-clear">--%>
-            <%--<label><span class="impInfo">*</span>公司地址</label>--%>
-            <%--<div class="kv-item-content">--%>
-              <%--<input type="text" name="address" placeholder="公司地址">--%>
-            <%--</div>--%>
-          <%--</div>--%>
-
-          <%--<div class="kv-item ue-clear">--%>
-            <%--<label><span class="impInfo">*</span>公司电话</label>--%>
-            <%--<div class="kv-item-content">--%>
-              <%--<input type="text" name="phone" placeholder="公司电话">--%>
-            <%--</div>--%>
-          <%--</div>--%>
-
-          <%--<div class="kv-item ue-clear">--%>
-            <%--<label><span class="impInfo">*</span>组织机构代码</label>--%>
-            <%--<div class="kv-item-content">--%>
-              <%--<input type="text" name="code" placeholder="组织机构代码">--%>
-            <%--</div>--%>
-          <%--</div>--%>
-
-          <%--<div class="kv-item ue-clear time">--%>
-            <%--<label><span class="impInfo">*</span>成立时间</label>--%>
-            <%--<div class="kv-item-content">--%>
-              <%--<input type="text" name="createTime" placeholder="成立时间" onfocus="WdatePicker({dateFmt:'yyyy-MM-dd HH:mm:ss'})">--%>
-              <%--<i class="time-icon"></i>--%>
-            <%--</div>--%>
-          <%--</div>--%>
-        <%--</div>--%>
+            <tr>
+              <td class="kv-label">公司地址</td>
+              <td class="kv-content"><input type="text" name="address"/></td>
+              <td class="kv-label">公司电话</td>
+              <td class="kv-content"><input type="text" name="phone"/></td>
+            </tr>
+            <tr>
+              <td class="kv-label">组织机构代码</td>
+              <td class="kv-content"><input type="text" name="code"/></td>
+              <td class="kv-label">成立时间</td>
+              <td class="kv-content"><input class="easyui-datebox" name="createDate"/></td>
+            </tr>
 
 
-    </table>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+
     <input type="hidden" value="0" name="id" id="id" />
   </form>
 </div>

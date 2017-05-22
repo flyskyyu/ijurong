@@ -9,6 +9,7 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>后台帐号管理</title>
+  <script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
   <jsp:include page="../contentHeader.jsp"/>
   <style type="text/css">
     input {
@@ -259,59 +260,54 @@
                         $('#partyBranchInfo_dialog').dialog('close');
                     }  
                 }]"
-     style="width: 400px; height: 500px; padding: 10px;">
+     style="width: 730px; height: 500px; padding: 10px;">
   <form id="partyBranchInfo_form" name="partyBranchInfo_form"
         method="post">
-    <table
-            style='font-size: 12px; padding: 2px; border-collapse: separate;border-spacing: 5px;'
-            class="dialog_table" cellpadding="0">
-      <tr>
-        <td class="my-td">组织名称:</td>
-        <td class="field_color"><input type="text" name="organizationName" required="true" /></td>
-      </tr>
-      <tr>
-        <td class="my-td">组织代码:</td>
-        <td class="field_color"><input type="text" name="organizationCode" required="true" /></td>
-      </tr>
-      <tr>
-        <td class="my-td">上级组织:</td>
-        <td class="field_color"><input type="text" name="superiorOrganization" required="true" /></td>
-      </tr>
-      <tr>
-        <td class="my-td">属地关系:</td>
-        <td class="field_color"><input type="text" name="relationship" required="true" /></td>
-      </tr>
-      <tr>
-        <td>组织地址:</td>
-        <td class="field_color"><input type="text" name="address" /></td>
-      </tr>
-      <tr>
-        <td>组织电话:</td>
-        <td class="field_color"><input type="text" name="phoneNumber" validType="phone" /></td>
-      </tr>
-      <tr>
-        <td>邮政编码:</td>
-        <td class="field_color"><input type="text" name="postalCode" validType="phone" /></td>
-      </tr>
-      <tr>
-        <td>组织机构代码:</td>
-        <td class="field_color"><input type="text" name="code" /></td>
-      </tr>
-      <tr>
-        <td>成立时间:</td>
-        <td class="field_color"><input class="easyui-datebox" name="setupDate"></td>
-      </tr>
-      <tr>
-        <td>备注:</td>
-        <td class="field_color"><input type="text"  name="remark"></td>
-      </tr>
+    <div class="container">
+      <div class="content">
+        <div title="" data-options="closable:false"
+             class="basic-info panel-body panel-body-noheader panel-body-noborder"
+             style="width: 100%;;">
+          <div class="column"><span class="current">支部管理</span></div>
+          <table class="kv-table">
+            <tbody>
+            <tr>
+              <td class="kv-label">组织名称</td>
+              <td class="kv-content"><input type="text" name="organizationName"/></td>
+              <td class="kv-label">组织代码</td>
+              <td class="kv-content"><input type="text" name="organizationCode"/></td>
+            </tr>
+            <tr>
+              <td class="kv-label">上级组织名称</td>
+              <td class="kv-content"><input type="text" name="superiorOrganization"/></td>
+              <td class="kv-label">属地关系</td>
+              <td class="kv-content"><input type="text" name="relationship"/></td>
+            </tr>
+            <tr>
+              <td class="kv-label">组织地址</td>
+              <td class="kv-content"><input type="text" name="address"/></td>
+              <td class="kv-label">组织电话</td>
+              <td class="kv-content"><input type="text" name="phoneNumber"/></td>
+            </tr>
 
+            <tr>
+              <td class="kv-label">邮政编码</td>
+              <td class="kv-content"><input type="text" name="phone"/></td>
+              <td class="kv-label">组织机构代码</td>
+              <td class="kv-content"><input type="text" name="code"/></td>
+            </tr>
+            <tr>
+              <td class="kv-label">成立时间</td>
+              <td class="kv-content"><input class="easyui-datebox" name="setupDate"/></td>
+              <td class="kv-label">备注</td>
+              <td class="kv-content"><input type="text" name="remark"/></td>
+            </tr>
 
-          <tr>
-            <td>所属企业:</td>
-            <td><select id="refGrid" class="easyui-combogrid"
-                        style="width: 230px"
-                        data-options="mode:'remote',
+            <tr>
+              <td class="kv-label" >所属企业选择:</td>
+              <td class="kv-content" colspan="3"><select id="refGrid" class="easyui-combogrid"
+                                                         style="width: 230px"
+                                                         data-options="mode:'remote',
 							panelWidth: 350,
 							loadMsg: '正在搜索，请稍等...',
 							pagination : true,
@@ -325,12 +321,17 @@
 				            ]],
 				            fitColumns: true
 				            ">
-            </select></td>
-          </tr>
-        <input type="hidden" id="enterpriseId" name="enterpriseId" value="0" />
-    </table>
-    <input type="hidden" value="0" name="id" id="id" />
-  </form>
+              </select></td>
+
+            </tr>
+            <input type="hidden" id="enterpriseId" name="enterpriseId" value="0" />
+            <input type="hidden" value="0" name="id" id="id" />
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    </form>
 </div>
 
 
@@ -354,32 +355,50 @@
                         $('#map_dialog').dialog('close');
                     }
                 }]"
-     style="width: 450px; height: 660px; padding: 10px;">
-  <form id="map_form" name="map_form"
-        method="post">
-    <div id="allmap"style="width: 400px; height: 500px;"></div>
-    经度：<input type="text" id="longitude" name="longitude"><br/>
-    纬度：<input type="text" id="latitude" name="latitude">
-    <input type="hidden" value="0" name="id" />
-  </form>
+     style="width: 700px; height: 600px; padding: 10px;">
+  <div class="container">
+    <div class="content">
+      <div title="" data-options="closable:false"
+           class="basic-info panel-body panel-body-noheader panel-body-noborder"
+           style="width: 100%;;">
+        <div class="column"><span class="current">支部地图管理</span></div>
+        <form id="map_form" name="map_form"
+              method="post">
+          <div id="allmap"style="width: 620px; height: 400px;"></div><br/>
+          <table class="kv-table">
+            <tbody>
+            <tr>
+              <td class="kv-label">经度</td>
+              <td class="kv-content"><input type="text" id="longitude" name="longitude"/></td>
+              <td class="kv-label">纬度</td>
+              <td class="kv-content"><input type="text" id="latitude" name="latitude"/></td>
+            </tr>
+            </tbody>
+            </table>
+          <input type="hidden" value="0" name="id" />
+        </form>
+      </div>
+    </div>
+  </div>
 </div>
+
 </body>
 </html>
-<script src="http://api.map.baidu.com/api?v=1.4" type="text/javascript"></script>
+
 <script type="text/javascript">
   var map;
   var marker;
   $(document).ready(function(){
-  // 百度地图API功能
-  map = new BMap.Map("allmap");    // 创建Map实例
-  var point = new BMap.Point(119.175093, 31.950719);//句容市政府
-  map.centerAndZoom(point, 16);
-  map.enableScrollWheelZoom(true);
-  marker = new BMap.Marker(point);  // 创建标注
-  map.addOverlay(marker);               // 将标注添加到地图中
-  marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
-  marker.enableDragging();// 可拖拽
-  marker.addEventListener("dragend",attribute);
+    // 百度地图API功能
+    map = new BMap.Map("allmap");    // 创建Map实例
+    var point = new BMap.Point(119.175093, 31.950719);//句容市政府
+    map.centerAndZoom(point, 16);
+    map.enableScrollWheelZoom(true);
+    marker = new BMap.Marker(point);  // 创建标注
+    map.addOverlay(marker);               // 将标注添加到地图中
+    marker.setAnimation(BMAP_ANIMATION_BOUNCE); //跳动的动画
+    marker.enableDragging();// 可拖拽
+    marker.addEventListener("dragend",attribute);
 
   });
 

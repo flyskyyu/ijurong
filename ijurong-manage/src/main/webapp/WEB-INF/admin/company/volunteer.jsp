@@ -10,60 +10,6 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>后台帐号管理</title>
   <jsp:include page="../contentHeader.jsp"/>
-  <style type="text/css">
-    input {
-      margin: 5px 5px 5px 0px;
-      font-size: 15px;
-    }
-
-    .dialog_table td {
-      text-align: right;
-      font-size: 15px;
-      width: auto;
-      background-color: #FFFFFF;
-      border: 0px;
-    }
-    .dialog_table td input{
-      width: 200px;
-      height: 20px;
-      font-size: 15px;
-      border-width: 1px;
-      border-style: solid;
-      border-left-color: #c5c5c5;
-      border-top-color: #c5c5c5;
-      border-right-color: #e0e0e0;
-      border-bottom-color: #e0e0e0;
-      outline: none;
-      padding: 0 10px;
-    }
-    .dialog_table td select {
-      width: 200px;
-      height: 20px;
-      font-size: 15px;
-      padding: 0 10px;
-    }
-    .combobox-item
-    {
-      font-size: 15px;
-      padding: 0 10px;
-    }
-    .textbox .textbox-text
-    {
-      font-size: 15px;
-      padding: 0 10px;
-    }
-
-    .dialog_table td select option{
-      font-size: 15px;
-    }
-
-    .dialog_table .field_color {
-      text-align: left;
-      background-color: white;
-      padding-left: 2px;
-    }
-
-  </style>
   <script type="text/javascript">
     function doSearch() {
       var volunteer = {};
@@ -120,7 +66,7 @@
 //        result = '<a style="color:red;text-decoration:none;">管理员</a>';
 //      } else {
       result = '<a href="#" onclick="openDialog(' + rowIndex
-      + ')" style="color:green;text-decoration:none;">操作</a>';
+              + ')" style="color:green;text-decoration:none;">操作</a>';
 //      }
       return result;
     }
@@ -161,11 +107,11 @@
       <option value="2">女</option>
     </select>
       <a href="#" class="easyui-linkbutton" id="btn_Search"
-                                                  data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
+         data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
       <%--<a href="#" class="easyui-linkbutton"--%>
-         <%--data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp;--%>
+      <%--data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp;--%>
       <a ref="#" class="easyui-linkbutton"
-            data-options="iconCls:'icon-remove'" id="btn_remove">删除</a>
+         data-options="iconCls:'icon-remove'" id="btn_remove">删除</a>
     </div>
   </div>
   <table id="volunteer_grid"
@@ -210,58 +156,59 @@
                         $('#volunteer_dialog').dialog('close');
                     }  
                 }]"
-     style="width: 400px; height: 500px; padding: 10px;">
+     style="width: 800px; height: 500px; padding: 10px;">
+
+
   <form id="volunteer_form" name="volunteer_form"
         method="post">
-    <table
-            style='font-size: 12px; padding: 2px; border-collapse: separate;border-spacing: 5px;'
-            class="dialog_table" cellpadding="0">
-      <tr>
-        <td class="my-td">志愿者名称:</td>
-        <td class="field_color"><input type="text" name="name" required="true" /></td>
-      </tr>
-      <tr>
-        <td>性别:</td>
-        <td class="field_color"><select name="sex"
-                                        class="easyui-combobox" >
-          <option value="0"></option>
-          <option value="1">男</option>
-          <option value="2">女</option>
-        </select></td>
-      </tr>
-      <tr>
-        <td>年龄:</td>
-        <td class="field_color"><input type="text" name="age" /></td>
-      </tr>
-      <tr>
-        <td>联系电话:</td>
-        <td class="field_color"><input type="text" name="phoneNumber" validType="phone" /></td>
-      </tr>
-      <tr>
-        <td>地址:</td>
-        <td class="field_color"><input type="text" name="address" /></td>
-      </tr>
-      <tr>
-        <td>服务时间:</td>
-        <td class="field_color"><input type="text" name="time" /></td>
-      </tr>
-      <tr>
-        <td>特长:</td>
-        <td class="field_color"><input type="text" name="specialty" /></td>
-      </tr>
-      <tr>
-        <td>服务意向:</td>
-        <td class="field_color"><input type="text" name="intention" /></td>
-      </tr>
-      <tr>
-        <td>服务范围:</td>
-        <td class="field_color"><input type="text" name="ranges" /></td>
-      </tr>
-
-
-    </table>
-    <input type="hidden" value="0" name="id" id="id" />
-    <input type="hidden" value="0" name="userId" id="userId" />
+    <div class="container">
+      <div class="content">
+        <div title="" data-options="closable:false"
+             class="basic-info panel-body panel-body-noheader panel-body-noborder"
+             style="width: 100%;;">
+                <div class="column"><span class="current">志愿者管理</span></div>
+                <table class="kv-table">
+                  <tbody>
+                  <tr>
+                    <td class="kv-label">志愿者名称</td>
+                    <td class="kv-content"><input type="text" name="name"/></td>
+                    <td class="kv-label">性别</td>
+                    <td class="kv-content">
+                      <input type="radio" name="sex" value="1"> 男
+                      <input type="radio" name="sex" value="2"> 女
+                    </td>
+                  </tr>
+                  <tr>
+                    <td class="kv-label">年龄</td>
+                    <td class="kv-content"><input type="text"  name="age"></td>
+                    <td class="kv-label">联系电话</td>
+                    <td class="kv-content"><input type="text" name="phoneNumber"></td>
+                  </tr>
+                  <tr>
+                    <td class="kv-label">地址</td>
+                    <td class="kv-content" ><input type="text" name="address"/></td>
+                    <td class="kv-label">服务时间</td>
+                    <td class="kv-content" ><input type="text" name="time"/></td>
+                  </tr>
+                  <tr>
+                    <td class="kv-label">特长</td>
+                    <td class="kv-content" colspan="3"><textarea name="specialty" rows="5"></textarea></td>
+                  </tr>
+                  <tr>
+                    <td class="kv-label">服务意向</td>
+                    <td class="kv-content" colspan="3"><textarea name="intention" rows="5"></textarea></td>
+                  </tr>
+                  <tr>
+                    <td class="kv-label">服务范围</td>
+                    <td class="kv-content" colspan="3"><textarea name="ranges" rows="5"></textarea></td>
+                  </tr>
+                  </tbody>
+                </table>
+            </div>
+        </div>
+      </div>
+      <input type="hidden" value="0" name="id" id="id" />
+      <input type="hidden" value="0" name="userId" id="userId" />
   </form>
 </div>
 </body>
