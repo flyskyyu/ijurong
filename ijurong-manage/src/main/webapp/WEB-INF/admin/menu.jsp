@@ -100,7 +100,8 @@ pageEncoding="UTF-8" %>
 				<li class="nav-li last-nav-li">
 					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">教学资源</span></a>
 					<ul class="subnav">
-						<li class="subnav-li" data-id="38"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">教学资源</span></a></li>
+						<li class="subnav-li" href="company/resourceType"  data-id="38"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">教学类型定义</span></a></li>
+						<li class="subnav-li" data-id="39"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">教学资源管理</span></a></li>
 					</ul>
 				</li>
 			</ul>

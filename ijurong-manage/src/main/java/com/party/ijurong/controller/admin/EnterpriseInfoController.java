@@ -3,9 +3,11 @@ package com.party.ijurong.controller.admin;
 import com.party.ijurong.bean.Page;
 import com.party.ijurong.pojo.EnterpriseInfo;
 import com.party.ijurong.pojo.PartyBranchInfo;
+import com.party.ijurong.pojo.ResourceType;
 import com.party.ijurong.pojo.Volunteer;
 import com.party.ijurong.service.EnterpriseInfoService;
 import com.party.ijurong.service.PartyBranchInfoService;
+import com.party.ijurong.service.ResourceTypeService;
 import com.party.ijurong.service.VolunteerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.*;
 import tk.mybatis.mapper.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 
 /**
  * Copyright ©, 2016-2056
@@ -40,6 +43,8 @@ public class EnterpriseInfoController {
     @Autowired
     private VolunteerService volunteerService;
 
+    @Autowired
+    private ResourceTypeService resourceTypeService;
 
 
     @RequestMapping(value = "/findEnterpriseInfos", method = { RequestMethod.POST, RequestMethod.GET })
@@ -203,6 +208,58 @@ public class EnterpriseInfoController {
     public String delectVolunteer(HttpServletRequest httpServletRequest, @PathVariable int id)
     {
         volunteerService.deleteVolunteer(id);
+        return "success";
+    }
+
+
+
+
+    @RequestMapping(value = "/findResourceTypes", method = { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public Page<ResourceType> findResourceTypes(HttpServletRequest httpServletRequest,
+                                                @ModelAttribute ResourceType resourceType, @RequestParam int page, @RequestParam int rows) {
+        Page<ResourceType> result = resourceTypeService.findResourceTypesByResourceType(resourceType, page, rows);
+        return result;
+    }
+
+    @RequestMapping(value = "addResourceType", method =
+            { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public String addResourceType(HttpServletRequest httpServletRequest, @ModelAttribute ResourceType resourceType)
+    {
+        long resourceTypeCount=resourceTypeService.findResourceTypesByName(resourceType.getType());
+        if (resourceTypeCount==0)
+        {
+            resourceType.setCreateTime(new Date());
+            resourceType.setCreateUerId(1);//TODO 需要加上用户id
+            resourceTypeService.insertResourceType(resourceType);
+            return "success";
+        }
+        else if(resourceTypeCount>0)
+        {
+            return "had";
+        }
+        else
+        {
+            return "fail";
+        }
+    }
+
+    @RequestMapping(value = "updateResourceType", method =
+            { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public String updateResourceType(HttpServletRequest httpServletRequest, @ModelAttribute ResourceType resourceType)
+    {
+        resourceTypeService.updateResourceType(resourceType);
+        return "success";
+    }
+
+    @RequestMapping(value = "delectResourceType/{id}", method =
+            { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public String delectResourceType(HttpServletRequest httpServletRequest, @PathVariable int id)
+    {
+        resourceTypeService.deleteResourceType(id);
         return "success";
     }
 
