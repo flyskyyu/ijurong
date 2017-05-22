@@ -14,8 +14,14 @@
         <result column="staff_name" property="staffName" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <select id="queryServeDtoList"  parameterType="memberServeDto" resultMap="ServeDtoMap">
-        SELECT serve.*, staff_name FROM member_serve serve, staff WHERE serve.serviced_user_id = staff.staff_id
+    <select id="queryServeDtoList"  parameterType="MemberServeDto" resultMap="ServeDtoMap">
+        SELECT serve.*, staff_name FROM member_serve serve, staff
+         <where>
+             serve.serviced_user_id = staff.staff_id
+             <if test="staffName != null and staffName != ''">
+                 and staff_name like concat('%', #{staffName}, '%')
+             </if>
+         </where>
     </select>
 
 </mapper>

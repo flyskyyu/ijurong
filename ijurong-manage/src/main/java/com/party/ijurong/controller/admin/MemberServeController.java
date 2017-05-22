@@ -42,7 +42,6 @@ public class MemberServeController {
     @ResponseBody
     public String add(MemberServe serve) {
         serve.setId(null);
-        serve.setServicedUserId(8);
         serveService.save(serve);
         return "success";
     }
