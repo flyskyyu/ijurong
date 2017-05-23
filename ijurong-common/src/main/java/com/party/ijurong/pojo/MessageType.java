@@ -1,5 +1,7 @@
 package com.party.ijurong.pojo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -12,6 +14,7 @@ public class MessageType {
     private String name;
 
     @Column(name = "create_time")
+    @JsonSerialize(using = DateSerializer.class)
     private Date createTime;
 
     @Column(name = "create_user_id")
@@ -88,4 +91,5 @@ public class MessageType {
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
     }
+
 }

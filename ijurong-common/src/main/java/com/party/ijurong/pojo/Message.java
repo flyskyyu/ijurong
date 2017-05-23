@@ -22,6 +22,10 @@ public class Message {
     @Column(name = "news_content")
     private String newsContent;
 
+    @Column(name = "is_post")
+    private int isPost;
+
+
     /**
      * @return id
      */
@@ -90,5 +94,13 @@ public class Message {
      */
     public void setNewsContent(String newsContent) {
         this.newsContent = newsContent == null ? null : newsContent.trim();
+    }
+
+    public int getIsPost() {
+        return isPost;
+    }
+
+    public void setIsPost(int isPost) {
+        this.isPost = isPost;
     }
 }
