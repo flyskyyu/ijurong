@@ -111,9 +111,10 @@ pageEncoding="UTF-8" %>
 					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">党员信息管理</span></a>
 					<ul class="subnav  current">
 						<li class="subnav-li" href="member/listPage" data-id="41"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党员信息查询</span></a></li>
-						<li class="subnav-li" href="member/listPage" data-id="42"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党费收缴管理</span></a></li>
+						<li class="subnav-li" href="" data-id="42"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党费收缴管理</span></a></li>
 						<li class="subnav-li" href="memberServe/listPage" data-id="43"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党员服务记录</span></a></li>
 						<li class="subnav-li" href="excellentMember/listPage" data-id="44"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">优秀党员管理</span></a></li>
+						<li class="subnav-li" href="hardMemberApply/listPage" data-id="45"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">困难党员申请</span></a></li>
 					</ul>
 				</li>
 			</ul>

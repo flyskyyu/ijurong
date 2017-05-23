@@ -84,6 +84,9 @@ public class PartyMember {
     @Column(name = "is_hard_member")
     private Byte isHardMember;
 
+    @Column(name = "is_old_member")
+    private Byte isOldMember;
+
     /**
      * 困难类型
      */
@@ -350,5 +353,13 @@ public class PartyMember {
 
     public void setHardDesc(String hardDesc) {
         this.hardDesc = hardDesc;
+    }
+
+    public Byte getIsOldMember() {
+        return isOldMember;
+    }
+
+    public void setIsOldMember(Byte isOldMember) {
+        this.isOldMember = isOldMember;
     }
 }

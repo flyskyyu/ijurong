@@ -9,6 +9,9 @@
 .container input[type="text"], .container input[type="password"] {
     padding: 3px 0px;
 }
+.container input:disabled, .container textarea:disabled {
+    background-color: transparent;
+}
 
 .container .left-tree {
     position: absolute;

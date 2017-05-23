@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.party.ijurong.mapper.HardMemberApplyMapper">
+    <resultMap id="HardMemberApplyDtoMap" type="HardMemberApplyDto">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="staff_id" property="staffId" jdbcType="INTEGER"/>
+        <result column="is_hard_member" property="isHardMember" jdbcType="TINYINT"/>
+        <result column="is_old_member" property="isOldMember" jdbcType="TINYINT"/>
+        <result column="is_enjoy_MLA" property="isEnjoyMla" jdbcType="TINYINT"/>
+        <result column="is_enjoy_subsidy" property="isEnjoySubsidy" jdbcType="TINYINT"/>
+        <result column="hard_type" property="hardType" jdbcType="INTEGER"/>
+        <result column="hard_desc" property="hardDesc" jdbcType="VARCHAR"/>
+        <result column="health_status" property="healthStatus" jdbcType="INTEGER"/>
+        <result column="police_station" property="policeStation" jdbcType="VARCHAR"/>
+        <result column="is_agree" property="isAgree" jdbcType="TINYINT"/>
+        <result column="reply" property="reply" jdbcType="VARCHAR"/>
+        <result column="apply_time" property="applyTime" jdbcType="TIMESTAMP"/>
+        <result column="staff_name" property="staffName" jdbcType="VARCHAR"/>
+        <result column="phone_number" property="phoneNumber" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="queryApplyDtoList"  parameterType="HardMemberApplyDto" resultMap="HardMemberApplyDtoMap">
+        SELECT apply.*, staff_name,  sex, birthday, phone_number FROM hard_member_apply apply, staff
+        <where>
+            apply.staff_id = staff.staff_id
+            <if test="staffName != null and staffName != ''">
+                and staff_name like concat('%', #{staffName}, '%')
+            </if>
+            <if test="typeFilter == 1">
+                and is_agree is null
+            </if>
+            <if test="typeFilter == 2">
+                and is_agree is not null
+            </if>
+        </where>
+    </select>
+</mapper>
