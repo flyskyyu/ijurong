@@ -128,7 +128,14 @@ pageEncoding="UTF-8" %>
 					</ul>
 				</li>
 			</ul>
-
+			<ul class="nav" id="nav_itemManage" style="display: none;">
+				<li class="nav-li">
+					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">物品管理</span></a>
+					<ul class="subnav">
+						<li class="subnav-li" href="/admin/item/listPage" data-id="61"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">物品管理</span></a></li>
+					</ul>
+				</li>
+			</ul>
             <div class="tree-list outwindow">
             	<div class="tree ztree"></div>
             </div>

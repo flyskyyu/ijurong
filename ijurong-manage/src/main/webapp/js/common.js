@@ -81,6 +81,24 @@ var TT = {
         }
         return '';
     },
+    formatItemType: function(val) {
+        if(val == 1) {
+            return '实物';
+        } else if(val == 2) {
+            return '虚拟物品';
+        } else if(val == 3) {
+            return '其它';
+        }
+        return '';
+    },
+    formatItemBelong: function(val) {
+        if(val == 1) {
+            return '党员回馈';
+        } else if(val == 2) {
+            return '员工物品';
+        }
+        return '';
+    },
     // 格式化价格
     formatPrice: function (val, row) {
         return (val / 1000).toFixed(2);
