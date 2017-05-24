@@ -35,9 +35,9 @@ public class MessageService extends BaseService<Message>{
     }
 
     public Message findMessageById(int id) {
-        Message message=new Message();
-        message.setId(id);
-        return  mapper.selectOne(message);
+        Example example = new Example(Message.class);
+        example.createCriteria().andEqualTo("id", id);
+        return  mapper.selectByExample(example).get(0);
     }
 
     /**

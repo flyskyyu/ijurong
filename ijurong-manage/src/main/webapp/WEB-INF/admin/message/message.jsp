@@ -10,7 +10,11 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>后台帐号管理</title>
     <jsp:include page="../contentHeader.jsp"/>
+    <script type="text/javascript" src="<%=basePath%>ueditor/ueditor.config.js"></script>
+    <script type="text/javascript" src="<%=basePath%>ueditor/ueditor.all.js"></script>
     <script type="text/javascript">
+        var ue = UE.getEditor('editor');
+
         function doSearch() {
             var message = {};
             message.title = $('#title').val();
@@ -68,17 +72,33 @@
             return result;
         }
 
-        $('#post_users').combotree('loadData', [{
-            id: 1,
-            text: 'Languages',
-            children: [{
-                id: 11,
-                text: 'Java'
-            },{
-                id: 12,
-                text: 'C++'
-            }]
-        }]);
+        function formatterStatus(value, rowData, rowIndex) {
+            var result = "";
+            if (rowData.isPost == '0') {
+                result = '<a style="color:green;text-decoration:none;">未发布</a>';
+            }
+            else if (rowData.isPost == '1') {
+                result = '<a style="color:red;text-decoration:none;">发布中</a>';
+            }else {
+                result = '<a style="color:grey;text-decoration:none;">已发布</a>';
+            }
+            return result;
+        }
+
+        $(function(){
+            $('#post_users').combotree('loadData', [{
+                id: 1,
+                text: '市党支部',
+                children: [{
+                    id: 11,
+                    text: '雨花区党支部'
+                },{
+                    id: 12,
+                    text: '阿萨党支部'
+                }]
+            }]);
+        });
+
 
         function openPostDialog(id) {
             $('#message_grid').datagrid('selectRow', id);
@@ -95,20 +115,13 @@
 
 
         function doSubmitPost() {
-            $.confirm({
-                animation: 'rotateY',
-                closeAnimation: 'rotateY',
-                confirmButton: '发布',
-                confirmButtonClass: 'btn-info',
-                cancelButton:'取消',
-                cancelButtonClass: 'btn-danger',
-                title: '是否发布!',
-                content: '发布后大家都能收到咯，请确认您的操作!',
-                confirm: function(){
-                    $.alert('Confirmed!');
-                },
-                cancel: function(){
-                    $.alert('Canceled!')
+            $.messager.confirm('是否发布!', '发布后大家都能收到咯，请确认您的操作!', function(r){
+                if (r){
+                    alert('true!');
+                }
+                else
+                {
+                    alert('false!');
                 }
             });
 //            $('#message_form').form('submit', {
@@ -158,8 +171,9 @@
         <thead>
         <tr>
             <th field="id" hidden="true"></th>
-            <th data-options="field:'name',align:'center'" width="30">通知名称</th>
+            <th data-options="field:'title',align:'center'" width="30">通知名称</th>
             <th data-options="field:'createTime',align:'center'"  width="20">创建时间</th>
+            <th data-options="field:'isPost',align:'center',formatter:formatterStatus"  width="20">状态</th>
             <th
                     data-options="field:'id1',align:'center',width:50,formatter:formatOperation"
                     width="20">操作</th>
@@ -205,9 +219,19 @@
                             <td class="kv-label">通知名称</td>
                             <td class="kv-content" colspan="3"><input type="text" name="title"/></td>
                         </tr>
+                        <tr>
+                            <td class="kv-label" >通知类型:</td>
+                            <td class="kv-content" colspan="3">
+                                <input id="cc" class="easyui-combobox" name="type"
+                                       data-options="valueField:'id',textField:'name',url:'findAllMessageTypes'">
+                            </td>
+                        </tr>
 
                         </tbody>
                     </table>
+                    <div class="column"><span class="current">通知内容</span></div>
+                    <script id="editor" name="editor" type="text/plain"     style="width:650px;height:300px;"></script>
+
                 </div>
             </div>
         </div>
@@ -254,10 +278,10 @@
                         </tr>
 
                         <tr>
-                            <td class="kv-label">发布群</td>
+                            <td class="kv-label">发布对象</td>
                             <td class="kv-content" colspan="3">
                                 <select id="post_users"  name="post_users" class="easyui-combotree" style="width:200px;"
-                                        data-options="url:'get_data.php',required:true">
+                                        data-options="url:'get_data.php',required:true,multiple:true">
                                 </select>
                         </tr>
 
