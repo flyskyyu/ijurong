@@ -2,10 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="e92a032f-c895-457f-b367-ade433712479" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/admin/hardMemberApply/editPage.jsp" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/admin/hardMemberApply/editPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/admin/member/editPage.jsp" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/admin/member/editPage.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/admin/main.jsp" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/admin/main.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/admin/menu.jsp" afterPath="$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/admin/menu.jsp" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="wisdom-platform.iws" />
@@ -109,7 +105,7 @@
         <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/admin/menu.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="135" column="185" selection-start-line="135" selection-start-column="185" selection-end-line="135" selection-end-column="185" />
+              <caret line="125" column="185" selection-start-line="125" selection-start-column="185" selection-end-line="125" selection-end-column="185" />
               <folding />
             </state>
           </provider>
@@ -119,7 +115,7 @@
         <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/admin/main.jsp">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="59" column="63" selection-start-line="59" selection-start-column="63" selection-end-line="59" selection-end-column="63" />
+              <caret line="58" column="63" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
               <folding />
             </state>
           </provider>
@@ -128,7 +124,7 @@
       <file leaf-file-name="editPage.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/admin/member/editPage.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.81860465">
+            <state vertical-scroll-proportion="1.3776908">
               <caret line="195" column="13" selection-start-line="195" selection-start-column="13" selection-end-line="195" selection-end-column="13" />
               <folding />
             </state>
@@ -1628,7 +1624,7 @@
       <workItem from="1495419665749" duration="6489000" />
       <workItem from="1495431999095" duration="1865000" />
       <workItem from="1495509847108" duration="19667000" />
-      <workItem from="1495588591859" duration="289000" />
+      <workItem from="1495588591859" duration="391000" />
     </task>
     <task id="LOCAL-00001" summary="update">
       <created>1495163888013</created>
@@ -1678,11 +1674,17 @@
       <option name="project" value="LOCAL" />
       <updated>1495433532439</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="党员服务记录搜索">
+      <created>1495588933829</created>
+      <option name="number" value="00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1495588933829</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55024000" />
+    <option name="totallyTimeSpent" value="55126000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -1690,15 +1692,16 @@
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934782" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934782" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32959402" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37934783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37934783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23557693" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23557693" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1710,7 +1713,6 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25652173" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934782" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32934782" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19891304" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -2185,7 +2187,7 @@
     <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/admin/main.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="63" selection-start-line="59" selection-start-column="63" selection-end-line="59" selection-end-column="63" />
+          <caret line="58" column="63" selection-start-line="58" selection-start-column="63" selection-end-line="58" selection-end-column="63" />
           <folding />
         </state>
       </provider>
@@ -2193,7 +2195,7 @@
     <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/admin/menu.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="135" column="185" selection-start-line="135" selection-start-column="185" selection-end-line="135" selection-end-column="185" />
+          <caret line="125" column="185" selection-start-line="125" selection-start-column="185" selection-end-line="125" selection-end-column="185" />
           <folding />
         </state>
       </provider>
@@ -2208,7 +2210,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/ijurong-manage/src/main/webapp/WEB-INF/admin/member/editPage.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.81860465">
+        <state vertical-scroll-proportion="1.3776908">
           <caret line="195" column="13" selection-start-line="195" selection-start-column="13" selection-end-line="195" selection-end-column="13" />
           <folding />
         </state>
