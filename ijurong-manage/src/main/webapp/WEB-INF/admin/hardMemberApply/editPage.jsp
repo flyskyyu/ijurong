@@ -98,8 +98,6 @@
   });
 
   $('#edit_btn_add').click(function () {
-    if($(this).attr('aria-disabled')) return;
-    TT.disabledAllBtns();
     $('#isAgree').val(1);
     onSubmit();
   });

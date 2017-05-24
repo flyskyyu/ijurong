@@ -9,6 +9,7 @@ public class ItemReceiveDto extends ItemReceive {
     private String staffName;
     private String itemName;
     private String phoneNumber;
+    private Integer typeFilter;
 
     public String getStaffName() {
         return staffName;
@@ -32,5 +33,13 @@ public class ItemReceiveDto extends ItemReceive {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public Integer getTypeFilter() {
+        return typeFilter;
+    }
+
+    public void setTypeFilter(Integer typeFilter) {
+        this.typeFilter = typeFilter;
     }
 }

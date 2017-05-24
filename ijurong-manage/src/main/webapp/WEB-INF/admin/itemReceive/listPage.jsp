@@ -16,10 +16,15 @@
 <div region="center" style="padding: 5px;">
   <div id="search_toolbar" style="padding: 5px; height: auto">
     <div style="padding: 5px;">
-      申请人姓名：<input type="text" id="nameFilter">&nbsp;<a href="#"
-                                                 class="easyui-linkbutton" id="btn_Search"
+      申请人姓名：<input type="text" id="nameFilter"><span class="white_space"></span>
+      查看类型：<select class="easyui-combobox" id="typeFilter">
+      <option value="0">所有</option>
+      <option value="1">未回复</option>
+      <option value="2">未领取</option>
+    </select><span class="white_space"></span>
+      <a href="#" class="easyui-linkbutton" id="btn_Search"
                                                  data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
-      <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp;
+      <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" id="btn_add" style="display: none;">添加</a>&nbsp;
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" id="btn_remove" style="display:none;">删除</a>
     </div>
   </div>
@@ -45,7 +50,8 @@
 <script>
   function doSearch() {
     var params = {};
-    params.itemName = $('#nameFilter').val();
+    params.staffName = $('#nameFilter').val();
+    params.typeFilter = $('#typeFilter').val();
     $('#tableList').datagrid('load', params);
   }
 
@@ -53,7 +59,6 @@
     $('#tableList').datagrid('selectRow', rowIndex);
     var rowData = $('#tableList').datagrid('getSelected');
     if(rowData == null) return;
-
     $.messager.confirm('确认申请','是否同意姓名为 '+rowData.staffName+' 的申请？',function(r){
       var params = {"id":rowData.id};
       if(r) {
@@ -65,7 +70,7 @@
         if(data == 'success'){
           $("#tableList").datagrid("reload");
         } else if(data == 'lack') {
-          $.messager.alert('物品数量不足');
+          $.messager.alert('警告', '物品数量不足');
         } else {
           $.messager.alert('出现错误');
         }
@@ -73,11 +78,25 @@
     });
   }
 
+  function reply(rowIndex) {
+    $('#tableList').datagrid('selectRow', rowIndex);
+    var rowData = $('#tableList').datagrid('getSelected');
+    if(rowData == null) return;
+    $("#editWindow").window({
+      title: '审核物品兑换申请',
+      onLoad: function() {
+        $('#editForm').attr('action', '<%=basePath%>admin/itemReceive/reply')
+                .form('load', rowData);
+        TT.disabledAllExcept('editForm');
+        document.getElementById('replyInput').focus()
+      }
+    }).window('open');
+  }
+
   function receive(rowIndex) {
     $('#tableList').datagrid('selectRow', rowIndex);
     var rowData = $('#tableList').datagrid('getSelected');
     if(rowData == null) return;
-
     $.messager.confirm('确认领取','是否确认姓名为 '+rowData.staffName+' 的领取？',function(r){
       var params = {"id":rowData.id};
       if(r) {
@@ -100,7 +119,7 @@
       title: '查看物品申请',
       onLoad: function() {
         $('#editForm').attr('action', '<%=basePath%>admin/itemReceive/reply').form('load', rowData);
-        TT.disabledAllExcept('editForm');
+        TT.disabledAll('editForm');
         $('#edit_btn_add').hide();
         $('#edit_btn_no').hide();
       }
@@ -129,10 +148,13 @@
     var operator = {};
     if(rowData.isAgree == null) {
       operator.reply = '回复';
-    } else if(rowData.isReceive == 0) {
-      operator.receive = '领取';
+    } else {
+      if(rowData.isAgree == 1 && rowData.isReceive == 0) {
+        operator.receive = '领取';
+      }
+      operator.look = '查看';
     }
-    operator.look = '查看';
+
     operator.del = '删除';
     return TT.createOptionBtn(operator, rowIndex);
   }

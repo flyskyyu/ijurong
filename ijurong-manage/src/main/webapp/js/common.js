@@ -144,6 +144,11 @@ var TT = {
         form.find('a').attr('disabled', true).attr('aria-disabled', true);
         form.find('input[type="button"]').attr('disabled', true).attr('aria-disabled', true);
     },
+    enabledAllBtns: function(formId) {
+        var form = $('#' + formId);
+        form.find('a').removeAttr('disabled').removeAttr('aria-disabled');
+        form.find('input[type="button"]').removeAttr('disabled').removeAttr('aria-disabled');
+    },
     init: function (data) {
         this.initPicUpload(data);
         this.initItemCat(data);

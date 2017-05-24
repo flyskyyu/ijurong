@@ -65,8 +65,6 @@
   });
 
   $('#edit_btn_add').click(function () {
-    if($(this).attr('aria-disabled')) return;
-    TT.disabledAllBtns('editContainer');
     onSubmit();
   });
 
@@ -85,6 +83,8 @@
   });
 
   function onSubmit() {
+    if($(this).attr('aria-disabled')) return;
+    TT.disabledAllBtns('editContainer');
     $('#editForm').form('submit', {
       success: function (data) {
         if (data == "success") {

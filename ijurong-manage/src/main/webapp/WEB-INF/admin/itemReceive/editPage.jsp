@@ -16,6 +16,7 @@
          class="basic-info panel-body panel-body-noheader panel-body-noborder"
          style="width: 100%;;">
       <form method="post" id="editForm">
+        <input type="hidden" name="isAgree" id="isAgree" data_no_disabled/>
         <input type="hidden" name="id" data_no_disabled/>
         <div class="column"><span class="current">物品信息</span></div>
         <table class="kv-table">
@@ -27,6 +28,20 @@
             <td class="kv-content"><input type="text" name="phoneNumber"></td>
             <td class="kv-label">申请时间</td>
             <td class="kv-content"><input type="text" name="applyTime"></td>
+          </tr>
+          <tr>
+            <td class="kv-label">是否同意</td>
+            <td class="kv-content">
+              <input type="radio" name="isAgree" value="1"/>是&nbsp;&nbsp;
+              <input type="radio" name="isAgree" value="0"/>否
+            </td>
+            <td class="kv-label">是否领取</td>
+            <td class="kv-content">
+              <input type="radio" name="isReceive" value="1"/>是&nbsp;&nbsp;
+              <input type="radio" name="isReceive" value="0"/>否
+            </td>
+            <td class="kv-label">领取时间</td>
+            <td class="kv-content"><input type="text" name="receiveTime"></td>
           </tr>
           <tr>
             <td class="kv-label">领取物品</td>
@@ -59,10 +74,17 @@
           </tr>
           </tbody>
         </table>
+        <div class="column"><span class="current">管理员回复</span></div>
+        <table class="kv-table">
+          <tbody>
+          <tr>
+            <td class="kv-label">回复</td>
+            <td class="kv-content" colspan="2"><textarea name="reply" data_no_disabled id="replyInput"></textarea></td>
+          </tr>
+          </tbody>
+        </table>
       </form>
       <div style="text-align: center;">
-        <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'"
-           id="edit_btn_receive">领取</a>
         <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'"
                                           id="edit_btn_add">同意</a>&nbsp;&nbsp;&nbsp;
         <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-no'" id="edit_btn_no">不同意</a>
@@ -73,25 +95,35 @@
   </div>
 </div>
 <script type="text/javascript">
+  $('#edit_btn_no').click(function () {
+    $('#isAgree').val(0);
+    onSubmit();
+  });
+
   $('#edit_btn_cancel').click(function () {
     $("#editWindow").window('close');
   });
 
   $('#edit_btn_add').click(function () {
-    if($(this).attr('aria-disabled')) return;
-    TT.disabledAllBtns('editContainer');
+    $('#isAgree').val(1);
     onSubmit();
   });
 
   function onSubmit() {
+    if($(this).attr('aria-disabled')) return;
+    TT.disabledAllBtns('editContainer');
     $('#editForm').form('submit', {
       success: function (data) {
         if (data == "success") {
           $('#editWindow').dialog('close');
           $('#tableList').datagrid('reload');
+          return;
+        } else if(data == 'lack') {
+          $.messager.alert('提示', '物品数量不足!');
         } else {
           $.messager.alert('提示', '提交失败!');
         }
+        TT.enabledAllBtns('editContainer');
       }
     });
   }
