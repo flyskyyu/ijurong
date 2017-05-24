@@ -10,7 +10,7 @@
   String path = request.getContextPath();
   String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<div class="container">
+<div class="container" id="editContainer">
   <div class="content">
     <div title="" data-options="closable:false"
          class="basic-info panel-body panel-body-noheader panel-body-noborder"
@@ -51,6 +51,8 @@
   });
 
   $('#edit_btn_add').click(function () {
+    if($(this).attr('aria-disabled')) return;
+    TT.disabledAllBtns('editContainer');
     onSubmit();
   });
 

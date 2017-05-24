@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.party.ijurong.mapper.ItemReceiveMapper">
+    <resultMap id="ReceiveDtoMap" type="ItemReceiveDto">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="user_id" property="userId" jdbcType="INTEGER"/>
+        <result column="item_id" property="itemId" jdbcType="VARCHAR"/>
+        <result column="item_name" property="itemName" jdbcType="INTEGER"/>
+        <result column="integral" property="integral" jdbcType="INTEGER"/>
+        <result column="apply_time" property="applyTime" jdbcType="TIMESTAMP"/>
+        <result column="is_receive" property="isReceive" jdbcType="TINYINT"/>
+        <result column="is_agree" property="isAgree" jdbcType="TINYINT"/>
+        <result column="receive_time" property="receiveTime" jdbcType="TIMESTAMP"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
+        <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="courier_no" property="courierNo" jdbcType="VARCHAR"/>
+        <result column="courier_name" property="courierName" jdbcType="VARCHAR"/>
+        <result column="staff_name" property="staffName" jdbcType="VARCHAR"/>
+        <result column="item_name" property="itemName" jdbcType="VARCHAR"/>
+        <result column="phone_number" property="phoneNumber" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <select id="queryReceiveDtoList"  parameterType="ItemReceiveDto" resultMap="ReceiveDtoMap">
+        SELECT receive.*, staff_name, phone_number FROM item_receive receive, staff
+        <where>
+            receive.user_id = staff.staff_id
+            <if test="staffName != null and staffName != ''">
+                and staff_name like concat('%', #{staffName}, '%')
+            </if>
+        </where>
+    </select>
+</mapper>

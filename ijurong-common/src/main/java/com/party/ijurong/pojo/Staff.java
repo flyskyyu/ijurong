@@ -15,11 +15,11 @@ public class Staff {
     @Column(name = "staff_id")
     private Integer staffId;
 
-    @Column(name = "product_id")
-    private Integer productId;
-
     @Column(name = "depart_id")
     private Integer departId;
+
+    @Column(name = "party_branch_id")
+    private Integer partyBranchId;
 
     @Column(name = "staff_name")
     private String staffName;
@@ -101,9 +101,6 @@ public class Staff {
     @Column(name = "update_staff_id")
     private Integer updateStaffId;
 
-    @Column(name = "update_depart_id")
-    private Integer updateDepartId;
-
     /**
      * @return staff_id
      */
@@ -119,20 +116,6 @@ public class Staff {
     }
 
     /**
-     * @return product_id
-     */
-    public Integer getProductId() {
-        return productId;
-    }
-
-    /**
-     * @param productId
-     */
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
-
-    /**
      * @return depart_id
      */
     public Integer getDepartId() {
@@ -144,6 +127,14 @@ public class Staff {
      */
     public void setDepartId(Integer departId) {
         this.departId = departId;
+    }
+
+    public Integer getPartyBranchId() {
+        return partyBranchId;
+    }
+
+    public void setPartyBranchId(Integer partyBranchId) {
+        this.partyBranchId = partyBranchId;
     }
 
     /**
@@ -452,17 +443,4 @@ public class Staff {
         this.updateStaffId = updateStaffId;
     }
 
-    /**
-     * @return update_depart_id
-     */
-    public Integer getUpdateDepartId() {
-        return updateDepartId;
-    }
-
-    /**
-     * @param updateDepartId
-     */
-    public void setUpdateDepartId(Integer updateDepartId) {
-        this.updateDepartId = updateDepartId;
-    }
 }

@@ -10,7 +10,7 @@
   String path = request.getContextPath();
   String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<div class="container">
+<div class="container" id="editContainer">
   <div class="content">
     <div title="" data-options="closable:false"
          class="basic-info panel-body panel-body-noheader panel-body-noborder"
@@ -26,13 +26,13 @@
             <td class="kv-content"><input type="text" name="staffName"></td>
             <td class="kv-label">是否困难党员</td>
             <td class="kv-content">
-              <input type="radio" name="isHardMember" value="0"/>是&nbsp;&nbsp;
-              <input type="radio" name="isHardMember" value="1"/>否
+              <input type="radio" name="isHardMember" value="1"/>是&nbsp;&nbsp;
+              <input type="radio" name="isHardMember" value="0"/>否
             </td>
             <td class="kv-label">是否建国前入党老党员</td>
             <td class="kv-content">
-              <input type="radio" name="isOldMember" value="0"/>是&nbsp;&nbsp;
-              <input type="radio" name="isOldMember" value="1"/>否
+              <input type="radio" name="isOldMember" value="1"/>是&nbsp;&nbsp;
+              <input type="radio" name="isOldMember" value="0"/>否
             </td>
           </tr>
           <tr>
@@ -46,13 +46,13 @@
             </td>
             <td class="kv-label">是否享受低保</td>
             <td class="kv-content">
-              <input type="radio" name="isEnjoyMla" value="0"/>是&nbsp;&nbsp;
-              <input type="radio" name="isEnjoyMla" value="1"/>否
+              <input type="radio" name="isEnjoyMla" value="1"/>是&nbsp;&nbsp;
+              <input type="radio" name="isEnjoyMla" value="0"/>否
             </td>
             <td class="kv-label">是否享受优抚优恤补助</td>
             <td class="kv-content">
-              <input type="radio" name="isEnjoySubsidy" value="0"/>是&nbsp;&nbsp;
-              <input type="radio" name="isEnjoySubsidy" value="1"/>否
+              <input type="radio" name="isEnjoySubsidy" value="1"/>是&nbsp;&nbsp;
+              <input type="radio" name="isEnjoySubsidy" value="0"/>否
             </td>
           </tr>
           <tr>
@@ -89,7 +89,7 @@
 </div>
 <script type="text/javascript">
   $('#edit_btn_no').click(function () {
-    $('#isAgree').val(1);
+    $('#isAgree').val(0);
     onSubmit();
   });
 
@@ -98,11 +98,15 @@
   });
 
   $('#edit_btn_add').click(function () {
-    $('#isAgree').val(0);
+    if($(this).attr('aria-disabled')) return;
+    TT.disabledAllBtns();
+    $('#isAgree').val(1);
     onSubmit();
   });
 
   function onSubmit() {
+    if($(this).attr('aria-disabled')) return;
+    TT.disabledAllBtns('editContainer');
     $('#editForm').form('submit', {
       success: function (data) {
         if (data == "success") {

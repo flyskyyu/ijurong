@@ -15,12 +15,6 @@ public class PartyMember {
     private Integer userId;
 
     /**
-     * 所属党支部
-     */
-    @Column(name = "party_branch_id")
-    private Integer partyBranchId;
-
-    /**
      * 进入当前支部时间
      */
     @Column(name = "join_branch_date")
@@ -135,24 +129,6 @@ public class PartyMember {
      */
     public void setUserId(Integer userId) {
         this.userId = userId;
-    }
-
-    /**
-     * 获取所属党支部
-     *
-     * @return party_branch_id - 所属党支部
-     */
-    public Integer getPartyBranchId() {
-        return partyBranchId;
-    }
-
-    /**
-     * 设置所属党支部
-     *
-     * @param partyBranchId 所属党支部
-     */
-    public void setPartyBranchId(Integer partyBranchId) {
-        this.partyBranchId = partyBranchId;
     }
 
     /**

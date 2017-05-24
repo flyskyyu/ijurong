@@ -29,6 +29,7 @@
     <tr>
       <th data-options="field:'itemName',width:100,align:'center'">物品名称</th>
       <th data-options="field:'type',width:60,align:'center',formatter:TT.formatItemType">物品类别</th>
+      <th data-options="field:'integral',width:60,align:'center'">所需积分</th>
       <th data-options="field:'num',width:60,align:'center'">数量</th>
       <th data-options="field:'belong',width:60,align:'center',formatter:TT.formatItemBelong">物品所属</th>
       <th data-options="field:'ids',width:60,align:'center',formatter:formatOperation">操作</th>

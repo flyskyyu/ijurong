@@ -16,50 +16,57 @@
          class="basic-info panel-body panel-body-noheader panel-body-noborder"
          style="width: 100%;;">
       <form method="post" id="editForm">
-        <input type="hidden" name="id"/>
+        <input type="hidden" name="id" data_no_disabled/>
         <div class="column"><span class="current">物品信息</span></div>
         <table class="kv-table">
           <tbody>
           <tr>
-            <td class="kv-label">物品名称</td>
+            <td class="kv-label">领取人姓名</td>
+            <td class="kv-content"><input type="text" name="staffName"></td>
+            <td class="kv-label">电话</td>
+            <td class="kv-content"><input type="text" name="phoneNumber"></td>
+            <td class="kv-label">申请时间</td>
+            <td class="kv-content"><input type="text" name="applyTime"></td>
+          </tr>
+          <tr>
+            <td class="kv-label">领取物品</td>
             <td class="kv-content"><input type="text" name="itemName"></td>
-            <td class="kv-label">物品数量</td>
+            <td class="kv-label">领取数量</td>
             <td class="kv-content"><input type="text" name="num"></td>
             <td class="kv-label">所需积分</td>
             <td class="kv-content"><input type="text" name="integral"></td>
           </tr>
+          </tbody>
+        </table>
+        <div class="column"><span class="current">物流信息</span></div>
+        <table class="kv-table">
+          <tbody>
           <tr>
-            <td class="kv-label">物品类型</td>
-            <td class="kv-content">
-              <select class="easyui-combobox" name="type">
-                <option value="0">请选择</option>
-                <option value="1">实物</option>
-                <option value="2">虚拟物品</option>
-                <option value="3">其它</option>
-              </select>
-            </td>
-            <td class="kv-label">物品所属</td>
-            <td class="kv-content" colspan="3">
-              <select class="easyui-combobox" name="belong">
-                <option value="0">请选择</option>
-                <option value="1">党员回馈</option>
-                <option value="2">员工物品</option>
-              </select> <span class="white_space"></span>提示：员工物品所需积分为0
-            </td>
+            <td class="kv-label">收件人姓名</td>
+            <td class="kv-content"><input type="text" name="name"></td>
+            <td class="kv-label">收件人电话</td>
+            <td class="kv-content"><input type="text" name="phone"></td>
           </tr>
           <tr>
-            <td class="kv-label">领取条件</td>
-            <td class="kv-content" colspan="5"><textarea name="conditions" rows="3"></textarea></td>
+            <td class="kv-label">快递名称</td>
+            <td class="kv-content"><input type="text" name="courierName"></td>
+            <td class="kv-label">快递单号</td>
+            <td class="kv-content"><input type="text" name="courierNo"></td>
           </tr>
           <tr>
-            <td class="kv-label">物品介绍</td>
-            <td class="kv-content" colspan="5"><textarea name="introduce" rows="3"></textarea></td>
+            <td class="kv-label">寄件地址</td>
+            <td class="kv-content" colspan="3"><input type="text" name="address"/> </td>
           </tr>
           </tbody>
         </table>
       </form>
-      <div style="text-align: center;"><a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'"
-                                          id="edit_btn_add">保存</a>&nbsp;&nbsp;&nbsp;
+      <div style="text-align: center;">
+        <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'"
+           id="edit_btn_receive">领取</a>
+        <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'"
+                                          id="edit_btn_add">同意</a>&nbsp;&nbsp;&nbsp;
+        <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-no'" id="edit_btn_no">不同意</a>
+        &nbsp;&nbsp;&nbsp;
         <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" id="edit_btn_cancel">返回</a>
       </div>
     </div>

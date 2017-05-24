@@ -8,8 +8,8 @@ import java.util.Date;
 
 @Table(name = "hard_member_apply")
 public class HardMemberApply {
-    public final static int YES = 0;
-    public final static int NO = 1;
+    public final static int YES = 1;
+    public final static int NO = 0;
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;

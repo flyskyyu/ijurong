@@ -34,9 +34,9 @@ var TT = {
     },
     formatYesNo: function (val, row) {
         if (val == 0) {
-            return '是';
-        } else if (val == 1) {
             return '否';
+        } else if (val == 1) {
+            return '是';
         }
         return '';
     },
@@ -138,6 +138,11 @@ var TT = {
         var form = $('#' + formId);
         TT.disabledAll(formId);
         form.find('[data_no_disabled]').removeAttr('disabled');
+    },
+    disabledAllBtns: function(formId) {
+        var form = $('#' + formId);
+        form.find('a').attr('disabled', true).attr('aria-disabled', true);
+        form.find('input[type="button"]').attr('disabled', true).attr('aria-disabled', true);
     },
     init: function (data) {
         this.initPicUpload(data);

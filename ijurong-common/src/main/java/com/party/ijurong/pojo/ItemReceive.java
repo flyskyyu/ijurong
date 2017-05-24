@@ -1,5 +1,8 @@
 package com.party.ijurong.pojo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -15,6 +18,9 @@ public class ItemReceive {
     @Column(name = "item_id")
     private Integer itemId;
 
+    @Column(name = "item_name")
+    private String itemName;
+
     /**
      * 扣除积分
      */
@@ -24,16 +30,25 @@ public class ItemReceive {
      * 申请时间
      */
     @Column(name = "apply_time")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonSerialize(using = DateSerializer.class)
     private Date applyTime;
 
     @Column(name = "is_receive")
     private Byte isReceive;
 
+    @Column(name = "is_agree")
+    private Byte isAgree;
+
     /**
      * 领取时间
      */
     @Column(name = "receive_time")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonSerialize(using = DateSerializer.class)
     private Date receiveTime;
+
+    private int num;
 
     /**
      * 收货地址
@@ -101,6 +116,15 @@ public class ItemReceive {
         this.itemId = itemId;
     }
 
+
+    public String getItemName() {
+        return itemName;
+    }
+
+    public void setItemName(String itemName) {
+        this.itemName = itemName;
+    }
+
     /**
      * 获取扣除积分
      *
@@ -149,6 +173,14 @@ public class ItemReceive {
      */
     public void setIsReceive(Byte isReceive) {
         this.isReceive = isReceive;
+    }
+
+    public Byte getIsAgree() {
+        return isAgree;
+    }
+
+    public void setIsAgree(Byte isAgree) {
+        this.isAgree = isAgree;
     }
 
     /**
@@ -253,5 +285,13 @@ public class ItemReceive {
      */
     public void setCourierName(String courierName) {
         this.courierName = courierName == null ? null : courierName.trim();
+    }
+
+    public int getNum() {
+        return num;
+    }
+
+    public void setNum(int num) {
+        this.num = num;
     }
 }

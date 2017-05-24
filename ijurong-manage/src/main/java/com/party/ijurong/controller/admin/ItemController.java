@@ -31,6 +31,10 @@ public class ItemController {
     @RequestMapping(value = "update")
     @ResponseBody
     public String update(Item obj) {
+        //员工物品所需积分为0
+        if(obj.getBelong() == 2 || obj.getIntegral() == null) {
+            obj.setIntegral(0);
+        }
         itemService.updateSelective(obj);
         return "success";
     }
@@ -39,6 +43,10 @@ public class ItemController {
     @ResponseBody
     public String add(Item obj) {
         obj.setId(null);
+        //员工物品所需积分为0
+        if(obj.getBelong() == 2 || obj.getIntegral() == null) {
+            obj.setIntegral(0);
+        }
         itemService.save(obj);
         return "success";
     }

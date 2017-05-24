@@ -134,6 +134,7 @@ pageEncoding="UTF-8" %>
 					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">物品管理</span></a>
 					<ul class="subnav">
 						<li class="subnav-li" href="/admin/item/listPage" data-id="61"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">物品管理</span></a></li>
+						<li class="subnav-li" href="/admin/itemReceive/listPage" data-id="62"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">物品申领</span></a></li>
 					</ul>
 				</li>
 			</ul>

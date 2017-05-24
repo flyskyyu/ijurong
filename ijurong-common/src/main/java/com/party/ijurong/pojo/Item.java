@@ -10,8 +10,11 @@ public class Item {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "enterprise_id")
-    private Integer enterpriseId;
+    /**
+     * 党支部id
+     */
+    @Column(name = "party_branch_id")
+    private Integer partyBranchId;
 
     @Column(name = "item_name")
     private String itemName;
@@ -42,6 +45,11 @@ public class Item {
     private Integer belong;
 
     /**
+     * 所需积分
+     */
+    private Integer integral;
+
+    /**
      * @return id
      */
     public Integer getId() {
@@ -56,17 +64,21 @@ public class Item {
     }
 
     /**
-     * @return enterprise_id
+     * 获取党支部id
+     *
+     * @return party_branch_id - 党支部id
      */
-    public Integer getEnterpriseId() {
-        return enterpriseId;
+    public Integer getPartyBranchId() {
+        return partyBranchId;
     }
 
     /**
-     * @param enterpriseId
+     * 设置党支部id
+     *
+     * @param partyBranchId 党支部id
      */
-    public void setEnterpriseId(Integer enterpriseId) {
-        this.enterpriseId = enterpriseId;
+    public void setPartyBranchId(Integer partyBranchId) {
+        this.partyBranchId = partyBranchId;
     }
 
     /**
@@ -171,5 +183,23 @@ public class Item {
      */
     public void setBelong(Integer belong) {
         this.belong = belong;
+    }
+
+    /**
+     * 获取所需积分
+     *
+     * @return integral - 所需积分
+     */
+    public Integer getIntegral() {
+        return integral;
+    }
+
+    /**
+     * 设置所需积分
+     *
+     * @param integral 所需积分
+     */
+    public void setIntegral(Integer integral) {
+        this.integral = integral;
     }
 }
