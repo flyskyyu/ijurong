@@ -82,7 +82,7 @@
                                           id="edit_btn_add">同意</a>&nbsp;&nbsp;&nbsp;
         <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-no'" id="edit_btn_no">不同意</a>
         &nbsp;&nbsp;&nbsp;
-        <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-no'" id="edit_btn_cancel">返回</a>
+        <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" id="edit_btn_cancel">返回</a>
       </div>
     </div>
   </div>
