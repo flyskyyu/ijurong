@@ -40,6 +40,8 @@ public class ItemReceive {
     @Column(name = "is_agree")
     private Byte isAgree;
 
+    private String reply;
+
     /**
      * 领取时间
      */
@@ -48,7 +50,7 @@ public class ItemReceive {
     @JsonSerialize(using = DateSerializer.class)
     private Date receiveTime;
 
-    private int num;
+    private Integer num;
 
     /**
      * 收货地址
@@ -287,11 +289,19 @@ public class ItemReceive {
         this.courierName = courierName == null ? null : courierName.trim();
     }
 
-    public int getNum() {
+    public Integer getNum() {
         return num;
     }
 
-    public void setNum(int num) {
+    public void setNum(Integer num) {
         this.num = num;
+    }
+
+    public String getReply() {
+        return reply;
+    }
+
+    public void setReply(String reply) {
+        this.reply = reply;
     }
 }

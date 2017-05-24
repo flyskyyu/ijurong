@@ -38,11 +38,12 @@ public class ItemReceiveService extends BaseService<ItemReceive> {
         ItemReceive dbReceive = receiveMapper.selectByPrimaryKey(itemReceive.getId());
         if(itemReceive.getIsAgree() == 1) {
             Item item = itemMapper.selectByPrimaryKey(dbReceive.getItemId());
-            if(item.getNum() < itemReceive.getNum()) {
+            if(item.getNum() < dbReceive.getNum()) {
                 return NUM_LACK;
             }
-            item.setNum(item.getNum() - itemReceive.getNum());
+            item.setNum(item.getNum() - dbReceive.getNum());
             itemMapper.updateByPrimaryKey(item);
+            dbReceive.setIsReceive((byte)0); //设置状态为未领取
         } else {
             if(dbReceive.getIntegral() > 0) {
                 Staff staff = staffMapper.selectByPrimaryKey(dbReceive.getUserId());
@@ -50,8 +51,8 @@ public class ItemReceiveService extends BaseService<ItemReceive> {
                 staffMapper.updateByPrimaryKey(staff);
             }
         }
-        dbReceive.setIsReceive((byte)0);
         dbReceive.setIsAgree(itemReceive.getIsAgree());
+        dbReceive.setReply(itemReceive.getReply());
         receiveMapper.updateByPrimaryKeySelective(dbReceive);
         return OK;
     }

@@ -28,6 +28,12 @@
             <if test="staffName != null and staffName != ''">
                 and staff_name like concat('%', #{staffName}, '%')
             </if>
+            <if test="typeFilter == 1">
+                and is_agree is null
+            </if>
+            <if test="typeFilter == 2">
+                and is_receive = 0
+            </if>
         </where>
     </select>
 </mapper>

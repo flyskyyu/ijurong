@@ -1,6 +1,5 @@
 <html>
 <body>
-<h2>Hello World!</h2>
 
 <script language="javascript" type="text/javascript">
     // 以下方式直接跳转

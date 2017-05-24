@@ -74,7 +74,7 @@
     var rowData = $('#tableList').datagrid('getSelected');
     if(rowData == null) return;
     $("#editWindow").window({
-      title: '回复困难党员/老党员申请',
+      title: '审核困难党员/老党员申请',
       onLoad: function() {
         $('#editForm').attr('action', '<%=basePath%>admin/hardMemberApply/reply')
                 .form('load', rowData);
