@@ -12,6 +12,7 @@
     <jsp:include page="../contentHeader.jsp"/>
     <script type="text/javascript" src="<%=basePath%>ueditor/ueditor.config.js"></script>
     <script type="text/javascript" src="<%=basePath%>ueditor/ueditor.all.js"></script>
+    <script type="text/javascript" charset="utf-8" src="<%=basePath%>ueditor/lang/zh-cn/zh-cn.js"></script>
     <script type="text/javascript">
         var ue = UE.getEditor('editor');
 
@@ -202,7 +203,7 @@
                         $('#message_dialog').dialog('close');
                     }  
                 }]"
-     style="width: 660px; height: 350px; padding: 10px;">
+     style="width: 980px; height: 480px; padding: 10px;">
 
 
     <form id="message_form" name="message_form"
@@ -230,7 +231,8 @@
                         </tbody>
                     </table>
                     <div class="column"><span class="current">通知内容</span></div>
-                    <script id="editor" name="editor" type="text/plain"     style="width:650px;height:300px;"></script>
+                    <!-- 加载编辑器的容器 -->
+                    <script id="editor" name="newsContent" type="text/plain" style="width:890px;height:400px;"></script>
 
                 </div>
             </div>
