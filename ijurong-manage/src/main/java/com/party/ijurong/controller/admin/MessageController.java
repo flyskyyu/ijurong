@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Copyright ©, 2016-2056
@@ -39,6 +40,13 @@ public class MessageController {
                                               @ModelAttribute MessageType messageType, @RequestParam int page, @RequestParam int rows) {
         Page<MessageType> result = messageTypeService.findMessageTypesByMessageType(messageType, page, rows);
         return result;
+    }
+
+    @RequestMapping(value = "/findAllMessageTypes", method = { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public List<MessageType> findAllMessageTypes(HttpServletRequest httpServletRequest) {
+        Page<MessageType> result = messageTypeService.findMessageTypesByMessageType(new MessageType(), 1, 999);
+        return result.getRows();
     }
 
     @RequestMapping(value = "addMessageType", method =
@@ -101,6 +109,7 @@ public class MessageController {
         try {
             message.setCreateTime(new Date());
             message.setCreateUserId(1);//TODO 后期加上人企业
+            message.setId(0);
             messageService.insertMessage(message);
             return "success";
         }

@@ -19,6 +19,8 @@ public class Message {
     @Column(name = "create_user_id")
     private Integer createUserId;
 
+    private int type;
+
     @Column(name = "news_content")
     private String newsContent;
 
@@ -38,6 +40,14 @@ public class Message {
      */
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public int getType() {
+        return type;
+    }
+
+    public void setType(int type) {
+        this.type = type;
     }
 
     /**

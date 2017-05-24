@@ -16,10 +16,8 @@
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/base.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/basic_info.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/custom.css" />
-<link rel="stylesheet" type="text/css" href="<%=basePath%>css/jquery-confirm.css" />
 <script type="text/javascript" src="<%=basePath%>easyui/jquery.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>easyui/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/common.js"></script>
-<script type="text/javascript" src="<%=basePath%>js/jquery-confirm.js"></script>
 
