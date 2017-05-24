@@ -122,18 +122,23 @@
                             <input type="radio" name="isHardMember" value="0"/>是&nbsp;&nbsp;
                             <input type="radio" name="isHardMember" value="1"/>否
                         </td>
+                        <td class="kv-label">是否建国前入党老党员</td>
+                        <td class="kv-content">
+                            <input type="radio" name="isOldMember" value="0"/>是&nbsp;&nbsp;
+                            <input type="radio" name="isOldMember" value="1"/>否
+                        </td>
                         <td class="kv-label">是否享受低保</td>
                         <td class="kv-content">
                             <input type="radio" name="isEnjoyMla" value="0"/>是&nbsp;&nbsp;
                             <input type="radio" name="isEnjoyMla" value="1"/>否
                         </td>
+                    </tr>
+                    <tr>
                         <td class="kv-label">是否享受优抚优恤补助</td>
                         <td class="kv-content">
                             <input type="radio" name="isEnjoySubsidy" value="0"/>是&nbsp;&nbsp;
                             <input type="radio" name="isEnjoySubsidy" value="1"/>否
                         </td>
-                    </tr>
-                    <tr>
                         <td class="kv-label">生活困难类型</td>
                         <td class="kv-content">
                             <select name="hardType" class="easyui-combobox">
@@ -151,8 +156,10 @@
                                 <option value="3">不健康</option>
                             </select>
                         </td>
+                    </tr>
+                    <tr>
                         <td class="kv-label">户口所在地派出所</td>
-                        <td class="kv-content"><input type="text" name="policeStation"/></td>
+                        <td class="kv-content" colspan="5"><input type="text" name="policeStation"/></td>
                     </tr>
                     <tr>
                         <td class="kv-label">困难情况补充</td>
