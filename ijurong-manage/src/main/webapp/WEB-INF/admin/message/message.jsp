@@ -13,6 +13,18 @@
     <script type="text/javascript" src="<%=basePath%>ueditor/ueditor.config.js"></script>
     <script type="text/javascript" src="<%=basePath%>ueditor/ueditor.all.js"></script>
     <script type="text/javascript" charset="utf-8" src="<%=basePath%>ueditor/lang/zh-cn/zh-cn.js"></script>
+    <!--以下样式为了解决ue 和easyui的弹出层冲突-->
+    <style type="text/css">
+        .window{
+            z-index: 905 ! important;
+        }
+        .window-shadow{
+            z-index: 904 ! important;
+        }
+        .window-mask{
+            z-index: 903 ! important;
+        }
+    </style>
     <script type="text/javascript">
         var ue = UE.getEditor('editor');
 
@@ -118,6 +130,10 @@
         function doSubmitPost() {
             $.messager.confirm('是否发布!', '发布后大家都能收到咯，请确认您的操作!', function(r){
                 if (r){
+                    var t = $('#post_users').combotree('tree');	// get the tree object
+                    var n = t.tree('getSelected');		// get selected node
+                    alert(n.text);
+
                     alert('true!');
                 }
                 else

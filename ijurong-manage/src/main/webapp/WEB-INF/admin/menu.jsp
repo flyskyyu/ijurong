@@ -55,15 +55,23 @@ pageEncoding="UTF-8" %>
                     </ul>
                 </li>
 
-				<li class="nav-li">
-					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">参考页</span></a>
+				<li class="nav-li last-nav-li">
+					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">系统设置</span></a>
 					<ul class="subnav">
-						<li class="subnav-li" href="index.html" data-id="8"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">参考1</span></a></li>
-						<li class="subnav-li" href="form.html" data-id="9"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">参考2</span></a></li>
-						<li class="subnav-li" href="table.html" data-id="10"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">参考3</span></a></li>
-						<li class="subnav-li" data-id="11"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">自定义设置1</span></a></li>
+						<li class="subnav-li" href="appSet/appShufflingPic" data-id="17"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">app轮播图</span></a></li>
+						<li class="subnav-li" data-id="18"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">app皮肤</span></a></li>
 					</ul>
 				</li>
+
+				<%--<li class="nav-li">--%>
+					<%--<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">参考页</span></a>--%>
+					<%--<ul class="subnav">--%>
+						<%--<li class="subnav-li" href="index.html" data-id="8"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">参考1</span></a></li>--%>
+						<%--<li class="subnav-li" href="form.html" data-id="9"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">参考2</span></a></li>--%>
+						<%--<li class="subnav-li" href="table.html" data-id="10"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">参考3</span></a></li>--%>
+						<%--<li class="subnav-li" data-id="11"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">自定义设置1</span></a></li>--%>
+					<%--</ul>--%>
+				<%--</li>--%>
             </ul>
 
 			<ul class="nav" id="nav_officialManage" style="display: none;">
