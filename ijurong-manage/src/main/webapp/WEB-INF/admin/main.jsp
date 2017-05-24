@@ -57,6 +57,7 @@ pageEncoding="UTF-8" %>
                     <li><a href="javascript:;" id="companyManage">单位支部</a></li>
                     <li><a href="javascript:;" id="partyMemberManage">党员服务</a></li>
                     <li><a href="javascript:;" id="interactiveManage">互动交流</a></li>
+                    <li><a href="javascript:;" id="itemManage">物品管理</a></li>
                 </ul>
             </div>
             <div class="nav-btn">
@@ -232,7 +233,11 @@ $('.exitDialog input[type=button]').click(function(e) {
         $($('#mainIframe')[0].contentWindow.document).find(".nav").hide();
         $($('#mainIframe')[0].contentWindow.document).find("#nav_interactiveManage").show()
     });
-
+    $('#itemManage').click(function()
+    {
+        $($('#mainIframe')[0].contentWindow.document).find(".nav").hide();
+        $($('#mainIframe')[0].contentWindow.document).find("#nav_itemManage").show()
+    });
 	hideElement($('.user-opt'), $('.more-info'), function(current, target){
 
 		$('.more-info').removeClass('active'); 

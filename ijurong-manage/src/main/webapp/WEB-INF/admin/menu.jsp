@@ -36,13 +36,14 @@ pageEncoding="UTF-8" %>
                 <li class="nav-li">
                 	<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">通知公告</span></a>
                 	<ul class="subnav">
-                        <li class="subnav-li" data-id="4"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">通知公告</span></a></li>
+						<li class="subnav-li"  href="message/messageType" data-id="4"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">通知类型定义</span></a></li>
+                        <li class="subnav-li" href="message/message" data-id="5"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">发送通知公告</span></a></li>
                     </ul>
                 </li>
                 <li class="nav-li">
                 	<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">党务公开</span></a>
                     <ul class="subnav">
-                    	<li class="subnav-li" data-id="5"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党务公开</span></a></li>
+                    	<li class="subnav-li" data-id="6"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党务公开</span></a></li>
                     </ul>
                 </li>
                 <li class="nav-li last-nav-li">
@@ -128,7 +129,14 @@ pageEncoding="UTF-8" %>
 					</ul>
 				</li>
 			</ul>
-
+			<ul class="nav" id="nav_itemManage" style="display: none;">
+				<li class="nav-li">
+					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">物品管理</span></a>
+					<ul class="subnav">
+						<li class="subnav-li" href="/admin/item/listPage" data-id="61"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">物品管理</span></a></li>
+					</ul>
+				</li>
+			</ul>
             <div class="tree-list outwindow">
             	<div class="tree ztree"></div>
             </div>
