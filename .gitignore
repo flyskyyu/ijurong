@@ -1,5 +1,5 @@
 .DS_Store
-.idea
+.idea/
 .svn
 META-INF/
 !/src/main/webapp/META-INF
