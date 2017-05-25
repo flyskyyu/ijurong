@@ -13,6 +13,23 @@ pageEncoding="UTF-8" %>
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/skin_/login.css" />
 <script type="text/javascript" src="<%=basePath%>js/jquery.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/jquery.select.js"></script>
+    <style>
+        #randomcode_img {
+            position: absolute;
+            left: 206px;
+            width: 105px;
+            height: 38px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        .err_msg {
+            top: 325px;
+            position: relative;
+            left: 144px;
+            color: #cc0033;
+            font-size: 15px;
+        }
+    </style>
 <title>数字管理系统_用户登录</title>
 </head>
 
@@ -20,6 +37,7 @@ pageEncoding="UTF-8" %>
 <div id="container">
     <div id="bd">
     	<div id="main">
+            <form action="<%=basePath%>admin/loginUrl" method="post">
         	<div class="login-box">
                 <div id="logo"></div>
                 <h1></h1>
@@ -31,12 +49,16 @@ pageEncoding="UTF-8" %>
                 <div class="input psw" id="psw">
                     <label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
                     <span></span>
-                    <input type="password" id="password" />
+                    <input type="password" id="password" name="password"/>
                 </div>
                 <div class="input validate" id="validate">
                     <label for="valiDate">验证码</label>
-                    <input type="text" id="valiDate" />
-                    <div class="value">X3D5</div>
+                    <input type="text" id="valiDate" name="randomcode"/>
+                    <img id="randomcode_img" src="<%=basePath%>validatecode.jsp" alt=""
+                            width="56" height="20" align='absMiddle'  onclick="randomcode_refresh()"/>
+                </div>
+                <div class="err_msg">
+                    ${errMsg}
                 </div>
                 <!--<div class="styleArea">-->
                     <!--<div class="styleWrap">-->
@@ -48,9 +70,10 @@ pageEncoding="UTF-8" %>
                     <!--</div>-->
                 <!--</div>-->
                 <div id="btn" class="loginButton">
-                    <input type="button" class="button" value="登录"  />
+                    <input type="submit" class="button" value="登录"  />
                 </div>
             </div>
+            </form>
         </div>
         <div id="ft">CopyRight&nbsp;2017&nbsp;&nbsp;版权所有 &nbsp;&nbsp;苏ICP备00000000号</div>
     </div>
@@ -70,8 +93,12 @@ pageEncoding="UTF-8" %>
     });
 	$('select').select();
 	
-	$('.loginButton').click(function(e) {
+	/*$('.loginButton').click(function(e) {
         document.location.href = "main.html";
-    });
+    });*/
+
+    function randomcode_refresh() {
+        $('#randomcode_img').attr('src', '<%=basePath%>validatecode.jsp?t=' + new Date().getTime());
+   }
 </script>
 </html>

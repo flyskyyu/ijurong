@@ -17,12 +17,12 @@
             <artifactId>ijurong-common</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <!--<dependency>
+        <dependency>
             <groupId>com.party.construction</groupId>
             <artifactId>ijurong-shiro</artifactId>
             <version>1.0-SNAPSHOT</version>
         </dependency>
-        <dependency>
+        <!--<dependency>
             <groupId>com.party.construction</groupId>
             <artifactId>ijurong-sso</artifactId>
             <version>1.0-SNAPSHOT</version>
@@ -47,10 +47,10 @@
                 <configuration>
                     <overlays>
                         <!-- 单点登录模块 -->
-                        <overlay>
+                        <!--<overlay>
                             <groupId>com.party.construction</groupId>
                             <artifactId>ijurong-sso</artifactId>
-                        </overlay>
+                        </overlay>-->
                     </overlays>
                 </configuration>
             </plugin>

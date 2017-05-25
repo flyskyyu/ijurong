@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress ALL -->
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans.xsd ">
+
+    <description>apache shiro 配置</description>
+
+    <!-- 配置工厂bean,用于创建shiro用到的过滤器-->
+    <bean id="shiroSecurityFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!-- shiro的核心安全接口 -->
+        <property name="securityManager" ref="securityManager"/>
+        <!-- 没有登陆跳转的页面 -->
+        <property name="loginUrl" value="/admin/loginUrl"/>
+        <!-- 登陆成功跳转的页面 -->
+        <property name="successUrl" value="/admin/main"/>
+        <!-- 没有权限要跳转的链接 -->
+        <property name="unauthorizedUrl" value="/unauthorized"/>
+        <property name="filters">
+            <map>
+                <entry key="authc" value-ref="formAuthenticationFilter"/>
+            </map>
+        </property>
+        <!-- URL拦截规则-->
+        <property name="filterChainDefinitions">
+            <value>
+                /admin/logout = logout
+                /admin/** = authc
+            </value>
+        </property>
+    </bean>
+
+    <!-- 自定义formAuthenticationFilter,支持验证码-->
+    <bean id="formAuthenticationFilter" class="com.party.ijurong.filter.CustomFormAuthenticationFilter"></bean>
+
+    <bean id="ieduRealm" class="com.party.ijurong.shiro.MyRealm"/>
+    <!-- 使用默认的WebSecurityManager -->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="ieduRealm"/>
+        <property name="sessionManager" ref="sessionManager"/>
+    </bean>
+
+    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <property name="name" value="sid"/>
+        <property name="path" value="/"/>
+    </bean>
+
+    <!-- redisSessionDAO -->
+    <bean id="redisSessionDAO" class="com.party.ijurong.shiro.RedisSessionDAO">
+        <property name="expire" value="${shiro.expire}" />
+    </bean>
+
+    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <property name="sessionDAO" ref="redisSessionDAO"/>
+        <property name="sessionIdCookie" ref="sessionIdCookie"/>
+    </bean>
+</beans>

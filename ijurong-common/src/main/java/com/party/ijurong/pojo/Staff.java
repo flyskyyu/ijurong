@@ -40,6 +40,8 @@ public class Staff {
 
     private String email;
 
+    private String password;
+
     /**
      * 身份证号码
      */
@@ -443,4 +445,12 @@ public class Staff {
         this.updateStaffId = updateStaffId;
     }
 
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

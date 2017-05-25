@@ -1,8 +1,8 @@
 package com.party.ijurong.shiro;
 
 import com.party.ijurong.bean.SimpleUser;
-import com.party.ijurong.pojo.SysUser;
-import com.party.ijurong.service.SysUserService;
+import com.party.ijurong.pojo.Staff;
+import com.party.ijurong.service.StaffService;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -12,9 +12,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 /**
  * Created by Cloud on 2017/2/10.
  */
-public class IEduRealm extends AuthorizingRealm{
+public class MyRealm extends AuthorizingRealm{
     @Autowired
-    private SysUserService sysUserService;
+    private StaffService staffService;
 
     //授权
     @Override
@@ -27,7 +27,7 @@ public class IEduRealm extends AuthorizingRealm{
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
-        SysUser user = sysUserService.findByUsername(token.getUsername());
+        Staff user = staffService.queryByEmailOrPhoneNumber(token.getUsername());
         if(user == null) {
             return null; //用户不存在
         }

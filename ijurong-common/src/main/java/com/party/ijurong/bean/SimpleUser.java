@@ -1,5 +1,7 @@
 package com.party.ijurong.bean;
 
+import com.party.ijurong.pojo.Staff;
+
 import java.io.Serializable;
 
 /**
@@ -8,10 +10,16 @@ import java.io.Serializable;
 public class SimpleUser implements Serializable{
     private Integer userId;
     private String userName;
-
+    private Integer partyBranchId;
 
     public SimpleUser() {
 
+    }
+
+    public SimpleUser(Staff staff) {
+        this.userId = staff.getStaffId();
+        this.userName = staff.getStaffName();
+        this.partyBranchId = staff.getPartyBranchId();
     }
 
     public Integer getUserId() {
@@ -28,5 +36,13 @@ public class SimpleUser implements Serializable{
 
     public void setUserName(String userName) {
         this.userName = userName;
+    }
+
+    public Integer getPartyBranchId() {
+        return partyBranchId;
+    }
+
+    public void setPartyBranchId(Integer partyBranchId) {
+        this.partyBranchId = partyBranchId;
     }
 }

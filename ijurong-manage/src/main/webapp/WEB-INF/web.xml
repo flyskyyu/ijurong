@@ -88,10 +88,10 @@
     </filter-mapping>
     <!-- 访问/druid/index.html查看监控 -->
 
-    <!-- shiro security filter -->
-    <!-- 这里的filter-name要和spring的applicationContext-shiro.xml里的
+    <!-- shiro security filter
+     这里的filter-name要和spring的applicationContext-shiro.xml里的
                 org.apache.shiro.spring.web.ShiroFilterFactoryBean的bean name相同 -->
-    <!--<filter>
+    <filter>
         <filter-name>shiroSecurityFilter</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
         <init-param>
@@ -103,7 +103,7 @@
     <filter-mapping>
         <filter-name>shiroSecurityFilter</filter-name>
         <url-pattern>/*</url-pattern>
-    </filter-mapping>-->
+    </filter-mapping>
 
     <servlet>
         <servlet-name>DruidStatView</servlet-name>
