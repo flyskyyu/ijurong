@@ -125,6 +125,27 @@ var TT = {
         }
         return result;
     },
+    createEditBtn: function(array, formId) {
+        var result = '';
+        formId = formId || 'editBtnGroup';
+        for(var i = 0; i < array.length; i++) {
+            if(i != 0) result += '&nbsp;&nbsp;&nbsp;';
+            if(array[i] == 'ok') {
+                result += '<a href="#" class="easyui-linkbutton" data-options="iconCls:\'icon-ok\'" id="edit_btn_ok">确认</a>';
+            } else if(array[i] == 'yes') {
+                result += '<a href="#" class="easyui-linkbutton" data-options="iconCls:\'icon-ok\'" id="edit_btn_yes">同意</a>';
+            } else if(array[i] == 'no') {
+                result += '<a href="#" class="easyui-linkbutton" data-options="iconCls:\'icon-no\'" id="edit_btn_no">不同意</a>';
+            } else if(array[i] == 'cancel') {
+                result += '<a href="#" class="easyui-linkbutton" data-options="iconCls:\'icon-cancel\'" id="edit_btn_cancel">返回</a>';
+            }
+        }
+        $('#' + formId).html(result);
+        $('#edit_btn_ok').linkbutton();
+        $('#edit_btn_yes').linkbutton();
+        $('#edit_btn_no').linkbutton();
+        $('#edit_btn_cancel').linkbutton();
+    },
     disabledAll: function(formId) {
         var form = $('#' + formId);
         form.find('input').attr('disabled', '');

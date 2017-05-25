@@ -18,8 +18,8 @@
                                                  data-options="iconCls:'icon-search'" onclick="selectorSearch()">查找</a>&nbsp;
     </div>
   </div>
-  <table class="easyui-datagrid" id="selectorTableList" fitColumns="true" style="width:auto;"
-         data-options="url:'<%=basePath%>admin/member/list',rownumbers:true,singleSelect:true,collapsible:false,pagination:true,method:'get',pageSize:20">
+  <table  id="selectorTableList" fitColumns="true" style="width:auto;"
+         data-options="url:'<%=basePath%>admin/staff/list',rownumbers:true,singleSelect:true,collapsible:false,pagination:true,method:'get',pageSize:20">
     <thead>
     <tr>
       <th data-options="field:'staffName',width:100,align:'center'">姓名</th>

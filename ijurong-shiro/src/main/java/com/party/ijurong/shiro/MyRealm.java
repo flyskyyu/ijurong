@@ -3,6 +3,7 @@ package com.party.ijurong.shiro;
 import com.party.ijurong.bean.SimpleUser;
 import com.party.ijurong.pojo.Staff;
 import com.party.ijurong.service.StaffService;
+import org.apache.http.util.TextUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
@@ -27,6 +28,7 @@ public class MyRealm extends AuthorizingRealm{
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
         UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
+        if(TextUtils.isBlank(token.getUsername())) return null;
         Staff user = staffService.queryByEmailOrPhoneNumber(token.getUsername());
         if(user == null) {
             return null; //用户不存在

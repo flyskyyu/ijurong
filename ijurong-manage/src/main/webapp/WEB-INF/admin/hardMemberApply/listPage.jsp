@@ -24,7 +24,7 @@
         </select><span class="white_space"></span>
         <a href="#" class="easyui-linkbutton" id="btn_Search"
                                                  data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
-      <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" id="btn_add" style="display:none;">添加</a>&nbsp;
+      <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" id="btn_add">添加申请</a>&nbsp;
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" id="btn_remove" style="display:none;">删除</a>
     </div>
   </div>
@@ -78,7 +78,8 @@
       onLoad: function() {
         $('#editForm').attr('action', '<%=basePath%>admin/hardMemberApply/reply')
                 .form('load', rowData);
-        TT.disabledAllExcept('editForm');
+        TT.createEditBtn(['yes', 'no', 'cancel']);
+        $('#editUserName').attr('disabled', true);
         document.getElementById('replyInput').focus()
       }
     }).window('open');
@@ -93,17 +94,17 @@
       onLoad: function() {
         $('#editForm').attr('action', '#').form('load', rowData);
         TT.disabledAll('editForm');
-        $('#edit_btn_add').hide();
-        $('#edit_btn_no').hide();
+        TT.createEditBtn(['cancel']);
       }
     }).window('open');
   }
 
   $('#btn_add').bind('click', function() {
     $("#editWindow").window({
-      title: '新增优秀党员',
+      title: '新增困难党员/老党员申请',
       onLoad: function() {
         $('#editForm').attr('action', '<%=basePath%>admin/hardMemberApply/add');
+        TT.createEditBtn(['ok', 'cancel']);
       }
     }).window('open');
   });

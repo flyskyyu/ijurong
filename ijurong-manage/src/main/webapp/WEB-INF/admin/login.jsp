@@ -44,7 +44,7 @@ pageEncoding="UTF-8" %>
                 <div class="input username" id="username">
                     <label for="userName">用户名</label>
                     <span></span>
-                    <input type="text" id="userName" />
+                    <input type="text" id="userName" name="username"/>
                 </div>
                 <div class="input psw" id="psw">
                     <label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>

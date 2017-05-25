@@ -1,5 +1,6 @@
 package com.party.ijurong.service;
 
+import com.party.ijurong.bean.SimpleUser;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.authc.UnknownAccountException;
@@ -27,5 +28,10 @@ public class ShiroService {
             return LOGIN_OTHER_ERROR;
         }
         return LOGIN_OK;
+    }
+
+    public SimpleUser getUser() {
+        Subject subject = SecurityUtils.getSubject();
+        return (SimpleUser)subject.getPrincipal();
     }
 }

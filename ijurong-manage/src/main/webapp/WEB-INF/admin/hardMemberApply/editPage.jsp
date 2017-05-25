@@ -18,12 +18,13 @@
       <form method="post" id="editForm">
         <input type="hidden" name="isAgree" id="isAgree" data_no_disabled/>
         <input type="hidden" name="id" data_no_disabled/>
+          <input type="hidden" name="staffId" id="editUserId"/>
         <div class="column"><span class="current">困难党员申请信息</span></div>
         <table class="kv-table">
           <tbody>
           <tr>
             <td class="kv-label">困难党员姓名</td>
-            <td class="kv-content"><input type="text" name="staffName"></td>
+            <td class="kv-content"><input type="text" name="staffName" id="editUserName" readonly style="cursor:pointer;"></td>
             <td class="kv-label">是否困难党员</td>
             <td class="kv-content">
               <input type="radio" name="isHardMember" value="1"/>是&nbsp;&nbsp;
@@ -78,29 +79,46 @@
           </tbody>
         </table>
       </form>
-      <div style="text-align: center;"><a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'"
-                                          id="edit_btn_add">同意</a>&nbsp;&nbsp;&nbsp;
-        <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-no'" id="edit_btn_no">不同意</a>
-        &nbsp;&nbsp;&nbsp;
-        <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" id="edit_btn_cancel">返回</a>
-      </div>
+      <div style="text-align: center;" id="editBtnGroup"></div>
     </div>
   </div>
 </div>
+<div id="selectorWindow" class="easyui-window" title="选择人员"
+     data-options="modal:true,closed:true,iconCls:'icon-save',href:'<%=basePath%>admin/common/userSelectorPage'"
+     style="width:60%;height:80%;padding:10px;">
+</div>
 <script type="text/javascript">
-  $('#edit_btn_no').click(function () {
-    $('#isAgree').val(0);
-    onSubmit();
-  });
+    $('#editContainer').on('click', '#edit_btn_no', function() {
+        $('#isAgree').val(0);
+        onSubmit();
+    });
 
-  $('#edit_btn_cancel').click(function () {
-    $("#editWindow").window('close');
-  });
+    $('#editContainer').on('click', '#edit_btn_yes', function() {
+        $('#isAgree').val(1);
+        onSubmit();
+    });
 
-  $('#edit_btn_add').click(function () {
-    $('#isAgree').val(1);
-    onSubmit();
-  });
+    $('#editContainer').on('click', '#edit_btn_cancel', function() {
+        $("#editWindow").window('close');
+    });
+
+    $('#editContainer').on('click', '#edit_btn_ok', function() {
+        onSubmit();
+    });
+
+    $('#editUserName').click(function() {
+        $('#selectorWindow').window({
+            onLoad: function() {
+                $('#selectorTableList').datagrid({
+                    onClickRow: function(rowIndex, rowData) {
+                        $('#editUserId').val(rowData.staffId);
+                        $('#editUserName').val(rowData.staffName);
+                        $('#selectorWindow').window('close');
+                    }
+                });
+            }
+        }).window('open');
+    });
 
   function onSubmit() {
     if($(this).attr('aria-disabled')) return;

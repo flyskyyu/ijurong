@@ -25,6 +25,9 @@ public class StaffService extends BaseService<Staff> {
         if(staff.getStaffName() != null && StringUtils.isNotEmpty(staff.getStaffName().trim())) {
             criteria.andLike("staffName", "%" + staff.getStaffName() + "%");
         }
+        if(staff.getPartyBranchId() != null) {
+            criteria.andEqualTo("partyBranchId", staff.getPartyBranchId());
+        }
         PageHelper.startPage(page, rows);
         List<Staff> staffs = staffMapper.selectByExample(example);
         return new PageInfo<>(staffs);
@@ -34,7 +37,7 @@ public class StaffService extends BaseService<Staff> {
         Example example = new Example(Staff.class);
         Example.Criteria criteria = example.createCriteria();
         criteria.andEqualTo("email", emailOrPhoneNumber);
-        example.or(criteria.andEqualTo("phoneNumber", emailOrPhoneNumber));
+        example.or(example.createCriteria().andEqualTo("phoneNumber", emailOrPhoneNumber));
         List<Staff> staffs = staffMapper.selectByExample(example);
         if(staffs == null || staffs.size() == 0) {
             return null;

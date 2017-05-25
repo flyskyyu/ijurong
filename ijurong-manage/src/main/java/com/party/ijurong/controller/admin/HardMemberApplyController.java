@@ -43,6 +43,7 @@ public class HardMemberApplyController {
     public String add(HardMemberApply obj) {
         obj.setId(null);
         obj.setApplyTime(new Date());
+        obj.setIsAgree(null);
         applyService.save(obj);
         return "success";
     }
