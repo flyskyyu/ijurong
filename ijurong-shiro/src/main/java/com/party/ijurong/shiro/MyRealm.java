@@ -1,17 +1,20 @@
 package com.party.ijurong.shiro;
 
 import com.party.ijurong.bean.SimpleUser;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
+import com.party.ijurong.pojo.Staff;
+import com.party.ijurong.service.StaffService;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
+import org.springframework.beans.factory.annotation.Autowired;
 
 /**
  * Created by Cloud on 2017/2/10.
  */
-public class IEduRealm extends AuthorizingRealm{
+public class MyRealm extends AuthorizingRealm{
+    @Autowired
+    private StaffService staffService;
 
     //授权
     @Override
@@ -23,15 +26,14 @@ public class IEduRealm extends AuthorizingRealm{
     //登陆认证
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authenticationToken) throws AuthenticationException {
-        /*UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
-        SysUser user = sysUserService.findByUsername(token.getUsername());
+        UsernamePasswordToken token = (UsernamePasswordToken) authenticationToken;
+        Staff user = staffService.queryByEmailOrPhoneNumber(token.getUsername());
         if(user == null) {
             return null; //用户不存在
         }
         String password = user.getPassword();
         SimpleUser simpleUser = new SimpleUser(user);
         SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(simpleUser, password, this.getClass().getSimpleName());
-        return info;*/
-        return null;
+        return info;
     }
 }

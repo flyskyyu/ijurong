@@ -29,4 +29,16 @@ public class StaffService extends BaseService<Staff> {
         List<Staff> staffs = staffMapper.selectByExample(example);
         return new PageInfo<>(staffs);
     }
+
+    public Staff queryByEmailOrPhoneNumber(String emailOrPhoneNumber) {
+        Example example = new Example(Staff.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andEqualTo("email", emailOrPhoneNumber);
+        example.or(criteria.andEqualTo("phoneNumber", emailOrPhoneNumber));
+        List<Staff> staffs = staffMapper.selectByExample(example);
+        if(staffs == null || staffs.size() == 0) {
+            return null;
+        }
+        return staffs.get(0);
+    }
 }
