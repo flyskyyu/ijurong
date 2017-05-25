@@ -47,10 +47,10 @@
                 <configuration>
                     <overlays>
                         <!-- 单点登录模块 -->
-                        <overlay>
+                        <!--<overlay>
                             <groupId>com.party.construction</groupId>
                             <artifactId>ijurong-sso</artifactId>
-                        </overlay>
+                        </overlay>-->
                     </overlays>
                 </configuration>
             </plugin>
