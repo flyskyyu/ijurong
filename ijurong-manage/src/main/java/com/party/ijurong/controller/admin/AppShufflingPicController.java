@@ -8,6 +8,7 @@ import com.party.ijurong.service.MessageService;
 import com.party.ijurong.service.AppShufflingPicService;
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -35,6 +36,7 @@ import java.util.UUID;
 @RequestMapping("admin/appSet")
 @Controller
 public class AppShufflingPicController {
+
 
     @Autowired
     private AppShufflingPicService appShufflingPicService;
@@ -67,9 +69,8 @@ public class AppShufflingPicController {
                 System.out.println("文件类型: " + file.getContentType());
                 System.out.println("文件名称: " + file.getName());
                 System.out.println("文件原名: " + file.getOriginalFilename());
-                url=UUID.randomUUID().toString()+"."+file.getOriginalFilename().replace(".","-").split("-")[file.getOriginalFilename().replace(".","-").split("-").length-1];
                 try {
-                    fileUploadService.upload(file.getInputStream(),url);
+                    url = fileUploadService.upload(file.getInputStream(),UUID.randomUUID().toString()+"."+file.getOriginalFilename().replace(".","-").split("-")[file.getOriginalFilename().replace(".","-").split("-").length-1]);
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
@@ -94,8 +95,25 @@ public class AppShufflingPicController {
     @RequestMapping(value = "updateAppShufflingPic", method =
             { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
-    public String updateAppShufflingPic(HttpServletRequest httpServletRequest, @ModelAttribute AppShufflingPic appShufflingPic)
+    public String updateAppShufflingPic(@RequestParam("file") MultipartFile file,HttpServletRequest httpServletRequest, @ModelAttribute AppShufflingPic appShufflingPic)
     {
+
+        if(file.isEmpty()){
+            System.out.println("文件未上传");
+        }else{
+            System.out.println("文件长度: " + file.getSize());
+            System.out.println("文件类型: " + file.getContentType());
+            System.out.println("文件名称: " + file.getName());
+            System.out.println("文件原名: " + file.getOriginalFilename());
+            try {
+                String url = fileUploadService.upload(file.getInputStream(),UUID.randomUUID().toString()+"."+file.getOriginalFilename().replace(".","-").split("-")[file.getOriginalFilename().replace(".","-").split("-").length-1]);
+                appShufflingPic.setUrl(url);
+                appShufflingPic.setCreateTime(new Date());
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
         appShufflingPicService.updateAppShufflingPic(appShufflingPic);
         return "success";
     }

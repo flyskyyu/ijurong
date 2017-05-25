@@ -27,7 +27,7 @@ public class AppShufflingPicService extends BaseService<AppShufflingPic>{
         if(appShufflingPic.getName()!=null&&appShufflingPic.getName()!="") {
             example.createCriteria().andLike("name", "%" + appShufflingPic.getName() + "%");
         }
-//        example.setOrderByClause("create_time DESC");
+        example.setOrderByClause("create_time DESC");
         List<AppShufflingPic> list =mapper.selectByExampleAndRowBounds(example,rowBounds);
         long count = mapper.selectCountByExample(example);
         return new Page<AppShufflingPic>(count, list);

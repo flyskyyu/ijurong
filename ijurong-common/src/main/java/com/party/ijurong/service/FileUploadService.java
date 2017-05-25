@@ -14,7 +14,11 @@ public class FileUploadService {
     @Value("${uploadPath}")
     private String uploadPath;
 
-    public void upload(InputStream inputStream, String name) throws IOException {
+    @Value("${webSite}")
+    private String webSite;
+
+
+    public String upload(InputStream inputStream, String name) throws IOException {
         File file = new File(uploadPath);
         if (!file.exists()) {
             file.mkdirs();
@@ -28,6 +32,7 @@ public class FileUploadService {
         }
         bos.close();
         inputStream.close();
+        return webSite+"/static/"+name;
     }
 
 
