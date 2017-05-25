@@ -41,6 +41,11 @@
         <property name="sessionManager" ref="sessionManager"/>
     </bean>
 
+    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+        <property name="name" value="sid"/>
+        <property name="path" value="/"/>
+    </bean>
+
     <!-- redisSessionDAO -->
     <bean id="redisSessionDAO" class="com.party.ijurong.shiro.RedisSessionDAO">
         <property name="expire" value="${shiro.expire}" />
@@ -48,5 +53,6 @@
 
     <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
         <property name="sessionDAO" ref="redisSessionDAO"/>
+        <property name="sessionIdCookie" ref="sessionIdCookie"/>
     </bean>
 </beans>
