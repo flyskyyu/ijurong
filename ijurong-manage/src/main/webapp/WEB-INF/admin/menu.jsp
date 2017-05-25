@@ -145,6 +145,20 @@ pageEncoding="UTF-8" %>
 						<li class="subnav-li" href="/admin/itemReceive/listPage" data-id="62"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">物品申领</span></a></li>
 					</ul>
 				</li>
+				<li class="nav-li">
+					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">车辆管理</span></a>
+					<ul class="subnav">
+						<li class="subnav-li" href="/admin/car/listPage" data-id="71"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">车辆管理</span></a></li>
+						<li class="subnav-li" href="/admin/carOrder/listPage" data-id="72"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">车辆预定</span></a></li>
+					</ul>
+				</li>
+				<li class="nav-li">
+					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">会议室管理</span></a>
+					<ul class="subnav">
+						<li class="subnav-li" href="/admin/item/listPage" data-id="81"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">物品管理</span></a></li>
+						<li class="subnav-li" href="/admin/itemReceive/listPage" data-id="82"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">物品申领</span></a></li>
+					</ul>
+				</li>
 			</ul>
             <div class="tree-list outwindow">
             	<div class="tree ztree"></div>
