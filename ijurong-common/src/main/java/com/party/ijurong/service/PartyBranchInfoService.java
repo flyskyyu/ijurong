@@ -7,6 +7,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -74,5 +75,29 @@ public class PartyBranchInfoService extends BaseService<PartyBranchInfo>{
         mapper.delete(partyBranchInfo);
     }
 
+    /**
+     *
+     * @param id
+     * @return
+     */
+    public List<PartyBranchInfo> findSelfAndChildren(Integer id) {
+        List<PartyBranchInfo> results = new ArrayList<>();
+        PartyBranchInfo branchInfo = mapper.selectByPrimaryKey(id);
+        results.add(branchInfo);
+        //findAllChildren(id, results);
+        return results;
+    }
 
+    private List<PartyBranchInfo> findAllChildren(Integer id, List<PartyBranchInfo> results) {
+        PartyBranchInfo partyBranchInfo = new PartyBranchInfo();
+        //partyBranchInfo.setParentId(id);
+        List<PartyBranchInfo> infos = mapper.select(partyBranchInfo);
+        if(infos != null && infos.size() > 0) {
+            results.addAll(infos);
+            for(PartyBranchInfo info : infos) {
+                findAllChildren(info.getId(), results);
+            }
+        }
+        return results;
+    }
 }

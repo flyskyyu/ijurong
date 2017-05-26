@@ -16,6 +16,7 @@
 <div region="center" style="padding: 5px;">
   <div id="search_toolbar" style="padding: 5px; height: auto">
     <div style="padding: 5px;">
+      ${sessionScope.USER_KEY.staffName}
       物品名称：<input type="text" id="nameFilter">&nbsp;<a href="#"
                                                  class="easyui-linkbutton" id="btn_Search"
                                                  data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;

@@ -1,8 +1,10 @@
 package com.party.ijurong.bean;
 
+import com.party.ijurong.pojo.PartyBranchInfo;
 import com.party.ijurong.pojo.Staff;
 
 import java.io.Serializable;
+import java.util.List;
 
 /**
  * Created by Cloud on 2017/2/22.
@@ -11,6 +13,7 @@ public class SimpleUser implements Serializable{
     private Integer userId;
     private String userName;
     private Integer partyBranchId;
+    private List<PartyBranchInfo> branchInfos;
 
     public SimpleUser() {
 
@@ -44,5 +47,13 @@ public class SimpleUser implements Serializable{
 
     public void setPartyBranchId(Integer partyBranchId) {
         this.partyBranchId = partyBranchId;
+    }
+
+    public List<PartyBranchInfo> getBranchInfos() {
+        return branchInfos;
+    }
+
+    public void setBranchInfos(List<PartyBranchInfo> branchInfos) {
+        this.branchInfos = branchInfos;
     }
 }

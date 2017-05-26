@@ -34,8 +34,7 @@ public class MyRealm extends AuthorizingRealm{
             return null; //用户不存在
         }
         String password = user.getPassword();
-        SimpleUser simpleUser = new SimpleUser(user);
-        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(simpleUser, password, this.getClass().getSimpleName());
+        SimpleAuthenticationInfo info = new SimpleAuthenticationInfo(user.getStaffId(), password, this.getClass().getSimpleName());
         return info;
     }
 }
