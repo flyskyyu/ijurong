@@ -27,7 +27,7 @@ public class EnterpriseInfo {
 
     @Column(name = "create_date")
     @JsonSerialize(using = DateSerializer.class)
-    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date createDate;
 
     /**

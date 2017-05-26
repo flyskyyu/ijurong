@@ -89,6 +89,7 @@
 
 
         function openDialog(id) {
+            appShufflingPic_form.reset();
             $('#appShufflingPic_grid').datagrid('selectRow', id);
             var rowData = $('#appShufflingPic_grid').datagrid('getSelected');
             if (rowData != null) {

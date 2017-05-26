@@ -80,6 +80,7 @@
 
 
         function openDialog(id) {
+            resourceType_form.reset();
             $('#resourceType_grid').datagrid('selectRow', id);
             var rowData = $('#resourceType_grid').datagrid('getSelected');
             if (rowData != null) {

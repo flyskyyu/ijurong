@@ -86,6 +86,7 @@
 
 
     function openDialog(id) {
+        enterpriseInfo_form.reset();
       $('#enterpriseInfo_grid').datagrid('selectRow', id);
       var rowData = $('#enterpriseInfo_grid').datagrid('getSelected');
       if (rowData != null) {

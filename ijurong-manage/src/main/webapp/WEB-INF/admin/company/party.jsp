@@ -72,6 +72,14 @@
       $('#partyBranchInfo_grid').datagrid('load', partyBranchInfo);
     }
     function doSubmit() {
+      if($('#refGrid').combogrid('getValue')=="")
+      {
+        $('#enterpriseId').val('0');
+      }
+      if($('#refGrid1').combogrid('getValue')=="")
+      {
+        $('#fatherId').val('0');
+      }
       $('#partyBranchInfo_form').form('submit', {
         success : function(data) {
           if (data == "had") {
@@ -103,6 +111,8 @@
     $(function() {
       $('#btn_add').bind('click', function() {
         partyBranchInfo_form.reset();
+        $('#refGrid').combogrid('setValue', '');
+        $('#refGrid1').combogrid('setValue', '');
         partyBranchInfo_form.action = 'addPartyBranchInfo';
         $('#partyBranchInfo_dialog').dialog('setTitle', '添加支部');
         $('#level').combobox('clear');
@@ -177,6 +187,10 @@
 
 
     function openDialog(id) {
+      partyBranchInfo_form.reset();
+      $('#refGrid').combogrid('setValue', '');
+      $('#refGrid1').combogrid('setValue', '');
+
       $('#partyBranchInfo_grid').datagrid('selectRow', id);
       var rowData = $('#partyBranchInfo_grid').datagrid('getSelected');
       if (rowData != null) {
@@ -288,12 +302,7 @@
               <td class="kv-label">组织代码</td>
               <td class="kv-content"><input type="text" name="organizationCode"/></td>
             </tr>
-            <tr>
-              <td class="kv-label">上级组织名称</td>
-              <td class="kv-content"><input type="text" name="superiorOrganization"/></td>
-              <td class="kv-label">属地关系</td>
-              <td class="kv-content"><input type="text" name="relationship"/></td>
-            </tr>
+
             <tr>
               <td class="kv-label">组织地址</td>
               <td class="kv-content"><input type="text" name="address"/></td>
@@ -313,7 +322,10 @@
               <td class="kv-label">备注</td>
               <td class="kv-content"><input type="text" name="remark"/></td>
             </tr>
-
+            <tr>
+              <td class="kv-label">属地关系</td>
+              <td class="kv-content" colspan="3"><input type="text" name="relationship"/></td>
+            </tr>
             <tr>
               <td class="kv-label" >所属企业选择:</td>
               <td class="kv-content" colspan="3"><select id="refGrid" class="easyui-combogrid"

@@ -57,11 +57,13 @@ public class EnterpriseInfoController {
 
     @RequestMapping(value = "/findEnterpriseInfoByName", method = { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
-    public Page<EnterpriseInfo> findEnterpriseInfoByName(HttpServletRequest httpServletRequest,@RequestParam String q,
+    public Page<EnterpriseInfo> findEnterpriseInfoByName(HttpServletRequest httpServletRequest,@RequestParam(required=false) String q,
                                                     @ModelAttribute EnterpriseInfo enterpriseInfo, @RequestParam int page, @RequestParam int rows) {
         if(StringUtil.isEmpty(enterpriseInfo.getName()))
         {
-            enterpriseInfo.setName(q);
+            if(q!=null&&!q.equals("")) {
+                enterpriseInfo.setName(q);
+            }
         }
         Page<EnterpriseInfo> result = enterpriseInfoService.findEnterpriseInfosByEnterpriseInfo(enterpriseInfo, page, rows);
         return result;
@@ -125,11 +127,13 @@ public class EnterpriseInfoController {
 
     @RequestMapping(value = "/findPartyBranchInfoByName", method = { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
-    public Page<PartyBranchInfo> findPartyBranchInfoByName(HttpServletRequest httpServletRequest,@RequestParam String q,
+    public Page<PartyBranchInfo> findPartyBranchInfoByName(HttpServletRequest httpServletRequest,@RequestParam(required=false) String q,
                                                          @ModelAttribute PartyBranchInfo partyBranchInfo, @RequestParam int page, @RequestParam int rows) {
         if(StringUtil.isEmpty(partyBranchInfo.getOrganizationName()))
         {
-            partyBranchInfo.setOrganizationName(q);
+            if(q!=null&&!q.equals("")) {
+                partyBranchInfo.setOrganizationName(q);
+            }
         }
         Page<PartyBranchInfo> result = partyBranchInfoService.findPartyBranchInfosByPartyBranchInfo(partyBranchInfo, page, rows);
         return result;

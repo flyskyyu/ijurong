@@ -94,6 +94,7 @@
 
 
     function openDialog(id) {
+        volunteer_form.reset();
       $('#volunteer_grid').datagrid('selectRow', id);
       var rowData = $('#volunteer_grid').datagrid('getSelected');
       if (rowData != null) {
