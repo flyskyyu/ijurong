@@ -9,7 +9,6 @@
         <module>ijurong-common</module>
         <module>ijurong-manage</module>
         <module>ijurong-shiro</module>
-		<module>ijurong-sso</module>
     </modules>
     <packaging>pom</packaging>
 

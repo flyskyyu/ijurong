@@ -15,11 +15,7 @@ public class PartyBranchInfo {
     @Column(name = "enterprise_id")
     private Integer enterpriseId;
 
-    /**
-     * 上级组织
-     */
-    @Column(name = "superior_organization")
-    private String superiorOrganization;
+
 
     /**
      * 组织代码
@@ -34,6 +30,12 @@ public class PartyBranchInfo {
     private Integer organizationType;
 
     private String relationship;
+
+    /**
+     * 上级组织
+     */
+    @Column(name = "father_id")
+    private Integer fatherId;
 
     /**
      * 成立日期
@@ -88,23 +90,6 @@ public class PartyBranchInfo {
         this.enterpriseId = enterpriseId;
     }
 
-    /**
-     * 获取上级组织
-     *
-     * @return superior_organization - 上级组织
-     */
-    public String getSuperiorOrganization() {
-        return superiorOrganization;
-    }
-
-    /**
-     * 设置上级组织
-     *
-     * @param superiorOrganization 上级组织
-     */
-    public void setSuperiorOrganization(String superiorOrganization) {
-        this.superiorOrganization = superiorOrganization == null ? null : superiorOrganization.trim();
-    }
 
     /**
      * 获取组织代码
@@ -270,5 +255,13 @@ public class PartyBranchInfo {
      */
     public void setLatitude(String latitude) {
         this.latitude = latitude == null ? null : latitude.trim();
+    }
+
+    public Integer getFatherId() {
+        return fatherId;
+    }
+
+    public void setFatherId(Integer fatherId) {
+        this.fatherId = fatherId;
     }
 }

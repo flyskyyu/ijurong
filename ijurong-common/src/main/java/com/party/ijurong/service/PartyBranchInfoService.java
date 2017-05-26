@@ -45,6 +45,12 @@ public class PartyBranchInfoService extends BaseService<PartyBranchInfo>{
         return mapper.selectCount(partyBranchInfo);
     }
 
+    public PartyBranchInfo findPartyBranchInfoById(int id) {
+        PartyBranchInfo partyBranchInfo=new PartyBranchInfo();
+        partyBranchInfo.setId(id);
+        return  mapper.selectOne(partyBranchInfo);
+    }
+
     /**
      * 添加支部
      * @param partyBranchInfo
