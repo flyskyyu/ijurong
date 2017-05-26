@@ -123,6 +123,25 @@ public class EnterpriseInfoController {
         return result;
     }
 
+    @RequestMapping(value = "/findPartyBranchInfoByName", method = { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public Page<PartyBranchInfo> findPartyBranchInfoByName(HttpServletRequest httpServletRequest,@RequestParam String q,
+                                                         @ModelAttribute PartyBranchInfo partyBranchInfo, @RequestParam int page, @RequestParam int rows) {
+        if(StringUtil.isEmpty(partyBranchInfo.getOrganizationName()))
+        {
+            partyBranchInfo.setOrganizationName(q);
+        }
+        Page<PartyBranchInfo> result = partyBranchInfoService.findPartyBranchInfosByPartyBranchInfo(partyBranchInfo, page, rows);
+        return result;
+    }
+
+    @RequestMapping(value = "/findPartyBranchInfoById/{id}", method = { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public PartyBranchInfo findPartyBranchInfoById(HttpServletRequest httpServletRequest,@PathVariable int id) {
+        PartyBranchInfo result = partyBranchInfoService.findPartyBranchInfoById(id);
+        return result;
+    }
+
     @RequestMapping(value = "addPartyBranchInfo", method =
             { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
@@ -131,6 +150,7 @@ public class EnterpriseInfoController {
         long partyBranchInfoCount=partyBranchInfoService.findPartyBranchInfosByName(partyBranchInfo.getOrganizationName());
         if (partyBranchInfoCount==0)
         {
+            partyBranchInfo.setId(0);
             partyBranchInfoService.insertPartyBranchInfo(partyBranchInfo);
             return "success";
         }

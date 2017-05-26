@@ -190,6 +190,12 @@
           $('#refGrid').combogrid('setValue', data.name);
         });
       }
+      if(rowData.fatherId>0)//加载外键信息
+      {
+        $.post('findPartyBranchInfoById/' + rowData.fatherId, function(data) {
+          $('#refGrid1').combogrid('setValue', data.organizationName);
+        });
+      }
       partyBranchInfo_form.action = "updatePartyBranchInfo";
       $('#partyBranchInfo_dialog').dialog('setTitle', '支部帐号');
       $('#partyBranchInfo_dialog').dialog('open');
@@ -199,6 +205,11 @@
       $('#refGrid').combogrid({
         onSelect : function(rowIndex, rowData) {
           $('#enterpriseId').val(rowData.id);
+        }
+      });
+      $('#refGrid1').combogrid({
+        onSelect : function(rowIndex, rowData) {
+          $('#fatherId').val(rowData.id);
         }
       });
     });
@@ -324,6 +335,29 @@
               </select></td>
 
             </tr>
+            <tr>
+              <td class="kv-label" >所属支部选择:</td>
+              <td class="kv-content" colspan="3"><select id="refGrid1" class="easyui-combogrid"
+                                                         style="width: 230px"
+                                                         data-options="mode:'remote',
+							panelWidth: 350,
+							loadMsg: '正在搜索，请稍等...',
+							pagination : true,
+							idField: 'id',
+							textField: 'organizationName',
+							url: 'findPartyBranchInfoByName',
+				            columns: [[
+				            {field:'organizationName',title:'支部名称',width:100},
+				                 {field:'address',title:'支部地址',width:120},
+				                {field:'id',hidden:true}
+				            ]],
+				            fitColumns: true
+				            ">
+              </select></td>
+
+            </tr>
+
+            <input type="hidden" id="fatherId" name="fatherId" value="0" />
             <input type="hidden" id="enterpriseId" name="enterpriseId" value="0" />
             <input type="hidden" value="0" name="id" id="id" />
             </tbody>
