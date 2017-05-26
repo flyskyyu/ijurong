@@ -7,5 +7,5 @@ import tk.mybatis.mapper.common.Mapper;
 import java.util.List;
 
 public interface CarOrderMapper extends Mapper<CarOrder> {
-    List<CarOrderDto> queryCarOrderDtoList(CarOrderDto dto);
+    List<CarOrderDto> queryByCarOrderDto(CarOrderDto dto);
 }

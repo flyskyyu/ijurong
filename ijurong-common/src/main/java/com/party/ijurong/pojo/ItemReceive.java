@@ -30,7 +30,7 @@ public class ItemReceive {
      * 申请时间
      */
     @Column(name = "apply_time")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonSerialize(using = DateSerializer.class)
     private Date applyTime;
 
@@ -46,7 +46,7 @@ public class ItemReceive {
      * 领取时间
      */
     @Column(name = "receive_time")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonSerialize(using = DateSerializer.class)
     private Date receiveTime;
 

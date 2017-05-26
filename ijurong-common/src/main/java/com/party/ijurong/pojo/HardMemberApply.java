@@ -52,7 +52,7 @@ public class HardMemberApply {
 
     private String reply;
 
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonSerialize(using = DateSerializer.class)
     @Column(name = "apply_time")
     private Date applyTime;

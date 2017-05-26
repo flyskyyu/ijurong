@@ -34,9 +34,9 @@
     <tr>
       <th data-options="field:'staffName',width:100,align:'center'">姓名</th>
       <th data-options="field:'phoneNumber',width:60,align:'center'">电话</th>
-      <th data-options="field:'birthday',width:60,align:'center',formatter:TT.formatDate">车牌</th>
-      <th data-options="field:'applyTime',width:60,align:'center',formatter:TT.formatDate">借取时间</th>
-      <th data-options="field:'isAgree',width:60,align:'center',formatter:TT.formatYesNo">返还时间</th>
+      <th data-options="field:'carNum',width:60,align:'center'">车牌</th>
+      <th data-options="field:'startTime',width:60,align:'center'">借取时间</th>
+      <th data-options="field:'endTime',width:60,align:'center'">返还时间</th>
       <th data-options="field:'ids',width:60,align:'center',formatter:formatOperation">操作</th>
     </tr>
     </thead>
@@ -73,13 +73,13 @@
     var rowData = $('#tableList').datagrid('getSelected');
     if(rowData == null) return;
     $("#editWindow").window({
-      title: '审核困难党员/老党员申请',
+      title: '审核车辆预约申请',
       onLoad: function() {
+        TT.createEditBtn(['yes', 'no', 'cancel']);
+        $('#editUserNameTd').html(rowData.staffName);
+        document.getElementById('replyInput').focus()
         $('#editForm').attr('action', '<%=basePath%>admin/carOrder/reply')
                 .form('load', rowData);
-        TT.createEditBtn(['yes', 'no', 'cancel']);
-        $('#editUserName').attr('disabled', true);
-        document.getElementById('replyInput').focus()
       }
     }).window('open');
   }
@@ -100,7 +100,7 @@
 
   $('#btn_add').bind('click', function() {
     $("#editWindow").window({
-      title: '新增困难党员/老党员申请',
+      title: '新增汽车预约申请',
       onLoad: function() {
         $('#editForm').attr('action', '<%=basePath%>admin/carOrder/add');
         TT.createEditBtn(['ok', 'cancel']);

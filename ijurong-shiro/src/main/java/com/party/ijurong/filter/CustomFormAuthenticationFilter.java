@@ -29,7 +29,12 @@ public class CustomFormAuthenticationFilter extends FormAuthenticationFilter{
 
             //取出用户输入的验证码
             String randomcode = servletRequest.getParameter("randomcode");
-            if(validateCode == null || !validateCode.equals(randomcode)) {
+            if(randomcode == null) {
+                //第一次进入登录页面的场合
+                servletRequest.setAttribute(getFailureKeyAttribute(), "firstToLogin");
+                return true;
+            }
+            if(!validateCode.equals(randomcode)) {
                 servletRequest.setAttribute(getFailureKeyAttribute(), "randomCodeError");
                 //不再验证username,password,直接返回登陆页面
                 return true;

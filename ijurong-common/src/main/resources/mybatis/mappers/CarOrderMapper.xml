@@ -16,8 +16,8 @@
         <result column="phone_number" property="phoneNumber" jdbcType="INTEGER"/>
     </resultMap>
 
-    <select id="queryCarOrderDtoList"  parameterType="CarOrderDto" resultMap="CarOrderDtoMap">
-        SELECT car.*, staff_name,  car_num, birthday, phone_number FROM car_order, car, staff
+    <select id="queryByCarOrderDto"  parameterType="CarOrderDto" resultMap="CarOrderDtoMap">
+        SELECT car_order.*, staff_name,  car_num, car.party_branch_id, phone_number FROM car_order, car, staff
         <where>
             car_order.car_id = car.id and car_order.staff_id = staff.staff_id
             <if test="staffName != null and staffName != ''">

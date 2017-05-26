@@ -1,8 +1,10 @@
 package com.party.ijurong.controller.admin;
 
+import com.party.ijurong.service.ShiroService;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.shiro.authc.IncorrectCredentialsException;
 import org.apache.shiro.authc.UnknownAccountException;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -13,6 +15,9 @@ import javax.servlet.http.HttpServletRequest;
  */
 @Controller
 public class LoginController {
+    @Autowired
+    private ShiroService shiroService;
+
     @RequestMapping("admin/loginUrl")
     public String login(HttpServletRequest request) {
         //从登录失败中获取异常信息
@@ -25,9 +30,15 @@ public class LoginController {
                 request.setAttribute("errMsg", "密码错误");
             } else if("randomCodeError".equals(exceptionName)) {
                 request.setAttribute("errMsg", "验证码错误");
+            } else if("firstToLogin".equals(exceptionName)) {
+                //第一次进入登录页面不显示错误信息
             } else {
                 request.setAttribute("errMsg", "未知错误");
             }
+        }
+        //已经成功到主页面
+        if(shiroService.getUser() != null) {
+            return "main";
         }
         //登录失败还到login页面
         return "login";

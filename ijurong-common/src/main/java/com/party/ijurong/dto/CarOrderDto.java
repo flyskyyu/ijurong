@@ -10,6 +10,7 @@ public class CarOrderDto extends CarOrder {
     private String carNum;
     private Integer partyBranchId;
     private String phoneNumber;
+    private int typeFilter;
 
     public String getStaffName() {
         return staffName;
@@ -41,5 +42,13 @@ public class CarOrderDto extends CarOrder {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public int getTypeFilter() {
+        return typeFilter;
+    }
+
+    public void setTypeFilter(int typeFilter) {
+        this.typeFilter = typeFilter;
     }
 }

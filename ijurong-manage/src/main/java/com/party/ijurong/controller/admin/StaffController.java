@@ -32,4 +32,16 @@ public class StaffController {
         PageInfo<Staff> pageInfo = staffService.queryByStaff(staff, page, rows);
         return  new Page(pageInfo);
     }
+
+    @RequestMapping(value = "listByQ")
+    @ResponseBody
+    public Page<Staff> listByQ(String q, @RequestParam(defaultValue = "1")int page
+            , @RequestParam(defaultValue = "20")int rows) {
+        Staff staff = new Staff();
+        staff.setStaffName(q);
+        SimpleUser user = shiroService.getUser();
+        staff.setPartyBranchId(user.getPartyBranchId());
+        PageInfo<Staff> pageInfo = staffService.queryByStaff(staff, page, rows);
+        return  new Page(pageInfo);
+    }
 }

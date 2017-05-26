@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.party.ijurong.bean.Page;
 import com.party.ijurong.dto.CarOrderDto;
 import com.party.ijurong.dto.ExcellentMemberDto;
+import com.party.ijurong.pojo.CarOrder;
 import com.party.ijurong.service.CarOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -30,15 +31,16 @@ public class CarOrderController {
 
     @RequestMapping(value = "update")
     @ResponseBody
-    public String update(CarOrderDto obj) {
+    public String update(CarOrder obj) {
         carOrderService.updateSelective(obj);
         return "success";
     }
 
     @RequestMapping(value = "add")
     @ResponseBody
-    public String add(CarOrderDto obj) {
+    public String add(CarOrder obj) {
         obj.setId(null);
+        obj.setIsAgree(null);
         carOrderService.save(obj);
         return "success";
     }
@@ -52,7 +54,7 @@ public class CarOrderController {
 
     @RequestMapping(value = "reply")
     @ResponseBody
-    public String reply(CarOrderDto apply) {
+    public String reply(CarOrder apply) {
         carOrderService.apply(apply);
         return "success";
     }

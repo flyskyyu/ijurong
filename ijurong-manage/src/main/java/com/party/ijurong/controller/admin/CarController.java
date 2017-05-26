@@ -36,6 +36,18 @@ public class CarController {
         return  new Page(pageInfo);
     }
 
+    @RequestMapping(value = "listByQ")
+    @ResponseBody
+    public Page<ExcellentMemberDto> listByQ(String q, @RequestParam(defaultValue = "1")int page
+            , @RequestParam(defaultValue = "20")int rows) {
+        Car car = new Car();
+        car.setCarNum(q);
+        SimpleUser user = shiroService.getUser();
+        car.setPartyBranchId(user.getBranchInfos().get(0).getId());
+        PageInfo<Car> pageInfo = carService.queryByCar(car, page, rows);
+        return  new Page(pageInfo);
+    }
+
     @RequestMapping(value = "update")
     @ResponseBody
     public String update(Car obj) {
