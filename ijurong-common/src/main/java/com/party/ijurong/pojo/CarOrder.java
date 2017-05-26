@@ -21,6 +21,9 @@ public class CarOrder {
     @Column(name = "end_time")
     private Date endTime;
 
+    @Column(name = "is_agree")
+    private Byte isAgree;
+
     /**
      * 备注
      */
@@ -128,5 +131,13 @@ public class CarOrder {
      */
     public void setReply(String reply) {
         this.reply = reply == null ? null : reply.trim();
+    }
+
+    public Byte getIsAgree() {
+        return isAgree;
+    }
+
+    public void setIsAgree(Byte isAgree) {
+        this.isAgree = isAgree;
     }
 }

@@ -6,6 +6,7 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%
   String path = request.getContextPath();
   String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -17,17 +18,24 @@
          style="width: 100%;;">
       <form method="post" id="editForm">
         <input type="hidden" name="id"/>
-        <input type="hidden" name="partyBranchId"/>
         <div class="column"><span class="current">车辆信息</span></div>
         <table class="kv-table">
           <tbody>
           <tr>
+            <td class="kv-label">所属支部</td>
+            <td class="kv-content">
+              <select class="easyui-combobox" name="partyBranchId">
+                <c:forEach var="branch" items="${sessionScope.USER_KEY.branchInfos}">
+                  <option value="${branch.id}">${branch.organizationName}</option>
+                </c:forEach>
+              </select>
+            </td>
             <td class="kv-label">车牌号</td>
-            <td class="kv-content" colspan="2"><input type="text" name="carNum"></td>
+            <td class="kv-content"><input type="text" name="carNum"></td>
           </tr>
           <tr>
             <td class="kv-label">车辆介绍</td>
-            <td class="kv-content" colspan="2"><textarea name="introduce" rows="3"></textarea></td>
+            <td class="kv-content" colspan="3"><textarea name="introduce" rows="3"></textarea></td>
           </tr>
           </tbody>
         </table>

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.party.ijurong.mapper.CarOrderMapper">
+    <resultMap id="CarOrderDtoMap" type="CarOrderDto">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="car_id" property="carId" jdbcType="INTEGER"/>
+        <result column="staff_id" property="staffId" jdbcType="INTEGER"/>
+        <result column="start_time" property="startTime" jdbcType="TIMESTAMP"/>
+        <result column="end_time" property="endTime" jdbcType="TIMESTAMP"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="reply" property="reply" jdbcType="VARCHAR"/>
+        <result column="car_num" property="carNum" jdbcType="VARCHAR"/>
+        <result column="staff_name" property="staffName" jdbcType="VARCHAR"/>
+        <result column="is_agree" property="isAgree" jdbcType="TINYINT"/>
+        <result column="party_branch_id" property="partyBranchId" jdbcType="INTEGER"/>
+        <result column="phone_number" property="phoneNumber" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="queryCarOrderDtoList"  parameterType="CarOrderDto" resultMap="CarOrderDtoMap">
+        SELECT car.*, staff_name,  car_num, birthday, phone_number FROM car_order, car, staff
+        <where>
+            car_order.car_id = car.id and car_order.staff_id = staff.staff_id
+            <if test="staffName != null and staffName != ''">
+                and staff_name like concat('%', #{staffName}, '%')
+            </if>
+            <if test="partyBranchId != null">
+                and car.party_branch_id = ${partyBranchId}
+            </if>
+            <if test="typeFilter == 1">
+                and is_agree is null
+            </if>
+            <if test="typeFilter == 2">
+                and is_agree is not null
+            </if>
+        </where>
+    </select>
+</mapper>

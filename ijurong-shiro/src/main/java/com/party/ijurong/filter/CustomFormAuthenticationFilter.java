@@ -1,6 +1,10 @@
 package com.party.ijurong.filter;
 
+import com.party.ijurong.service.ShiroService;
+import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.subject.Subject;
 import org.apache.shiro.web.filter.authc.FormAuthenticationFilter;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
@@ -11,6 +15,9 @@ import javax.servlet.http.HttpSession;
  * Created by Cloud on 2017/5/16.
  */
 public class CustomFormAuthenticationFilter extends FormAuthenticationFilter{
+    @Autowired
+    private ShiroService shiroService;
+
     @Override
     protected boolean onAccessDenied(ServletRequest request, ServletResponse response) throws Exception {
         //登陆页面的场合，判断验证码
@@ -29,5 +36,11 @@ public class CustomFormAuthenticationFilter extends FormAuthenticationFilter{
             }
         }
         return super.onAccessDenied(request, response);
+    }
+
+    @Override
+    protected boolean onLoginSuccess(AuthenticationToken token, Subject subject, ServletRequest request, ServletResponse response) throws Exception {
+        shiroService.getUser(); //在session中初始化user数据
+        return super.onLoginSuccess(token, subject, request, response);
     }
 }
