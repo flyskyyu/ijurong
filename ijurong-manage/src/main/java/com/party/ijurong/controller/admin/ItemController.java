@@ -22,7 +22,7 @@ public class ItemController {
 
     @RequestMapping(value = "list")
     @ResponseBody
-    public Page<Staff> list(Item item, @RequestParam(defaultValue = "1")int page
+    public Page<Item> list(Item item, @RequestParam(defaultValue = "1")int page
             , @RequestParam(defaultValue = "20")int rows) {
         PageInfo<Item> pageInfo = itemService.queryByItem(item, page, rows);
         return  new Page(pageInfo);

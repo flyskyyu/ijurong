@@ -25,7 +25,7 @@ public class MemberServeController {
 
     @RequestMapping(value = "list")
     @ResponseBody
-    public Page<Staff> list(MemberServeDto dto, @RequestParam(defaultValue = "1")int page
+    public Page<MemberServeDto> list(MemberServeDto dto, @RequestParam(defaultValue = "1")int page
             , @RequestParam(defaultValue = "20")int rows) {
         PageInfo<MemberServeDto> pageInfo = serveService.queryServeDtoList(dto, page, rows);
         return  new Page(pageInfo);

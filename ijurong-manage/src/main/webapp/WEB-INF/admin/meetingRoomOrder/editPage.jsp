@@ -18,14 +18,14 @@
       <form method="post" id="editForm">
         <input type="hidden" name="isAgree" id="isAgree" data_no_disabled/>
         <input type="hidden" name="id" data_no_disabled/>
-        <div class="column"><span class="current">车辆预约</span></div>
+        <div class="column"><span class="current">会议室预约</span></div>
         <table class="kv-table">
           <tbody>
           <tr>
             <td class="kv-label">申请人姓名</td>
             <td class="kv-content" id="editUserNameTd"><jsp:include page="../common/staffCombogrid.jsp"/></td>
-            <td class="kv-label">车牌号</td>
-            <td class="kv-content"><jsp:include page="../common/carCombogrid.jsp"/></td>
+            <td class="kv-label">会议室</td>
+            <td class="kv-content"><jsp:include page="../common/meetingRoomCombogrid.jsp"/></td>
           </tr>
           <tr>
             <td class="kv-label">借取时间</td>
@@ -94,7 +94,7 @@
           $('#editWindow').dialog('close');
           $('#tableList').datagrid('reload');
         } else if(data == 'reservation_already'){
-            $.messager.alert('提示', '该车辆在选定时间段内已被预约!');
+            $.messager.alert('提示', '该会议室在选定时间段内已被预约!');
         } else {
           $.messager.alert('提示', '提交失败!');
         }

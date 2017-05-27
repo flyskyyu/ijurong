@@ -1,30 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.party.ijurong.mapper.CarOrderMapper">
-    <resultMap id="CarOrderDtoMap" type="CarOrderDto">
+<mapper namespace="com.party.ijurong.mapper.MeetingRoomOrderMapper">
+    <resultMap id="RoomOrderDtoMap" type="MeetingRoomOrderDto">
         <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="car_id" property="carId" jdbcType="INTEGER"/>
         <result column="staff_id" property="staffId" jdbcType="INTEGER"/>
+        <result column="room_id" property="roomId" jdbcType="INTEGER"/>
         <result column="start_time" property="startTime" jdbcType="TIMESTAMP"/>
         <result column="end_time" property="endTime" jdbcType="TIMESTAMP"/>
-        <result column="remark" property="remark" jdbcType="VARCHAR"/>
+        <result column="remakr" property="remakr" jdbcType="VARCHAR"/>
         <result column="reply" property="reply" jdbcType="VARCHAR"/>
         <result column="is_agree" property="isAgree" jdbcType="TINYINT"/>
-        <result column="car_num" property="carNum" jdbcType="VARCHAR"/>
         <result column="staff_name" property="staffName" jdbcType="VARCHAR"/>
         <result column="party_branch_id" property="partyBranchId" jdbcType="INTEGER"/>
         <result column="phone_number" property="phoneNumber" jdbcType="INTEGER"/>
     </resultMap>
-
-    <select id="queryByCarOrderDto"  parameterType="CarOrderDto" resultMap="CarOrderDtoMap">
-        SELECT car_order.*, staff_name,  car_num, car.party_branch_id, phone_number FROM car_order, car, staff
+    <select id="queryByRoomOrderDto"  parameterType="MeetingRoomOrderDto" resultMap="RoomOrderDtoMap">
+        SELECT meeting_room_order.*, staff_name,  name, meeting_room.party_branch_id, phone_number FROM meeting_room_order, meeting_room, staff
         <where>
-            car_order.car_id = car.id and car_order.staff_id = staff.staff_id
+            meeting_room_order.room_id = meeting_room.id and meeting_room_order.staff_id = staff.staff_id
             <if test="staffName != null and staffName != ''">
                 and staff_name like concat('%', #{staffName}, '%')
             </if>
             <if test="partyBranchId != null">
-                and car.party_branch_id = ${partyBranchId}
+                and meeting_room.party_branch_id = ${partyBranchId}
             </if>
             <if test="typeFilter == 1">
                 and is_agree is null
@@ -35,8 +33,8 @@
         </where>
     </select>
 
-    <select id="queryOrdeCarCount"  parameterType="CarOrder" resultType="int">
-        SELECT COUNT(1) FROM car_order WHERE  car_id = #{carId} and is_agree = 1
+    <select id="queryOrdeRoomCount"  parameterType="MeetingRoomOrder" resultType="int">
+        SELECT COUNT(1) FROM meeting_room_order WHERE  room_id = #{roomId} and is_agree = 1
         and (start_time between #{startTime} and #{endTime}  or end_time between #{startTime} and #{endTime})
     </select>
 </mapper>

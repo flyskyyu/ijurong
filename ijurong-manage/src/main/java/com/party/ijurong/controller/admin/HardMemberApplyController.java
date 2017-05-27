@@ -25,7 +25,7 @@ public class HardMemberApplyController {
 
     @RequestMapping(value = "list")
     @ResponseBody
-    public Page<ExcellentMemberDto> list(HardMemberApplyDto dto, @RequestParam(defaultValue = "1")int page
+    public Page<HardMemberApplyDto> list(HardMemberApplyDto dto, @RequestParam(defaultValue = "1")int page
             , @RequestParam(defaultValue = "20")int rows) {
         PageInfo<HardMemberApplyDto> pageInfo = applyService.queryApplyDtoList(dto, page, rows);
         return  new Page(pageInfo);

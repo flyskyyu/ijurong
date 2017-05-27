@@ -8,4 +8,6 @@ import java.util.List;
 
 public interface CarOrderMapper extends Mapper<CarOrder> {
     List<CarOrderDto> queryByCarOrderDto(CarOrderDto dto);
+
+    int queryOrdeCarCount(CarOrder carOrder);
 }

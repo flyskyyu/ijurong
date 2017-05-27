@@ -153,7 +153,9 @@ var TT = {
             $(this).attr('title', $(this).val());
         });
         form.find('textarea').attr('disabled', '');
-        form.find('select').attr('disabled', 'disabled').combobox('disable');
+        form.find('select').attr('disabled', 'disabled')
+        form.find('.easyui-combobox').combobox('disable');
+        form.find('.easyui-combogrid').combogrid('disable');
     },
     disabledAllExcept: function(formId) {
         var form = $('#' + formId);

@@ -29,12 +29,12 @@
     </div>
   </div>
   <table class="easyui-datagrid" id="tableList" fitColumns="true" style="width:auto;"
-         data-options="url:'<%=basePath%>admin/carOrder/list',rownumbers:true,singleSelect:true,collapsible:false,pagination:true,method:'get',pageSize:20">
+         data-options="url:'<%=basePath%>admin/meetingRoomOrder/list',rownumbers:true,singleSelect:true,collapsible:false,pagination:true,method:'get',pageSize:20">
     <thead>
     <tr>
       <th data-options="field:'staffName',width:60,align:'center'">姓名</th>
       <th data-options="field:'phoneNumber',width:60,align:'center'">电话</th>
-      <th data-options="field:'carNum',width:60,align:'center'">车牌</th>
+      <th data-options="field:'name',width:60,align:'center'">会议室</th>
       <th data-options="field:'startTime',width:60,align:'center'">借取时间</th>
       <th data-options="field:'endTime',width:60,align:'center'">返还时间</th>
       <th data-options="field:'isAgree',width:30,align:'center',formatter:TT.formatYesNo">是否同意</th>
@@ -43,7 +43,7 @@
     </thead>
   </table>
   <div id="editWindow" class="easyui-window"
-       data-options="modal:true,closed:true,iconCls:'icon-save',href:'<%=basePath%>admin/carOrder/editPage'"
+       data-options="modal:true,closed:true,iconCls:'icon-save',href:'<%=basePath%>admin/meetingRoomOrder/editPage'"
        style="width:90%;height:80%;padding:10px;">
   </div>
 </div>
@@ -62,7 +62,7 @@
       $("#editWindow").window({
         title: '查看申请',
         onLoad: function() {
-          $('#editForm').attr('action', '<%=basePath%>admin/carOrder/update')
+          $('#editForm').attr('action', '<%=basePath%>admin/meetingRoomOrder/update')
                   .form('load', rowData);
         }
       }).window('open');
@@ -74,12 +74,12 @@
     var rowData = $('#tableList').datagrid('getSelected');
     if(rowData == null) return;
     $("#editWindow").window({
-      title: '审核车辆预约申请',
+      title: '审核会议室预约申请',
       onLoad: function() {
         TT.createEditBtn(['yes', 'no', 'cancel']);
         $('#editUserName').combogrid('disable');
         document.getElementById('replyInput').focus()
-        $('#editForm').attr('action', '<%=basePath%>admin/carOrder/reply')
+        $('#editForm').attr('action', '<%=basePath%>admin/meetingRoomOrder/reply')
                 .form('load', rowData);
       }
     }).window('open');
@@ -90,7 +90,7 @@
     var rowData = $('#tableList').datagrid('getSelected');
     if(rowData == null) return;
     $("#editWindow").window({
-      title: '查看车辆预约申请',
+      title: '查看会议室预约申请',
       onLoad: function() {
         $('#editForm').attr('action', '#').form('load', rowData);
         TT.disabledAll('editForm');
@@ -101,9 +101,9 @@
 
   $('#btn_add').bind('click', function() {
     $("#editWindow").window({
-      title: '新增汽车预约申请',
+      title: '新增会议室预约申请',
       onLoad: function() {
-        $('#editForm').attr('action', '<%=basePath%>admin/carOrder/add');
+        $('#editForm').attr('action', '<%=basePath%>admin/meetingRoomOrder/add');
         TT.createEditBtn(['ok', 'cancel']);
       }
     }).window('open');
@@ -116,7 +116,7 @@
     $.messager.confirm('确认','确定删除姓名为 '+rowData.staffName+' 的申请记录吗？',function(r){
       if (r){
         var params = {"id":rowData.id};
-        $.post("<%=basePath%>admin/carOrder/delete",params, function(data){
+        $.post("<%=basePath%>admin/meetingRoomOrder/delete",params, function(data){
           if(data == 'success'){
             $("#tableList").datagrid("reload");
           } else {

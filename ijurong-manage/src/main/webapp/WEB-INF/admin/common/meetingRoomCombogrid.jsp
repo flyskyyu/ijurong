@@ -10,7 +10,7 @@
   String path = request.getContextPath();
   String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<select id="carComogrid" class="easyui-combogrid" name="carId"
+<select id="carComogrid" class="easyui-combogrid" name="roomId"
         style="width: 230px"
         data-options="mode:'remote',
                             delay: 700,
@@ -18,10 +18,10 @@
 							loadMsg: '正在搜索，请稍等...',
 							pagination : true,
 							idField: 'id',
-							textField: 'carNum',
-							url: '<%=basePath%>admin/car/listByQ',
+							textField: 'name',
+							url: '<%=basePath%>admin/meetingRoom/listByQ',
 				            columns: [[
-				            {field:'carNum',title:'车牌',width:100},
+				            {field:'name',title:'会议室',width:100},
 				                 {field:'introduce',title:'介绍',width:120}
 				            ]],
 				            fitColumns: true

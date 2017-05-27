@@ -7,6 +7,7 @@ import com.party.ijurong.mapper.CarOrderMapper;
 import com.party.ijurong.pojo.CarOrder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -15,6 +16,8 @@ import java.util.List;
  */
 @Service
 public class CarOrderService extends BaseService<CarOrder> {
+    public final static int OK = 1;
+    public final static int RESERVATION_ALREADY = 2; //已经预约
     @Autowired
     private CarOrderMapper carOrderMapper;
 
@@ -24,7 +27,17 @@ public class CarOrderService extends BaseService<CarOrder> {
         return new PageInfo<>(dtos);
     }
 
-    public void apply(CarOrder apply) {
+    public int apply(CarOrder apply) {
+        //同意的场合判断车辆是否已经预约
+        if(apply.getIsAgree() == 1) {
 
+            if(carOrderMapper.queryOrdeCarCount(apply) > 0) {
+                return RESERVATION_ALREADY;
+            }
+        }
+
+        apply.setStaffId(null);
+        carOrderMapper.updateByPrimaryKeySelective(apply);
+        return OK;
     }
 }

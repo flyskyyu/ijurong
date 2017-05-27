@@ -17,7 +17,7 @@
 <div region="center" style="padding: 5px;">
   <div id="search_toolbar" style="padding: 5px; height: auto">
     <div style="padding: 5px;">
-      物品名称：<input type="text" id="nameFilter">&nbsp;
+      会议室名称：<input type="text" id="nameFilter">&nbsp;
         所属支部：<select class="easyui-combobox" id="branchFilter">
           <c:forEach var="branch" items="${sessionScope.USER_KEY.branchInfos}">
             <option value="${branch.id}">${branch.organizationName}</option>
@@ -29,24 +29,24 @@
     </div>
   </div>
   <table class="easyui-datagrid" id="tableList" fitColumns="true" style="width:auto;"
-         data-options="url:'<%=basePath%>admin/car/list',rownumbers:true,singleSelect:true,collapsible:false,pagination:true,method:'get',pageSize:20">
+         data-options="url:'<%=basePath%>admin/meetingRoom/list',rownumbers:true,singleSelect:true,collapsible:false,pagination:true,method:'get',pageSize:20">
     <thead>
     <tr>
-      <th data-options="field:'carNum',width:40,align:'center'">车牌</th>
+      <th data-options="field:'name',width:40,align:'center'">会议室</th>
       <th data-options="field:'introduce',width:100,align:'center'">介绍</th>
       <th data-options="field:'ids',width:40,align:'center',formatter:formatOperation">操作</th>
     </tr>
     </thead>
   </table>
   <div id="editWindow" class="easyui-window"
-       data-options="modal:true,closed:true,iconCls:'icon-save',href:'<%=basePath%>admin/car/editPage'"
+       data-options="modal:true,closed:true,iconCls:'icon-save',href:'<%=basePath%>admin/meetingRoom/editPage'"
        style="width:90%;height:80%;padding:10px;">
   </div>
 </div>
 <script>
   function doSearch() {
     var params = {};
-    params.itemName = $('#nameFilter').val();
+    params.name = $('#nameFilter').val();
     params.partyBranchId = $('#branchFilter').val();
     $('#tableList').datagrid('load', params);
   }
@@ -56,9 +56,9 @@
     var rowData = $('#tableList').datagrid('getSelected');
     if (rowData != null) {
       $("#editWindow").window({
-        title: '编辑车辆信息',
+        title: '编辑会议室',
         onLoad: function() {
-          $('#editForm').attr('action', '<%=basePath%>admin/car/update')
+          $('#editForm').attr('action', '<%=basePath%>admin/meetingRoom/update')
                   .form('load', rowData);
         }
       }).window('open');
@@ -67,9 +67,9 @@
 
   $('#btn_add').bind('click', function() {
     $("#editWindow").window({
-      title: '新增车辆',
+      title: '新增会议室',
       onLoad: function() {
-        $('#editForm').attr('action', '<%=basePath%>admin/car/add');
+        $('#editForm').attr('action', '<%=basePath%>admin/meetingRoom/add');
       }
     }).window('open');
   });
@@ -78,14 +78,14 @@
     $('#tableList').datagrid('selectRow', rowIndex);
     var rowData = $('#tableList').datagrid('getSelected');
     if(rowData == null) return;
-    $.messager.confirm('确认','确定车牌号为 '+rowData.carNum+' 的记录吗？',function(r){
+    $.messager.confirm('确认','确定会议室名为 '+rowData.name+' 的记录吗？',function(r){
       if (r){
         var params = {"id":rowData.id};
-        $.post("<%=basePath%>admin/car/delete",params, function(data){
+        $.post("<%=basePath%>admin/meetingRoom/delete",params, function(data){
           if(data == 'success'){
             $("#tableList").datagrid("reload");
           } else {
-            $.messager.alert('删除出现错误');
+            $.messager.alert('提示','删除出现错误');
           }
         });
       }

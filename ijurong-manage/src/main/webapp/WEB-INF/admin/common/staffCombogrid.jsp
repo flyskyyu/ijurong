@@ -13,7 +13,7 @@
 <select id="editUserName" class="easyui-combogrid" name="staffId"
         style="width: 230px"
         data-options="mode:'remote',
-                            delay: 500,
+                            delay: 700,
 							panelWidth: 350,
 							loadMsg: '正在搜索，请稍等...',
 							pagination : true,
