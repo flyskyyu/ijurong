@@ -1,5 +1,16 @@
 package com.party.ijurong;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.party.ijurong.bean.MobileResult;
+import com.party.ijurong.pojo.Car;
+import org.junit.Test;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+import java.util.Random;
+
 /**
  * Created by Cloud on 2017/2/21.
  */
@@ -52,4 +63,29 @@ public class JsonTest {
         System.out.println("java序列化耗时：" + (System.currentTimeMillis() - current));
 
     }*/
+
+    @Test
+    public void testMobileResult() throws JsonProcessingException {
+        MobileResult result = new MobileResult();
+        result.setCode(200);
+        result.setMsg("成功");
+        List<Car> cars = new ArrayList<>();
+        Car car = new Car();
+        car.setCarNum("001");
+        cars.add(car);
+        car = new Car();
+        car.setCarNum("002");
+        cars.add(car);
+
+        result.setData(car);
+        ObjectMapper objectMapper = new ObjectMapper();
+        System.out.println(objectMapper.writeValueAsString(result));
+        result.setData(cars);
+        System.out.println(objectMapper.writeValueAsString(result));
+        result.setData(null);
+        System.out.println(objectMapper.writeValueAsString(result));
+        System.out.println(new Date().toString());
+        System.out.println(new Random().nextInt());
+        System.out.println("" + null);
+    }
 }
