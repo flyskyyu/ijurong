@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.io.*;
+import java.util.Calendar;
 
 /**
  * Created by yu on 2017/5/24.
@@ -32,8 +33,16 @@ public class FileUploadService {
         }
         bos.close();
         inputStream.close();
-        return webSite+"/static/"+name;
+        return webSite+"/static/"+getDateTime()+name;
     }
 
+    public String getDateTime()
+    {
+        Calendar now = Calendar.getInstance();
+        String year=now.get(Calendar.YEAR)+"";
+        String month=(now.get(Calendar.MONTH) + 1)+"";
+        String day=now.get(Calendar.DAY_OF_MONTH)+"";
+        return year+month+day;
+    }
 
 }
