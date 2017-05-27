@@ -1,7 +1,7 @@
 package com.party.ijurong.controller.mobile;
 
 import com.party.ijurong.bean.MobileResult;
-import com.party.ijurong.common.TokenUtils;
+import com.party.ijurong.utils.TokenUtils;
 import com.party.ijurong.pojo.Staff;
 import com.party.ijurong.service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;

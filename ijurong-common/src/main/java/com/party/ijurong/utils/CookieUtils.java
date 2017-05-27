@@ -1,4 +1,4 @@
-package com.party.ijurong.common;
+package com.party.ijurong.utils;
 
 import java.io.UnsupportedEncodingException;
 import java.net.URLDecoder;
