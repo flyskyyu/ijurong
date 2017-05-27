@@ -1,6 +1,6 @@
 package com.party.ijurong.service;
 
-import com.party.ijurong.common.SerializeUtils;
+import com.party.ijurong.utils.SerializeUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

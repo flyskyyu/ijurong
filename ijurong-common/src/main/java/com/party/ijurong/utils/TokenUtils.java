@@ -1,4 +1,4 @@
-package com.party.ijurong.common;
+package com.party.ijurong.utils;
 
 import com.party.ijurong.pojo.Staff;
 import org.apache.commons.codec.digest.DigestUtils;
