@@ -6,6 +6,7 @@
         <result column="staff_id" property="staffId" jdbcType="INTEGER" />
         <result column="token" property="token" jdbcType="VARCHAR" />
         <result column="platform" property="platform" jdbcType="VARCHAR" />
+        <result column="device_number" property="deviceNumber" jdbcType="VARCHAR" />
         <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
         <result column="token_refresh_time" property="tokenRefreshTime" jdbcType="TIMESTAMP" />
         <result column="expire_time" property="expireTime" jdbcType="TIMESTAMP" />

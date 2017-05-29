@@ -28,6 +28,12 @@
             <if test="partyBranchId != null">
                 and meeting_room.party_branch_id = #{partyBranchId}
             </if>
+            <if test="startTime != null">
+                and start_time &gt;= #{startTime}
+            </if>
+            <if test="endTime != null">
+                and end_time &lt;= #{endTime}
+            </if>
             <if test="typeFilter == 1">
                 and is_agree is null
             </if>

@@ -37,6 +37,9 @@ public class Staff {
     @Column(name = "manager_info")
     private String managerInfo;
 
+    //头像
+    private String avatar;
+
     private Byte sex;
 
     private String email;
@@ -454,5 +457,13 @@ public class Staff {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

@@ -14,6 +14,9 @@ public class StaffToken {
 
     private String token;
 
+    @Column(name = "device_number")
+    private String deviceNumber;
+
     private String platform;
 
     @Column(name = "login_time")
@@ -137,5 +140,13 @@ public class StaffToken {
      */
     public void setIp(String ip) {
         this.ip = ip == null ? null : ip.trim();
+    }
+
+    public String getDeviceNumber() {
+        return deviceNumber;
+    }
+
+    public void setDeviceNumber(String deviceNumber) {
+        this.deviceNumber = deviceNumber;
     }
 }
