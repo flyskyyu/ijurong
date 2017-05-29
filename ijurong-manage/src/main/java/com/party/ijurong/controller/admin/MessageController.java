@@ -1,5 +1,6 @@
 package com.party.ijurong.controller.admin;
 
+import com.google.gson.JsonObject;
 import com.party.ijurong.bean.Page;
 import com.party.ijurong.pojo.*;
 import com.party.ijurong.service.*;
@@ -146,5 +147,25 @@ public class MessageController {
         messageService.deleteMessage(id);
         return "success";
     }
+
+    @RequestMapping(value = "sendMessage", method =
+            { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public String sendMessage(HttpServletRequest httpServletRequest, @RequestBody String data)
+    {
+        try
+        {
+            String[] str=data.replace("%5B%5D","").replace("data","").replace("=", "").trim().split("&");//获取组织ID
+            //发消息
+
+            return "success";
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return "fail";
+        }
+    }
+
 
 }

@@ -1,5 +1,6 @@
 package com.party.ijurong.service;
 
+import com.party.ijurong.bean.CombotreeResult;
 import com.party.ijurong.bean.Page;
 import com.party.ijurong.pojo.EnterpriseInfo;
 import com.party.ijurong.pojo.PartyBranchInfo;
@@ -106,4 +107,44 @@ public class PartyBranchInfoService extends BaseService<PartyBranchInfo>{
         }
         return results;
     }
+
+    public List<CombotreeResult> findAllTreeMenuList() {
+        List<PartyBranchInfo> list = mapper.selectAll();
+        List<CombotreeResult> results=new ArrayList<CombotreeResult>();
+        if(list.size()>0)
+        {
+            for(PartyBranchInfo partyBranchInfo:list)
+            {
+                CombotreeResult combotreeResult=new CombotreeResult();
+                combotreeResult.setId(partyBranchInfo.getId());
+                combotreeResult.setText(partyBranchInfo.getOrganizationName());
+                combotreeResult.setFatherId(partyBranchInfo.getFatherId());
+                results.add(combotreeResult);
+            }
+            return treeMenuList(results,0);
+        }
+        else
+        {
+            return null;
+        }
+
+    }
+
+        public  List<CombotreeResult> treeMenuList( List<CombotreeResult> menuList, int parentId) {
+            List<CombotreeResult> childMenu = new  ArrayList<CombotreeResult>();
+            for (CombotreeResult combotreeResult : menuList) {
+                int id = combotreeResult.getId();
+                int p_id = combotreeResult.getFatherId();
+                if (parentId == p_id) {
+                    List<CombotreeResult> c_node = treeMenuList(menuList, id);
+                    combotreeResult.setChildren(c_node);
+                    childMenu.add(combotreeResult);
+                }
+            }
+            return childMenu;
+        }
+
+
+
+
 }

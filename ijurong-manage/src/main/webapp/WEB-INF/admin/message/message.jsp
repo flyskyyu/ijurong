@@ -98,19 +98,19 @@
             return result;
         }
 
-        $(function(){
-            $('#post_users').combotree('loadData', [{
-                id: 1,
-                text: '市党支部',
-                children: [{
-                    id: 11,
-                    text: '雨花区党支部'
-                },{
-                    id: 12,
-                    text: '阿萨党支部'
-                }]
-            }]);
-        });
+//        $(function(){
+//            $('#post_users').combotree('loadData', [{
+//                id: 1,
+//                text: '市党支部',
+//                children: [{
+//                    id: 11,
+//                    text: '雨花区党支部'
+//                },{
+//                    id: 12,
+//                    text: '阿萨党支部'
+//                }]
+//            }]);
+//        });
 
 
         function openPostDialog(id) {
@@ -130,27 +130,28 @@
         function doSubmitPost() {
             $.messager.confirm('是否发布!', '发布后大家都能收到咯，请确认您的操作!', function(r){
                 if (r){
-                    var t = $('#post_users').combotree('tree');	// get the tree object
-                    var n = t.tree('getSelected');		// get selected node
-                    alert(n.text);
-
-                    alert('true!');
+                    var n = $('#post_users').combotree('getValues');		//n 为数组["1", "11", "12"]
+                    //post
+                    $.ajax({
+                        type:"POST",
+                        url:"sendMessage",
+                        data:{data:n},
+                        success:function(data)
+                        {
+                            if (data == "success") {
+                                $('#message_dialog_post').dialog('close');
+                                $('#message_grid').datagrid('reload');
+                            } else {
+                                $.messager.alert('提示', '提交失败!');
+                            }
+                        }
+                    });
                 }
                 else
                 {
-                    alert('false!');
+                    return;
                 }
             });
-//            $('#message_form').form('submit', {
-//                success : function(data) {
-//                    if (data == "success") {
-//                        $('#message_dialog').dialog('close');
-//                        $('#message_grid').datagrid('reload');
-//                    } else {
-//                        $.messager.alert('提示', '提交失败!');
-//                    }
-//                }
-//            });
         }
 
         function openDialog(id) {
@@ -299,7 +300,7 @@
                             <td class="kv-label">发布对象</td>
                             <td class="kv-content" colspan="3">
                                 <select id="post_users"  name="post_users" class="easyui-combotree" style="width:200px;"
-                                        data-options="url:'get_data.php',required:true,multiple:true">
+                                        data-options="url:'/admin/company/findAllPartyBranchTreeMenuList',required:true,multiple:true">
                                 </select>
                         </tr>
 
