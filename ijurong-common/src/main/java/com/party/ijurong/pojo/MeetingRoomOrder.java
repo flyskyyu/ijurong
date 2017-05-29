@@ -28,7 +28,7 @@ public class MeetingRoomOrder {
     @JsonSerialize(using = DateSerializer.class)
     private Date endTime;
 
-    private String remakr;
+    private String remark;
 
     private String reply;
 
@@ -106,17 +106,17 @@ public class MeetingRoomOrder {
     }
 
     /**
-     * @return remakr
+     * @return remark
      */
-    public String getRemakr() {
-        return remakr;
+    public String getRemark() {
+        return remark;
     }
 
     /**
-     * @param remakr
+     * @param remark
      */
-    public void setRemakr(String remakr) {
-        this.remakr = remakr == null ? null : remakr.trim();
+    public void setRemark(String remark) {
+        this.remark = remark == null ? null : remark.trim();
     }
 
     /**

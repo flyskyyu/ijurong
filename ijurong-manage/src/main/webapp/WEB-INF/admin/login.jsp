@@ -11,6 +11,11 @@ pageEncoding="UTF-8" %>
 <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/style.css" />
 <link rel="stylesheet" type="text/css" href="<%=basePath%>css/skin_/login.css" />
+<script>
+    if(window != window.parent) {
+        window.parent.parent.parent.location.href = "<%=basePath%>admin/login";
+    }
+</script>
 <script type="text/javascript" src="<%=basePath%>js/jquery.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/jquery.select.js"></script>
     <style>
@@ -37,14 +42,14 @@ pageEncoding="UTF-8" %>
 <div id="container">
     <div id="bd">
     	<div id="main">
-            <form action="<%=basePath%>admin/loginUrl" method="post">
+            <form action="<%=basePath%>admin/login" method="post">
         	<div class="login-box">
                 <div id="logo"></div>
                 <h1></h1>
                 <div class="input username" id="username">
                     <label for="userName">用户名</label>
                     <span></span>
-                    <input type="text" id="userName" name="username"/>
+                    <input type="text"  name="username"/>
                 </div>
                 <div class="input psw" id="psw">
                     <label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
@@ -53,7 +58,7 @@ pageEncoding="UTF-8" %>
                 </div>
                 <div class="input validate" id="validate">
                     <label for="valiDate">验证码</label>
-                    <input type="text" id="valiDate" name="randomcode"/>
+                    <input type="text" name="randomcode"/>
                     <img id="randomcode_img" src="<%=basePath%>validatecode.jsp" alt=""
                             width="56" height="20" align='absMiddle'  onclick="randomcode_refresh()"/>
                 </div>

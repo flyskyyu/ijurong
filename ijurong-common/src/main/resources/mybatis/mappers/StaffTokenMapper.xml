@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.party.ijurong.mapper.StaffTokenMapper">
+    <resultMap id="StaffTokenDtoMap" type="StaffTokenDto">
+        <id column="id" property="id" jdbcType="INTEGER" />
+        <result column="staff_id" property="staffId" jdbcType="INTEGER" />
+        <result column="token" property="token" jdbcType="VARCHAR" />
+        <result column="platform" property="platform" jdbcType="VARCHAR" />
+        <result column="login_time" property="loginTime" jdbcType="TIMESTAMP" />
+        <result column="token_refresh_time" property="tokenRefreshTime" jdbcType="TIMESTAMP" />
+        <result column="expire_time" property="expireTime" jdbcType="TIMESTAMP" />
+        <result column="ip" property="ip" jdbcType="VARCHAR" />
+        <association property="staff" javaType="Staff" resultMap="com.party.ijurong.mapper.StaffMapper.StaffMap">
+        </association>
+    </resultMap>
+
+    <select id="queryByTokenDto"  parameterType="StaffTokenDto" resultMap="StaffTokenDtoMap">
+      SELECT staff_token.*, staff.* FROM staff_token, staff WHERE staff_token.staff_id = staff.staff_id AND token = #{token}
+    </select>
+</mapper>

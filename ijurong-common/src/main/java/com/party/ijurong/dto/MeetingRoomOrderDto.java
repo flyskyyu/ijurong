@@ -1,5 +1,6 @@
 package com.party.ijurong.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.party.ijurong.pojo.MeetingRoomOrder;
 
 /**
@@ -10,6 +11,7 @@ public class MeetingRoomOrderDto extends MeetingRoomOrder {
     private String phoneNumber;
     private String name;
     private Integer partyBranchId;
+    @JsonIgnore
     private int typeFilter;
 
     public String getStaffName() {

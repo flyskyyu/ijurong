@@ -1,5 +1,6 @@
 package com.party.ijurong.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -40,6 +41,7 @@ public class Staff {
 
     private String email;
 
+    @JsonIgnore
     private String password;
 
     /**

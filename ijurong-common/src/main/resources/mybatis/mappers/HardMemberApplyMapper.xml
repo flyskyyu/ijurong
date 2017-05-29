@@ -33,5 +33,6 @@
                 and is_agree is not null
             </if>
         </where>
+        ORDER BY apply.id DESC
     </select>
 </mapper>

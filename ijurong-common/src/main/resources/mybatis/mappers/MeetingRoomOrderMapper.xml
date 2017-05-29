@@ -7,10 +7,11 @@
         <result column="room_id" property="roomId" jdbcType="INTEGER"/>
         <result column="start_time" property="startTime" jdbcType="TIMESTAMP"/>
         <result column="end_time" property="endTime" jdbcType="TIMESTAMP"/>
-        <result column="remakr" property="remakr" jdbcType="VARCHAR"/>
+        <result column="remark" property="remark" jdbcType="VARCHAR"/>
         <result column="reply" property="reply" jdbcType="VARCHAR"/>
         <result column="is_agree" property="isAgree" jdbcType="TINYINT"/>
         <result column="staff_name" property="staffName" jdbcType="VARCHAR"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="party_branch_id" property="partyBranchId" jdbcType="INTEGER"/>
         <result column="phone_number" property="phoneNumber" jdbcType="INTEGER"/>
     </resultMap>
@@ -21,8 +22,11 @@
             <if test="staffName != null and staffName != ''">
                 and staff_name like concat('%', #{staffName}, '%')
             </if>
+            <if test="name != null">
+                and name like concat('%', #{name}, '%')
+            </if>
             <if test="partyBranchId != null">
-                and meeting_room.party_branch_id = ${partyBranchId}
+                and meeting_room.party_branch_id = #{partyBranchId}
             </if>
             <if test="typeFilter == 1">
                 and is_agree is null
@@ -30,7 +34,14 @@
             <if test="typeFilter == 2">
                 and is_agree is not null
             </if>
+            <if test="typeFilter == 3">
+                and is_agree = 1
+            </if>
+            <if test="typeFilter == 4">
+                and is_agree = 0
+            </if>
         </where>
+        ORDER BY meeting_room_order.id DESC
     </select>
 
     <select id="queryOrdeRoomCount"  parameterType="MeetingRoomOrder" resultType="int">

@@ -20,4 +20,12 @@
 <script type="text/javascript" src="<%=basePath%>easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>easyui/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/common.js"></script>
+<script>
+  $( document ).ajaxComplete(function( event, xhr, settings ) {
+    // session过期的情况
+    if(xhr.status == 401) {
+      window.parent.parent.parent.location.href = '<%=basePath%>admin/login';
+    }
+  });
+</script>
 

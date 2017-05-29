@@ -29,6 +29,7 @@ public class CarService extends BaseService<Car> {
         if(car.getPartyBranchId() != null) {
             criteria.andEqualTo("partyBranchId", car.getPartyBranchId());
         }
+        example.orderBy("id").desc();
         PageHelper.startPage(page, rows);
         List<Car> objs = carMapper.selectByExample(example);
         return new PageInfo<>(objs);

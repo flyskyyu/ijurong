@@ -27,16 +27,16 @@ public class PageController {
 
     @RequestMapping(value = "{page}", method = RequestMethod.GET)
     public String toPage1(@PathVariable("page") String pageName) {
-        return pageName;
+        return "admin/" + pageName;
     }
 
     @RequestMapping(value = "{page}/{page1}", method = RequestMethod.GET)
     public String toPage2(@PathVariable("page") String pageName, @PathVariable("page1") String pageName1) {
-        return pageName + "/" + pageName1;
+        return "admin/" + pageName + "/" + pageName1;
     }
 
     @RequestMapping(value = "{page}/{page1}/{page2}", method = RequestMethod.GET)
     public String toPage3(@PathVariable("page") String pageName,  @PathVariable("page1") String pageName1,  @PathVariable("page2") String pageName2) {
-        return pageName + "/" + pageName1 + "/" + pageName2;
+        return "admin/" + pageName + "/" + pageName1 + "/" + pageName2;
     }
 }

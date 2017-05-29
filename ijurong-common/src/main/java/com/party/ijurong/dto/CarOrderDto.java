@@ -1,5 +1,6 @@
 package com.party.ijurong.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.party.ijurong.pojo.CarOrder;
 
 /**
@@ -10,6 +11,7 @@ public class CarOrderDto extends CarOrder {
     private String carNum;
     private Integer partyBranchId;
     private String phoneNumber;
+    @JsonIgnore
     private int typeFilter;
 
     public String getStaffName() {

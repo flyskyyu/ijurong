@@ -23,8 +23,14 @@
             <if test="staffName != null and staffName != ''">
                 and staff_name like concat('%', #{staffName}, '%')
             </if>
+            <if test="carNum != null">
+                and car_num like concat('%', #{carNum}, '%')
+            </if>
+            <if test="staffId != null">
+                and car_order.staff_id = #{staffId}
+            </if>
             <if test="partyBranchId != null">
-                and car.party_branch_id = ${partyBranchId}
+                and car.party_branch_id = #{partyBranchId}
             </if>
             <if test="typeFilter == 1">
                 and is_agree is null
@@ -32,6 +38,13 @@
             <if test="typeFilter == 2">
                 and is_agree is not null
             </if>
+            <if test="typeFilter == 3">
+                and is_agree = 1
+            </if>
+            <if test="typeFilter == 4">
+                and is_agree = 0
+            </if>
+            ORDER BY car_order.id DESC
         </where>
     </select>
 

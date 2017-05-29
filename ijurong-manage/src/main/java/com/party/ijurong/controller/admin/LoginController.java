@@ -18,7 +18,7 @@ public class LoginController {
     @Autowired
     private ShiroService shiroService;
 
-    @RequestMapping("admin/loginUrl")
+    @RequestMapping("admin/login")
     public String login(HttpServletRequest request) {
         //从登录失败中获取异常信息
         String exceptionName = (String)request.getAttribute("shiroLoginFailure");
@@ -38,9 +38,9 @@ public class LoginController {
         }
         //已经成功到主页面
         if(shiroService.getUser() != null) {
-            return "main";
+            return "redirect:/admin/main";
         }
         //登录失败还到login页面
-        return "login";
+        return "admin/login";
     }
 }

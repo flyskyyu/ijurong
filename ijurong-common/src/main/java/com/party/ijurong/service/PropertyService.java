@@ -9,5 +9,5 @@ import org.springframework.stereotype.Service;
 @Service
 public class PropertyService {
     @Value("${shiro.expire}")
-    public static int TOKEN_EXPIRE;
+    public int TOKEN_EXPIRE;
 }

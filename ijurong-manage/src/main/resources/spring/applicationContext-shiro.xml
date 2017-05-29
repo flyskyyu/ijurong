@@ -12,7 +12,7 @@
         <!-- shiro的核心安全接口 -->
         <property name="securityManager" ref="securityManager"/>
         <!-- 没有登陆跳转的页面 -->
-        <property name="loginUrl" value="/admin/loginUrl"/>
+        <property name="loginUrl" value="/admin/login"/>
         <!-- 登陆成功跳转的页面 -->
         <property name="successUrl" value="/admin/main"/>
         <!-- 没有权限要跳转的链接 -->
@@ -26,7 +26,6 @@
         <property name="filterChainDefinitions">
             <value>
                 /admin/logout = logout
-                /mobile/** = authc
                 /admin/** = authc
             </value>
         </property>

@@ -2,26 +2,27 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.party.ijurong.mapper.MemberServeMapper">
-    <resultMap id="ServeDtoMap" type="MemberServeDto" >
-        <id column="id" property="id" jdbcType="INTEGER" />
-        <result column="organization_name" property="organizationName" jdbcType="VARCHAR" />
-        <result column="contact_person_name" property="contactPersonName" jdbcType="VARCHAR" />
-        <result column="serviced_user_id" property="servicedUserId" jdbcType="INTEGER" />
-        <result column="service_date" property="serviceDate" jdbcType="DATE" />
-        <result column="address" property="address" jdbcType="VARCHAR" />
-        <result column="situation" property="situation" jdbcType="VARCHAR" />
-        <result column="result" property="result" jdbcType="VARCHAR" />
+    <resultMap id="ServeDtoMap" type="MemberServeDto">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="organization_name" property="organizationName" jdbcType="VARCHAR"/>
+        <result column="contact_person_name" property="contactPersonName" jdbcType="VARCHAR"/>
+        <result column="serviced_user_id" property="servicedUserId" jdbcType="INTEGER"/>
+        <result column="service_date" property="serviceDate" jdbcType="DATE"/>
+        <result column="address" property="address" jdbcType="VARCHAR"/>
+        <result column="situation" property="situation" jdbcType="VARCHAR"/>
+        <result column="result" property="result" jdbcType="VARCHAR"/>
         <result column="staff_name" property="staffName" jdbcType="VARCHAR"/>
     </resultMap>
 
-    <select id="queryServeDtoList"  parameterType="MemberServeDto" resultMap="ServeDtoMap">
+    <select id="queryServeDtoList" parameterType="MemberServeDto" resultMap="ServeDtoMap">
         SELECT serve.*, staff_name FROM member_serve serve, staff
-         <where>
-             serve.serviced_user_id = staff.staff_id
-             <if test="staffName != null and staffName != ''">
-                 and staff_name like concat('%', #{staffName}, '%')
-             </if>
-         </where>
+        <where>
+            serve.serviced_user_id = staff.staff_id
+            <if test="staffName != null and staffName != ''">
+                and staff_name like concat('%', #{staffName}, '%')
+            </if>
+        </where>
+        ORDER BY serve.id DESC
     </select>
 
 </mapper>

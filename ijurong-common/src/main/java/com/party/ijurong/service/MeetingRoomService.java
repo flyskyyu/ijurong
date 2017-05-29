@@ -29,6 +29,7 @@ public class MeetingRoomService extends BaseService<MeetingRoom> {
         if(room.getPartyBranchId() != null) {
             criteria.andEqualTo("partyBranchId", room.getPartyBranchId());
         }
+        example.orderBy("id").desc();
         PageHelper.startPage(page, rows);
         List<MeetingRoom> rooms = roomMapper.selectByExample(example);
         return new PageInfo<>(rooms);
