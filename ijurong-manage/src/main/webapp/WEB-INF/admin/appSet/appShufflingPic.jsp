@@ -35,6 +35,7 @@
         $(function() {
             $('#btn_add').bind('click', function() {
                 appShufflingPic_form.reset();
+                $('#detail_type').combobox('setValue', '');
                 appShufflingPic_form.action = 'addAppShufflingPic';
                 $('#appShufflingPic_dialog').dialog('setTitle', '添加轮播图');
                 $('#level').combobox('clear');
@@ -90,17 +91,25 @@
 
         function openDialog(id) {
             appShufflingPic_form.reset();
+            $('#detail_type').combobox('setValue', '');
+
             $('#appShufflingPic_grid').datagrid('selectRow', id);
             var rowData = $('#appShufflingPic_grid').datagrid('getSelected');
             if (rowData != null) {
 
                 $('#appShufflingPic_form').form('load', rowData);
+                if(rowData.url!=null&&rowData.url!="")
+                {
+                    $("#img_uploaded_url").attr('src',rowData.url);
+                }
 
             }
             appShufflingPic_form.action = "updateAppShufflingPic";
             $('#appShufflingPic_dialog').dialog('setTitle', '轮播图');
             $('#appShufflingPic_dialog').dialog('open');
         }
+
+
 
 
     </script>
@@ -174,12 +183,12 @@
                         </tr>
                         <tr>
                             <td class="kv-label">图片上传</td>
-                            <td class="kv-content" > <input type="file" name="file"> </td>
-                            <td class="kv-content" colspan="2"> <input type="text" name="url"/></td>
+                            <td class="kv-content" colspan="3"> <input type="file" name="file"><br/>
+                            <img src="#" alt="已上传图片" id ="img_uploaded_url"style="width: 72px;height: 40px;"></td><input type="hidden"  name="url"/>
                         </tr>
                         <tr>
                             <td class="kv-label">功能类型</td>
-                            <td class="kv-content" colspan="3"><select name="type" class="easyui-combobox">
+                            <td class="kv-content" colspan="3"><select name="type" id="detail_type" class="easyui-combobox">
                                 <option value="1">url</option>
                                 <option value="2">功能</option>
                             </select> </td>
