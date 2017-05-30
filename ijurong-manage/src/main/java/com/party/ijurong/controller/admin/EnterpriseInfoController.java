@@ -1,5 +1,6 @@
 package com.party.ijurong.controller.admin;
 
+import com.party.ijurong.bean.CombotreeResult;
 import com.party.ijurong.bean.Page;
 import com.party.ijurong.pojo.EnterpriseInfo;
 import com.party.ijurong.pojo.PartyBranchInfo;
@@ -9,6 +10,7 @@ import com.party.ijurong.service.EnterpriseInfoService;
 import com.party.ijurong.service.PartyBranchInfoService;
 import com.party.ijurong.service.ResourceTypeService;
 import com.party.ijurong.service.VolunteerService;
+import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -16,6 +18,7 @@ import tk.mybatis.mapper.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Copyright ©, 2016-2056
@@ -186,6 +189,16 @@ public class EnterpriseInfoController {
         return "success";
     }
 
+
+
+    @RequestMapping(value = "findAllPartyBranchTreeMenuList", method =
+            { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public List<CombotreeResult> findAllPartyBranchTreeMenuList(HttpServletRequest httpServletRequest)
+    {
+        List<CombotreeResult> list=partyBranchInfoService.findAllTreeMenuList();
+        return list;
+    }
     
 
     @RequestMapping(value = "/findVolunteers", method = { RequestMethod.POST, RequestMethod.GET })
