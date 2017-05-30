@@ -10,7 +10,7 @@
   String path = request.getContextPath();
   String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<select id="carComogrid" class="easyui-combogrid" name="carId"
+<select id="${carComogridId == null? 'carComogrid':carComogridId}" class="easyui-combogrid" name="carId"
         style="width: 230px"
         data-options="mode:'remote',
                             delay: 700,

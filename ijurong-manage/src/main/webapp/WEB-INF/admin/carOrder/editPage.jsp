@@ -92,7 +92,12 @@
       success: function (data) {
         if (data == "success") {
           $('#editWindow').dialog('close');
-          $('#tableList').datagrid('reload');
+            if($('#tableList').length > 0) {
+                $('#tableList').datagrid('reload');
+            }
+            if($('#calendar').length > 0) {
+                $('#calendar').fullCalendar('refetchEvents');
+            }
         } else if(data == 'reservation_already'){
             $.messager.alert('提示', '该车辆在选定时间段内已被预约!');
         } else {

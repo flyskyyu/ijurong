@@ -32,6 +32,15 @@
             <if test="partyBranchId != null">
                 and car.party_branch_id = #{partyBranchId}
             </if>
+            <if test="carId != null">
+                and car_id = #{carId}
+            </if>
+            <if test="startTime != null">
+                and (start_time &gt;= #{startTime} or end_time &gt;= #{startTime})
+            </if>
+            <if test="endTime != null">
+                and (start_time &lt;= #{endTime} or end_time &lt;= #{endTime})
+            </if>
             <if test="typeFilter == 1">
                 and is_agree is null
             </if>
@@ -44,8 +53,11 @@
             <if test="typeFilter == 4">
                 and is_agree = 0
             </if>
-            ORDER BY car_order.id DESC
+            <if test="typeFilter == 5">
+                and (is_agree is null or is_agree = 1)
+            </if>
         </where>
+        ORDER BY car_order.id DESC
     </select>
 
     <select id="queryOrdeCarCount"  parameterType="CarOrder" resultType="int">

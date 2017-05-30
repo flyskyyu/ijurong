@@ -150,14 +150,14 @@ pageEncoding="UTF-8" %>
 					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">车辆管理</span></a>
 					<ul class="subnav">
 						<li class="subnav-li" href="/admin/car/listPage" data-id="71"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">车辆管理</span></a></li>
-						<li class="subnav-li" href="/admin/carOrder/listPage" data-id="72"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">车辆预定</span></a></li>
+						<li class="subnav-li" href="/admin/carOrder/calendarListPage" data-id="72"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">车辆预定</span></a></li>
 					</ul>
 				</li>
 				<li class="nav-li">
 					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">会议室管理</span></a>
 					<ul class="subnav">
 						<li class="subnav-li" href="/admin/meetingRoom/listPage" data-id="81"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">会议室管理</span></a></li>
-						<li class="subnav-li" href="/admin/meetingRoomOrder/listPage" data-id="82"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">会议室预约</span></a></li>
+						<li class="subnav-li" href="/admin/meetingRoomOrder/calendarListPage" data-id="82"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">会议室预约</span></a></li>
 					</ul>
 				</li>
 			</ul>

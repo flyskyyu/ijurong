@@ -24,8 +24,12 @@
         </select><span class="white_space"></span>
         <a href="#" class="easyui-linkbutton" id="btn_Search"
                                                  data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
-      <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" id="btn_add">添加申请</a>&nbsp;
+      <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" id="btn_add" style="margin-right: 80px;">添加申请</a>&nbsp;
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" id="btn_remove" style="display:none;">删除</a>
+      <select class="easyui-combobox" id="listMode">
+        <option value="1">日历模式</option>
+        <option value="2" selected>列表模式</option>
+      </select>
     </div>
   </div>
   <table class="easyui-datagrid" id="tableList" fitColumns="true" style="width:auto;"
@@ -137,6 +141,14 @@
     operator.del = '删除';
     return TT.createOptionBtn(operator, rowIndex);
   }
+
+  $('#listMode').combobox({
+    onChange: function() {
+      if($(this).val() == 1) {
+        window.location.href = 'calendarListPage';
+      }
+    }
+  });
 </script>
 </body>
 </html>

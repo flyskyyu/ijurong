@@ -28,11 +28,14 @@
             <if test="partyBranchId != null">
                 and meeting_room.party_branch_id = #{partyBranchId}
             </if>
+            <if test="roomId != null">
+                and room_id = #{roomId}
+            </if>
             <if test="startTime != null">
-                and start_time &gt;= #{startTime}
+                and (start_time &gt;= #{startTime} or end_time &gt;= #{startTime})
             </if>
             <if test="endTime != null">
-                and end_time &lt;= #{endTime}
+                and (start_time &lt;= #{endTime} or end_time &lt;= #{endTime})
             </if>
             <if test="typeFilter == 1">
                 and is_agree is null
@@ -46,12 +49,15 @@
             <if test="typeFilter == 4">
                 and is_agree = 0
             </if>
+            <if test="typeFilter == 5">
+                and (is_agree is null or is_agree = 1)
+            </if>
         </where>
         ORDER BY meeting_room_order.id DESC
     </select>
 
     <select id="queryOrdeRoomCount"  parameterType="MeetingRoomOrder" resultType="int">
         SELECT COUNT(1) FROM meeting_room_order WHERE  room_id = #{roomId} and is_agree = 1
-        and (start_time between #{startTime} and #{endTime}  or end_time between #{startTime} and #{endTime})
+        and ((start_time &gt; #{startTime} and start_time &lt; #{endTime})  or (end_time &gt; #{startTime} and end_time &lt; #{endTime}))
     </select>
 </mapper>
