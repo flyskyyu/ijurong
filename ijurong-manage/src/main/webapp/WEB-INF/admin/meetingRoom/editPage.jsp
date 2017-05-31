@@ -40,6 +40,7 @@
           </tbody>
         </table>
       </form>
+      <div id="imgContainer"></div>
       <div style="text-align: center;"><a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'"
                                           id="edit_btn_add">保存</a>&nbsp;&nbsp;&nbsp;
         <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" id="edit_btn_cancel">返回</a>
