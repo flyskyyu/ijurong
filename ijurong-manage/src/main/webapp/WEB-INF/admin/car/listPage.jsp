@@ -12,6 +12,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>后台帐号管理</title>
   <jsp:include page="../contentHeader.jsp"/>
+  <script type="text/javascript" src="<%=basePath%>resource/jqueryFileUpload/js/vendor/jquery.ui.widget.js"></script>
+  <script type="text/javascript" src="<%=basePath%>resource/jqueryFileUpload/js/jquery.iframe-transport.js"></script>
+  <script type="text/javascript" src="<%=basePath%>resource/jqueryFileUpload/js/jquery.fileupload.js"></script>
 </head>
 <body class="easyui-layout">
 <div region="center" style="padding: 5px;">

@@ -5,11 +5,15 @@ import java.io.IOException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.party.ijurong.service.FileUploadService;
+import com.party.ijurong.utils.FileUtils;
 import com.party.ijurong.utils.RandomValidateCode;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.multipart.MultipartFile;
 
 /**
  * Created by yu on 2017/5/31.
@@ -17,6 +21,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class CommonController {
+    @Autowired
+    private FileUploadService fileUploadService;
 
     @RequestMapping(value = "findValidateImage", method =
             { RequestMethod.POST, RequestMethod.GET })
@@ -35,5 +41,12 @@ public class CommonController {
         {
             e.printStackTrace();
         }
+    }
+
+    @RequestMapping("admin/common/fileUpload")
+    @ResponseBody
+    public String uploadFile(MultipartFile file) throws IOException {
+        String url = fileUploadService.upload(file.getInputStream(), FileUtils.getRandomFilename(file.getOriginalFilename()));
+        return url;
     }
 }

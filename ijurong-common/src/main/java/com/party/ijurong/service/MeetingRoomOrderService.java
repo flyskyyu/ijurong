@@ -28,12 +28,12 @@ public class MeetingRoomOrderService extends BaseService<MeetingRoomOrder> {
 
     public int apply(MeetingRoomOrder apply) {
         //同意的场合判断会议室是否已经预约
-        if(apply.getIsAgree() == 1) {
+        /*if(apply.getIsAgree() == 1) {
 
             if(roomOrderMapper.queryOrdeRoomCount(apply) > 0) {
                 return RESERVATION_ALREADY;
             }
-        }
+        }*/
 
         apply.setStaffId(null);
         roomOrderMapper.updateByPrimaryKeySelective(apply);

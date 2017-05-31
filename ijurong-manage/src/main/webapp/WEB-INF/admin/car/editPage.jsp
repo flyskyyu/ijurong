@@ -40,6 +40,7 @@
           </tbody>
         </table>
       </form>
+      <input id="fileupload" type="file" name="file" multiple/>
       <div style="text-align: center;"><a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'"
                                           id="edit_btn_add">保存</a>&nbsp;&nbsp;&nbsp;
         <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" id="edit_btn_cancel">返回</a>
@@ -70,4 +71,16 @@
       }
     });
   }
+
+  $('#fileupload').fileupload({
+    url: '<%=basePath%>admin/common/fileUpload',
+    dataType: 'text',
+    done: function (e, data) {
+      console.log(data.result);
+    },
+    progressall: function (e, data) {
+      console.log(data.loaded + '' + data.total);
+    }
+  }).prop('disabled', !$.support.fileInput)
+          .parent().addClass($.support.fileInput ? undefined : 'disabled');
 </script>
