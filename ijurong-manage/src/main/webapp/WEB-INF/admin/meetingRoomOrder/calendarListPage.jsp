@@ -12,12 +12,12 @@
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>后台帐号管理</title>
     <jsp:include page="../contentHeader.jsp"/>
-    <link rel='stylesheet' href='<%=basePath%>static/fullcalendar/lib/cupertino/jquery-ui.min.css'/>
-    <link href='<%=basePath%>static/fullcalendar/fullcalendar.min.css' rel='stylesheet'/>
-    <link href='<%=basePath%>static/fullcalendar/fullcalendar.print.min.css' rel='stylesheet' media='print'/>
-    <script src='<%=basePath%>static/fullcalendar/lib/moment.min.js'></script>
-    <script src='<%=basePath%>static/fullcalendar/fullcalendar.min.js'></script>
-    <script src='<%=basePath%>static/fullcalendar/locale/zh-cn.js'></script>
+    <link rel='stylesheet' href='<%=basePath%>resource/fullcalendar/lib/cupertino/jquery-ui.min.css'/>
+    <link href='<%=basePath%>resource/fullcalendar/fullcalendar.min.css' rel='stylesheet'/>
+    <link href='<%=basePath%>resource/fullcalendar/fullcalendar.print.min.css' rel='stylesheet' media='print'/>
+    <script src='<%=basePath%>resource/fullcalendar/lib/moment.min.js'></script>
+    <script src='<%=basePath%>resource/fullcalendar/fullcalendar.min.js'></script>
+    <script src='<%=basePath%>resource/fullcalendar/locale/zh-cn.js'></script>
     <script>
         $(function () {
 //页面加载完初始化日历
