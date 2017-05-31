@@ -33,9 +33,9 @@
 	String capstr = hash1.substring(0, 4);
 	//将生成的验证码存入session
 	session.setAttribute("validateCode", capstr);
-	g.setColor(new Color(0, 100, 0));
-	g.setFont(new Font("Candara", Font.BOLD, 24));
-	g.drawString(capstr, 8, 24);
+	g.setColor(new Color(0x0170a4));
+	g.setFont(new Font("Arial", Font.BOLD, 22));
+	g.drawString(capstr, 4, 24);
 	g.dispose();
 	//输出图片
 	response.setContentType("image/jpeg");

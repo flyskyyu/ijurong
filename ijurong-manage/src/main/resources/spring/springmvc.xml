@@ -25,7 +25,7 @@
     <mvc:resources mapping="/ueditor/**" location="/ueditor/"/>
     <mvc:resources mapping="/lang/**" location="/lang/"/>
     <mvc:resources mapping="/easyui/**" location="/easyui/"/>
-    <mvc:resources mapping="/static/**" location="/static/"/>
+    <mvc:resources mapping="/resource/**" location="/resource/"/>
 
     <!-- 定义试图解析器 -->
     <!--
