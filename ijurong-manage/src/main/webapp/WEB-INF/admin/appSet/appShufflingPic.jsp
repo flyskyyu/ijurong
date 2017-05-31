@@ -36,6 +36,7 @@
             $('#btn_add').bind('click', function() {
                 appShufflingPic_form.reset();
                 $('#detail_type').combobox('setValue', '');
+                $("#img_uploaded_url").hide();
                 appShufflingPic_form.action = 'addAppShufflingPic';
                 $('#appShufflingPic_dialog').dialog('setTitle', '添加轮播图');
                 $('#level').combobox('clear');
@@ -101,6 +102,11 @@
                 if(rowData.url!=null&&rowData.url!="")
                 {
                     $("#img_uploaded_url").attr('src',rowData.url);
+                    $("#img_uploaded_url").show();
+                }
+                else
+                {
+                    $("#img_uploaded_url").hide();
                 }
 
             }

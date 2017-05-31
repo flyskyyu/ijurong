@@ -15,6 +15,9 @@ pageEncoding="UTF-8" %>
     if(window != window.parent) {
         window.parent.parent.parent.location.href = "<%=basePath%>admin/login";
     }
+    function refresh(obj) {
+        obj.src = "/findValidateImage?" + Math.random();
+    }
 </script>
 <script type="text/javascript" src="<%=basePath%>js/jquery.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/jquery.select.js"></script>
@@ -59,8 +62,8 @@ pageEncoding="UTF-8" %>
                 <div class="input validate" id="validate">
                     <label for="valiDate">验证码</label>
                     <input type="text" name="randomcode"/>
-                    <img id="randomcode_img" src="<%=basePath%>validatecode.jsp" alt=""
-                            width="56" height="20" align='absMiddle'  onclick="randomcode_refresh()"/>
+                    <img id="randomcode_img" src="/findValidateImage" alt=""
+                            width="56" height="20" align='absMiddle'  onclick="javascript:refresh(this);"/>
                 </div>
                 <div class="err_msg">
                     ${errMsg}

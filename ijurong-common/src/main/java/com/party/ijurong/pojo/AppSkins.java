@@ -1,5 +1,7 @@
 package com.party.ijurong.pojo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -14,6 +16,7 @@ public class AppSkins {
     private String name;
 
     @Column(name = "create_time")
+    @JsonSerialize(using = DateSerializer.class)
     private Date createTime;
 
     /**

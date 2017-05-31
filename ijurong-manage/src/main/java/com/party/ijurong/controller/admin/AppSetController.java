@@ -238,7 +238,6 @@ public class AppSetController {
         long appSkinVersionCount= appSkinVersionService.findAppSkinVersionsByName(appSkinVersion.getVersion());
         if (appSkinVersionCount==0)
         {
-
             appSkinVersion.setId(0);
             appSkinVersion.setCreateTime(new Date());
             appSkinVersionService.insertAppSkinVersion(appSkinVersion);

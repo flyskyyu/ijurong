@@ -20,11 +20,12 @@ public class FileUploadService {
 
 
     public String upload(InputStream inputStream, String name) throws IOException {
-        File file = new File(uploadPath);
+        String time=getDateTime();
+        File file = new File(uploadPath + "/"+time+"/");
         if (!file.exists()) {
             file.mkdirs();
         }
-        OutputStream bos = new FileOutputStream(uploadPath + "/"
+        OutputStream bos = new FileOutputStream(uploadPath + "/"+time+"/"
                 + name);
         int bytesRead = 0;
         byte[] buffer = new byte[8192];
@@ -33,7 +34,7 @@ public class FileUploadService {
         }
         bos.close();
         inputStream.close();
-        return webSite+"/static/"+getDateTime()+name;
+        return webSite+"/static/"+time+"/"+name;
     }
 
     public String getDateTime()

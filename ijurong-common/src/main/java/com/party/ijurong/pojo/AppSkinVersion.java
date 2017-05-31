@@ -1,5 +1,8 @@
 package com.party.ijurong.pojo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -23,9 +26,12 @@ public class AppSkinVersion {
      * 生效时间
      */
     @Column(name = "start_time")
+    @JsonSerialize(using = DateSerializer.class)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date startTime;
 
     @Column(name = "create_time")
+    @JsonSerialize(using = DateSerializer.class)
     private Date createTime;
 
     private String url1;
