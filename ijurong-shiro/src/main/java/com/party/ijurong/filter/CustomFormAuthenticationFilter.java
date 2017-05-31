@@ -72,13 +72,16 @@ public class CustomFormAuthenticationFilter extends FormAuthenticationFilter{
     protected boolean onLoginSuccess(AuthenticationToken token, Subject subject, ServletRequest request, ServletResponse response) throws Exception {
         shiroService.getUser(); //在session中初始化user数据
         HttpServletRequest servletRequest = (HttpServletRequest) request;
+        HttpServletResponse servletResponse = (HttpServletResponse) response;
         //ajax登录成功的情况
         if(AjaxUtils.isAjaxRequest(servletRequest)) {
             //登录的场合，直接返回
             printErrStatus(401, (HttpServletResponse) response);
             return false;
         } else {
-            return super.onLoginSuccess(token, subject, request, response);
+            servletResponse.sendRedirect(getSuccessUrl());
+            return false;
+            //return super.onLoginSuccess(token, subject, request, response);
         }
     }
 
