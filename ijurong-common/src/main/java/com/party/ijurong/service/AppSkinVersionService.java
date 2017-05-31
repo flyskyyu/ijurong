@@ -24,8 +24,8 @@ public class AppSkinVersionService extends BaseService<AppSkinVersion>{
     public Page<AppSkinVersion> findAppSkinVersionsByAppSkinVersion(AppSkinVersion appSkinVersion, int page, int rows) {
         RowBounds rowBounds=new RowBounds((page - 1) * rows,page*rows);
         Example example = new Example(AppSkinVersion.class);
-        if(appSkinVersion.getVersion()!=null&&appSkinVersion.getVersion()!="") {
-            example.createCriteria().andLike("name", "%" + appSkinVersion.getVersion() + "%");
+        if(appSkinVersion.getName()!=null&&appSkinVersion.getName()!= "") {
+            example.createCriteria().andLike("name", "%" + appSkinVersion.getName() + "%");
         }
         example.setOrderByClause("create_time DESC");
         List<AppSkinVersion> list =mapper.selectByExampleAndRowBounds(example,rowBounds);
@@ -48,7 +48,7 @@ public class AppSkinVersionService extends BaseService<AppSkinVersion>{
     public long findAppSkinVersionsByName(String name)
     {
         AppSkinVersion appSkinVersion=new AppSkinVersion();
-        appSkinVersion.setVersion(name);
+        appSkinVersion.setName(name);
         return mapper.selectCount(appSkinVersion);
     }
 

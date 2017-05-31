@@ -13,9 +13,9 @@ public class AppSkinVersion {
     private Integer id;
 
     /**
-     * 版本号
+     * 版本号为id 这个是名称
      */
-    private String version;
+    private String name;
 
     /**
      * 说明
@@ -67,19 +67,19 @@ public class AppSkinVersion {
     /**
      * 获取版本号
      *
-     * @return version - 版本号
+     * @return name - 版本号
      */
-    public String getVersion() {
-        return version;
+    public String getName() {
+        return name;
     }
 
     /**
      * 设置版本号
      *
-     * @param version 版本号
+     * @param name 版本号
      */
-    public void setVersion(String version) {
-        this.version = version == null ? null : version.trim();
+    public void setName(String name) {
+        this.name = name == null ? null : name.trim();
     }
 
     /**

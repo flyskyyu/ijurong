@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
+import tk.mybatis.mapper.util.StringUtil;
 
 import javax.servlet.http.HttpServletRequest;
 import java.io.File;
@@ -141,6 +142,20 @@ public class AppSetController {
         return result;
     }
 
+    @RequestMapping(value = "/findAppSkinssByName", method = { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public Page<AppSkins> findAppSkinsByName(HttpServletRequest httpServletRequest,@RequestParam(required=false) String q,
+                                                         @ModelAttribute AppSkins appSkins, @RequestParam int page, @RequestParam int rows) {
+        if(StringUtil.isEmpty(appSkins.getName()))
+        {
+            if(q!=null&&!q.equals("")) {
+                appSkins.setName(q);
+            }
+        }
+        Page<AppSkins> result = appSkinsService.findAppSkinssByAppSkins(appSkins, page, rows);
+        return result;
+    }
+
     @RequestMapping(value = "addAppSkins", method =
             { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
@@ -233,9 +248,9 @@ public class AppSetController {
     @RequestMapping(value = "addAppSkinVersion", method =
             { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
-    public String addAppSkinVersion(HttpServletRequest httpServletRequest,@RequestParam("file") MultipartFile file, @ModelAttribute AppSkinVersion appSkinVersion)
+    public String addAppSkinVersion(HttpServletRequest httpServletRequest, @ModelAttribute AppSkinVersion appSkinVersion)
     {
-        long appSkinVersionCount= appSkinVersionService.findAppSkinVersionsByName(appSkinVersion.getVersion());
+        long appSkinVersionCount= appSkinVersionService.findAppSkinVersionsByName(appSkinVersion.getName());
         if (appSkinVersionCount==0)
         {
             appSkinVersion.setId(0);
@@ -256,7 +271,7 @@ public class AppSetController {
     @RequestMapping(value = "updateAppSkinVersion", method =
             { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
-    public String updateAppSkinVersion(@RequestParam("file") MultipartFile file,HttpServletRequest httpServletRequest, @ModelAttribute AppSkinVersion appSkinVersion)
+    public String updateAppSkinVersion(HttpServletRequest httpServletRequest, @ModelAttribute AppSkinVersion appSkinVersion)
     {
 
         appSkinVersionService.updateAppSkinVersion(appSkinVersion);

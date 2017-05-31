@@ -29,8 +29,8 @@ pageEncoding="UTF-8" %>
                 	<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">新闻管理</span></a>
                     <ul class="subnav  current">
 						<li class="subnav-li" href="index" data-id="1"style="display: none" ><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">首页</span></a></li>
-						<li class="subnav-li" href="platform/news" data-id="2"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻管理</span></a></li>
-						<li class="subnav-li" href="platform/news_type" data-id="3"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻分类管理</span></a></li>
+						<li class="subnav-li" href="message/messageType" data-id="2"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻分类管理</span></a></li>
+						<li class="subnav-li" href="message/message" data-id="3"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻管理</span></a></li>
                     </ul>
                 </li>
                 <li class="nav-li">
@@ -60,7 +60,7 @@ pageEncoding="UTF-8" %>
 					<ul class="subnav">
 						<li class="subnav-li" href="appSet/appShufflingPic" data-id="17"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">app轮播图</span></a></li>
 						<li class="subnav-li" href="appSet/appSkins" data-id="18"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">app皮肤上传</span></a></li>
-						<li class="subnav-li" href="appSet/appShufflingPic" data-id="19"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">皮肤版本发布</span></a></li>
+						<li class="subnav-li" href="appSet/appSkinVersion" data-id="19"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">皮肤版本发布</span></a></li>
 					</ul>
 				</li>
 
