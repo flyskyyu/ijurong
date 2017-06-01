@@ -133,9 +133,8 @@ pageEncoding="UTF-8" %>
 				<li class="nav-li">
 					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">互动交流</span></a>
 					<ul class="subnav">
-						<li class="subnav-li" href="platformManage/news" data-id="52"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻管理</span></a></li>
-						<li class="subnav-li" href="platformManage/news_type" data-id="53"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻分类管理</span></a></li>
-					</ul>
+						<li class="subnav-li" href="interactive/panelDiscussion" data-id="52"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">论坛管理</span></a></li>
+						</ul>
 				</li>
 			</ul>
 			<ul class="nav" id="nav_itemManage" style="display: none;">

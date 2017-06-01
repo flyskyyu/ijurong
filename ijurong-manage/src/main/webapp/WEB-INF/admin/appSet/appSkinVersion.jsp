@@ -249,11 +249,10 @@
          url="findAppSkinVersions" toolbar="#tb" rownumbers="true" pageSize="20" style="width:auto;" singleSelect="true" >
     <thead>
     <tr>
-      <th field="id" hidden="true"></th>
       <th data-options="field:'name',align:'center'" width="20">名称</th>
       <th data-options="field:'createTime',align:'center'"  width="20">创建时间</th>
       <th data-options="field:'startTime',align:'center'"  width="20">生效时间</th>
-      <th data-options="field:'version',align:'center'"  width="20">版本号</th>
+      <th data-options="field:'id',align:'center'"  width="20">版本号</th>
       <th
               data-options="field:'id1',align:'center',width:50,formatter:formatOperation"
               width="25">操作</th>
