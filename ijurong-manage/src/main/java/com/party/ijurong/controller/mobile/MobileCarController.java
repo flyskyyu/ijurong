@@ -36,7 +36,7 @@ public class MobileCarController {
         PageInfo<Car> pageInfo = carService.queryByCar(car, page, rows);
         MobileResult result = new MobileResult();
         result.setCode(200);
-        result.setData(new Page<>(pageInfo));
+        result.setData(pageInfo.getList());
         return  result;
     }
 }

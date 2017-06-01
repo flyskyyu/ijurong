@@ -54,7 +54,7 @@ public class MobileCarOrderController {
         dto.setStaffId(user.getUserId());
         PageInfo<CarOrderDto> pageInfo = carOrderService.queryCarOrderDtoList(dto, page, rows);
         result.setCode(200);
-        result.setData(new Page<>(pageInfo));
+        result.setData(pageInfo.getList());
         return result;
     }
 }

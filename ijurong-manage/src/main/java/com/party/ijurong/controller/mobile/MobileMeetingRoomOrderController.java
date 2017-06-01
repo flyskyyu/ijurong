@@ -57,7 +57,7 @@ public class MobileMeetingRoomOrderController {
         dto.setStaffId(user.getUserId());
         PageInfo<MeetingRoomOrderDto> pageInfo = roomOrderService.queryRoomOrderDtoList(dto, page, rows);
         result.setCode(200);
-        result.setData(new Page<>(pageInfo));
+        result.setData(pageInfo.getList());
         return result;
     }
 }

@@ -40,7 +40,7 @@ public class CustomFormAuthenticationFilter extends FormAuthenticationFilter{
                 servletRequest.setAttribute(getFailureKeyAttribute(), "firstToLogin");
                 return true;
             }
-            if(!validateCode.equals(randomcode)) {
+            if(!validateCode.equalsIgnoreCase(randomcode)) {
                 servletRequest.setAttribute(getFailureKeyAttribute(), "randomCodeError");
                 //不再验证username,password,直接返回登陆页面
                 return true;

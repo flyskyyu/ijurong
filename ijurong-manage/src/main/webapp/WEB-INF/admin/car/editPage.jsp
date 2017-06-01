@@ -18,6 +18,7 @@
          style="width: 100%;;">
       <form method="post" id="editForm">
         <input type="hidden" name="id"/>
+        <input type="hidden" name="imgs" id="uploadImagesInput"/>
         <div class="column"><span class="current">车辆信息</span></div>
         <table class="kv-table">
           <tbody>
@@ -37,10 +38,15 @@
             <td class="kv-label">车辆介绍</td>
             <td class="kv-content" colspan="3"><textarea name="introduce" rows="3"></textarea></td>
           </tr>
+          <tr>
+            <td class="kv-label">车辆图片(最多8张)</td>
+            <td class="kv-content" colspan="3" data_id="uploadImagesInput" data_num="8">
+            <jsp:include page="../common/fileUpload.jsp"/>
+            </td>
+          </tr>
           </tbody>
         </table>
       </form>
-      <input id="fileupload" type="file" name="file" multiple/>
       <div style="text-align: center;"><a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'"
                                           id="edit_btn_add">保存</a>&nbsp;&nbsp;&nbsp;
         <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" id="edit_btn_cancel">返回</a>
@@ -71,16 +77,4 @@
       }
     });
   }
-
-  $('#fileupload').fileupload({
-    url: '<%=basePath%>admin/common/fileUpload',
-    dataType: 'text',
-    done: function (e, data) {
-      console.log(data.result);
-    },
-    progressall: function (e, data) {
-      console.log(data.loaded + '' + data.total);
-    }
-  }).prop('disabled', !$.support.fileInput)
-          .parent().addClass($.support.fileInput ? undefined : 'disabled');
 </script>

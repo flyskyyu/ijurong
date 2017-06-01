@@ -63,6 +63,9 @@
         onLoad: function() {
           $('#editForm').attr('action', '<%=basePath%>admin/car/update')
                   .form('load', rowData);
+          if(rowData.imgs) {
+            generateUploadImg(rowData.imgs.split(','));
+          }
         }
       }).window('open');
     }

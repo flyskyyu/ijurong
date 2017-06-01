@@ -18,6 +18,8 @@ public class Car {
     @Column(name = "party_branch_id")
     private Integer partyBranchId;
 
+    private String imgs;
+
     /**
      * @return id
      */
@@ -72,5 +74,13 @@ public class Car {
      */
     public void setPartyBranchId(Integer partyBranchId) {
         this.partyBranchId = partyBranchId;
+    }
+
+    public String getImgs() {
+        return imgs;
+    }
+
+    public void setImgs(String imgs) {
+        this.imgs = imgs;
     }
 }
