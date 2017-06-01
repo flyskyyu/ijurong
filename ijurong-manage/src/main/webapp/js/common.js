@@ -113,6 +113,20 @@ var TT = {
             return '未知';
         }
     },
+    resetForm: function(id) {
+        id = id || 'editContainer';
+        var container = $('#' + id);
+        var forms = container.find('form');
+        for(var i = 0; i < forms.length; i++) {
+            forms.get(i).reset();
+        }
+        if(uEditor) {
+            uEditor.setContent('');
+        }
+        container.find('.easyui-combobox').combobox('clear');
+        container.find('.easyui-combogrid').combogrid('clear');
+        TT.enabledAllBtns(id);
+    },
     createOptionBtn: function (map, rowIndex) {
         var index = 0;
         var result = '';
@@ -147,6 +161,7 @@ var TT = {
         $('#edit_btn_cancel').linkbutton();
     },
     disabledAll: function(formId) {
+        formId = formId || 'editContainer';
         var form = $('#' + formId);
         form.find('input').attr('disabled', '');
         form.find('input[type="text"]').each(function() {
@@ -158,19 +173,24 @@ var TT = {
         form.find('.easyui-combogrid').combogrid('disable');
     },
     disabledAllExcept: function(formId) {
+        formId = formId || 'editContainer';
         var form = $('#' + formId);
         TT.disabledAll(formId);
         form.find('[data_no_disabled]').removeAttr('disabled');
     },
     disabledAllBtns: function(formId) {
+        formId = formId || 'editContainer';
         var form = $('#' + formId);
         form.find('a').attr('disabled', true).attr('aria-disabled', true);
         form.find('input[type="button"]').attr('disabled', true).attr('aria-disabled', true);
+        form.data('disabled', true);
     },
     enabledAllBtns: function(formId) {
+        formId = formId || 'editContainer';
         var form = $('#' + formId);
         form.find('a').removeAttr('disabled').removeAttr('aria-disabled');
         form.find('input[type="button"]').removeAttr('disabled').removeAttr('aria-disabled');
+        form.data('disabled', false);
     },
     init: function (data) {
         this.initPicUpload(data);

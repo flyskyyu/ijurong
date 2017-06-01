@@ -53,7 +53,10 @@
           </tr>
           <tr>
             <td class="kv-label">物品介绍</td>
-            <td class="kv-content" colspan="5"><textarea name="introduce" rows="3"></textarea></td>
+            <td class="kv-content" colspan="5">
+              <!-- 加载编辑器的容器 -->
+              <script id="editor" name="introduce" type="text/plain" style="width: 95%;height:150px;"></script>
+            </td>
           </tr>
           </tbody>
         </table>
@@ -66,8 +69,9 @@
   </div>
 </div>
 <script type="text/javascript">
+  var uEditor = UE.getEditor('editor');
   $('#edit_btn_cancel').click(function () {
-    $("#editWindow").window('close');
+    $('#editDialog').dialog('close');
   });
 
   $('#edit_btn_add').click(function () {
@@ -75,12 +79,12 @@
   });
 
   function onSubmit() {
-    if($(this).attr('aria-disabled')) return;
+    if($('#editContainer').data('disabled')) return;
     TT.disabledAllBtns('editContainer');
     $('#editForm').form('submit', {
       success: function (data) {
         if (data == "success") {
-          $('#editWindow').dialog('close');
+          $('#editDialog').dialog('close');
           $('#tableList').datagrid('reload');
         } else {
           $.messager.alert('提示', '提交失败!');

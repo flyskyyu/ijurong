@@ -83,7 +83,7 @@
   });
 
   function onSubmit() {
-    if($(this).attr('aria-disabled')) return;
+    if($('#editContainer').data('disabled')) return;
     TT.disabledAllBtns('editContainer');
     $('#editForm').form('submit', {
       success: function (data) {
