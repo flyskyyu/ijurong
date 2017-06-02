@@ -14,11 +14,13 @@ public class PanelDiscussion {
 
     private String title;
 
-    private String content;
+    private String content;//先忽略
 
     @Column(name = "create_time")
     private Date createTime;
 
+    @Column(name = "is_shadow")
+    private Integer isShadow;
     /**
      * @return id
      */
@@ -87,5 +89,13 @@ public class PanelDiscussion {
      */
     public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public Integer getIsShadow() {
+        return isShadow;
+    }
+
+    public void setIsShadow(Integer isShadow) {
+        this.isShadow = isShadow;
     }
 }
