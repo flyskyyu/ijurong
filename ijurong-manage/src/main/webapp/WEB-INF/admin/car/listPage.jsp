@@ -20,7 +20,7 @@
 <div region="center" style="padding: 5px;">
   <div id="search_toolbar" style="padding: 5px; height: auto">
     <div style="padding: 5px;">
-      物品名称：<input type="text" id="nameFilter">&nbsp;
+      车牌：<input type="text" id="nameFilter">&nbsp;
         所属支部：<select class="easyui-combobox" id="branchFilter">
           <c:forEach var="branch" items="${sessionScope.USER_KEY.branchInfos}">
             <option value="${branch.id}">${branch.organizationName}</option>
@@ -35,8 +35,10 @@
          data-options="url:'<%=basePath%>admin/car/list',rownumbers:true,singleSelect:true,collapsible:false,pagination:true,method:'get',pageSize:20">
     <thead>
     <tr>
+      <th data-options="field:'name',width:40,align:'center'">车辆名</th>
       <th data-options="field:'carNum',width:40,align:'center'">车牌</th>
-      <th data-options="field:'introduce',width:100,align:'center'">介绍</th>
+      <th data-options="field:'driver',width:40,align:'center'">司机</th>
+      <th data-options="field:'phone',width:40,align:'center'">联系电话</th>
       <th data-options="field:'ids',width:40,align:'center',formatter:formatOperation">操作</th>
     </tr>
     </thead>
@@ -49,7 +51,7 @@
 <script>
   function doSearch() {
     var params = {};
-    params.itemName = $('#nameFilter').val();
+    params.carNum = $('#nameFilter').val();
     params.partyBranchId = $('#branchFilter').val();
     $('#tableList').datagrid('load', params);
   }

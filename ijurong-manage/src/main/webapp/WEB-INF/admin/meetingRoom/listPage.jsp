@@ -36,7 +36,9 @@
     <thead>
     <tr>
       <th data-options="field:'name',width:40,align:'center'">会议室</th>
-      <th data-options="field:'introduce',width:100,align:'center'">介绍</th>
+      <th data-options="field:'capacity',width:40,align:'center'">容纳人数</th>
+      <th data-options="field:'manager',width:40,align:'center'">管理员</th>
+      <th data-options="field:'phone',width:40,align:'center'">电话</th>
       <th data-options="field:'ids',width:40,align:'center',formatter:formatOperation">操作</th>
     </tr>
     </thead>

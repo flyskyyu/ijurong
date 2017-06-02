@@ -33,14 +33,26 @@
             </td>
             <td class="kv-label">会议室</td>
             <td class="kv-content"><input type="text" name="name"></td>
+            <td class="kv-label">容纳人数</td>
+            <td class="kv-content"><input type="text" name="capacity"></td>
+          </tr>
+          <tr>
+            <td class="kv-label">管理员</td>
+            <td class="kv-content"><input type="text" name="manager"></td>
+            <td class="kv-label">电话</td>
+            <td class="kv-content" colspan="3"><input type="text" name="phone"></td>
+          </tr>
+          <tr>
+            <td class="kv-label">地址</td>
+            <td class="kv-content" colspan="5"><input type="text" name="location"></td>
           </tr>
           <tr>
             <td class="kv-label">会议室介绍</td>
-            <td class="kv-content" colspan="3"><textarea name="introduce" rows="3"></textarea></td>
+            <td class="kv-content" colspan="5"><textarea name="introduce" rows="3"></textarea></td>
           </tr>
           <tr>
             <td class="kv-label">会议室图片(最多8张)</td>
-            <td class="kv-content" colspan="3" data_id="uploadImagesInput" data_num="8">
+            <td class="kv-content" colspan="5" data_id="uploadImagesInput" data_num="8">
               <jsp:include page="../common/fileUpload.jsp"/>
             </td>
           </tr>

@@ -10,6 +10,14 @@ public class MeetingRoom {
 
     private String name;
 
+    private String capacity;
+
+    private String location;
+
+    private String manager;
+
+    private String phone;
+
     private String introduce;
 
     @Column(name = "party_branch_id")
@@ -46,6 +54,62 @@ public class MeetingRoom {
     }
 
     /**
+     * @return capacity
+     */
+    public String getCapacity() {
+        return capacity;
+    }
+
+    /**
+     * @param capacity
+     */
+    public void setCapacity(String capacity) {
+        this.capacity = capacity == null ? null : capacity.trim();
+    }
+
+    /**
+     * @return location
+     */
+    public String getLocation() {
+        return location;
+    }
+
+    /**
+     * @param location
+     */
+    public void setLocation(String location) {
+        this.location = location == null ? null : location.trim();
+    }
+
+    /**
+     * @return manager
+     */
+    public String getManager() {
+        return manager;
+    }
+
+    /**
+     * @param manager
+     */
+    public void setManager(String manager) {
+        this.manager = manager == null ? null : manager.trim();
+    }
+
+    /**
+     * @return phone
+     */
+    public String getPhone() {
+        return phone;
+    }
+
+    /**
+     * @param phone
+     */
+    public void setPhone(String phone) {
+        this.phone = phone == null ? null : phone.trim();
+    }
+
+    /**
      * @return introduce
      */
     public String getIntroduce() {
@@ -73,11 +137,17 @@ public class MeetingRoom {
         this.partyBranchId = partyBranchId;
     }
 
+    /**
+     * @return imgs
+     */
     public String getImgs() {
         return imgs;
     }
 
+    /**
+     * @param imgs
+     */
     public void setImgs(String imgs) {
-        this.imgs = imgs;
+        this.imgs = imgs == null ? null : imgs.trim();
     }
 }
