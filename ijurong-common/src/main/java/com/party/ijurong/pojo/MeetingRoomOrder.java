@@ -35,6 +35,19 @@ public class MeetingRoomOrder {
     @Column(name = "is_agree")
     private Byte isAgree;
 
+    //会议内容
+    private String content;
+
+    /**
+     * 会议描述/主要参会人员
+     */
+    private String people;
+
+    /**
+     * 设施
+     */
+    private String facility;
+
     /**
      * @return id
      */
@@ -145,5 +158,29 @@ public class MeetingRoomOrder {
      */
     public void setIsAgree(Byte isAgree) {
         this.isAgree = isAgree;
+    }
+
+    public String getContent() {
+        return content;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public String getPeople() {
+        return people;
+    }
+
+    public void setPeople(String people) {
+        this.people = people;
+    }
+
+    public String getFacility() {
+        return facility;
+    }
+
+    public void setFacility(String facility) {
+        this.facility = facility;
     }
 }

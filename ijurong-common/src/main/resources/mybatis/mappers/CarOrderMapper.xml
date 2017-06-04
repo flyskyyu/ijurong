@@ -10,6 +10,9 @@
         <result column="remark" property="remark" jdbcType="VARCHAR"/>
         <result column="reply" property="reply" jdbcType="VARCHAR"/>
         <result column="is_agree" property="isAgree" jdbcType="TINYINT"/>
+        <result column="purpose" jdbcType="VARCHAR" property="purpose" />
+        <result column="people" jdbcType="VARCHAR" property="people" />
+        <result column="articles" jdbcType="VARCHAR" property="articles" />
         <result column="car_num" property="carNum" jdbcType="VARCHAR"/>
         <result column="staff_name" property="staffName" jdbcType="VARCHAR"/>
         <result column="party_branch_id" property="partyBranchId" jdbcType="INTEGER"/>

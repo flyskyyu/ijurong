@@ -70,8 +70,8 @@ public class CarOrderController {
                 temp.setColor("#bd362f");
                 title += "(未同意)\n";
             }
-            if(StringUtils.isNotEmpty(orderDto.getRemark())) {
-                title += orderDto.getRemark();
+            if(StringUtils.isNotEmpty(orderDto.getPurpose())) {
+                title += orderDto.getPurpose();
             }
             temp.setTitle(title);
             temp.setStart(orderDto.getStartTime());

@@ -28,10 +28,28 @@
             <td class="kv-content"><jsp:include page="../common/meetingRoomCombogrid.jsp"/></td>
           </tr>
           <tr>
-            <td class="kv-label">借取时间</td>
+            <td class="kv-label">预约时间</td>
             <td class="kv-content"><input class="easyui-datetimebox" name="startTime"></td>
-            <td class="kv-label">返还时间</td>
+            <td class="kv-label">结束时间</td>
             <td class="kv-content"><input class="easyui-datetimebox" name="endTime"></td>
+          </tr>
+          <tr>
+              <td class="kv-label">设施</td>
+              <td class="kv-content" colspan="3">
+                  <input type="text" name="facility" placeholder="多个设施间用英文逗号分隔"/>
+              </td>
+          </tr>
+          <tr>
+              <td class="kv-label">会议内容</td>
+              <td class="kv-content" colspan="3">
+                  <textarea name="content" rows="4"></textarea>
+              </td>
+          </tr>
+          <tr>
+              <td class="kv-label">会议描述/主要参会人员</td>
+              <td class="kv-content" colspan="3">
+                  <textarea name="people" rows="4"></textarea>
+              </td>
           </tr>
           <tr>
               <td class="kv-label">备注</td>

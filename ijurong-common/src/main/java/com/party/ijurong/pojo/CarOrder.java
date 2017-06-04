@@ -39,6 +39,21 @@ public class CarOrder {
     private String reply;
 
     /**
+     * 车辆用途
+     */
+    private String purpose;
+
+    /**
+     * 随车人员
+     */
+    private String people;
+
+    /**
+     * 随车用品
+     */
+    private String articles;
+
+    /**
      * @return id
      */
     public Integer getId() {
@@ -146,5 +161,29 @@ public class CarOrder {
 
     public void setIsAgree(Byte isAgree) {
         this.isAgree = isAgree;
+    }
+
+    public String getPurpose() {
+        return purpose;
+    }
+
+    public void setPurpose(String purpose) {
+        this.purpose = purpose;
+    }
+
+    public String getPeople() {
+        return people;
+    }
+
+    public void setPeople(String people) {
+        this.people = people;
+    }
+
+    public String getArticles() {
+        return articles;
+    }
+
+    public void setArticles(String articles) {
+        this.articles = articles;
     }
 }

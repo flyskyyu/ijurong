@@ -76,8 +76,8 @@ public class MeetingRoomOrderController {
                 temp.setColor("#bd362f");
                 title += "(未同意)\n";
             }
-            if(StringUtils.isNotEmpty(orderDto.getRemark())) {
-                title += orderDto.getRemark();
+            if(StringUtils.isNotEmpty(orderDto.getContent())) {
+                title += orderDto.getContent();
             }
             temp.setTitle(title);
             temp.setStart(orderDto.getStartTime());

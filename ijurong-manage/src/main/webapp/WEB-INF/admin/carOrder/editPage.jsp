@@ -34,6 +34,24 @@
             <td class="kv-content"><input class="easyui-datetimebox" name="endTime"></td>
           </tr>
           <tr>
+              <td class="kv-label">随车用品</td>
+              <td class="kv-content" colspan="3">
+                  <input type="text" name="articles" placeholder="多个物品间用英文逗号分隔"/>
+              </td>
+          </tr>
+          <tr>
+              <td class="kv-label">车辆用途</td>
+              <td class="kv-content" colspan="3">
+                  <textarea name="purpose" rows="4"></textarea>
+              </td>
+          </tr>
+          <tr>
+              <td class="kv-label">随车人员</td>
+              <td class="kv-content" colspan="3">
+                  <textarea name="people" rows="4"></textarea>
+              </td>
+          </tr>
+          <tr>
               <td class="kv-label">备注</td>
               <td class="kv-content" colspan="3">
                   <textarea name="remark" rows="4"></textarea>
