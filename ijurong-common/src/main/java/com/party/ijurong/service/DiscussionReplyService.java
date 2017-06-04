@@ -24,9 +24,10 @@ public class DiscussionReplyService extends BaseService<DiscussionReply>{
     public Page<DiscussionReply> findDiscussionReplysByDiscussionReply(DiscussionReply discussionReply, int page, int rows) {
         RowBounds rowBounds=new RowBounds((page - 1) * rows,page*rows);
         Example example = new Example(DiscussionReply.class);
-        if(discussionReply.getReplyContent()!=null&&discussionReply.getReplyContent()!="") {
-            example.createCriteria().andLike("replyContent", "%" + discussionReply.getReplyContent() + "%");
-        }
+//        if(discussionReply.getReplyContent()!=null&&discussionReply.getReplyContent()!="") {
+//            example.createCriteria().andLike("replyContent", "%" + discussionReply.getReplyContent() + "%");
+//        }
+        example.createCriteria().andEqualTo("discussionId",  discussionReply.getDiscussionId() );
         List<DiscussionReply> list =mapper.selectByExampleAndRowBounds(example,rowBounds);
         long count = mapper.selectCountByExample(example);
         return new Page<DiscussionReply>(count, list);

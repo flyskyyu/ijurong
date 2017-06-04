@@ -1,7 +1,9 @@
 package com.party.ijurong.controller.admin;
 
 import com.party.ijurong.bean.Page;
+import com.party.ijurong.pojo.DiscussionReply;
 import com.party.ijurong.pojo.PanelDiscussion;
+import com.party.ijurong.service.DiscussionReplyService;
 import com.party.ijurong.service.PanelDiscussionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,6 +23,9 @@ public class PanelDiscussionController {
     @Autowired
     private PanelDiscussionService panelDiscussionService;
 
+    @Autowired
+    private DiscussionReplyService discussionReplyService;
+
     @RequestMapping(value = "/findPanelDiscussions", method = { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
     public Page<PanelDiscussion> findPanelDiscussions(HttpServletRequest httpServletRequest,
@@ -29,28 +34,6 @@ public class PanelDiscussionController {
         return result;
     }
 
-
-//    @RequestMapping(value = "addPanelDiscussion", method =
-//            { RequestMethod.POST, RequestMethod.GET })
-//    @ResponseBody
-//    public String addPanelDiscussion(HttpServletRequest httpServletRequest, @ModelAttribute PanelDiscussion panelDiscussion)
-//    {
-//        long panelDiscussionCount= panelDiscussionService.findPanelDiscussionsByName(panelDiscussion.getName());
-//        if (panelDiscussionCount==0)
-//        {
-//            panelDiscussion.setCreateTime(new Date());
-//            panelDiscussionService.insertPanelDiscussion(panelDiscussion);
-//            return "success";
-//        }
-//        else if(panelDiscussionCount>0)
-//        {
-//            return "had";
-//        }
-//        else
-//        {
-//            return "fail";
-//        }
-//    }
 
     @RequestMapping(value = "updatePanelDiscussion", method =
             { RequestMethod.POST, RequestMethod.GET })
@@ -69,5 +52,26 @@ public class PanelDiscussionController {
         panelDiscussionService.deletePanelDiscussion(id);
         return "success";
     }
+
+
+    @RequestMapping(value = "/findDiscussionReplysByDiscussionId", method = { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public Page<DiscussionReply> findDiscussionReplysByDiscussionId(HttpServletRequest httpServletRequest,
+                                                      @ModelAttribute DiscussionReply discussionReply, @RequestParam int page, @RequestParam int rows) {
+        Page<DiscussionReply> result = discussionReplyService.findDiscussionReplysByDiscussionReply(discussionReply, page, rows);
+        return result;
+    }
+
+
+
+    @RequestMapping(value = "delectDiscussionReply/{id}", method =
+            { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public String delectDiscussionReply(HttpServletRequest httpServletRequest, @PathVariable int id)
+    {
+        discussionReplyService.deleteDiscussionReply(id);
+        return "success";
+    }
+
 
 }
