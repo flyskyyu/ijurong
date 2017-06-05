@@ -11,6 +11,23 @@
     margin-right: 10px;
     position: relative;
 }
+.upload_obj_container {
+    display: inline-block;
+    height: 40px;
+    line-height: 40px;
+    margin-left: 20px;
+    vertical-align: top;
+    font-size: 16px;
+    position: relative;
+}
+.upload_obj_container span {
+
+}
+.upload_obj_container img {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+}
 .add_upload_img_container {
     overflow: hidden;
 }

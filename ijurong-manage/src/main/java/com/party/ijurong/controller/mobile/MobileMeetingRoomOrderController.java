@@ -60,4 +60,15 @@ public class MobileMeetingRoomOrderController {
         result.setData(pageInfo.getList());
         return result;
     }
+
+    @RequestMapping(value = "allApply")
+    @ResponseBody
+    public MobileResult allApply(MeetingRoomOrderDto dto, @RequestParam(defaultValue = "1")int page
+            , @RequestParam(defaultValue = "20")int rows) {
+        MobileResult result = new MobileResult();
+        PageInfo<MeetingRoomOrderDto> pageInfo = roomOrderService.queryRoomOrderDtoList(dto, page, rows);
+        result.setCode(200);
+        result.setData(pageInfo.getList());
+        return result;
+    }
 }
