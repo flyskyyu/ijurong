@@ -29,6 +29,7 @@ public class MessageService extends BaseService<Message>{
         if(message.getTitle()!=null&&message.getTitle()!="") {
             example.createCriteria().andLike("title", "%" + message.getTitle() + "%");
         }
+        example.setOrderByClause("create_time DESC");
         List<Message> list =mapper.selectByExampleAndRowBounds(example,rowBounds);
         long count = mapper.selectCountByExample(example);
         return new Page<Message>(count, list);

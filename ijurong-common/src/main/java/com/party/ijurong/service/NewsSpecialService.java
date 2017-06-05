@@ -27,6 +27,7 @@ public class NewsSpecialService extends BaseService<NewsSpecial>{
         if(newsSpecial.getName()!=null&&newsSpecial.getName()!="") {
             example.createCriteria().andLike("name", "%" + newsSpecial.getName() + "%");
         }
+        example.setOrderByClause("create_time DESC");
         List<NewsSpecial> list =mapper.selectByExampleAndRowBounds(example,rowBounds);
         long count = mapper.selectCountByExample(example);
         return new Page<NewsSpecial>(count, list);

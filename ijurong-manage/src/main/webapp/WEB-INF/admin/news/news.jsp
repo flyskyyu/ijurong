@@ -79,7 +79,7 @@
 //      } else {
       result = '<a href="#" onclick="openDialog(' + rowIndex
               + ')" style="color:green;text-decoration:none;">操作</a>'
-              +'    <a href="#" onclick="openPostDialog(' + rowIndex
+              +'    <a href="#" onclick="doSubmitPost(' + rowIndex
               + ')" style="color:red;text-decoration:none;">发布</a>';
 //      }
       return result;
@@ -87,70 +87,43 @@
 
     function formatterStatus(value, rowData, rowIndex) {
       var result = "";
-      if (rowData.isPost == '0') {
-        result = '<a style="color:green;text-decoration:none;">未发布</a>';
+      if (rowData.status == '0') {
+        result = '<a style="color:red;text-decoration:none;">已删除</a>';
       }
-      else if (rowData.isPost == '1') {
-        result = '<a style="color:red;text-decoration:none;">发布中</a>';
+      else if (rowData.status == '1') {
+        result = '<a style="color:green;text-decoration:none;">未发布</a>';
       }else {
         result = '<a style="color:grey;text-decoration:none;">已发布</a>';
       }
       return result;
     }
 
-    //        $(function(){
-    //            $('#post_users').combotree('loadData', [{
-    //                id: 1,
-    //                text: '市党支部',
-    //                children: [{
-    //                    id: 11,
-    //                    text: '雨花区党支部'
-    //                },{
-    //                    id: 12,
-    //                    text: '阿萨党支部'
-    //                }]
-    //            }]);
-    //        });
 
 
-    function openPostDialog(id) {
-      $('#news_grid').datagrid('selectRow', id);
-      var rowData = $('#news_grid').datagrid('getSelected');
-      if (rowData != null) {
-
-        $('#news_form_post').form('load', rowData);
-
-      }
-      news_form_post.action = "updateNews";
-      $('#news_dialog_post').dialog('setTitle', '新闻发布');
-      $('#news_dialog_post').dialog('open');
-    }
 
 
-    function doSubmitPost() {
-      $.newsr.confirm('是否发布!', '发布后大家都能收到咯，请确认您的操作!', function(r){
-        if (r){
-          var n = $('#post_users').combotree('getValues');		//n 为数组["1", "11", "12"]
-          //post
-          $.ajax({
-            type:"POST",
-            url:"sendNews",
-            data:{data:n},
-            success:function(data)
-            {
-              if (data == "success") {
-                $('#news_dialog_post').dialog('close');
-                $('#news_grid').datagrid('reload');
-              } else {
-                $.newsr.alert('提示', '提交失败!');
-              }
+    function doSubmitPost(id) {
+        $.messager.confirm('是否发布!', '请确认您的操作!', function(r){
+            if (r){
+                $('#news_grid').datagrid('selectRow', id);
+                var rowData = $('#news_grid').datagrid('getSelected');
+                  $.ajax({
+                    type:"POST",
+                    url:"sendNews/"+rowData.id,
+                    success:function(data)
+                        {
+                          if (data == "success") {
+                            $('#news_grid').datagrid('reload');
+                          } else {
+                            $.newsr.alert('提示', '提交失败!');
+                          }
+                        }
+                  });
             }
-          });
-        }
-        else
-        {
-          return;
-        }
+            else
+            {
+              return;
+            }
       });
     }
 
@@ -191,7 +164,7 @@
       <th field="id" hidden="true"></th>
       <th data-options="field:'title',align:'center'" width="30">新闻名称</th>
       <th data-options="field:'createTime',align:'center'"  width="20">创建时间</th>
-      <th data-options="field:'isPost',align:'center',formatter:formatterStatus"  width="20">状态</th>
+      <th data-options="field:'status',align:'center',formatter:formatterStatus"  width="20">状态</th>
       <th
               data-options="field:'id1',align:'center',width:50,formatter:formatOperation"
               width="20">操作</th>
@@ -234,17 +207,33 @@
           <table class="kv-table">
             <tbody>
             <tr>
-              <td class="kv-label">新闻名称</td>
+              <td class="kv-label">新闻主标题</td>
               <td class="kv-content" colspan="3"><input type="text" name="title"/></td>
             </tr>
             <tr>
-              <td class="kv-label" >新闻类型:</td>
-              <td class="kv-content" colspan="3">
-                <input id="cc" class="easyui-combobox" name="type"
-                       data-options="valueField:'id',textField:'name',url:'findAllNewsTypes'">
-              </td>
+                <td class="kv-label">新闻副标题</td>
+                <td class="kv-content" colspan="3"><input type="text" name="subtitle"/></td>
             </tr>
-
+            <tr>
+              <td class="kv-label" >新闻所属栏目:</td>
+              <td class="kv-content">
+                <input id="cc" class="easyui-combobox" name="programaId"
+                       data-options="valueField:'id',textField:'name',url:'findAllProgramas'">
+              </td>
+                <td class="kv-label" >新闻所属专题:</td>
+                <td class="kv-content">
+                    <input id="cc2" class="easyui-combobox" name="specialId"
+                           data-options="valueField:'id',textField:'name',url:'findAllNewsSpecials'">
+                </td>
+            </tr>
+            <tr>
+                <td class="kv-label">来源</td>
+                <td class="kv-content" colspan="3"><input type="text" name="origin"/></td>
+            </tr>
+            <%--<tr>--%>
+                <%--<td class="kv-label">点击数</td>--%>
+                <%--<td class="kv-content"><input type="text" name="checkNum"/></td>--%>
+            <%--</tr>--%>
             </tbody>
           </table>
           <div class="column"><span class="current">新闻内容</span></div>
@@ -258,59 +247,5 @@
   </form>
 </div>
 
-<div id="news_dialog_post" class="easyui-dialog"
-     data-options="closed:true,
-		title:'新闻发布',
-		modal:true,
-		resizable:true,
-		iconCls:'icon-save',
-		buttons: [{
-					id:'btn_submit',
-                    text:'发布',
-                    iconCls:'icon-ok',
-                    handler:function(){
-                        doSubmitPost();
-                    }
-                },{
-                    text:'取消',
-                    iconCls:'icon-cancel',
-                    handler:function(){
-                        $('#news_dialog_post').dialog('close');
-                    }
-                }]"
-     style="width: 660px; height: 350px; padding: 10px;">
-
-
-  <form id="news_form_post" name="news_form_post"
-        method="post">
-    <div class="container">
-      <div class="content">
-        <div title="" data-options="closable:false"
-             class="basic-info panel-body panel-body-noheader panel-body-noborder"
-             style="width: 100%;;">
-          <div class="column"><span class="current">新闻发布</span></div>
-          <table class="kv-table">
-            <tbody>
-            <tr>
-              <td class="kv-label">新闻名称</td>
-              <td class="kv-content" colspan="3"><input type="text" name="title"/></td>
-            </tr>
-
-            <tr>
-              <td class="kv-label">发布对象</td>
-              <td class="kv-content" colspan="3">
-                <select id="post_users"  name="post_users" class="easyui-combotree" style="width:200px;"
-                        data-options="url:'/admin/company/findAllPartyBranchTreeMenuList',required:true,multiple:true">
-                </select>
-            </tr>
-
-            </tbody>
-          </table>
-        </div>
-      </div>
-    </div>
-    <input type="hidden" value="0" name="id_post" />
-  </form>
-</div>
 </body>
 </html>

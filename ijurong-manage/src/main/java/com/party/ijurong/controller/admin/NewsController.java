@@ -186,6 +186,7 @@ public class NewsController {
             SimpleUser user = shiroService.getUser();
             news.setCreateUserId(user.getUserId());
             news.setId(0);
+            news.setStatus(1);
             newsService.insertNews(news);
             return "success";
         }
@@ -201,15 +202,15 @@ public class NewsController {
     @ResponseBody
     public String updateNews(HttpServletRequest httpServletRequest, @ModelAttribute News news)
     {
-        News news1=newsService.findNewsById(news.getId());
+        //News news1=newsService.findNewsById(news.getId());
         news.setCreateTime(new Date());
         SimpleUser user = shiroService.getUser();
         news.setCreateUserId(user.getUserId());
-        if (news1.getStatus()==1&&news.getStatus() == 2) {//没有发布过&&现在需要发布 0:删除,1:未发布,2:已发布
-            news.setReleaseUserId(user.getUserId());
-            news.setReleaseTime(new Date());
-            //发布
-        }
+//        if (news1.getStatus()==1&&news.getStatus() == 2) {//没有发布过&&现在需要发布 0:删除,1:未发布,2:已发布
+//            news.setReleaseUserId(user.getUserId());
+//            news.setReleaseTime(new Date());
+//            //发布
+//        }
         newsService.updateNews(news);
         return "success";
     }
@@ -221,6 +222,22 @@ public class NewsController {
     {
         News news1=newsService.findNewsById(id);
         newsService.deleteNews(id);
+        return "success";
+    }
+
+
+    //发布
+    @RequestMapping(value = "sendNews/{id}", method =
+            { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public String sendNews(HttpServletRequest httpServletRequest, @PathVariable int id)
+    {
+        News news=newsService.findNewsById(id);
+        SimpleUser user = shiroService.getUser();
+        news.setReleaseUserId(user.getUserId());
+        news.setReleaseTime(new Date());
+        news.setStatus(2);
+        newsService.updateNews(news);
         return "success";
     }
 

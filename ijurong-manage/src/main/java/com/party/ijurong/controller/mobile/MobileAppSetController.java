@@ -35,12 +35,20 @@ public class MobileAppSetController {
     @RequestMapping(value = "getShuffling")
     @ResponseBody
     public MobileResult getShuffling(HttpServletRequest httpServletRequest) {
-        AppShufflingPic appShufflingPic=new AppShufflingPic();
-        Page<AppShufflingPic> page = appShufflingPicService.findAppShufflingPicsByAppShufflingPic(appShufflingPic, 1, 3);
-
         MobileResult result = new MobileResult();
-        result.setCode(200);
-        result.setData(page.getRows());
+        try
+        {
+            AppShufflingPic appShufflingPic=new AppShufflingPic();
+            Page<AppShufflingPic> page = appShufflingPicService.findAppShufflingPicsByAppShufflingPic(appShufflingPic, 1, 3);
+
+
+            result.setCode(200);
+            result.setData(page.getRows());
+        }catch (Exception e)
+        {
+            result.setCode(400);
+            result.setMsg("系统异常");
+        }
         return  result;
     }
 
@@ -48,10 +56,17 @@ public class MobileAppSetController {
     @RequestMapping(value = "getSkinVersion")
     @ResponseBody
     public MobileResult getSkinVersion(HttpServletRequest httpServletRequest) {
-        Page<AppSkinVersion> page = appSkinVersionService.findAppSkinVersionsByMobile();
         MobileResult result = new MobileResult();
-        result.setCode(200);
-        result.setData(page.getRows());
+        try
+        {
+            Page<AppSkinVersion> page = appSkinVersionService.findAppSkinVersionsByMobile();
+            result.setCode(200);
+            result.setData(page.getRows());
+        }catch (Exception e)
+        {
+            result.setCode(400);
+            result.setMsg("系统异常");
+        }
         return  result;
     }
 }

@@ -28,6 +28,7 @@ public class ProgramaService extends BaseService<Programa>{
             example.createCriteria().andLike("name", "%" + programa.getName() + "%");
         }
         example.createCriteria().andEqualTo("origin",origin);
+        example.setOrderByClause("create_time DESC");
         List<Programa> list =mapper.selectByExampleAndRowBounds(example,rowBounds);
         long count = mapper.selectCountByExample(example);
         return new Page<Programa>(count, list);
