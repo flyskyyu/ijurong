@@ -6,6 +6,7 @@ import org.apache.ibatis.session.RowBounds;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -27,6 +28,16 @@ public class AppSkinVersionService extends BaseService<AppSkinVersion>{
         if(appSkinVersion.getName()!=null&&appSkinVersion.getName()!= "") {
             example.createCriteria().andLike("name", "%" + appSkinVersion.getName() + "%");
         }
+        example.setOrderByClause("create_time DESC");
+        List<AppSkinVersion> list =mapper.selectByExampleAndRowBounds(example,rowBounds);
+        long count = mapper.selectCountByExample(example);
+        return new Page<AppSkinVersion>(count, list);
+    }
+
+    public Page<AppSkinVersion> findAppSkinVersionsByMobile() {
+        RowBounds rowBounds=new RowBounds(0,1);
+        Example example = new Example(AppSkinVersion.class);
+        example.createCriteria().andLessThanOrEqualTo("startTime",new Date());
         example.setOrderByClause("create_time DESC");
         List<AppSkinVersion> list =mapper.selectByExampleAndRowBounds(example,rowBounds);
         long count = mapper.selectCountByExample(example);
