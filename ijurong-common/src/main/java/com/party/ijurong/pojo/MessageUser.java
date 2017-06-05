@@ -1,5 +1,8 @@
 package com.party.ijurong.pojo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -22,6 +25,8 @@ public class MessageUser {
     private Byte isRead;
 
     @Column(name = "read_time")
+    @JsonSerialize(using = DateSerializer.class)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date readTime;
 
     /**

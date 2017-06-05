@@ -27,6 +27,9 @@ public class PanelDiscussionService extends BaseService<PanelDiscussion>{
         if(panelDiscussion.getTitle()!=null&&panelDiscussion.getTitle()!="") {
             example.createCriteria().andLike("title", "%" + panelDiscussion.getTitle() + "%");
         }
+        if(panelDiscussion.getIsShadow()!=null) {
+            example.createCriteria().andEqualTo("isShadow", panelDiscussion.getIsShadow());
+        }
         List<PanelDiscussion> list =mapper.selectByExampleAndRowBounds(example,rowBounds);
         long count = mapper.selectCountByExample(example);
         return new Page<PanelDiscussion>(count, list);

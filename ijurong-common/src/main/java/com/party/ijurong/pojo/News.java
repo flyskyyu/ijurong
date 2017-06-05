@@ -1,5 +1,8 @@
 package com.party.ijurong.pojo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -28,6 +31,8 @@ public class News {
     private Integer specialId;
 
     @Column(name = "create_time")
+    @JsonSerialize(using = DateSerializer.class)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
     @Column(name = "create_user_id")
@@ -51,6 +56,8 @@ public class News {
      * 发布时间
      */
     @Column(name = "release_time")
+    @JsonSerialize(using = DateSerializer.class)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date releaseTime;
 
     /**

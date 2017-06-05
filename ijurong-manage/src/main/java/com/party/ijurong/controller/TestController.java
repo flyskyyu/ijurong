@@ -5,6 +5,7 @@ import com.party.ijurong.service.ApiService;
 import com.party.ijurong.service.RedisService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
+import org.json.JSONArray;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,7 +59,5 @@ public class TestController {
 
         return "testpost";
     }
-
-
 
 }

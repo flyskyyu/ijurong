@@ -1,5 +1,8 @@
 package com.party.ijurong.pojo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -22,6 +25,8 @@ public class Programa {
      * 创建时间
      */
     @Column(name = "create_time")
+    @JsonSerialize(using = DateSerializer.class)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
     /**
