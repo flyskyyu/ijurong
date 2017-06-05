@@ -120,7 +120,7 @@ var TT = {
         for(var i = 0; i < forms.length; i++) {
             forms.get(i).reset();
         }
-        if(uEditor) {
+        if(typeof(uEditor) != 'undefined' && uEditor) {
             uEditor.setContent('');
         }
         container.find('.easyui-combobox').combobox('clear');

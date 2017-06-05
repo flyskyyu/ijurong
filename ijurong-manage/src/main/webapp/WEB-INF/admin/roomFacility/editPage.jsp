@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: Administrator
@@ -17,45 +18,31 @@
          style="width: 100%;;">
       <form method="post" id="editForm">
         <input type="hidden" name="id"/>
-        <div class="column"><span class="current">物品信息</span></div>
+        <div class="column"><span class="current">设施信息</span></div>
         <table class="kv-table">
           <tbody>
           <tr>
-            <td class="kv-label">物品名称</td>
-            <td class="kv-content"><input type="text" name="itemName"></td>
-            <td class="kv-label">物品数量</td>
-            <td class="kv-content"><input type="text" name="num"></td>
-            <td class="kv-label">所需积分</td>
-            <td class="kv-content"><input type="text" name="integral"></td>
-          </tr>
-          <tr>
-            <td class="kv-label">物品类型</td>
+            <td class="kv-label">所属支部</td>
             <td class="kv-content">
-              <select name="type">
-                <option value="0">请选择</option>
-                <option value="1">实物</option>
-                <option value="2">虚拟物品</option>
-                <option value="3">其它</option>
+              <select name="partyBranchId">
+                <c:forEach var="branch" items="${sessionScope.USER_KEY.branchInfos}">
+                  <option value="${branch.id}">${branch.organizationName}</option>
+                </c:forEach>
               </select>
             </td>
-            <td class="kv-label">物品所属</td>
-            <td class="kv-content" colspan="3">
-              <select name="belong">
-                <option value="0">请选择</option>
-                <option value="1">党员回馈</option>
-                <option value="2">员工物品</option>
-              </select> <span class="white_space"></span>提示：员工物品所需积分为0
-            </td>
+            <td class="kv-label">设施名称</td>
+            <td class="kv-content"><input type="text" name="name"></td>
+            <td class="kv-label">设施数量</td>
+            <td class="kv-content"><input type="text" name="num"></td>
           </tr>
           <tr>
-            <td class="kv-label">领取条件</td>
-            <td class="kv-content" colspan="5"><textarea name="conditions" rows="3"></textarea></td>
+            <td class="kv-label">备注</td>
+            <td class="kv-content" colspan="5">
+              <textarea name="remark" rows="4"></textarea>
+            </td>
           </tr>
           </tbody>
         </table>
-        <div class="column"><span class="current">物品介绍</span></div>
-        <!-- 加载编辑器的容器 -->
-        <script id="editor" name="introduce" type="text/plain" style="width: 95%;height:200px;"></script>
       </form>
       <div style="text-align: center;"><a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'"
                                           id="edit_btn_add">保存</a>&nbsp;&nbsp;&nbsp;
@@ -65,7 +52,6 @@
   </div>
 </div>
 <script type="text/javascript">
-  var uEditor = UE.getEditor('editor');
   $('#edit_btn_cancel').click(function () {
     $('#editDialog').dialog('close');
   });
