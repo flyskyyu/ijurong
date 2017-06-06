@@ -41,12 +41,12 @@ pageEncoding="UTF-8" %>
                         <li class="subnav-li" href="message/message" data-id="6"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">发送通知公告</span></a></li>
                     </ul>
                 </li>
-                <li class="nav-li">
-                	<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">党务公开</span></a>
-                    <ul class="subnav">
-                    	<li class="subnav-li" data-id="7"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党务公开</span></a></li>
-                    </ul>
-                </li>
+                <%--<li class="nav-li">--%>
+                	<%--<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">党务公开</span></a>--%>
+                    <%--<ul class="subnav">--%>
+                    	<%--<li class="subnav-li" data-id="7"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党务公开</span></a></li>--%>
+                    <%--</ul>--%>
+                <%--</li>--%>
                 <li class="nav-li last-nav-li">
                 	<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">网上办事</span></a>
                     <ul class="subnav">
@@ -76,15 +76,15 @@ pageEncoding="UTF-8" %>
 				<%--</li>--%>
             </ul>
 
-			<ul class="nav" id="nav_officialManage" style="display: none;">
-				<li class="nav-li">
-					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">公文管理</span></a>
-					<ul class="subnav">
-						<li class="subnav-li" href="platformManage/news" data-id="22"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻管理</span></a></li>
-						<li class="subnav-li" href="platformManage/news_type" data-id="23"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻分类管理</span></a></li>
-					</ul>
-				</li>
-			</ul>
+			<%--<ul class="nav" id="nav_officialManage" style="display: none;">--%>
+				<%--<li class="nav-li">--%>
+					<%--<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">公文管理</span></a>--%>
+					<%--<ul class="subnav">--%>
+						<%--<li class="subnav-li" href="platformManage/news" data-id="22"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻管理</span></a></li>--%>
+						<%--<li class="subnav-li" href="platformManage/news_type" data-id="23"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻分类管理</span></a></li>--%>
+					<%--</ul>--%>
+				<%--</li>--%>
+			<%--</ul>--%>
 
 			<ul class="nav" id="nav_companyManage" style="display: none;">
 				<li class="nav-li">

@@ -17,28 +17,35 @@
       $('#enterpriseInfo_grid').datagrid('load', enterpriseInfo);
     }
     function doSubmit() {
-      $('#enterpriseInfo_form').form('submit', {
-        success : function(data) {
-          if (data == "had") {
-            $.messager.alert('提示', '企业名已存在!');
-            return;
-          }
-          if (data == "success") {
-            $('#enterpriseInfo_dialog').dialog('close');
-            $('#enterpriseInfo_grid').datagrid('reload');
-          } else {
-            $.messager.alert('提示', '提交失败!');
-          }
-        }
-      });
+        $.ajax({
+            url: enterpriseInfo_form.action,
+            type: enterpriseInfo_form.method,
+            data: $(enterpriseInfo_form).serialize(),
+            success: function (data) {
+                if (data == "had") {
+                    $.messager.alert('提示', '企业名已存在!');
+                    return;
+                }
+                if (data == "success") {
+                    $('#enterpriseInfo_dialog').dialog('close');
+                    $('#enterpriseInfo_grid').datagrid('reload');
+                } else {
+                    $.messager.alert('提示', '提交失败!');
+                }
+            },
+            error: function() {
+                $.messager.alert('提示', '服务器内部错误!');
+            }
+        });
     }
     $(function() {
       $('#btn_add').bind('click', function() {
-        enterpriseInfo_form.reset();
-        enterpriseInfo_form.action = 'addEnterpriseInfo';
-        $('#enterpriseInfo_dialog').dialog('setTitle', '添加企业');
-        $('#level').combobox('clear');
-        $('#enterpriseInfo_dialog').dialog('open');
+            enterpriseInfo_form.reset();
+            TT.resetForm('enterpriseInfo_dialog');
+            enterpriseInfo_form.action = 'addEnterpriseInfo';
+            $('#enterpriseInfo_dialog').dialog('setTitle', '添加企业');
+            $('#level').combobox('clear');
+            $('#enterpriseInfo_dialog').dialog('open');
       });
     });
 
@@ -87,6 +94,7 @@
 
     function openDialog(id) {
         enterpriseInfo_form.reset();
+        TT.resetForm('enterpriseInfo_dialog');
       $('#enterpriseInfo_grid').datagrid('selectRow', id);
       var rowData = $('#enterpriseInfo_grid').datagrid('getSelected');
       if (rowData != null) {

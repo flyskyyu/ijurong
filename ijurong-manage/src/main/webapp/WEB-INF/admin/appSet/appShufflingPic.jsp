@@ -17,8 +17,11 @@
             $('#appShufflingPic_grid').datagrid('load', appShufflingPic);
         }
         function doSubmit() {
-            $('#appShufflingPic_form').form('submit', {
-                success : function(data) {
+            $.ajax({
+                url: appShufflingPic_form.action,
+                type: appShufflingPic_form.method,
+                data: $(appShufflingPic_form).serialize(),
+                success: function (data) {
                     if (data == "had") {
                         $.messager.alert('提示', '轮播图名称已存在!');
                         return;
@@ -29,12 +32,16 @@
                     } else {
                         $.messager.alert('提示', '提交失败!');
                     }
+                },
+                error: function() {
+                    $.messager.alert('提示', '服务器内部错误!');
                 }
             });
         }
         $(function() {
             $('#btn_add').bind('click', function() {
                 appShufflingPic_form.reset();
+                TT.resetForm('appShufflingPic_dialog');
                 $('#detail_type').combobox('setValue', '');
                 $("#img_uploaded_url").hide();
                 appShufflingPic_form.action = 'addAppShufflingPic';
@@ -92,6 +99,7 @@
 
         function openDialog(id) {
             appShufflingPic_form.reset();
+            TT.resetForm('appShufflingPic_dialog');
             $('#detail_type').combobox('setValue', '');
 
             $('#appShufflingPic_grid').datagrid('selectRow', id);

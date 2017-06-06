@@ -34,20 +34,29 @@
             $('#message_grid').datagrid('load', message);
         }
         function doSubmit() {
-            $('#message_form').form('submit', {
-                success : function(data) {
+            $.ajax({
+                url: message_form.action,
+                type: message_form.method,
+                data: $(message_form).serialize(),
+                success: function (data) {
                     if (data == "success") {
                         $('#message_dialog').dialog('close');
                         $('#message_grid').datagrid('reload');
                     } else {
                         $.messager.alert('提示', '提交失败!');
                     }
+                },
+                error: function() {
+                    $.messager.alert('提示', '服务器内部错误!');
                 }
             });
+
         }
         $(function() {
             $('#btn_add').bind('click', function() {
                 message_form.reset();
+                TT.resetForm('message_dialog');
+                ue.setContent('');
                 message_form.action = 'addMessage';
                 $('#message_dialog').dialog('setTitle', '添加通知');
                 $('#level').combobox('clear');
@@ -114,6 +123,7 @@
 
 
         function openPostDialog(id) {
+            TT.resetForm('message_dialog_post');
             $('#message_grid').datagrid('selectRow', id);
             var rowData = $('#message_grid').datagrid('getSelected');
             if (rowData != null) {
@@ -155,12 +165,12 @@
         }
 
         function openDialog(id) {
+            TT.resetForm('message_dialog');
             $('#message_grid').datagrid('selectRow', id);
             var rowData = $('#message_grid').datagrid('getSelected');
             if (rowData != null) {
-
                 $('#message_form').form('load', rowData);
-
+                ue.setContent(rowData.newsContent);
             }
             message_form.action = "updateMessage";
             $('#message_dialog').dialog('setTitle', '通知管理');

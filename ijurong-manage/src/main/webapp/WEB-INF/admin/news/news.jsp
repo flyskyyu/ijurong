@@ -34,20 +34,29 @@
       $('#news_grid').datagrid('load', news);
     }
     function doSubmit() {
-      $('#news_form').form('submit', {
-        success : function(data) {
-          if (data == "success") {
-            $('#news_dialog').dialog('close');
-            $('#news_grid').datagrid('reload');
-          } else {
-            $.newsr.alert('提示', '提交失败!');
-          }
-        }
-      });
+        $.ajax({
+            url: news_form.action,
+            type: news_form.method,
+            data: $(news_form).serialize(),
+            success: function (data) {
+                if (data == "success") {
+                    $('#news_dialog').dialog('close');
+                    $('#news_grid').datagrid('reload');
+                } else {
+                    $.newsr.alert('提示', '提交失败!');
+                }
+            },
+            error: function() {
+                $.messager.alert('提示', '服务器内部错误!');
+            }
+        });
+
     }
     $(function() {
       $('#btn_add').bind('click', function() {
         news_form.reset();
+          TT.resetForm('news_dialog');
+          ue.setContent('');
         news_form.action = 'addNews';
         $('#news_dialog').dialog('setTitle', '添加新闻');
         $('#level').combobox('clear');
@@ -128,11 +137,13 @@
     }
 
     function openDialog(id) {
+        TT.resetForm('news_dialog');
       $('#news_grid').datagrid('selectRow', id);
       var rowData = $('#news_grid').datagrid('getSelected');
       if (rowData != null) {
 
-        $('#news_form').form('load', rowData);
+          $('#news_form').form('load', rowData);
+          ue.setContent(rowData.newsContent);
 
       }
       news_form.action = "updateNews";

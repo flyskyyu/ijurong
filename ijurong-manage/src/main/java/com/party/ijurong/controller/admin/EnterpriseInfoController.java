@@ -2,14 +2,12 @@ package com.party.ijurong.controller.admin;
 
 import com.party.ijurong.bean.CombotreeResult;
 import com.party.ijurong.bean.Page;
+import com.party.ijurong.bean.SimpleUser;
 import com.party.ijurong.pojo.EnterpriseInfo;
 import com.party.ijurong.pojo.PartyBranchInfo;
 import com.party.ijurong.pojo.ResourceType;
 import com.party.ijurong.pojo.Volunteer;
-import com.party.ijurong.service.EnterpriseInfoService;
-import com.party.ijurong.service.PartyBranchInfoService;
-import com.party.ijurong.service.ResourceTypeService;
-import com.party.ijurong.service.VolunteerService;
+import com.party.ijurong.service.*;
 import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -48,6 +46,10 @@ public class EnterpriseInfoController {
 
     @Autowired
     private ResourceTypeService resourceTypeService;
+
+
+    @Autowired
+    private ShiroService shiroService;
 
 
     @RequestMapping(value = "/findEnterpriseInfos", method = { RequestMethod.POST, RequestMethod.GET })
@@ -268,7 +270,8 @@ public class EnterpriseInfoController {
         if (resourceTypeCount==0)
         {
             resourceType.setCreateTime(new Date());
-            resourceType.setCreateUerId(1);//TODO 需要加上用户id
+            SimpleUser user = shiroService.getUser();
+            resourceType.setCreateUerId(user.getUserId());
             resourceTypeService.insertResourceType(resourceType);
             return "success";
         }

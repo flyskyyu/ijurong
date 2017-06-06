@@ -2,6 +2,7 @@ package com.party.ijurong.controller.admin;
 
 import com.google.gson.JsonObject;
 import com.party.ijurong.bean.Page;
+import com.party.ijurong.bean.SimpleUser;
 import com.party.ijurong.pojo.*;
 import com.party.ijurong.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +36,10 @@ public class MessageController {
     @Autowired
     private MessageService messageService;
 
+
+    @Autowired
+    private ShiroService shiroService;
+
     @RequestMapping(value = "/findMessageTypes", method = { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
     public Page<MessageType> findMessageTypes(HttpServletRequest httpServletRequest,
@@ -59,7 +64,9 @@ public class MessageController {
         if (messageTypeCount==0)
         {
             messageType.setCreateTime(new Date());
-            messageType.setCreateUserId(1);//TODO 后期加上人企业
+            SimpleUser user = shiroService.getUser();
+            messageType.setCreateUserId(user.getUserId());
+            messageType.setId(0);
             messageTypeService.insertMessageType(messageType);
             return "success";
         }
@@ -109,7 +116,8 @@ public class MessageController {
     {
         try {
             message.setCreateTime(new Date());
-            message.setCreateUserId(1);//TODO 后期加上人企业
+            SimpleUser user = shiroService.getUser();
+            message.setCreateUserId(user.getUserId());
             message.setId(0);
             messageService.insertMessage(message);
             return "success";

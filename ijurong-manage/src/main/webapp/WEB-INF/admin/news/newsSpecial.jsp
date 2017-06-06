@@ -17,24 +17,31 @@
       $('#newsSpecial_grid').datagrid('load', newsSpecial);
     }
     function doSubmit() {
-      $('#newsSpecial_form').form('submit', {
-        success : function(data) {
-          if (data == "had") {
-            $.messager.alert('提示', '专题已存在!');
-            return;
-          }
-          if (data == "success") {
-            $('#newsSpecial_dialog').dialog('close');
-            $('#newsSpecial_grid').datagrid('reload');
-          } else {
-            $.messager.alert('提示', '提交失败!');
-          }
-        }
-      });
+        $.ajax({
+            url: newsSpecial_form.action,
+            type: newsSpecial_form.method,
+            data: $(newsSpecial_form).serialize(),
+            success: function (data) {
+                if (data == "had") {
+                    $.messager.alert('提示', '专题已存在!');
+                    return;
+                }
+                if (data == "success") {
+                    $('#newsSpecial_dialog').dialog('close');
+                    $('#newsSpecial_grid').datagrid('reload');
+                } else {
+                    $.messager.alert('提示', '提交失败!');
+                }
+            },
+            error: function() {
+                $.messager.alert('提示', '服务器内部错误!');
+            }
+        });
     }
     $(function() {
       $('#btn_add').bind('click', function() {
         newsSpecial_form.reset();
+          TT.resetForm('newsSpecial_dialog');
         newsSpecial_form.action = 'addNewsSpecial';
         $('#newsSpecial_dialog').dialog('setTitle', '添加专题');
         $('#level').combobox('clear');
@@ -73,6 +80,7 @@
 
 
     function openDialog(id) {
+        TT.resetForm('newsSpecial_dialog');
       $('#newsSpecial_grid').datagrid('selectRow', id);
       var rowData = $('#newsSpecial_grid').datagrid('getSelected');
       if (rowData != null) {
