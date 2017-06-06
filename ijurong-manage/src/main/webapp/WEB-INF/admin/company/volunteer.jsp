@@ -19,28 +19,35 @@
       $('#volunteer_grid').datagrid('load', volunteer);
     }
     function doSubmit() {
-      $('#volunteer_form').form('submit', {
-        success : function(data) {
-          if (data == "had") {
-            $.messager.alert('提示', '志愿者已存在!');
-            return;
-          }
-          if (data == "success") {
-            $('#volunteer_dialog').dialog('close');
-            $('#volunteer_grid').datagrid('reload');
-          } else {
-            $.messager.alert('提示', '提交失败!');
-          }
-        }
-      });
+        $.ajax({
+            url: volunteer_form.action,
+            type: volunteer_form.method,
+            data: $(volunteer_form).serialize(),
+            success: function (data) {
+                if (data == "had") {
+                    $.messager.alert('提示', '志愿者已存在!');
+                    return;
+                }
+                if (data == "success") {
+                    $('#volunteer_dialog').dialog('close');
+                    $('#volunteer_grid').datagrid('reload');
+                } else {
+                    $.messager.alert('提示', '提交失败!');
+                }
+            },
+            error: function() {
+                $.messager.alert('提示', '服务器内部错误!');
+            }
+        });
     }
     $(function() {
       $('#btn_add').bind('click', function() {
-        volunteer_form.reset();
-        volunteer_form.action = 'addVolunteer';
-        $('#volunteer_dialog').dialog('setTitle', '添加志愿者');
-        $('#level').combobox('clear');
-        $('#volunteer_dialog').dialog('open');
+          volunteer_form.reset();
+          TT.resetForm('volunteer_dialog');
+          volunteer_form.action = 'addVolunteer';
+          $('#volunteer_dialog').dialog('setTitle', '添加志愿者');
+          $('#level').combobox('clear');
+          $('#volunteer_dialog').dialog('open');
       });
     });
 
@@ -95,6 +102,7 @@
 
     function openDialog(id) {
         volunteer_form.reset();
+        TT.resetForm('volunteer_dialog');
       $('#volunteer_grid').datagrid('selectRow', id);
       var rowData = $('#volunteer_grid').datagrid('getSelected');
       if (rowData != null) {

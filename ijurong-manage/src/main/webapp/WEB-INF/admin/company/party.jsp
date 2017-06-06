@@ -80,8 +80,11 @@
       {
         $('#fatherId').val('0');
       }
-      $('#partyBranchInfo_form').form('submit', {
-        success : function(data) {
+      $.ajax({
+        url: partyBranchInfo_form.action,
+        type: partyBranchInfo_form.method,
+        data: $(partyBranchInfo_form).serialize(),
+        success: function (data) {
           if (data == "had") {
             $.messager.alert('提示', '支部名已存在!');
             return;
@@ -92,25 +95,36 @@
           } else {
             $.messager.alert('提示', '提交失败!');
           }
+        },
+        error: function() {
+          $.messager.alert('提示', '服务器内部错误!');
         }
       });
     }
 
     function doSubmitMap() {
-      $('#map_form').form('submit', {
-        success : function(data) {
+      $.ajax({
+        url: map_form.action,
+        type: map_form.method,
+        data: $(map_form).serialize(),
+        success: function (data) {
           if (data == "success") {
             $('#map_dialog').dialog('close');
             $('#partyBranchInfo_grid').datagrid('reload');
           } else {
             $.messager.alert('提示', '提交失败!');
           }
+        },
+        error: function() {
+          $.messager.alert('提示', '服务器内部错误!');
         }
       });
     }
     $(function() {
       $('#btn_add').bind('click', function() {
         partyBranchInfo_form.reset();
+        TT.resetForm('partyBranchInfo_dialog');
+
         $('#refGrid').combogrid('setValue', '');
         $('#refGrid1').combogrid('setValue', '');
         partyBranchInfo_form.action = 'addPartyBranchInfo';
@@ -166,6 +180,7 @@
 
     function openMapDialog(id) {
       map_form.reset();
+      TT.resetForm('map_dialog');
       map_form.action = 'updatePartyBranchInfo';
       $('#partyBranchInfo_grid').datagrid('selectRow', id);
       var rowData = $('#partyBranchInfo_grid').datagrid('getSelected');
@@ -188,6 +203,7 @@
 
     function openDialog(id) {
       partyBranchInfo_form.reset();
+      TT.resetForm('partyBranchInfo_dialog');
       $('#refGrid').combogrid('setValue', '');
       $('#refGrid1').combogrid('setValue', '');
 

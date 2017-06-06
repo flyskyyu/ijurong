@@ -17,8 +17,11 @@
             $('#messageType_grid').datagrid('load', messageType);
         }
         function doSubmit() {
-            $('#messageType_form').form('submit', {
-                success : function(data) {
+            $.ajax({
+                url: messageType_form.action,
+                type: messageType_form.method,
+                data: $(messageType_form).serialize(),
+                success: function (data) {
                     if (data == "had") {
                         $.messager.alert('提示', '通知类型已存在!');
                         return;
@@ -29,12 +32,16 @@
                     } else {
                         $.messager.alert('提示', '提交失败!');
                     }
+                },
+                error: function() {
+                    $.messager.alert('提示', '服务器内部错误!');
                 }
             });
         }
         $(function() {
             $('#btn_add').bind('click', function() {
                 messageType_form.reset();
+                TT.resetForm('messageType_dialog');
                 messageType_form.action = 'addMessageType';
                 $('#messageType_dialog').dialog('setTitle', '添加通知类型');
                 $('#level').combobox('clear');
@@ -76,9 +83,8 @@
             $('#messageType_grid').datagrid('selectRow', id);
             var rowData = $('#messageType_grid').datagrid('getSelected');
             if (rowData != null) {
-
+                TT.resetForm('messageType_dialog');
                 $('#messageType_form').form('load', rowData);
-
             }
             messageType_form.action = "updateMessageType";
             $('#messageType_dialog').dialog('setTitle', '通知类型');

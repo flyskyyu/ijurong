@@ -17,24 +17,33 @@
       $('#programa_grid').datagrid('load', programa);
     }
     function doSubmit() {
-      $('#programa_form').form('submit', {
-        success : function(data) {
-          if (data == "had") {
-            $.messager.alert('提示', '栏目已存在!');
-            return;
-          }
-          if (data == "success") {
-            $('#programa_dialog').dialog('close');
-            $('#programa_grid').datagrid('reload');
-          } else {
-            $.messager.alert('提示', '提交失败!');
-          }
-        }
-      });
+
+        $.ajax({
+            url: programa_form.action,
+            type: programa_form.method,
+            data: $(programa_form).serialize(),
+            success: function (data) {
+                if (data == "had") {
+                    $.messager.alert('提示', '栏目已存在!');
+                    return;
+                }
+                if (data == "success") {
+                    $('#programa_dialog').dialog('close');
+                    $('#programa_grid').datagrid('reload');
+                } else {
+                    $.messager.alert('提示', '提交失败!');
+                }
+            },
+            error: function() {
+                $.messager.alert('提示', '服务器内部错误!');
+            }
+        });
+
     }
     $(function() {
       $('#btn_add').bind('click', function() {
         programa_form.reset();
+          TT.resetForm('programa_dialog');
         programa_form.action = 'addPrograma';
         $('#programa_dialog').dialog('setTitle', '添加栏目');
         $('#level').combobox('clear');
@@ -73,6 +82,7 @@
 
 
     function openDialog(id) {
+        TT.resetForm('programa_dialog');
       $('#programa_grid').datagrid('selectRow', id);
       var rowData = $('#programa_grid').datagrid('getSelected');
       if (rowData != null) {

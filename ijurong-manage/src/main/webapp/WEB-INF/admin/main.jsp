@@ -53,7 +53,7 @@ pageEncoding="UTF-8" %>
         	<div class="nav-wrap">
                 <ul class="nav ue-clear">
                     <li><a href="javascript:;" id="platformManage">平台管理</a></li>
-                    <li><a href="javascript:;" id="officialManage">公文流转</a></li>
+                    <%--<li><a href="javascript:;" id="officialManage">公文流转</a></li>--%>
                     <li><a href="javascript:;" id="companyManage">单位支部</a></li>
                     <li><a href="javascript:;" id="partyMemberManage">党员服务</a></li>
                     <li><a href="javascript:;" id="interactiveManage">互动交流</a></li>

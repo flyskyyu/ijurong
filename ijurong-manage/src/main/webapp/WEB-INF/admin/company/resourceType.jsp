@@ -17,8 +17,11 @@
             $('#resourceType_grid').datagrid('load', resourceType);
         }
         function doSubmit() {
-            $('#resourceType_form').form('submit', {
-                success : function(data) {
+            $.ajax({
+                url: resourceType_form.action,
+                type: resourceType_form.method,
+                data: $(resourceType_form).serialize(),
+                success: function (data) {
                     if (data == "had") {
                         $.messager.alert('提示', '资源类型已存在!');
                         return;
@@ -29,12 +32,16 @@
                     } else {
                         $.messager.alert('提示', '提交失败!');
                     }
+                },
+                error: function() {
+                    $.messager.alert('提示', '服务器内部错误!');
                 }
             });
         }
         $(function() {
             $('#btn_add').bind('click', function() {
                 resourceType_form.reset();
+                TT.resetForm('resourceType_dialog');
                 resourceType_form.action = 'addResourceType';
                 $('#resourceType_dialog').dialog('setTitle', '添加资源类型');
                 $('#level').combobox('clear');
@@ -81,6 +88,7 @@
 
         function openDialog(id) {
             resourceType_form.reset();
+            TT.resetForm('resourceType_dialog');
             $('#resourceType_grid').datagrid('selectRow', id);
             var rowData = $('#resourceType_grid').datagrid('getSelected');
             if (rowData != null) {

@@ -17,8 +17,11 @@
             $('#appSkins_grid').datagrid('load', appSkins);
         }
         function doSubmit() {
-            $('#appSkins_form').form('submit', {
-                success : function(data) {
+            $.ajax({
+                url: appSkins_form.action,
+                type: appSkins_form.method,
+                data: $(appSkins_form).serialize(),
+                success: function (data) {
                     if (data == "had") {
                         $.messager.alert('提示', '皮肤图名称已存在!');
                         return;
@@ -29,12 +32,16 @@
                     } else {
                         $.messager.alert('提示', '提交失败!');
                     }
+                },
+                error: function() {
+                    $.messager.alert('提示', '服务器内部错误!');
                 }
             });
         }
         $(function() {
             $('#btn_add').bind('click', function() {
                 appSkins_form.reset();
+                TT.resetForm('appSkins_dialog');
                 $("#img_uploaded_url").hide();
                 appSkins_form.action = 'addAppSkins';
                 $('#appSkins_dialog').dialog('setTitle', '添加皮肤图');
@@ -74,7 +81,7 @@
 
         function openDialog(id) {
             appSkins_form.reset();
-
+            TT.resetForm('appSkins_dialog');
             $('#appSkins_grid').datagrid('selectRow', id);
             var rowData = $('#appSkins_grid').datagrid('getSelected');
             if (rowData != null) {
