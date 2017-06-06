@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.party.ijurong.mapper.PermissionMapper">
+    <resultMap id="BaseResultMap" type="com.party.ijurong.pojo.Permission">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="permission_code" jdbcType="VARCHAR" property="permissionCode"/>
+        <result column="permission_name" jdbcType="VARCHAR" property="permissionName"/>
+        <result column="class_code" jdbcType="VARCHAR" property="classCode"/>
+        <result column="url" jdbcType="VARCHAR" property="url"/>
+        <result column="icon_url" jdbcType="VARCHAR" property="iconUrl"/>
+        <result column="show_order" jdbcType="INTEGER" property="showOrder"/>
+        <result column="parent_id" jdbcType="INTEGER" property="parentId"/>
+        <result column="generate_menu" jdbcType="TINYINT" property="generateMenu"/>
+        <result column="remark" jdbcType="VARCHAR" property="remark"/>
+    </resultMap>
+    <select id="queryAllPermissions"  parameterType="int" resultMap="BaseResultMap">
+        SELECT permission.* FROM staff, staff_role, role, role_permission, permission WHERE
+        staff.staff_id = staff_role.staff_id AND staff_role.role_id = role.id
+        AND role.id = role_permission.role_id AND role_permission.permission_id = permission.id
+        AND staff.staff_id = #{staffId}
+    </select>
+</mapper>

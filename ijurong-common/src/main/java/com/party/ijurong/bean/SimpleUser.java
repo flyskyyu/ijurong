@@ -12,6 +12,7 @@ import java.util.List;
 public class SimpleUser implements Serializable{
     private Integer userId;
     private String userName;
+    private String phone;
     private Integer partyBranchId;
     private String token;
     private List<PartyBranchInfo> branchInfos;
@@ -24,6 +25,7 @@ public class SimpleUser implements Serializable{
         this.userId = staff.getStaffId();
         this.userName = staff.getStaffName();
         this.partyBranchId = staff.getPartyBranchId();
+        this.phone = staff.getPhoneNumber();
     }
 
     public Integer getUserId() {
@@ -64,5 +66,13 @@ public class SimpleUser implements Serializable{
 
     public void setToken(String token) {
         this.token = token;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
     }
 }
