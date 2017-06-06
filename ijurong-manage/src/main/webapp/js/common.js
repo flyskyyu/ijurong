@@ -119,6 +119,7 @@ var TT = {
         var forms = container.find('form');
         for(var i = 0; i < forms.length; i++) {
             forms.get(i).reset();
+            $(forms.get(i)).find('[type="hidden"]').val('');
         }
         if(typeof(uEditor) != 'undefined' && uEditor) {
             uEditor.setContent('');
