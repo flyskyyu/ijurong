@@ -1,14 +1,20 @@
 package com.party.ijurong.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.party.ijurong.bean.Page;
+import com.party.ijurong.dto.MessageDto;
+import com.party.ijurong.mapper.MessageMapper;
 import com.party.ijurong.pojo.Message;
 import com.party.ijurong.pojo.MessageType;
 import com.party.ijurong.pojo.Volunteer;
 import org.apache.ibatis.session.RowBounds;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by yu on 2017/5/19.
@@ -16,6 +22,15 @@ import java.util.List;
 @Service
 public class MessageService extends BaseService<Message>{
 
+    @Autowired
+    private MessageMapper messageMapper;
+
+    public PageInfo<MessageDto> getMessageByUserId(int userId, int page, int rows)
+    {
+        PageHelper.startPage(page, rows);
+        List<MessageDto> dtos = messageMapper.getMessageByUserId(userId);
+        return new PageInfo<>(dtos);
+    }
     /**
      * 查询所有消息
      * @param message

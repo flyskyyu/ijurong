@@ -1,105 +1,98 @@
-package com.party.ijurong.pojo;
+package com.party.ijurong.dto;
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.party.ijurong.pojo.DateSerializer;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
 import java.util.Date;
 
-@Table(name = "message_user")
-public class MessageUser {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+/**
+ * Created by yu on 2017/6/6.
+ */
+public class MessageDto {
     private Integer id;
-
-    @Column(name = "message_id")
     private Integer messageId;
-
-    @Column(name = "user_id")
     private Integer userId;
-
-    /**
-     * 0：未读，1已读
-     */
-    @Column(name = "is_read")
     private Integer isRead;
-
-    @Column(name = "read_time")
-    @JsonSerialize(using = DateSerializer.class)
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonSerialize(using = DateSerializer.class)
     private Date readTime;
+    private String title;
+    private String newsContent;
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonSerialize(using = DateSerializer.class)
+    private Date createTime;
+    private Integer type;
 
-    /**
-     * @return id
-     */
     public Integer getId() {
         return id;
     }
 
-    /**
-     * @param id
-     */
     public void setId(Integer id) {
         this.id = id;
     }
 
-    /**
-     * @return message_id
-     */
     public Integer getMessageId() {
         return messageId;
     }
 
-    /**
-     * @param messageId
-     */
     public void setMessageId(Integer messageId) {
         this.messageId = messageId;
     }
 
-    /**
-     * @return user_id
-     */
     public Integer getUserId() {
         return userId;
     }
 
-    /**
-     * @param userId
-     */
     public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
-    /**
-     * 获取0：未读，1已读
-     *
-     * @return is_read - 0：未读，1已读
-     */
     public Integer getIsRead() {
         return isRead;
     }
 
-    /**
-     * 设置0：未读，1已读
-     *
-     * @param isRead 0：未读，1已读
-     */
     public void setIsRead(Integer isRead) {
         this.isRead = isRead;
     }
 
-    /**
-     * @return read_time
-     */
     public Date getReadTime() {
         return readTime;
     }
 
-    /**
-     * @param readTime
-     */
     public void setReadTime(Date readTime) {
         this.readTime = readTime;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getNewsContent() {
+        return newsContent;
+    }
+
+    public void setNewsContent(String newsContent) {
+        this.newsContent = newsContent;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Integer getType() {
+        return type;
+    }
+
+    public void setType(Integer type) {
+        this.type = type;
     }
 }

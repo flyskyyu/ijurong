@@ -27,6 +27,9 @@ public class NewsService extends BaseService<News>{
         if(news.getTitle()!=null&&news.getTitle()!="") {
             example.createCriteria().andLike("title", "%" + news.getTitle() + "%");
         }
+        if(news.getProgramaId()!=null) {
+            example.createCriteria().andEqualTo("programaId",news.getProgramaId());
+        }
         example.setOrderByClause("create_time DESC");
         List<News> list =mapper.selectByExampleAndRowBounds(example,rowBounds);
         long count = mapper.selectCountByExample(example);

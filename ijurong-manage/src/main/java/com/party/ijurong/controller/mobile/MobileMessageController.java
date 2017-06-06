@@ -4,14 +4,9 @@ import com.github.pagehelper.PageInfo;
 import com.party.ijurong.bean.MobileResult;
 import com.party.ijurong.bean.Page;
 import com.party.ijurong.bean.SimpleUser;
-import com.party.ijurong.pojo.AppShufflingPic;
-import com.party.ijurong.pojo.Car;
-import com.party.ijurong.pojo.Message;
-import com.party.ijurong.pojo.MessageType;
-import com.party.ijurong.service.CarService;
-import com.party.ijurong.service.MessageService;
-import com.party.ijurong.service.MessageTypeService;
-import com.party.ijurong.service.MobileShiroService;
+import com.party.ijurong.dto.MessageDto;
+import com.party.ijurong.pojo.*;
+import com.party.ijurong.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -38,6 +33,8 @@ public class MobileMessageController {
     @Autowired
     private MessageService messageService;
 
+    @Autowired
+    private MessageUserService messageUserService;
 
 
     @RequestMapping(value = "getType")
@@ -82,5 +79,47 @@ public class MobileMessageController {
     }
 
 
+    @RequestMapping(value = "getMessages")
+    @ResponseBody
+    public MobileResult getMessages(HttpServletRequest httpServletRequest,@RequestParam(defaultValue = "1")int page
+    , @RequestParam(defaultValue = "20")int rows) {
+        MobileResult result = new MobileResult();
+        try
+        {
+            SimpleUser user = shiroService.getUser();
+            PageInfo<MessageDto> pageInfo=messageService.getMessageByUserId(user.getUserId(),page,rows);
+            result.setCode(200);
+            result.setData(pageInfo.getList());
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            result.setCode(400);
+            result.setMsg("系统异常");
+        }
+        return  result;
+    }
+
+
+    @RequestMapping(value = "readMessage")
+    @ResponseBody
+    public MobileResult readMessage(HttpServletRequest httpServletRequest,@RequestParam int id) {
+        MobileResult result = new MobileResult();
+        try
+        {
+            MessageUser messageUser=new MessageUser();
+            messageUser.setId(id);
+            messageUser.setReadTime(new Date());
+            messageUser.setIsRead(1);
+            messageUserService.updateMessageUser(messageUser);
+            result.setCode(200);
+
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            result.setCode(400);
+            result.setMsg("系统异常");
+        }
+        return  result;
+    }
 
 }
