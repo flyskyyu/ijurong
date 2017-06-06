@@ -20,7 +20,7 @@
                 and staff_name like concat('%', #{staffName}, '%')
             </if>
         </where>
-        ORDER BY staff.staff_id DESC
+        ORDER BY member.id DESC
     </select>
 
 </mapper>

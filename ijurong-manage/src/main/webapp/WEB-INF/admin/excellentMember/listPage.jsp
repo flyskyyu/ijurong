@@ -11,6 +11,21 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>后台帐号管理</title>
   <jsp:include page="../contentHeader.jsp"/>
+  <script type="text/javascript" src="<%=basePath%>ueditor/ueditor.config.js"></script>
+  <script type="text/javascript" src="<%=basePath%>ueditor/ueditor.all.js"></script>
+  <script type="text/javascript" charset="utf-8" src="<%=basePath%>ueditor/lang/zh-cn/zh-cn.js"></script>
+  <!--以下样式为了解决ue 和easyui的弹出层冲突-->
+  <style type="text/css">
+    .window{
+      z-index: 905 ! important;
+    }
+    .window-shadow{
+      z-index: 904 ! important;
+    }
+    .window-mask{
+      z-index: 903 ! important;
+    }
+  </style>
 </head>
 <body class="easyui-layout">
 <div region="center" style="padding: 5px;">
@@ -35,9 +50,8 @@
     </tr>
     </thead>
   </table>
-  <div id="editWindow" class="easyui-window"
-       data-options="modal:true,closed:true,iconCls:'icon-save',href:'<%=basePath%>admin/excellentMember/editPage'"
-       style="width:90%;height:80%;padding:10px;">
+  <div id="editDialog" class="easyui-dialog" style="width:90%;height:80%;padding:10px;" data-options="modal:true,resizable:true,maximizable:true,closed:true,iconCls:'icon-save'">
+    <jsp:include page="editPage.jsp"/>
   </div>
 </div>
 <script>
@@ -51,23 +65,20 @@
     $('#tableList').datagrid('selectRow', rowIndex);
     var rowData = $('#tableList').datagrid('getSelected');
     if (rowData != null) {
-      $("#editWindow").window({
-        title: '编辑优秀党员',
-        onLoad: function() {
-          $('#editForm').attr('action', '<%=basePath%>admin/excellentMember/update')
-                  .form('load', rowData);
-        }
-      }).window('open');
+      TT.resetForm();
+      $('#editDialog').dialog('setTitle', '编辑优秀党员');
+      $('#editForm').attr('action', '<%=basePath%>admin/excellentMember/update')
+              .form('load', rowData);
+      uEditor.setContent(rowData.meritoriousDeeds);
+      $('#editDialog').dialog('open');
     }
   }
 
   $('#btn_add').bind('click', function() {
-    $("#editWindow").window({
-      title: '新增优秀党员',
-      onLoad: function() {
-        $('#editForm').attr('action', '<%=basePath%>admin/excellentMember/add');
-      }
-    }).window('open');
+    TT.resetForm();
+    $('#editDialog').dialog('setTitle', '新增优秀党员');
+    $('#editForm').attr('action', '<%=basePath%>admin/excellentMember/add');
+    $('#editDialog').dialog('open');
   });
 
   function del(rowIndex) {

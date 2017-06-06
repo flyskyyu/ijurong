@@ -17,7 +17,7 @@
 </div>
 <div class="add_upload_img_container" id="add_upload_img_container">
   <img src="<%=basePath%>img/add_img_icon.png"/>
-  <input id="fileupload" type="file" name="file" multiple/>
+  <input id="fileupload" type="file" name="file" multiple accept="image/gif, image/jpeg, image/jpg, image/png"/>
 </div>
 <script>
   $('#editForm').on('click', '.delete_icon', function() {

@@ -119,7 +119,6 @@
 <script type="text/javascript">
     $('#addObjImage').click(function() {
         TT.resetForm('facilityDialogForm');
-        $('#facilityNum').val('');
         $('#facilityDialog').dialog('open');
     });
 

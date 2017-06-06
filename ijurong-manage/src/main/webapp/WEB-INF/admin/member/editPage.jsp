@@ -10,6 +10,33 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
+<style>
+    .avatar-container {
+        padding: 0;
+    }
+    .avatar-container div {
+        width: 150px;
+        height: 100px;
+        margin: auto;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+    }
+    .avatar-container img {
+        max-height: 100%;
+        max-width: 100%;
+        cursor: pointer;
+    }
+    .avatar-container input {
+        position: absolute;
+        opacity: 0;
+        top: 0;
+        left: 0;
+        width: 300px;
+        height: 300px;
+        cursor: pointer;
+    }
+</style>
 <div class="container" id="editContainer">
     <div class="content">
         <div title="" data-options="closable:false"
@@ -17,6 +44,7 @@
              style="width: 100%;;">
             <form  method="post" id="editForm">
                 <input type="hidden" name="staffId" id="staffId"/>
+                <input type="hidden" name="avatar" id="avatar"/>
                 <div class="column"><span class="current">基本信息</span></div>
                 <table class="kv-table">
                     <tbody>
@@ -28,8 +56,13 @@
                             <input type="radio" name="sex" value="0"> 男
                             <input type="radio" name="sex" value="1"> 女
                         </td>
-                        <td class="kv-label">生日</td>
-                        <td class="kv-content"><input class="easyui-datebox" name="birthday"></td>
+                        <td class="kv-label" rowspan="3">头像</td>
+                        <td class="kv-content avatar-container" rowspan="3">
+                            <div>
+                                <img src="/img/add_img_icon.png" id="avatarImg"/>
+                                <input type="file" id="avatarUpload" accept="image/gif, image/jpeg, image/jpg, image/png" name="file"/>
+                            </div>
+                        </td>
                     </tr>
                     <tr>
                         <td class="kv-label">民族</td>
@@ -48,14 +81,19 @@
                                 <option value="8">博士</option>
                             </select>
                         </td>
-                        <td class="kv-label">email</td>
-                        <td class="kv-content"><input type="text" name="email"/></td>
                     </tr>
                     <tr>
                         <td class="kv-label">身份证</td>
                         <td class="kv-content"><input type="text" name="identityId"/></td>
                         <td class="kv-label">手机号码</td>
                         <td class="kv-content"><input type="text" name="phoneNumber"/></td>
+
+                    </tr>
+                    <tr>
+                        <td class="kv-label">生日</td>
+                        <td class="kv-content"><input class="easyui-datebox" name="birthday"></td>
+                        <td class="kv-label">email</td>
+                        <td class="kv-content"><input type="text" name="email"/></td>
                         <td class="kv-label">备用号码</td>
                         <td class="kv-content"><input type="text" name="sparePhone"/></td>
                     </tr>
@@ -182,6 +220,15 @@
 
     $('#edit_btn_add').click(function () {
         onSubmit();
+    });
+
+    $('#avatarUpload').fileupload({
+        url: '<%=basePath%>admin/common/fileUpload',
+        dataType: 'text',
+        done: function (e, data) {
+            $('#avatar').val(data.result);
+            $('#avatarImg').attr('src', data.result);
+        }
     });
 
     function onSubmit() {

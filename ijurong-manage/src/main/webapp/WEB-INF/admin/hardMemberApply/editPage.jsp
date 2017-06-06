@@ -58,7 +58,7 @@
           </tr>
           <tr>
             <td class="kv-label">健康状况</td>
-            <td class="kv-content" colspan="2">
+            <td class="kv-content">
               <select name="healthStatus" class="easyui-combobox">
                 <option value="0"></option>
                 <option value="1">身体健康</option>
@@ -66,7 +66,7 @@
               </select>
             </td>
             <td class="kv-label">户口所在派出所</td>
-            <td class="kv-content" colspan="2"><input type="text" name="policeStation"/> </td>
+            <td class="kv-content" colspan="3"><input type="text" name="policeStation"/> </td>
           </tr>
           <tr>
             <td class="kv-label">困难情况补充</td>

@@ -9,6 +9,7 @@ import com.party.ijurong.pojo.HardMemberApply;
 import com.party.ijurong.pojo.PartyMember;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.List;
 
@@ -26,6 +27,17 @@ public class HardMemberApplyService extends BaseService<HardMemberApply> {
         PageHelper.startPage(page, rows);
         List<HardMemberApplyDto> dtos = applyMapper.queryApplyDtoList(dto);
         return new PageInfo<>(dtos);
+    }
+
+    public PageInfo<HardMemberApply> queryApplyList(HardMemberApply apply, int page, int rows) {
+        PageHelper.startPage(page, rows);
+        Example example = new Example(HardMemberApply.class);
+        Example.Criteria criteria = example.createCriteria();
+        if(apply.getStaffId() != null) {
+            criteria.andEqualTo("staffId", apply.getStaffId());
+        }
+        example.orderBy("id").desc();
+        return new PageInfo<>(applyMapper.selectByExample(example));
     }
 
     /**

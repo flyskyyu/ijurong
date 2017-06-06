@@ -116,7 +116,11 @@ var TT = {
     resetForm: function(id) {
         id = id || 'editContainer';
         var container = $('#' + id);
-        var forms = container.find('form');
+        if(container.prop('tagName').toLowerCase() == 'form') {
+            var forms = container;
+        } else {
+            var forms = container.find('form');
+        }
         for(var i = 0; i < forms.length; i++) {
             forms.get(i).reset();
             $(forms.get(i)).find('[type="hidden"]').val('');
