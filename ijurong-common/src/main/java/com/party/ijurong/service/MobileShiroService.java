@@ -32,6 +32,8 @@ public class MobileShiroService {
         if(simpleUser.getBranchInfos() == null) {
             List<PartyBranchInfo> infos = branchInfoService.findSelfAndChildren(simpleUser.getPartyBranchId());
             simpleUser.setBranchInfos(infos);
+            PartyBranchInfo info = branchInfoService.queryById(simpleUser.getPartyBranchId());
+            simpleUser.setPartyBranchName(info.getOrganizationName());
         }
         session.put(USER_KEY, simpleUser);
         redisService.set(prefix + simpleUser.getToken(), session, TOKEN_EXPIRE);

@@ -14,6 +14,7 @@ public class SimpleUser implements Serializable{
     private String userName;
     private String phone;
     private Integer partyBranchId;
+    private String partyBranchName;
     private String token;
     private List<PartyBranchInfo> branchInfos;
 
@@ -74,5 +75,13 @@ public class SimpleUser implements Serializable{
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public String getPartyBranchName() {
+        return partyBranchName;
+    }
+
+    public void setPartyBranchName(String partyBranchName) {
+        this.partyBranchName = partyBranchName;
     }
 }

@@ -1,5 +1,9 @@
 package com.party.ijurong.pojo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.springframework.format.annotation.DateTimeFormat;
+
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,10 +19,29 @@ public class Activity {
 
     private String title;
 
+    @Column(name = "party_branch_id")
+    private Integer partyBranchId;
+
+    @Column(name = "party_branch_name")
+    private String partyBranchName;
+
     /**
-     * 时间
+     * 开始时间
      */
-    private Date time;
+    @Column(name = "start_time")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonSerialize(using = DateSerializer.class)
+    private Date startTime;
+
+    /**
+     * 结束时间
+     */
+    @Column(name = "end_time")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonSerialize(using = DateSerializer.class)
+    private Date endTime;
+
+    private Integer flag;
 
     private String address;
 
@@ -35,6 +58,8 @@ public class Activity {
     private Integer type;
 
     private Integer integral;
+
+    private String detail;
 
     /**
      * 获取主题
@@ -69,21 +94,81 @@ public class Activity {
     }
 
     /**
-     * 获取时间
-     *
-     * @return time - 时间
+     * @return party_branch_id
      */
-    public Date getTime() {
-        return time;
+    public Integer getPartyBranchId() {
+        return partyBranchId;
     }
 
     /**
-     * 设置时间
-     *
-     * @param time 时间
+     * @param partyBranchId
      */
-    public void setTime(Date time) {
-        this.time = time;
+    public void setPartyBranchId(Integer partyBranchId) {
+        this.partyBranchId = partyBranchId;
+    }
+
+    /**
+     * @return party_branch_name
+     */
+    public String getPartyBranchName() {
+        return partyBranchName;
+    }
+
+    /**
+     * @param partyBranchName
+     */
+    public void setPartyBranchName(String partyBranchName) {
+        this.partyBranchName = partyBranchName == null ? null : partyBranchName.trim();
+    }
+
+    /**
+     * 获取开始时间
+     *
+     * @return start_time - 开始时间
+     */
+    public Date getStartTime() {
+        return startTime;
+    }
+
+    /**
+     * 设置开始时间
+     *
+     * @param startTime 开始时间
+     */
+    public void setStartTime(Date startTime) {
+        this.startTime = startTime;
+    }
+
+    /**
+     * 获取结束时间
+     *
+     * @return end_time - 结束时间
+     */
+    public Date getEndTime() {
+        return endTime;
+    }
+
+    /**
+     * 设置结束时间
+     *
+     * @param endTime 结束时间
+     */
+    public void setEndTime(Date endTime) {
+        this.endTime = endTime;
+    }
+
+    /**
+     * @return flag
+     */
+    public Integer getFlag() {
+        return flag;
+    }
+
+    /**
+     * @param flag
+     */
+    public void setFlag(Integer flag) {
+        this.flag = flag;
     }
 
     /**
@@ -162,5 +247,19 @@ public class Activity {
      */
     public void setIntegral(Integer integral) {
         this.integral = integral;
+    }
+
+    /**
+     * @return detail
+     */
+    public String getDetail() {
+        return detail;
+    }
+
+    /**
+     * @param detail
+     */
+    public void setDetail(String detail) {
+        this.detail = detail == null ? null : detail.trim();
     }
 }

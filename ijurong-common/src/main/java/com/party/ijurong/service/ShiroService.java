@@ -53,6 +53,8 @@ public class ShiroService {
         if(user == null) {
             Staff staff = staffService.queryById(userId);
             user = new SimpleUser(staff);
+            PartyBranchInfo info = branchInfoService.queryById(staff.getPartyBranchId());
+            user.setPartyBranchName(info.getOrganizationName());
             List<PartyBranchInfo> infos = branchInfoService.findSelfAndChildren(user.getPartyBranchId());
             user.setBranchInfos(infos);
             session.setAttribute(USER_KEY, user);

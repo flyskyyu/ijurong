@@ -103,7 +103,7 @@ pageEncoding="UTF-8" %>
 				<li class="nav-li">
 					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">组织活动</span></a>
 					<ul class="subnav">
-						<li class="subnav-li" data-id="35"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党建专题活动</span></a></li>
+						<li class="subnav-li" href="activity/listPage" data-id="35"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党建专题活动</span></a></li>
 						<li class="subnav-li" data-id="36"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">教育教学活动</span></a></li>
 						<li class="subnav-li" data-id="37"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">志愿者活动</span></a></li>
 					</ul>
