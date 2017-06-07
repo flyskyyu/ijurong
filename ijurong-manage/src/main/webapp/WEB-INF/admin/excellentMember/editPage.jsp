@@ -17,6 +17,7 @@
          style="width: 100%;;">
       <form method="post" id="editForm">
         <input type="hidden" name="id"/>
+        <input type="hidden" name="avatar" id="avatar"/>
         <div class="column"><span class="current">优秀党员信息</span></div>
         <table class="kv-table">
           <tbody>
@@ -37,12 +38,19 @@
 				            {field:'staffName',title:'姓名',width:100},
 				                 {field:'phoneNumber',title:'电话',width:120}
 				            ]],
-				            fitColumns: true
+				            fitColumns: true,
+				            onSelect: onSelect
 				            ">
               </select>
             </td>
             <td class="kv-label">当选时间</td>
             <td class="kv-content"><input class="easyui-datebox" name="selectionDate"></td>
+            <td class="kv-label" rowspan="2">头像</td>
+            <td class="kv-content" rowspan="2"><jsp:include page="../common/avatarUpload.jsp"/></td>
+          </tr>
+          <tr>
+            <td class="kv-label">标题</td>
+            <td class="kv-content" colspan="3"><input type="text" name="title"/></td>
           </tr>
           </tbody>
         </table>
@@ -59,6 +67,12 @@
 </div>
 <script type="text/javascript">
   var uEditor = UE.getEditor('ueditor');
+
+  function onSelect(rowIndex, rowData) {
+    resetAvatar(rowData.avatar);
+    $('#avatar').val(rowData.avatar);
+  }
+
   $('#edit_btn_cancel').click(function () {
     $("#editDialog").dialog('close');
   });

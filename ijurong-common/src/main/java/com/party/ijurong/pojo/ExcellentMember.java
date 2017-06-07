@@ -3,8 +3,8 @@ package com.party.ijurong.pojo;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
 import java.util.Date;
+import javax.persistence.*;
 
 @Table(name = "excellent_member")
 public class ExcellentMember {
@@ -15,6 +15,19 @@ public class ExcellentMember {
     @Column(name = "user_id")
     private Integer userId;
 
+    private String title;
+
+    /**
+     * 头像
+     */
+    private String avatar;
+
+    /**
+     * 点击量
+     */
+    @Column(name = "click_amount")
+    private Integer clickAmount;
+
     /**
      * 评选时间
      */
@@ -23,6 +36,9 @@ public class ExcellentMember {
     @JsonSerialize(using = DateSerializer.class)
     private Date selectionDate;
 
+    /**
+     * 先进事迹
+     */
     @Column(name = "meritorious_deeds")
     private String meritoriousDeeds;
 
@@ -55,6 +71,56 @@ public class ExcellentMember {
     }
 
     /**
+     * @return title
+     */
+    public String getTitle() {
+        return title;
+    }
+
+    /**
+     * @param title
+     */
+    public void setTitle(String title) {
+        this.title = title == null ? null : title.trim();
+    }
+
+    /**
+     * 获取头像
+     *
+     * @return avatar - 头像
+     */
+    public String getAvatar() {
+        return avatar;
+    }
+
+    /**
+     * 设置头像
+     *
+     * @param avatar 头像
+     */
+    public void setAvatar(String avatar) {
+        this.avatar = avatar == null ? null : avatar.trim();
+    }
+
+    /**
+     * 获取点击量
+     *
+     * @return click_amount - 点击量
+     */
+    public Integer getClickAmount() {
+        return clickAmount;
+    }
+
+    /**
+     * 设置点击量
+     *
+     * @param clickAmount 点击量
+     */
+    public void setClickAmount(Integer clickAmount) {
+        this.clickAmount = clickAmount;
+    }
+
+    /**
      * 获取评选时间
      *
      * @return selection_date - 评选时间
@@ -73,14 +139,18 @@ public class ExcellentMember {
     }
 
     /**
-     * @return meritorious_deeds
+     * 获取先进事迹
+     *
+     * @return meritorious_deeds - 先进事迹
      */
     public String getMeritoriousDeeds() {
         return meritoriousDeeds;
     }
 
     /**
-     * @param meritoriousDeeds
+     * 设置先进事迹
+     *
+     * @param meritoriousDeeds 先进事迹
      */
     public void setMeritoriousDeeds(String meritoriousDeeds) {
         this.meritoriousDeeds = meritoriousDeeds == null ? null : meritoriousDeeds.trim();
