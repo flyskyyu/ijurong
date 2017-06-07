@@ -45,7 +45,7 @@ public class MeetingRoomOrderController {
             , @RequestParam(defaultValue = "20")int rows) {
         if(dto.getPartyBranchId() == null) {
             SimpleUser user = shiroService.getUser();
-            dto.setPartyBranchId(user.getBranchInfos().get(0).getId());
+            dto.setPartyBranchId(user.getPartyBranchId());
         }
         PageInfo<MeetingRoomOrderDto> pageInfo = roomOrderService.queryRoomOrderDtoList(dto, page, rows);
         return  new Page(pageInfo);

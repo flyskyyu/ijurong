@@ -38,7 +38,6 @@
               <td class="kv-label">设施</td>
               <td class="kv-content" colspan="3">
                   <img id="addObjImage" src="<%=basePath%>img/add_img_icon.png" style="width: 40px;height:40px;cursor:pointer;"/>
-
               </td>
           </tr>
           <tr>

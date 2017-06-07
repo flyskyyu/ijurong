@@ -30,7 +30,7 @@ public class MobileMeetingRoomController {
             , @RequestParam(defaultValue = "20")int rows) {
         if(room.getPartyBranchId() == null) {
             SimpleUser user = shiroService.getUser();
-            room.setPartyBranchId(user.getBranchInfos().get(0).getId());
+            room.setPartyBranchId(user.getPartyBranchId());
         }
         PageInfo<MeetingRoom> pageInfo = roomService.queryByRoom(room, page, rows);
         MobileResult result = new MobileResult();

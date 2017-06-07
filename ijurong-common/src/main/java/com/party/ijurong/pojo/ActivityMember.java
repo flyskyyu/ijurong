@@ -14,6 +14,9 @@ public class ActivityMember {
     @Column(name = "staff_id")
     private Integer staffId;
 
+    @Column(name = "staff_name")
+    private String staffName;
+
     private Integer score;
 
     /**
@@ -70,5 +73,13 @@ public class ActivityMember {
      */
     public void setScore(Integer score) {
         this.score = score;
+    }
+
+    public String getStaffName() {
+        return staffName;
+    }
+
+    public void setStaffName(String staffName) {
+        this.staffName = staffName;
     }
 }

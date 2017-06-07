@@ -31,7 +31,7 @@ public class MobileCarController {
             , @RequestParam(defaultValue = "20")int rows) {
         if(car.getPartyBranchId() == null) {
             SimpleUser user = shiroService.getUser();
-            car.setPartyBranchId(user.getBranchInfos().get(0).getId());
+            car.setPartyBranchId(user.getPartyBranchId());
         }
         PageInfo<Car> pageInfo = carService.queryByCar(car, page, rows);
         MobileResult result = new MobileResult();
