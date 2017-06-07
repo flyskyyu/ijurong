@@ -10,33 +10,6 @@
     String path = request.getContextPath();
     String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<style>
-    .avatar-container {
-        padding: 0;
-    }
-    .avatar-container div {
-        width: 150px;
-        height: 100px;
-        margin: auto;
-        text-align: center;
-        position: relative;
-        overflow: hidden;
-    }
-    .avatar-container img {
-        max-height: 100%;
-        max-width: 100%;
-        cursor: pointer;
-    }
-    .avatar-container input {
-        position: absolute;
-        opacity: 0;
-        top: 0;
-        left: 0;
-        width: 300px;
-        height: 300px;
-        cursor: pointer;
-    }
-</style>
 <div class="container" id="editContainer">
     <div class="content">
         <div title="" data-options="closable:false"
@@ -57,11 +30,8 @@
                             <input type="radio" name="sex" value="1"> 女
                         </td>
                         <td class="kv-label" rowspan="3">头像</td>
-                        <td class="kv-content avatar-container" rowspan="3">
-                            <div>
-                                <img src="/img/add_img_icon.png" id="avatarImg"/>
-                                <input type="file" id="avatarUpload" accept="image/gif, image/jpeg, image/jpg, image/png" name="file"/>
-                            </div>
+                        <td class="kv-content" rowspan="3">
+                            <jsp:include page="../common/avatarUpload.jsp"/>
                         </td>
                     </tr>
                     <tr>
@@ -220,15 +190,6 @@
 
     $('#edit_btn_add').click(function () {
         onSubmit();
-    });
-
-    $('#avatarUpload').fileupload({
-        url: '<%=basePath%>admin/common/fileUpload',
-        dataType: 'text',
-        done: function (e, data) {
-            $('#avatar').val(data.result);
-            $('#avatarImg').attr('src', data.result);
-        }
     });
 
     function onSubmit() {

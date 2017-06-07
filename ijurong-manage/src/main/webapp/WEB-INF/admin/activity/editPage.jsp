@@ -17,46 +17,28 @@
          style="width: 100%;;">
       <form method="post" id="editForm">
         <input type="hidden" name="id"/>
-        <input type="hidden" name="avatar" id="avatar"/>
-        <div class="column"><span class="current">优秀党员信息</span></div>
+        <div class="column"><span class="current">活动信息</span></div>
         <table class="kv-table">
           <tbody>
           <tr>
-            <td class="kv-label">优秀党员姓名</td>
-            <td class="kv-content">
-              <select id="editUserName" class="easyui-combogrid" name="userId"
-                      style="width: 230px"
-                      data-options="mode:'remote',
-                            delay: 700,
-							panelWidth: 350,
-							loadMsg: '正在搜索，请稍等...',
-							pagination : true,
-							idField: 'staffId',
-							textField: 'staffName',
-							url: '<%=basePath%>admin/staff/listByQ',
-				            columns: [[
-				            {field:'staffName',title:'姓名',width:100},
-				                 {field:'phoneNumber',title:'电话',width:120}
-				            ]],
-				            fitColumns: true,
-				            onSelect: onSelect
-				            ">
-              </select>
-            </td>
-            <td class="kv-label">当选时间</td>
-            <td class="kv-content"><input class="easyui-datebox" name="selectionDate"></td>
-            <td class="kv-label" rowspan="2">头像</td>
-            <td class="kv-content" rowspan="2"><jsp:include page="../common/avatarUpload.jsp"/></td>
+            <td class="kv-label">标题</td>
+            <td class="kv-content" colspan="3"><input type="text" name="title"></td>
           </tr>
           <tr>
-            <td class="kv-label">标题</td>
-            <td class="kv-content" colspan="3"><input type="text" name="title"/></td>
+            <td class="kv-label">开始时间</td>
+            <td class="kv-content"><input class="easyui-datetimebox" name="startTime"/></td>
+            <td class="kv-label">结束时间</td>
+            <td class="kv-content"><input class="easyui-datetimebox" name="endTime"/></td>
+          </tr>
+          <tr>
+            <td class="kv-label">参与人</td>
+            <td class="kv-content"></td>
           </tr>
           </tbody>
         </table>
-        <div class="column"><span class="current">先进事迹</span></div>
+        <div class="column"><span class="current">活动详情</span></div>
         <!-- 加载编辑器的容器 -->
-        <script id="ueditor" name="meritoriousDeeds" type="text/plain" style="width: 98%;height:200px;"></script>
+        <script id="editor" name="introduce" type="text/plain" style="width: 95%;height:200px;"></script>
       </form>
       <div style="text-align: center;"><a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'"
                                           id="edit_btn_add">保存</a>&nbsp;&nbsp;&nbsp;
@@ -66,15 +48,9 @@
   </div>
 </div>
 <script type="text/javascript">
-  var uEditor = UE.getEditor('ueditor');
-
-  function onSelect(rowIndex, rowData) {
-    resetAvatar(rowData.avatar);
-    $('#avatar').val(rowData.avatar);
-  }
-
+  var uEditor = UE.getEditor('editor');
   $('#edit_btn_cancel').click(function () {
-    $("#editDialog").dialog('close');
+    $('#editDialog').dialog('close');
   });
 
   $('#edit_btn_add').click(function () {

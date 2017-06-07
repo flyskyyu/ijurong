@@ -14,9 +14,6 @@
   <script type="text/javascript" src="<%=basePath%>ueditor/ueditor.config.js"></script>
   <script type="text/javascript" src="<%=basePath%>ueditor/ueditor.all.js"></script>
   <script type="text/javascript" charset="utf-8" src="<%=basePath%>ueditor/lang/zh-cn/zh-cn.js"></script>
-  <script type="text/javascript" src="<%=basePath%>resource/jqueryFileUpload/js/vendor/jquery.ui.widget.js"></script>
-  <script type="text/javascript" src="<%=basePath%>resource/jqueryFileUpload/js/jquery.iframe-transport.js"></script>
-  <script type="text/javascript" src="<%=basePath%>resource/jqueryFileUpload/js/jquery.fileupload.js"></script>
   <!--以下样式为了解决ue 和easyui的弹出层冲突-->
   <style type="text/css">
     .window{
@@ -34,22 +31,28 @@
 <div region="center" style="padding: 5px;">
   <div id="search_toolbar" style="padding: 5px; height: auto">
     <div style="padding: 5px;">
-      优秀党员名称：<input type="text" id="name">&nbsp;<a href="#"
-                                                 class="easyui-linkbutton" id="btn_Search"
+      活动标题：<input type="text" id="nameFilter">&nbsp;
+      活动类型：<select class="easyui-combobox" id="typeFilter">
+      <option value="0">组织活动</option>
+      <option value="1">志愿者活动</option>
+      <option value="2">专题讨论</option>
+    </select><span class="white_space"></span>
+      开始时间：<input class="easyui-datetimebox" id="startTime"/><span class="white_space"></span>
+      结束时间：<input class="easyui-datetimebox" id="endTime"/><span class="white_space"></span>
+      <a href="#" class="easyui-linkbutton" id="btn_Search"
                                                  data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp;
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" id="btn_remove" style="display:none;">删除</a>
     </div>
   </div>
   <table class="easyui-datagrid" id="tableList" fitColumns="true" style="width:auto;"
-         data-options="url:'<%=basePath%>admin/excellentMember/list',rownumbers:true,singleSelect:true,collapsible:false,pagination:true,method:'get',pageSize:20">
+         data-options="url:'<%=basePath%>admin/item/list',rownumbers:true,singleSelect:true,collapsible:false,pagination:true,method:'get',pageSize:20">
     <thead>
     <tr>
-      <th data-options="field:'staffName',width:100,align:'center'">姓名</th>
-      <th data-options="field:'sex',width:60,align:'center',formatter:TT.formatSex">性别</th>
-      <th data-options="field:'phoneNumber',width:60,align:'center'">电话</th>
-      <th data-options="field:'selectionDate',width:60,align:'center',formatter:TT.formatDate">当选时间</th>
-      <th data-options="field:'ids',width:100,align:'center',formatter:formatOperation">操作</th>
+      <th data-options="field:'itemName',width:100,align:'center'">标题</th>
+      <th data-options="field:'type',width:60,align:'center',formatter:TT.formatItemType">开始时间</th>
+      <th data-options="field:'integral',width:60,align:'center'">结束时间</th>
+      <th data-options="field:'ids',width:60,align:'center',formatter:formatOperation">操作</th>
     </tr>
     </thead>
   </table>
@@ -60,7 +63,10 @@
 <script>
   function doSearch() {
     var params = {};
-    params.staffName = $('#name').val();
+    params.title = $('#nameFilter').val();
+    params.type = $('#typeFilter').val();
+    params.startTime = $('#startTime').val();
+    params.endTime = $('#endTime').val();
     $('#tableList').datagrid('load', params);
   }
 
@@ -69,20 +75,18 @@
     var rowData = $('#tableList').datagrid('getSelected');
     if (rowData != null) {
       TT.resetForm();
-      $('#editDialog').dialog('setTitle', '编辑优秀党员');
-      $('#editForm').attr('action', '<%=basePath%>admin/excellentMember/update')
+      $('#editDialog').dialog('setTitle', '编辑活动');
+      $('#editForm').attr('action', '<%=basePath%>admin/activity/update')
               .form('load', rowData);
-      resetAvatar(rowData.avatar);
-      uEditor.setContent(rowData.meritoriousDeeds);
+      uEditor.setContent(rowData.detail);
       $('#editDialog').dialog('open');
     }
   }
 
   $('#btn_add').bind('click', function() {
     TT.resetForm();
-    resetAvatar('');
-    $('#editDialog').dialog('setTitle', '新增优秀党员');
-    $('#editForm').attr('action', '<%=basePath%>admin/excellentMember/add');
+    $('#editDialog').dialog('setTitle', '新增活动');
+    $('#editForm').attr('action', '<%=basePath%>admin/activity/add');
     $('#editDialog').dialog('open');
   });
 
@@ -90,10 +94,10 @@
     $('#tableList').datagrid('selectRow', rowIndex);
     var rowData = $('#tableList').datagrid('getSelected');
     if(rowData == null) return;
-    $.messager.confirm('确认','确定删除姓名为 '+rowData.staffName+' 的记录吗？',function(r){
+    $.messager.confirm('确认','确定删除该记录吗？',function(r){
       if (r){
         var params = {"id":rowData.id};
-        $.post("<%=basePath%>admin/excellentMember/delete",params, function(data){
+        $.post("<%=basePath%>admin/activity/delete",params, function(data){
           if(data == 'success'){
             $("#tableList").datagrid("reload");
           } else {
@@ -105,9 +109,10 @@
   }
 
   function formatOperation(value, rowData, rowIndex) {
-    var result = '<a href="#" onclick="edit(' + rowIndex + ')" class="operate_btn">编辑</a>';
-    result += '&nbsp;&nbsp;&nbsp;<a href="#" onclick="del(' + rowIndex +  ')" class="operate_btn">删除</a>';
-    return result;
+    var operator = {};
+    operator.edit = '编辑';
+    operator.del = '删除';
+    return TT.createOptionBtn(operator, rowIndex);
   }
 </script>
 </body>
