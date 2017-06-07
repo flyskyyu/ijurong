@@ -8,17 +8,13 @@ public class ExamQuestion {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "research_id")
-    private Integer researchId;
-
     @Column(name = "question_content")
     private String questionContent;
 
     @Column(name = "question_type")
     private Integer questionType;
 
-    @Column(name = "question_sort")
-    private Integer questionSort;
+    private String explain;//答案解读
 
     /**
      * @return id
@@ -34,19 +30,7 @@ public class ExamQuestion {
         this.id = id;
     }
 
-    /**
-     * @return research_id
-     */
-    public Integer getResearchId() {
-        return researchId;
-    }
 
-    /**
-     * @param researchId
-     */
-    public void setResearchId(Integer researchId) {
-        this.researchId = researchId;
-    }
 
     /**
      * @return question_content
@@ -77,16 +61,16 @@ public class ExamQuestion {
     }
 
     /**
-     * @return question_sort
+     * @return explain
      */
-    public Integer getQuestionSort() {
-        return questionSort;
+    public String getExplain() {
+        return explain;
     }
 
     /**
-     * @param questionSort
+     * @param explain
      */
-    public void setQuestionSort(Integer questionSort) {
-        this.questionSort = questionSort;
+    public void setExplain(String explain) {
+        this.explain = explain == null ? null : explain.trim();
     }
 }

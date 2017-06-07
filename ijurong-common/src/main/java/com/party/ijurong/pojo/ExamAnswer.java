@@ -20,7 +20,6 @@ public class ExamAnswer {
     @Column(name = "is_correct")
     private Integer isCorrect;
 
-    private String explain;
 
     /**
      * @return id
@@ -92,17 +91,5 @@ public class ExamAnswer {
         this.isCorrect = isCorrect;
     }
 
-    /**
-     * @return explain
-     */
-    public String getExplain() {
-        return explain;
-    }
 
-    /**
-     * @param explain
-     */
-    public void setExplain(String explain) {
-        this.explain = explain == null ? null : explain.trim();
-    }
 }
