@@ -46,12 +46,13 @@
     </div>
   </div>
   <table class="easyui-datagrid" id="tableList" fitColumns="true" style="width:auto;"
-         data-options="url:'<%=basePath%>admin/item/list',rownumbers:true,singleSelect:true,collapsible:false,pagination:true,method:'get',pageSize:20">
+         data-options="url:'<%=basePath%>admin/activity/list',rownumbers:true,singleSelect:true,collapsible:false,pagination:true,method:'get',pageSize:20">
     <thead>
     <tr>
-      <th data-options="field:'itemName',width:100,align:'center'">标题</th>
-      <th data-options="field:'type',width:60,align:'center',formatter:TT.formatItemType">开始时间</th>
-      <th data-options="field:'integral',width:60,align:'center'">结束时间</th>
+      <th data-options="field:'title',width:100,align:'center'">标题</th>
+      <th data-options="field:'type',width:60,align:'center',formatter:formatActivityType">活动类型</th>
+      <th data-options="field:'startTime',width:60,align:'center'">开始时间</th>
+      <th data-options="field:'endTime',width:60,align:'center'">结束时间</th>
       <th data-options="field:'ids',width:60,align:'center',formatter:formatOperation">操作</th>
     </tr>
     </thead>
@@ -61,6 +62,16 @@
   </div>
 </div>
 <script>
+  function formatActivityType(val, row) {
+    if(val == 0) {
+      return '组织活动';
+    } else if(val == 1) {
+      return '志愿者活动';
+    } else if(val == 2) {
+      return '专题讨论';
+    }
+    return '';
+  }
   function doSearch() {
     var params = {};
     params.title = $('#nameFilter').val();
@@ -79,6 +90,7 @@
       $('#editForm').attr('action', '<%=basePath%>admin/activity/update')
               .form('load', rowData);
       uEditor.setContent(rowData.detail);
+      initPerson();
       $('#editDialog').dialog('open');
     }
   }
@@ -87,6 +99,7 @@
     TT.resetForm();
     $('#editDialog').dialog('setTitle', '新增活动');
     $('#editForm').attr('action', '<%=basePath%>admin/activity/add');
+    initPerson();
     $('#editDialog').dialog('open');
   });
 

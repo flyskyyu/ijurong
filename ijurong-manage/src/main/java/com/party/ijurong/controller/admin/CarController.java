@@ -30,7 +30,7 @@ public class CarController {
             , @RequestParam(defaultValue = "20")int rows) {
         if(car.getPartyBranchId() == null) {
             SimpleUser user = shiroService.getUser();
-            car.setPartyBranchId(user.getBranchInfos().get(0).getId());
+            car.setPartyBranchId(user.getPartyBranchId());
         }
         PageInfo<Car> pageInfo = carService.queryByCar(car, page, rows);
         return  new Page(pageInfo);
@@ -43,7 +43,7 @@ public class CarController {
         Car car = new Car();
         car.setCarNum(q);
         SimpleUser user = shiroService.getUser();
-        car.setPartyBranchId(user.getBranchInfos().get(0).getId());
+        car.setPartyBranchId(user.getPartyBranchId());
         PageInfo<Car> pageInfo = carService.queryByCar(car, page, rows);
         return  new Page(pageInfo);
     }

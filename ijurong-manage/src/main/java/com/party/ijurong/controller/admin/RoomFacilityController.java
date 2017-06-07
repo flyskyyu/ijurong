@@ -39,7 +39,7 @@ public class RoomFacilityController {
         RoomFacility facility = new RoomFacility();
         facility.setName(q);
         SimpleUser user = shiroService.getUser();
-        facility.setPartyBranchId(user.getBranchInfos().get(0).getId());
+        facility.setPartyBranchId(user.getPartyBranchId());
         PageInfo<RoomFacility> pageInfo = facilityService.queryByFacility(facility, page, rows);
         return  new Page(pageInfo);
     }

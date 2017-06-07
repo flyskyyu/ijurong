@@ -29,7 +29,7 @@ public class MeetingRoomController {
             , @RequestParam(defaultValue = "20")int rows) {
         if(obj.getPartyBranchId() == null) {
             SimpleUser user = shiroService.getUser();
-            obj.setPartyBranchId(user.getBranchInfos().get(0).getId());
+            obj.setPartyBranchId(user.getPartyBranchId());
         }
         PageInfo<MeetingRoom> pageInfo = roomService.queryByRoom(obj, page, rows);
         return  new Page(pageInfo);
@@ -42,7 +42,7 @@ public class MeetingRoomController {
         MeetingRoom room = new MeetingRoom();
         room.setName(q);
         SimpleUser user = shiroService.getUser();
-        room.setPartyBranchId(user.getBranchInfos().get(0).getId());
+        room.setPartyBranchId(user.getPartyBranchId());
         PageInfo<MeetingRoom> pageInfo = roomService.queryByRoom(room, page ,rows);
         return  new Page(pageInfo);
     }

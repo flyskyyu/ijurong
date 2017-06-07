@@ -29,7 +29,7 @@ public class MobileRoomFacilityController {
             , @RequestParam(defaultValue = "20")int rows) {
         if(obj.getPartyBranchId() == null) {
             SimpleUser user = shiroService.getUser();
-            obj.setPartyBranchId(user.getBranchInfos().get(0).getId());
+            obj.setPartyBranchId(user.getPartyBranchId());
         }
         PageInfo<RoomFacility> pageInfo = facilityService.queryByFacility(obj, page, rows);
         MobileResult result = new MobileResult();

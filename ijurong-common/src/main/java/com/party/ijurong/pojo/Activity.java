@@ -29,7 +29,7 @@ public class Activity {
      * 开始时间
      */
     @Column(name = "start_time")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonSerialize(using = DateSerializer.class)
     private Date startTime;
 
@@ -37,7 +37,7 @@ public class Activity {
      * 结束时间
      */
     @Column(name = "end_time")
-    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonSerialize(using = DateSerializer.class)
     private Date endTime;
 
