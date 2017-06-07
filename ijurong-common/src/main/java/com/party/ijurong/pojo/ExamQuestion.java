@@ -14,7 +14,7 @@ public class ExamQuestion {
     @Column(name = "question_type")
     private Integer questionType;
 
-    private String explain;//答案解读
+    private String explains;//答案解读
 
     /**
      * @return id
@@ -61,16 +61,16 @@ public class ExamQuestion {
     }
 
     /**
-     * @return explain
+     * @return explains
      */
-    public String getExplain() {
-        return explain;
+    public String getExplains() {
+        return explains;
     }
 
     /**
-     * @param explain
+     * @param explains
      */
-    public void setExplain(String explain) {
-        this.explain = explain == null ? null : explain.trim();
+    public void setExplains(String explains) {
+        this.explains = explains == null ? null : explains.trim();
     }
 }

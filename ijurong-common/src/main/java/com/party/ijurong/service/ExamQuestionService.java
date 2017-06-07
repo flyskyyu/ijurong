@@ -76,6 +76,7 @@ public class ExamQuestionService extends BaseService<ExamQuestion>{
      */
     public void deleteExamQuestion(int id)
     {
+
         ExamQuestion examQuestion=new ExamQuestion();
         examQuestion.setId(id);
         mapper.delete(examQuestion);

@@ -12,9 +12,9 @@
     <jsp:include page="../contentHeader.jsp"/>
     <script type="text/javascript">
         function doSearch() {
-            var examQuestion = {};
-            examQuestion.questionContent = $('#questionContent').val();
-            $('#examQuestion_grid').datagrid('load', examQuestion);
+            var research = {};
+            research.researchName = $('#researchName').val();
+            $('#examQuestion_grid').datagrid('load', research);
         }
         //清空列表 参数为从第几行开始
         function clearTable(a)
@@ -87,6 +87,9 @@
                 $("#tab_answe").trigger("create");
             });
         });
+
+
+
 
         $(function() {
             $('#btn_remove').bind('click', function() {
@@ -167,13 +170,34 @@
         }
 
 
+        $(function() {
+            $('#refGrid').combogrid({
+                onSelect : function(rowIndex, rowData) {
+                    $('#url1').val(rowData.url);
+
+                    var t=Math.random();
+                    var html_answer= '<td class="kv-content"><input type="text" name="questionContent" value="'+rowData.questionContent+'"/>'+
+                    '</td>'+
+                    '<td class="kv-content"><input type="text" name="questionScore"/>'+
+                    '</td>'+
+                    '<td class="kv-content"><input type="text" name="questionSort"/>'+
+                    '</td>'+
+                    '<td style="display: none"><input type="hidden" name="questionId" value="'+rowData.id+'"></td>'+
+                    '<td class="kv-content" id="tr_del"><a class="aaa">删除</a>'+
+                    '</td>';
+                    $("#tab_answer").append(html_answer);
+                    $("#tab_answe").trigger("create");
+                }
+            });
+        });
+
     </script>
 </head>
 <body class="easyui-layout">
 <div region="center" style="padding: 5px;">
     <div id="examQuestion_toolbar" style="padding: 5px; height: auto">
         <div style="padding: 5px;">
-            题目：<input type="text" id="questionContent">&nbsp;
+            问卷：<input type="text" id="researchName">&nbsp;
             <a href="#" class="easyui-linkbutton" id="btn_Search"
                data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
             <a href="#" class="easyui-linkbutton"
@@ -200,7 +224,7 @@
 
 <div id="examQuestion_dialog" class="easyui-dialog"
      data-options="closed:true,
-		title:'题目管理',
+		title:'問卷管理',
 		modal:true,
 		resizable:true,
 		iconCls:'icon-save',
@@ -228,61 +252,101 @@
                 <div title="" data-options="closable:false"
                      class="basic-info panel-body panel-body-noheader panel-body-noborder"
                      style="width: 100%;;">
-                    <div class="column"><span class="current">题目管理</span></div>
+                    <div class="column"><span class="current">调查問卷管理</span></div>
                     <table class="kv-table">
                         <tbody>
                         <tr>
-                            <td class="kv-label">题目</td>
-                            <td class="kv-content" colspan="3"><input type="text"name="questionContent"/></td>
+                            <td class="kv-label">调查名称</td>
+                            <td class="kv-content" colspan="3"><input type="text"name="researchName"/></td>
                         </tr>
                         <tr>
-                            <td class="kv-label">类型</td>
-                            <td class="kv-content"><input type="radio" name="questionType" value="1"/>单选
-                                <input type="radio"name="questionType" value="2"/>多选</td>
+                            <td class="kv-label">调查目的</td>
+                            <td class="kv-content" colspan="3"><textarea name="researchGoal" rows="5"></textarea></td>
+                        </tr>
+                        <tr>
+                            <td class="kv-label">是否公开</td>
+                            <td class="kv-content" colspan="3"><input type="radio" name="isOpen" value="0"/>不公开
+                                <input type="radio"name="isOpen" value="1" checked/>公开</td>
+                        </tr>
+                        <tr>
+                            <td class="kv-label">调查开始时间</td>
+                            <td class="kv-content" ><input class="easyui-datetimebox" name="startTime"/></td>
+                            <td class="kv-label">调查结束时间</td>
+                            <td class="kv-content" ><input class="easyui-datetimebox" name="stopTime"/></td>
                         </tr>
 
+                        </tbody>
+                    </table>
+
+
+                    <div class="column"><span class="current">题目管理</span></div>
+                    <table  class="kv-table">
+                        <tbody>
                         <tr>
-                            <td class="kv-label">选项增加</td>
+                            <td class="kv-label">查找添加</td>
+                            <td class="kv-content" colspan="3">
+                                <div>
+
+                                    <div style="float:left;width:40%">
+                                        <select id="refGrid" class="easyui-combogrid"
+                                                style="width: 230px"
+                                                data-options="mode:'remote',
+                                            panelWidth: 350,
+                                            loadMsg: '正在搜索，请稍等...',
+                                            pagination : true,
+                                            idField: 'id',
+                                            textField: 'questionContent',
+                                            url: 'findExamQuestionsByName',
+                                            columns: [[
+                                            {field:'questionContent',title:'题目名称',width:100},
+                                                {field:'id',hidden:true}
+                                            ]],
+                                            fitColumns: true
+                                            ">
+                                        </select>
+                                    </div>
+                                    <%--<div style="float:right;width:60%">--%>
+                                        <%--<img style="width:25px;height: 25px;" id="addAnswer" src="/img/add_img_icon.png" alt="">--%>
+                                    <%--</div>--%>
+                                </div>
+                            </td>
+                        </tr>
+
+
+                        <tr>
+                            <td class="kv-label">题目</td>
                             <td class="kv-content" colspan="3">
                                 <div>
                                     <table id="tab_answer">
                                         <tr>
-                                            <td class="kv-label">选项内容
+                                            <td class="kv-label">题目
                                             </td>
-                                            <td class="kv-label">是否正确选项
+                                            <td class="kv-label">分值
                                             </td>
-                                            <td class="kv-label">选项序数
+                                            <td class="kv-label">选项序号
                                             </td>
                                             <td class="kv-label">操作
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td class="kv-content"><input type="text" name="optionContent"/>
+
+                                            <td class="kv-content"><input type="text" name="questionContent"/>
                                             </td>
-                                            <td class="kv-content"><input type="radio" name="isCorrect" value="1"/>是
-                                                <input type="radio" name="isCorrect" value="0"/>否
+                                            <td class="kv-content"><input type="text" name="questionScore"/>
                                             </td>
-                                            <td class="kv-content"><input type="text" name="optionNum"/>
+                                            <td class="kv-content"><input type="text" name="questionSort"/>
                                             </td>
+                                            <td style="display: none"><input type="hidden" name="questionId"></td>
                                             <td class="kv-content" id="tr_del"><a class="aaa">删除</a>
                                             </td>
                                         </tr>
                                     </table>
-                                    <div style="text-align:right; margin-right: 10px; margin-top: 10px;">
-                                        <img style="width:30px;height: 30px;" id="addAnswer" src="/img/add_img_icon.png" alt="">
-                                    </div>
-
                                 </div>
-
                             </td>
-                        </tr>
-
-                        <tr>
-                            <td class="kv-label">答案解读</td>
-                            <td class="kv-content" colspan="3"><textarea name="explains" rows="5"></textarea></td>
                         </tr>
                         </tbody>
                     </table>
+
                 </div>
             </div>
         </div>

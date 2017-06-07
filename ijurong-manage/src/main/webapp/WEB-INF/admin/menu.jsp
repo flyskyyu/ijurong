@@ -140,7 +140,8 @@ pageEncoding="UTF-8" %>
 				<li class="nav-li">
 					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">调查问卷</span></a>
 					<ul class="subnav">
-						<li class="subnav-li" href="exam/examQuestion" data-id="53"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">论坛管理</span></a></li>
+						<li class="subnav-li" href="exam/examQuestion" data-id="53"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">题库管理</span></a></li>
+						<li class="subnav-li" href="exam/research" data-id="54"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">问卷管理</span></a></li>
 					</ul>
 				</li>
 			</ul>
