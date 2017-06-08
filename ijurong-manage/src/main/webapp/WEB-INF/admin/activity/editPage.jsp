@@ -36,9 +36,9 @@
             <td class="kv-label">活动类型</td>
             <td class="kv-content">
               <select name="type">
-                <option value="0">组织活动</option>
-                <option value="1">志愿者活动</option>
-                <option value="2">专题讨论</option>
+                <option value="1">组织活动</option>
+                <option value="2">志愿者活动</option>
+                <option value="3">专题讨论</option>
               </select>
             </td>
           </tr>
@@ -52,7 +52,7 @@
         </table>
         <div class="column"><span class="current">活动详情</span></div>
         <!-- 加载编辑器的容器 -->
-        <script id="editor" name="detail" type="text/plain" style="width: 95%;height:200px;"></script>
+        <script id="ueditor" name="detail" type="text/plain" style="width: 95%;height:200px;"></script>
       </form>
       <div style="text-align: center;"><a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'"
                                           id="edit_btn_add">保存</a>&nbsp;&nbsp;&nbsp;
@@ -87,7 +87,7 @@
   </form>
 </div>
 <script type="text/javascript">
-  var uEditor = UE.getEditor('editor');
+  var uEditor = UE.getEditor('ueditor');
   $('#edit_btn_cancel').click(function () {
     $('#editDialog').dialog('close');
   });

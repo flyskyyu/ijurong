@@ -59,6 +59,9 @@ public class HardMemberApplyService extends BaseService<HardMemberApply> {
             member.setHardType(apply.getHardType());
             member.setHardDesc(apply.getHardDesc());
             member.setHealthStatus(apply.getHealthStatus());
+            member.setWorkSituation(apply.getWorkSituation());
+            member.setLifeSituation(apply.getLifeSituation());
+            member.setOtherDesc(apply.getOtherDesc());
             member.setPoliceStation(apply.getPoliceStation());
             memberMapper.updateByPrimaryKeySelective(member);
         }

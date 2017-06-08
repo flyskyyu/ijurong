@@ -6,14 +6,12 @@ import com.party.ijurong.mapper.ActivityMapper;
 import com.party.ijurong.mapper.ActivityMemberMapper;
 import com.party.ijurong.pojo.Activity;
 import com.party.ijurong.pojo.ActivityMember;
-import com.party.ijurong.pojo.Staff;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -32,6 +30,9 @@ public class ActivityService extends BaseService<Activity> {
         if(activity.getTitle() != null) {
             criteria.andLike("title", "%" + activity.getTitle() + "%");
         }
+        if(activity.getPartyBranchId() != null) {
+            criteria.andEqualTo("partyBranchId", activity.getPartyBranchId());
+        }
         if(activity.getType() != null) {
             criteria.andEqualTo("type", activity.getType());
         }
@@ -40,6 +41,11 @@ public class ActivityService extends BaseService<Activity> {
         }
         if(activity.getEndTime() != null) {
             criteria.andLessThanOrEqualTo("endTime", activity.getEndTime());
+        }
+        if(activity.getOrderType() == null || activity.getOrderType() == 1) {
+            example.orderBy("id").desc();
+        } else {
+            example.orderBy("clickAmount").desc();
         }
         PageHelper.startPage(page, rows);
         List<Activity> activities = activityMapper.selectByExample(example);

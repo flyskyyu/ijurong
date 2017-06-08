@@ -85,7 +85,7 @@ public class PartyMember {
      * 困难类型
      */
     @Column(name = "hard_type")
-    private Integer hardType;
+    private String hardType;
 
     /**
      * 是否享受低保(minimum living allowances)
@@ -103,7 +103,16 @@ public class PartyMember {
      * 健康状态
      */
     @Column(name = "health_status")
-    private Integer healthStatus;
+    private String healthStatus;
+
+    @Column(name = "work_situation")
+    private String workSituation;
+
+    @Column(name = "life_situation")
+    private String lifeSituation;
+
+    @Column(name = "other_desc")
+    private String otherDesc;
 
     /**
      * 户口所在派出所
@@ -283,38 +292,6 @@ public class PartyMember {
         this.isHardMember = isHardMember;
     }
 
-    public Integer getHardType() {
-        return hardType;
-    }
-
-    public void setHardType(Integer hardType) {
-        this.hardType = hardType;
-    }
-
-    public Byte getIsEnjoyMla() {
-        return isEnjoyMla;
-    }
-
-    public void setIsEnjoyMla(Byte isEnjoyMla) {
-        this.isEnjoyMla = isEnjoyMla;
-    }
-
-    public Byte getIsEnjoySubsidy() {
-        return isEnjoySubsidy;
-    }
-
-    public void setIsEnjoySubsidy(Byte isEnjoySubsidy) {
-        this.isEnjoySubsidy = isEnjoySubsidy;
-    }
-
-    public Integer getHealthStatus() {
-        return healthStatus;
-    }
-
-    public void setHealthStatus(Integer healthStatus) {
-        this.healthStatus = healthStatus;
-    }
-
     public String getPoliceStation() {
         return policeStation;
     }
@@ -337,5 +314,61 @@ public class PartyMember {
 
     public void setIsOldMember(Byte isOldMember) {
         this.isOldMember = isOldMember;
+    }
+
+    public String getHardType() {
+        return hardType;
+    }
+
+    public void setHardType(String hardType) {
+        this.hardType = hardType;
+    }
+
+    public Byte getIsEnjoyMla() {
+        return isEnjoyMla;
+    }
+
+    public void setIsEnjoyMla(Byte isEnjoyMla) {
+        this.isEnjoyMla = isEnjoyMla;
+    }
+
+    public Byte getIsEnjoySubsidy() {
+        return isEnjoySubsidy;
+    }
+
+    public void setIsEnjoySubsidy(Byte isEnjoySubsidy) {
+        this.isEnjoySubsidy = isEnjoySubsidy;
+    }
+
+    public String getHealthStatus() {
+        return healthStatus;
+    }
+
+    public void setHealthStatus(String healthStatus) {
+        this.healthStatus = healthStatus;
+    }
+
+    public String getWorkSituation() {
+        return workSituation;
+    }
+
+    public void setWorkSituation(String workSituation) {
+        this.workSituation = workSituation;
+    }
+
+    public String getLifeSituation() {
+        return lifeSituation;
+    }
+
+    public void setLifeSituation(String lifeSituation) {
+        this.lifeSituation = lifeSituation;
+    }
+
+    public String getOtherDesc() {
+        return otherDesc;
+    }
+
+    public void setOtherDesc(String otherDesc) {
+        this.otherDesc = otherDesc;
     }
 }

@@ -41,7 +41,7 @@
               <input type="radio" name="isReceive" value="0"/>否
             </td>
             <td class="kv-label">领取时间</td>
-            <td class="kv-content"><input type="text" name="receiveTime"></td>
+            <td class="kv-content"><input class="easyui-datetimebox" name="receiveTime"/></td>
           </tr>
           <tr>
             <td class="kv-label">领取物品</td>

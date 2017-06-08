@@ -33,9 +33,10 @@
     <div style="padding: 5px;">
       活动标题：<input type="text" id="nameFilter">&nbsp;
       活动类型：<select class="easyui-combobox" id="typeFilter">
-      <option value="0">组织活动</option>
-      <option value="1">志愿者活动</option>
-      <option value="2">专题讨论</option>
+      <option>所有</option>
+      <option value="1">组织活动</option>
+      <option value="2">志愿者活动</option>
+      <option value="3">专题讨论</option>
     </select><span class="white_space"></span>
       开始时间：<input class="easyui-datetimebox" id="startTime"/><span class="white_space"></span>
       结束时间：<input class="easyui-datetimebox" id="endTime"/><span class="white_space"></span>
@@ -63,11 +64,11 @@
 </div>
 <script>
   function formatActivityType(val, row) {
-    if(val == 0) {
+    if(val == 1) {
       return '组织活动';
-    } else if(val == 1) {
-      return '志愿者活动';
     } else if(val == 2) {
+      return '志愿者活动';
+    } else if(val == 3) {
       return '专题讨论';
     }
     return '';

@@ -3,10 +3,7 @@ package com.party.ijurong.pojo;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 public class Activity {
@@ -60,6 +57,12 @@ public class Activity {
     private Integer integral;
 
     private String detail;
+
+    @Column(name = "click_amount")
+    private Integer clickAmount;
+
+    @Transient
+    private Integer orderType;
 
     /**
      * 获取主题
@@ -261,5 +264,21 @@ public class Activity {
      */
     public void setDetail(String detail) {
         this.detail = detail == null ? null : detail.trim();
+    }
+
+    public Integer getOrderType() {
+        return orderType;
+    }
+
+    public void setOrderType(Integer orderType) {
+        this.orderType = orderType;
+    }
+
+    public Integer getClickAmount() {
+        return clickAmount;
+    }
+
+    public void setClickAmount(Integer clickAmount) {
+        this.clickAmount = clickAmount;
     }
 }
