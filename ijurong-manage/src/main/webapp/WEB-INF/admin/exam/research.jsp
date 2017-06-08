@@ -14,7 +14,7 @@
         function doSearch() {
             var research = {};
             research.researchName = $('#researchName').val();
-            $('#examQuestion_grid').datagrid('load', research);
+            $('#research_grid').datagrid('load', research);
         }
         //清空列表 参数为从第几行开始
         function clearTable()
@@ -27,25 +27,25 @@
             for(var i=1;i<length;i++)
             {
                 var json = new Object;
-                json.optionContent=document.getElementById("tab_answer").rows[i].cells[0].firstChild.value;
-                json.isCorrect=$(document.getElementById("tab_answer").rows[i].cells[1]).find('input:checked').val();
-                json.optionNum=document.getElementById("tab_answer").rows[i].cells[2].firstChild.value;
+                json.questionScore=document.getElementById("tab_answer").rows[i].cells[1].firstChild.value;
+                json.questionSort=document.getElementById("tab_answer").rows[i].cells[2].firstChild.value;
+                json.questionId=document.getElementById("tab_answer").rows[i].cells[3].firstChild.value;
                 jsonArray.push(json);
             }
-            var formData=$(examQuestion_form).serialize();
+            var formData=$(research_form).serialize();
             formData += '&opt=' + JSON.stringify(jsonArray);
             $.ajax({
-                url: examQuestion_form.action,
-                type: examQuestion_form.method,
+                url: research_form.action,
+                type: research_form.method,
                 data: formData,
                 success: function (data) {
                     if (data == "had") {
-                        $.messager.alert('提示', '题目已存在!');
+                        $.messager.alert('提示', '卷子名已存在!');
                         return;
                     }
                     if (data == "success") {
-                        $('#examQuestion_dialog').dialog('close');
-                        $('#examQuestion_grid').datagrid('reload');
+                        $('#research_dialog').dialog('close');
+                        $('#research_grid').datagrid('reload');
                     } else {
                         $.messager.alert('提示', '提交失败!');
                     }
@@ -57,12 +57,12 @@
         }
         $(function() {
             $('#btn_add').bind('click', function() {
-                examQuestion_form.reset();
-                TT.resetForm('examQuestion_dialog');
+                research_form.reset();
+                TT.resetForm('research_dialog');
                 clearTable();
-                examQuestion_form.action = 'addExamQuestion';
-                $('#examQuestion_dialog').dialog('setTitle', '添加题目');
-                $('#examQuestion_dialog').dialog('open');
+                research_form.action = 'addResearch';
+                $('#research_dialog').dialog('setTitle', '添加卷子');
+                $('#research_dialog').dialog('open');
             });
         });
 
@@ -72,31 +72,20 @@
             });
         });
 
-        $(function() {
-            $('#addAnswer').bind('click', function() {
-                var t=Math.random();
-                var html_answer='<tr class="tr_class"><td class="kv-content"><input type="text" name="optionContent"/></td>'+
-                        '<td class="kv-content"><input type="radio" name="isCorrect'+t+'" value="1"/>是<input type="radio" name="isCorrect'+t+'" value="0"/>否</td>'+
-                        '<td class="kv-content"><input type="text" name="optionNum"/></td>'+
-                        '<td class="kv-content" id="tr_del"><a class="aaa">删除</a></td></tr>';
-                $("#tab_answer").append(html_answer);
-                $("#tab_answe").trigger("create");
-            });
-        });
 
 
 
 
         $(function() {
             $('#btn_remove').bind('click', function() {
-                var rowData = $('#examQuestion_grid').datagrid('getSelected');
+                var rowData = $('#research_grid').datagrid('getSelected');
                 if (rowData == null) {
                     return;
                 }
-                var url = 'deleteExamQuestion/' + rowData.id;
+                var url = 'deleteResearch/' + rowData.id;
                 $.post(url, function(data) {
                     if (data == 'success') {
-                        $('#examQuestion_grid').datagrid('reload');
+                        $('#research_grid').datagrid('reload');
                     } else {
                         $.messager.alert('提示', '删除失败：' + data);
                     }
@@ -131,24 +120,27 @@
 
 
         function openDialog(id) {
-            TT.resetForm('examQuestion_dialog');
+            TT.resetForm('research_dialog');
             clearTable();
-            $('#examQuestion_grid').datagrid('selectRow', id);
-            var rowData = $('#examQuestion_grid').datagrid('getSelected');
+            $('#research_grid').datagrid('selectRow', id);
+            var rowData = $('#research_grid').datagrid('getSelected');
             if (rowData != null) {
                 //加载选项数据
-                var url = 'findExamAnswersByQuestionId/' + rowData.id;
+                var url = 'findResearchExamsByResearchId/' + rowData.id;
                 $.post(url, function(data) {
                     if (data) {
                         for(var i=0;i<data.length;i++)
                         {
-                            var checked1=data[i].isCorrect==1?'checked':'';
-                            var checked0=data[i].isCorrect==0?'checked':'';
                             var t=Math.random();
-                            var html_answer='<tr class="tr_class"><td class="kv-content"><input type="text" name="optionContent" value="'+data[i].optionContent+'"/></td>'+
-                                    '<td class="kv-content"><input type="radio" name="isCorrect'+t+'" value="1" '+checked1+'/>是<input type="radio" name="isCorrect'+t+'" value="0" '+checked0+'/>否</td>'+
-                                    '<td class="kv-content"><input type="text" name="optionNum" value="'+data[i].optionNum+'"/></td>'+
-                                    '<td class="kv-content" id="tr_del"><a class="aaa">删除</a></td></tr>';
+                            var html_answer= '<tr class="tr_class"><td class="kv-content"><input type="text" name="questionContent" value="'+data[i].questionContent+'"/>'+
+                                    '</td>'+
+                                    '<td class="kv-content"><input type="text" name="questionScore" value="'+data[i].questionScore+'"/>'+
+                                    '</td>'+
+                                    '<td class="kv-content"><input type="text" name="questionSort" value="'+data[i].questionSort+'"/>'+
+                                    '</td>'+
+                                    '<td style="display: none"><input type="hidden" name="questionId" value="'+data[i].questionId+'"></td>'+
+                                    '<td class="kv-content" id="tr_del"><a class="aaa">删除</a>'+
+                                    '</td></tr>';
                             $("#tab_answer").append(html_answer);
                         }
                         $("#tab_answe").trigger("create");
@@ -157,12 +149,12 @@
                     }
                 });
 
-                $('#examQuestion_form').form('load', rowData);
+                $('#research_form').form('load', rowData);
 
             }
-            examQuestion_form.action = "updateExamQuestion";
-            $('#examQuestion_dialog').dialog('setTitle', '题目');
-            $('#examQuestion_dialog').dialog('open');
+            research_form.action = "updateResearch";
+            $('#research_dialog').dialog('setTitle', '卷子');
+            $('#research_dialog').dialog('open');
         }
 
 
@@ -172,15 +164,15 @@
                     $('#url1').val(rowData.url);
 
                     var t=Math.random();
-                    var html_answer= '<td class="kv-content"><input type="text" name="questionContent" value="'+rowData.questionContent+'"/>'+
-                    '</td>'+
-                    '<td class="kv-content"><input type="text" name="questionScore"/>'+
-                    '</td>'+
-                    '<td class="kv-content"><input type="text" name="questionSort"/>'+
-                    '</td>'+
-                    '<td style="display: none"><input type="hidden" name="questionId" value="'+rowData.id+'"></td>'+
-                    '<td class="kv-content" id="tr_del"><a class="aaa">删除</a>'+
-                    '</td>';
+                    var html_answer= '<tr class="tr_class"><td class="kv-content"><input type="text" name="questionContent" value="'+rowData.questionContent+'"/>'+
+                            '</td>'+
+                            '<td class="kv-content"><input type="text" name="questionScore"/>'+
+                            '</td>'+
+                            '<td class="kv-content"><input type="text" name="questionSort"/>'+
+                            '</td>'+
+                            '<td style="display: none"><input type="hidden" name="questionId" value="'+rowData.id+'"></td>'+
+                            '<td class="kv-content" id="tr_del"><a class="aaa">删除</a>'+
+                            '</td></tr>';
                     $("#tab_answer").append(html_answer);
                     $("#tab_answe").trigger("create");
                 }
@@ -191,7 +183,7 @@
 </head>
 <body class="easyui-layout">
 <div region="center" style="padding: 5px;">
-    <div id="examQuestion_toolbar" style="padding: 5px; height: auto">
+    <div id="research_toolbar" style="padding: 5px; height: auto">
         <div style="padding: 5px;">
             问卷：<input type="text" id="researchName">&nbsp;
             <a href="#" class="easyui-linkbutton" id="btn_Search"
@@ -202,14 +194,15 @@
                data-options="iconCls:'icon-remove'" id="btn_remove">删除</a>
         </div>
     </div>
-    <table id="examQuestion_grid"
+    <table id="research_grid"
            class="easyui-datagrid" fitColumns="true" pagination="true"
-           url="findExamQuestions" toolbar="#tb" rownumbers="true" pageSize="20" style="width:auto;" singleSelect="true" >
+           url="findResearchs" toolbar="#tb" rownumbers="true" pageSize="20" style="width:auto;" singleSelect="true" >
         <thead>
         <tr>
             <th field="id" hidden="true"></th>
-            <th data-options="field:'questionContent',align:'center'" width="30">题目名称</th>
-            <th data-options="field:'questionType',align:'center',formatter:formatQuestionType"  width="20">类型</th>
+            <th data-options="field:'researchName',align:'center'" width="30">卷子名称</th>
+            <th data-options="field:'startTime',align:'center'"  width="20">开始时间</th>
+            <th data-options="field:'stopTime',align:'center'"  width="20">结束时间</th>
             <th
                     data-options="field:'id1',align:'center',width:50,formatter:formatOperation"
                     width="20">操作</th>
@@ -218,7 +211,7 @@
     </table>
 </div>
 
-<div id="examQuestion_dialog" class="easyui-dialog"
+<div id="research_dialog" class="easyui-dialog"
      data-options="closed:true,
 		title:'問卷管理',
 		modal:true,
@@ -235,13 +228,13 @@
                     text:'取消',
                     iconCls:'icon-cancel',
                     handler:function(){
-                        $('#examQuestion_dialog').dialog('close');
+                        $('#research_dialog').dialog('close');
                     }
                 }]"
      style="width: 850px; height: 450px; padding: 10px;">
 
 
-    <form id="examQuestion_form" name="examQuestion_form"
+    <form id="research_form" name="research_form"
           method="post">
         <div class="container">
             <div class="content">
@@ -252,7 +245,7 @@
                     <table class="kv-table">
                         <tbody>
                         <tr>
-                            <td class="kv-label">调查名称</td>
+                            <td class="kv-label">問卷名称</td>
                             <td class="kv-content" colspan="3"><input type="text"name="researchName"/></td>
                         </tr>
                         <tr>
@@ -275,7 +268,7 @@
                     </table>
 
 
-                    <div class="column"><span class="current">题目管理</span></div>
+                    <div class="column"><span class="current">卷子管理</span></div>
                     <table  class="kv-table">
                         <tbody>
                         <tr>
@@ -302,7 +295,7 @@
                                         </select>
                                     </div>
                                     <%--<div style="float:right;width:60%">--%>
-                                        <%--<img style="width:25px;height: 25px;" id="addAnswer" src="/img/add_img_icon.png" alt="">--%>
+                                    <%--<img style="width:25px;height: 25px;" id="addAnswer" src="/img/add_img_icon.png" alt="">--%>
                                     <%--</div>--%>
                                 </div>
                             </td>
@@ -310,12 +303,12 @@
 
 
                         <tr>
-                            <td class="kv-label">题目</td>
+                            <td class="kv-label">卷子</td>
                             <td class="kv-content" colspan="3">
                                 <div>
                                     <table id="tab_answer">
                                         <tr>
-                                            <td class="kv-label">题目
+                                            <td class="kv-label">卷子
                                             </td>
                                             <td class="kv-label">分值
                                             </td>

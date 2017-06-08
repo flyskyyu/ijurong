@@ -1,6 +1,7 @@
 package com.party.ijurong.controller.admin;
 
 import com.party.ijurong.bean.Page;
+import com.party.ijurong.dto.ResearchDto;
 import com.party.ijurong.pojo.*;
 import com.party.ijurong.service.*;
 import org.json.JSONArray;
@@ -42,6 +43,104 @@ public class ExamController {
 
     @Autowired
     private ResearchExamService researchExamService;
+
+
+    @RequestMapping(value = "/findResearchs", method = { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public Page<Research> findResearchs(HttpServletRequest httpServletRequest,
+                                                @ModelAttribute Research research, @RequestParam int page, @RequestParam int rows) {
+        Page<Research> result = researchService.findResearchsByResearch(research, page, rows);
+        return result;
+    }
+
+
+    @RequestMapping(value = "/findResearchExamsByResearchId/{id}", method = { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public List<ResearchDto> findResearchExamsByResearchId(HttpServletRequest httpServletRequest,@PathVariable int id) {
+        List<ResearchDto> result = researchExamService.getResearchByResearchId(id);
+        return result;
+    }
+
+
+    @RequestMapping(value = "addResearch", method =
+            { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public String addResearch(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse,@ModelAttribute Research research)
+    {
+        try {
+            research.setId(0);
+            researchService.insertResearch(research);
+
+            List<ResearchExam> list = new ArrayList<ResearchExam>();
+            JSONArray jsonArray = new JSONArray(httpServletRequest.getParameter("opt"));//[{"optionContent":"1","isCorrect":"1","optionNum":"1"},{"optionContent":"1","isCorrect":"0","optionNum":"1"},{"optionContent":"1","isCorrect":"1","optionNum":"1"}]
+            for (int i = 0; i < jsonArray.length(); i++) {
+                ResearchExam researchExam = new ResearchExam();
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                researchExam.setResearchId(research.getId());
+                researchExam.setQuestionId(jsonObject.getInt("questionId"));
+                researchExam.setQuestionScore(jsonObject.getInt("questionScore"));
+                researchExam.setQuestionSort(jsonObject.getInt("questionSort"));
+                list.add(researchExam);
+            }
+            researchExamService.insertResearchExam(research.getId(), list);
+            return "success";
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return "fail";
+        }
+    }
+
+
+    @RequestMapping(value = "updateResearch", method =
+            { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public String updateResearch(HttpServletRequest httpServletRequest,HttpServletResponse httpServletResponse,@ModelAttribute  Research research)
+    {
+        try {
+            researchService.updateResearch(research);
+
+            List<ResearchExam> list = new ArrayList<ResearchExam>();
+            JSONArray jsonArray = new JSONArray(httpServletRequest.getParameter("opt"));//[{"optionContent":"1","isCorrect":"1","optionNum":"1"},{"optionContent":"1","isCorrect":"0","optionNum":"1"},{"optionContent":"1","isCorrect":"1","optionNum":"1"}]
+            for (int i = 0; i < jsonArray.length(); i++) {
+                ResearchExam researchExam = new ResearchExam();
+                JSONObject jsonObject = jsonArray.getJSONObject(i);
+                researchExam.setResearchId(research.getId());
+                researchExam.setQuestionId(jsonObject.getInt("questionId"));
+                researchExam.setQuestionScore(jsonObject.getInt("questionScore"));
+                researchExam.setQuestionSort(jsonObject.getInt("questionSort"));
+                list.add(researchExam);
+            }
+            researchExamService.updateResearchExam(research.getId(), list);
+            return "success";
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return "fail";
+        }
+
+    }
+
+
+    @RequestMapping(value = "deleteResearch/{id}", method =
+            { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public String deleteResearch(HttpServletRequest httpServletRequest, @PathVariable int id)
+    {
+        try {
+            int researchId=researchService.findResearchById(id).getId();
+            researchExamService.deleteResearchExam(researchId);
+            researchService.deleteResearch(id);
+            return "success";
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return "fail";
+        }
+    }
 
 
     @RequestMapping(value = "/findExamQuestionsByName", method = { RequestMethod.POST, RequestMethod.GET })

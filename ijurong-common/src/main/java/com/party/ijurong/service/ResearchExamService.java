@@ -1,8 +1,12 @@
 package com.party.ijurong.service;
 
 import com.party.ijurong.bean.Page;
+import com.party.ijurong.dto.ExamPaperDto;
+import com.party.ijurong.dto.ResearchDto;
+import com.party.ijurong.mapper.ResearchExamMapper;
 import com.party.ijurong.pojo.ResearchExam;
 import org.apache.ibatis.session.RowBounds;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
@@ -14,6 +18,8 @@ import java.util.List;
 @Service
 public class ResearchExamService extends BaseService<ResearchExam>{
 
+    @Autowired
+    private ResearchExamMapper researchExamMapper;
     /**
      * 查询所有问卷题目
      * @param researchExam
@@ -87,6 +93,16 @@ public class ResearchExamService extends BaseService<ResearchExam>{
         ResearchExam researchExam1=new ResearchExam();
         researchExam1.setResearchId(researchId);
         mapper.delete(researchExam1);
+    }
+
+    public List<ResearchDto> getResearchByResearchId(int researchId)
+    {
+        return researchExamMapper.getResearchByResearchId(researchId);
+    }
+
+    public List<ExamPaperDto> getExamPaperByResearchId(int researchId)
+    {
+        return researchExamMapper.getExamPaperByResearchId(researchId);
     }
 
 

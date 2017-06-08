@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.party.ijurong.mapper.ResearchExamMapper">
+    <resultMap id="ResearchExamDtoMap" type="ResearchDto">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="research_id" property="researchId" jdbcType="INTEGER"/>
+        <result column="question_id" property="questionId" jdbcType="INTEGER"/>
+        <result column="question_sort" property="questionSort" jdbcType="INTEGER"/>
+        <result column="question_score" property="questionScore" jdbcType="INTEGER"/>
+        <result column="question_content" property="questionContent" jdbcType="VARCHAR"/>
+        <result column="question_type" property="questionType" jdbcType="INTEGER"/>
+        <result column="explains" property="explains" jdbcType="VARCHAR"/>
+        <result column="research_name" property="researchName" jdbcType="VARCHAR"/>
+        <result column="research_goal" property="researchGoal" jdbcType="VARCHAR"/>
+        <result column="start_time" property="startTime" jdbcType="TIMESTAMP"/>
+        <result column="stop_time" property="stopTime" jdbcType="TIMESTAMP"/>
+        <result column="is_open" property="isOpen" jdbcType="INTEGER"/>
+    </resultMap>
+
+
+    <resultMap id="ResearchPaperDtoMap" type="ExamPaperDto">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="research_id" property="researchId" jdbcType="INTEGER"/>
+        <result column="question_id" property="questionId" jdbcType="INTEGER"/>
+        <result column="question_sort" property="questionSort" jdbcType="INTEGER"/>
+        <result column="question_score" property="questionScore" jdbcType="INTEGER"/>
+        <result column="question_content" property="questionContent" jdbcType="VARCHAR"/>
+        <result column="question_type" property="questionType" jdbcType="INTEGER"/>
+        <result column="explains" property="explains" jdbcType="VARCHAR"/>
+        <collection property="items" column="{questionId=questionId}" javaType="ArrayList"
+                    ofType="com.party.ijurong.pojo.ExamAnswer" select="getItemsByQuestionId" />
+    </resultMap>
+
+    <resultMap id="ExamAnswerMap" type="ExamAnswer">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="question_id" property="questionId" jdbcType="INTEGER"/>
+        <result column="option_content" property="optionContent" jdbcType="VARCHAR"/>
+        <result column="option_num" property="optionNum" jdbcType="INTEGER"/>
+        <result column="is_correct" property="isCorrect" jdbcType="INTEGER"/>
+    </resultMap>
+
+
+    <select id="getResearchByResearchId"  parameterType="Integer" resultMap="ResearchExamDtoMap">
+        select a.id,a.research_id,a.question_id,a.question_sort,a.question_score
+        ,b.question_content,b.question_type,b.explains
+        ,c.research_name,c.research_goal,c.start_time,c.stop_time,c.is_open
+        from research_exam a
+        LEFT JOIN exam_question b on a.question_id=b.id
+        LEFT JOIN research c on a.research_id=c.id
+        where a.research_id=#{researchId} and c.is_deleted  &lt;&gt; 1
+    </select>
+
+
+    <select id="getExamPaperByResearchId"  parameterType="Integer" resultMap="ResearchPaperDtoMap">
+        select a.id,a.research_id,a.question_id,a.question_sort,a.question_score
+        ,b.question_content,b.question_type,b.explains  from research_exam a
+        LEFT JOIN exam_question b on a.question_id=b.id
+        where a.research_id=#{researchId}
+    </select>
+
+    <select id="getItemsByQuestionId"  resultMap="ExamAnswerMap">
+        select * from exam_answer where question_id=#{questionId}
+    </select>
+
+
+</mapper>

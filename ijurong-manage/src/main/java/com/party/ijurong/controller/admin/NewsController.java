@@ -179,7 +179,7 @@ public class NewsController {
     @ResponseBody
     public Page<News> findNewss(HttpServletRequest httpServletRequest,
                                 @ModelAttribute News news, @RequestParam int page, @RequestParam int rows) {
-        Page<News> result = newsService.findNewssByNews(news, page, rows);
+        Page<News> result = newsService.findNewssByNews(news, page, rows,"create_time DESC");
         return result;
     }
 
