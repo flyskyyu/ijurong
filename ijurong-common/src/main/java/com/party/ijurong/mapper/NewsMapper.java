@@ -4,4 +4,5 @@ import com.party.ijurong.pojo.News;
 import tk.mybatis.mapper.common.Mapper;
 
 public interface NewsMapper extends Mapper<News> {
+    long updateCheckNum(int id);
 }

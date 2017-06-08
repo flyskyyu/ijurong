@@ -17,10 +17,14 @@
             $('#appSkins_grid').datagrid('load', appSkins);
         }
         function doSubmit() {
+            var form = new FormData(document.getElementById("appSkins_form"));
             $.ajax({
                 url: appSkins_form.action,
                 type: appSkins_form.method,
-                data: $(appSkins_form).serialize(),
+                data: form,//$(appSkins_form).serialize(),
+                cache: false,
+                processData: false,
+                contentType: false,
                 success: function (data) {
                     if (data == "had") {
                         $.messager.alert('提示', '皮肤图名称已存在!');

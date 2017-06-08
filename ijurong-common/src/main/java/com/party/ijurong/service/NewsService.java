@@ -1,8 +1,10 @@
 package com.party.ijurong.service;
 
 import com.party.ijurong.bean.Page;
+import com.party.ijurong.mapper.NewsMapper;
 import com.party.ijurong.pojo.News;
 import org.apache.ibatis.session.RowBounds;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
@@ -14,6 +16,8 @@ import java.util.List;
 @Service
 public class NewsService extends BaseService<News>{
 
+    @Autowired
+    private NewsMapper newsMapper;
     /**
      * 查询所有新闻
      * @param news
@@ -21,7 +25,7 @@ public class NewsService extends BaseService<News>{
      * @param rows
      * @return
      */
-    public Page<News> findNewssByNews(News news, int page, int rows) {
+    public Page<News> findNewssByNews(News news, int page, int rows,String order) {
         RowBounds rowBounds=new RowBounds((page - 1) * rows,page*rows);
         Example example = new Example(News.class);
         if(news.getTitle()!=null&&news.getTitle()!="") {
@@ -30,7 +34,7 @@ public class NewsService extends BaseService<News>{
         if(news.getProgramaId()!=null) {
             example.createCriteria().andEqualTo("programaId",news.getProgramaId());
         }
-        example.setOrderByClause("create_time DESC");
+        example.setOrderByClause(order);
         List<News> list =mapper.selectByExampleAndRowBounds(example,rowBounds);
         long count = mapper.selectCountByExample(example);
         return new Page<News>(count, list);
@@ -71,4 +75,12 @@ public class NewsService extends BaseService<News>{
         mapper.delete(news);
     }
 
+    /**
+     * 新闻点击数+1
+     * @param id
+     */
+    public void updateCheckNum(int id)
+    {
+        newsMapper.updateCheckNum(id);
+    }
 }

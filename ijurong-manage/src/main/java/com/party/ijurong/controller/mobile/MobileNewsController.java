@@ -62,9 +62,54 @@ public class MobileNewsController {
                 result.setMsg("参数错误");
                 return  result;
             }
-            Page<News> p = newsService.findNewssByNews(news, page, rows);
+            Page<News> p = newsService.findNewssByNews(news, page, rows,"create_time DESC");
             result.setCode(200);
             result.setData(p.getRows());
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            result.setCode(400);
+            result.setMsg("系统异常");
+        }
+        return  result;
+    }
+
+    //获取新闻
+    @RequestMapping(value = "getHotNews")
+    @ResponseBody
+    public MobileResult getHotNews(News news, @RequestParam(defaultValue = "1")int page
+            , @RequestParam(defaultValue = "20")int rows) {
+        MobileResult result = new MobileResult();
+        try
+        {
+            if(news.getProgramaId()==null)
+            {
+                result.setCode(402);
+                result.setMsg("参数错误");
+                return  result;
+            }
+            Page<News> p = newsService.findNewssByNews(news, page, rows,"check_num DESC");
+            result.setCode(200);
+            result.setData(p.getRows());
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            result.setCode(400);
+            result.setMsg("系统异常");
+        }
+        return  result;
+    }
+
+
+    //更新新闻点击数
+    @RequestMapping(value = "updateNewsCheckNum")
+    @ResponseBody
+    public MobileResult updateNewsCheckNum(int id) {
+        MobileResult result = new MobileResult();
+        try
+        {
+             newsService.updateCheckNum(id);
+            result.setCode(200);
         }catch (Exception e)
         {
             e.printStackTrace();

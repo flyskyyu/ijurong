@@ -17,10 +17,14 @@
             $('#appShufflingPic_grid').datagrid('load', appShufflingPic);
         }
         function doSubmit() {
+            var form = new FormData(document.getElementById("appShufflingPic_form"));
             $.ajax({
                 url: appShufflingPic_form.action,
                 type: appShufflingPic_form.method,
-                data: $(appShufflingPic_form).serialize(),
+                data: form,//$(appShufflingPic_form).serialize(),
+                cache: false,
+                processData: false,
+                contentType: false,
                 success: function (data) {
                     if (data == "had") {
                         $.messager.alert('提示', '轮播图名称已存在!');

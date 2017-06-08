@@ -40,6 +40,8 @@ public class News {
 
     private String origin;
 
+    private String url;
+
     /**
      * 点击数
      */
@@ -97,6 +99,14 @@ public class News {
      */
     public void setTitle(String title) {
         this.title = title == null ? null : title.trim();
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 
     /**

@@ -9,10 +9,13 @@ import com.party.ijurong.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Copyright ©, 2016-2056
@@ -42,6 +45,10 @@ public class NewsController {
 
     @Autowired
     private ShiroService shiroService;
+
+
+    @Autowired
+    private FileUploadService fileUploadService;
 
 
 
@@ -179,12 +186,23 @@ public class NewsController {
     @RequestMapping(value = "addNews", method =
             { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
-    public String addNews(HttpServletRequest httpServletRequest, @ModelAttribute News news)
+    public String addNews(@RequestParam("file") MultipartFile file,HttpServletRequest httpServletRequest, @ModelAttribute News news)
     {
+
         try {
+            String url="";
+            if(!file.isEmpty()){
+                System.out.println("文件长度: " + file.getSize());
+                System.out.println("文件类型: " + file.getContentType());
+                System.out.println("文件名称: " + file.getName());
+                System.out.println("文件原名: " + file.getOriginalFilename());
+                url = fileUploadService.upload(file.getInputStream(), UUID.randomUUID().toString()+"."+file.getOriginalFilename().replace(".","-").split("-")[file.getOriginalFilename().replace(".","-").split("-").length-1]);
+            }
+
             news.setCreateTime(new Date());
             SimpleUser user = shiroService.getUser();
             news.setCreateUserId(user.getUserId());
+            news.setUrl(url);
             news.setId(0);
             news.setStatus(1);
             newsService.insertNews(news);
@@ -200,19 +218,28 @@ public class NewsController {
     @RequestMapping(value = "updateNews", method =
             { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
-    public String updateNews(HttpServletRequest httpServletRequest, @ModelAttribute News news)
+    public String updateNews(@RequestParam("file") MultipartFile file,HttpServletRequest httpServletRequest, @ModelAttribute News news)
     {
-        //News news1=newsService.findNewsById(news.getId());
-        news.setCreateTime(new Date());
-        SimpleUser user = shiroService.getUser();
-        news.setCreateUserId(user.getUserId());
-//        if (news1.getStatus()==1&&news.getStatus() == 2) {//没有发布过&&现在需要发布 0:删除,1:未发布,2:已发布
-//            news.setReleaseUserId(user.getUserId());
-//            news.setReleaseTime(new Date());
-//            //发布
-//        }
-        newsService.updateNews(news);
-        return "success";
+        try {
+            if (!file.isEmpty()) {
+                System.out.println("文件长度: " + file.getSize());
+                System.out.println("文件类型: " + file.getContentType());
+                System.out.println("文件名称: " + file.getName());
+                System.out.println("文件原名: " + file.getOriginalFilename());
+                String url = fileUploadService.upload(file.getInputStream(), UUID.randomUUID().toString() + "." + file.getOriginalFilename().replace(".", "-").split("-")[file.getOriginalFilename().replace(".", "-").split("-").length - 1]);
+                news.setUrl(url);
+            }
+            news.setCreateTime(new Date());
+            SimpleUser user = shiroService.getUser();
+            news.setCreateUserId(user.getUserId());
+            newsService.updateNews(news);
+            return "success";
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return "fail";
+        }
     }
 
     @RequestMapping(value = "delectNews/{id}", method =
