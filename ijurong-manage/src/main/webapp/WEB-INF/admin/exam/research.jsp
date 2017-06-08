@@ -17,13 +17,9 @@
             $('#examQuestion_grid').datagrid('load', research);
         }
         //清空列表 参数为从第几行开始
-        function clearTable(a)
+        function clearTable()
         {
-            var length=document.getElementById("tab_answer").rows.length;
-            for(var i=a;i<length;i++)
-            {
-                window.document.getElementById("tab_answer").rows[i].remove();
-            }
+            $('.tr_class').remove();
         }
         function doSubmit() {
             var length=document.getElementById("tab_answer").rows.length;
@@ -63,7 +59,7 @@
             $('#btn_add').bind('click', function() {
                 examQuestion_form.reset();
                 TT.resetForm('examQuestion_dialog');
-                clearTable(1);
+                clearTable();
                 examQuestion_form.action = 'addExamQuestion';
                 $('#examQuestion_dialog').dialog('setTitle', '添加题目');
                 $('#examQuestion_dialog').dialog('open');
@@ -79,7 +75,7 @@
         $(function() {
             $('#addAnswer').bind('click', function() {
                 var t=Math.random();
-                var html_answer='<tr><td class="kv-content"><input type="text" name="optionContent"/></td>'+
+                var html_answer='<tr class="tr_class"><td class="kv-content"><input type="text" name="optionContent"/></td>'+
                         '<td class="kv-content"><input type="radio" name="isCorrect'+t+'" value="1"/>是<input type="radio" name="isCorrect'+t+'" value="0"/>否</td>'+
                         '<td class="kv-content"><input type="text" name="optionNum"/></td>'+
                         '<td class="kv-content" id="tr_del"><a class="aaa">删除</a></td></tr>';
@@ -136,7 +132,7 @@
 
         function openDialog(id) {
             TT.resetForm('examQuestion_dialog');
-            clearTable(1);
+            clearTable();
             $('#examQuestion_grid').datagrid('selectRow', id);
             var rowData = $('#examQuestion_grid').datagrid('getSelected');
             if (rowData != null) {
@@ -149,7 +145,7 @@
                             var checked1=data[i].isCorrect==1?'checked':'';
                             var checked0=data[i].isCorrect==0?'checked':'';
                             var t=Math.random();
-                            var html_answer='<tr><td class="kv-content"><input type="text" name="optionContent" value="'+data[i].optionContent+'"/></td>'+
+                            var html_answer='<tr class="tr_class"><td class="kv-content"><input type="text" name="optionContent" value="'+data[i].optionContent+'"/></td>'+
                                     '<td class="kv-content"><input type="radio" name="isCorrect'+t+'" value="1" '+checked1+'/>是<input type="radio" name="isCorrect'+t+'" value="0" '+checked0+'/>否</td>'+
                                     '<td class="kv-content"><input type="text" name="optionNum" value="'+data[i].optionNum+'"/></td>'+
                                     '<td class="kv-content" id="tr_del"><a class="aaa">删除</a></td></tr>';
@@ -328,8 +324,7 @@
                                             <td class="kv-label">操作
                                             </td>
                                         </tr>
-                                        <tr>
-
+                                        <tr class="tr_class">
                                             <td class="kv-content"><input type="text" name="questionContent"/>
                                             </td>
                                             <td class="kv-content"><input type="text" name="questionScore"/>
