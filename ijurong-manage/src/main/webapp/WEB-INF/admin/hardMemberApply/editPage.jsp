@@ -30,7 +30,7 @@
               <input type="radio" name="isHardMember" value="1"/>是&nbsp;&nbsp;
               <input type="radio" name="isHardMember" value="0"/>否
             </td>
-            <td class="kv-label">是否建国前入党老党员</td>
+            <td class="kv-label">是否老党员</td>
             <td class="kv-content">
               <input type="radio" name="isOldMember" value="1"/>是&nbsp;&nbsp;
               <input type="radio" name="isOldMember" value="0"/>否
@@ -39,11 +39,7 @@
           <tr>
             <td class="kv-label">生活困难类型</td>
             <td class="kv-content">
-              <select name="hardType" class="easyui-combobox">
-                <option value="0"></option>
-                <option value="1">生活困难</option>
-                <option value="2">经济困难</option>
-              </select>
+                <input type="text" name="hardType"/>
             </td>
             <td class="kv-label">是否享受低保</td>
             <td class="kv-content">
@@ -57,20 +53,30 @@
             </td>
           </tr>
           <tr>
-            <td class="kv-label">健康状况</td>
-            <td class="kv-content">
-              <select name="healthStatus" class="easyui-combobox">
-                <option value="0"></option>
-                <option value="1">身体健康</option>
-                <option value="2">身体不健康</option>
-              </select>
-            </td>
-            <td class="kv-label">户口所在派出所</td>
-            <td class="kv-content" colspan="3"><input type="text" name="policeStation"/> </td>
+              <td class="kv-label">生日</td>
+              <td class="kv-content">
+                  <input class="easyui-datebox" name="birthday"/>
+              </td>
+              <td class="kv-label">入党时间</td>
+              <td class="kv-content"><input class="easyui-datebox" name="joinDate"/></td>
+              <td class="kv-label">健康状况</td>
+              <td class="kv-content">
+                  <input type="text" name="healthStatus"/>
+              </td>
+          </tr>
+          <tr>
+            <td class="kv-label">工作情况</td>
+            <td class="kv-content"><input type="text" name="workSituation"/> </td>
+              <td class="kv-label">生活情况</td>
+              <td class="kv-content" colspan="3"><input type="text" name="lifeSituation"/> </td>
           </tr>
           <tr>
             <td class="kv-label">困难情况补充</td>
-            <td class="kv-content" colspan="5"><textarea name="hardDesc" rows="5"></textarea></td>
+            <td class="kv-content" colspan="5"><textarea name="hardDesc" rows="3"></textarea></td>
+          </tr>
+          <tr>
+              <td class="kv-label">其他说明</td>
+              <td class="kv-content" colspan="5"><textarea name="otherDesc" rows="3"></textarea></td>
           </tr>
           <tr>
             <td class="kv-label">回复</td>

@@ -3,8 +3,8 @@ package com.party.ijurong.pojo;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
 import java.util.Date;
+import javax.persistence.*;
 
 @Table(name = "hard_member_apply")
 public class HardMemberApply {
@@ -33,7 +33,7 @@ public class HardMemberApply {
      * 困难类型
      */
     @Column(name = "hard_type")
-    private Integer hardType;
+    private String hardType;
 
     /**
      * 说明
@@ -42,7 +42,25 @@ public class HardMemberApply {
     private String hardDesc;
 
     @Column(name = "health_status")
-    private Integer healthStatus;
+    private String healthStatus;
+
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonSerialize(using = DateSerializer.class)
+    private Date birthday;
+
+    @Column(name = "join_date")
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    @JsonSerialize(using = DateSerializer.class)
+    private Date joinDate;
+
+    @Column(name = "work_situation")
+    private String workSituation;
+
+    @Column(name = "life_situation")
+    private String lifeSituation;
+
+    @Column(name = "other_desc")
+    private String otherDesc;
 
     @Column(name = "police_station")
     private String policeStation;
@@ -52,9 +70,9 @@ public class HardMemberApply {
 
     private String reply;
 
+    @Column(name = "apply_time")
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     @JsonSerialize(using = DateSerializer.class)
-    @Column(name = "apply_time")
     private Date applyTime;
 
     /**
@@ -146,7 +164,7 @@ public class HardMemberApply {
      *
      * @return hard_type - 困难类型
      */
-    public Integer getHardType() {
+    public String getHardType() {
         return hardType;
     }
 
@@ -155,8 +173,8 @@ public class HardMemberApply {
      *
      * @param hardType 困难类型
      */
-    public void setHardType(Integer hardType) {
-        this.hardType = hardType;
+    public void setHardType(String hardType) {
+        this.hardType = hardType == null ? null : hardType.trim();
     }
 
     /**
@@ -180,15 +198,85 @@ public class HardMemberApply {
     /**
      * @return health_status
      */
-    public Integer getHealthStatus() {
+    public String getHealthStatus() {
         return healthStatus;
     }
 
     /**
      * @param healthStatus
      */
-    public void setHealthStatus(Integer healthStatus) {
-        this.healthStatus = healthStatus;
+    public void setHealthStatus(String healthStatus) {
+        this.healthStatus = healthStatus == null ? null : healthStatus.trim();
+    }
+
+    /**
+     * @return birthday
+     */
+    public Date getBirthday() {
+        return birthday;
+    }
+
+    /**
+     * @param birthday
+     */
+    public void setBirthday(Date birthday) {
+        this.birthday = birthday;
+    }
+
+    /**
+     * @return join_date
+     */
+    public Date getJoinDate() {
+        return joinDate;
+    }
+
+    /**
+     * @param joinDate
+     */
+    public void setJoinDate(Date joinDate) {
+        this.joinDate = joinDate;
+    }
+
+    /**
+     * @return work_situation
+     */
+    public String getWorkSituation() {
+        return workSituation;
+    }
+
+    /**
+     * @param workSituation
+     */
+    public void setWorkSituation(String workSituation) {
+        this.workSituation = workSituation == null ? null : workSituation.trim();
+    }
+
+    /**
+     * @return life_situation
+     */
+    public String getLifeSituation() {
+        return lifeSituation;
+    }
+
+    /**
+     * @param lifeSituation
+     */
+    public void setLifeSituation(String lifeSituation) {
+        this.lifeSituation = lifeSituation == null ? null : lifeSituation.trim();
+    }
+
+    /**
+     * @return other_desc
+     */
+    public String getOtherDesc() {
+        return otherDesc;
+    }
+
+    /**
+     * @param otherDesc
+     */
+    public void setOtherDesc(String otherDesc) {
+        this.otherDesc = otherDesc == null ? null : otherDesc.trim();
     }
 
     /**
@@ -233,10 +321,16 @@ public class HardMemberApply {
         this.reply = reply == null ? null : reply.trim();
     }
 
+    /**
+     * @return apply_time
+     */
     public Date getApplyTime() {
         return applyTime;
     }
 
+    /**
+     * @param applyTime
+     */
     public void setApplyTime(Date applyTime) {
         this.applyTime = applyTime;
     }

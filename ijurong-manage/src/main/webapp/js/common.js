@@ -158,11 +158,13 @@ var TT = {
             forms.get(i).reset();
             $(forms.get(i)).find('[type="hidden"]').val('');
         }
-        if(typeof(uEditor) != 'undefined' && uEditor) {
+        if(container.find('#ueditor').length > 0 && typeof(uEditor) != 'undefined' && uEditor) {
             uEditor.setContent('');
         }
         container.find('.easyui-combobox').combobox('clear');
         container.find('.easyui-combogrid').combogrid('clear');
+        container.find('.easyui-datetimebox').datetimebox('clear');
+        container.find('.easyui-datebox').datebox('clear');
         TT.enabledAllBtns(id);
     },
     createOptionBtn: function (map, rowIndex) {

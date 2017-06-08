@@ -149,29 +149,30 @@
                         </td>
                         <td class="kv-label">生活困难类型</td>
                         <td class="kv-content">
-                            <select name="hardType" class="easyui-combobox">
-                                <option value="0">请选择</option>
-                                <option value="1">家庭困难</option>
-                                <option value="2">经济困难</option>
-                            </select>
+                            <input type="text" name="hardType"/>
                         </td>
                         <td class="kv-label">健康状况</td>
                         <td class="kv-content">
-                            <select name="healthStatus" class="easyui-combobox">
-                                <option value="0">请选择</option>
-                                <option value="1">健康</option>
-                                <option value="2">亚健康</option>
-                                <option value="3">不健康</option>
-                            </select>
+                            <input type="text" name="healthStatus"/>
                         </td>
                     </tr>
                     <tr>
-                        <td class="kv-label">户口所在地派出所</td>
-                        <td class="kv-content" colspan="5"><input type="text" name="policeStation"/></td>
+                        <td class="kv-label">工作情况</td>
+                        <td class="kv-content">
+                            <input type="text" name="workSituation"/>
+                        </td>
+                        <td class="kv-label">生活情况</td>
+                        <td class="kv-content" colspan="3">
+                            <input type="text" name="lifeSituation"/>
+                        </td>
                     </tr>
                     <tr>
                         <td class="kv-label">困难情况补充</td>
                         <td class="kv-content" colspan="5"><textarea name="hardDesc" rows="8"></textarea></td>
+                    </tr>
+                    <tr>
+                        <td class="kv-label">其他说明</td>
+                        <td class="kv-content" colspan="5"><textarea name="otherDesc" rows="8"></textarea></td>
                     </tr>
                     </tbody>
                 </table>
