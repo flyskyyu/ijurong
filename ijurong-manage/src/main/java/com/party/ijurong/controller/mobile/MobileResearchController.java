@@ -4,6 +4,7 @@ import com.github.pagehelper.PageInfo;
 import com.party.ijurong.bean.MobileResult;
 import com.party.ijurong.bean.Page;
 import com.party.ijurong.constants.ConstantOrigin;
+import com.party.ijurong.dto.ExamPaperDto;
 import com.party.ijurong.pojo.Research;
 import com.party.ijurong.service.ResearchExamService;
 import com.party.ijurong.service.ResearchService;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Copyright ©, 2016-2056
@@ -38,7 +40,7 @@ public class MobileResearchController {
     @Autowired
     private ResearchService researchService;
 
-    //获取问卷
+    //获取问卷列表
     @RequestMapping(value = "getResearch")
     @ResponseBody
     public MobileResult getMessageType(HttpServletRequest httpServletRequest,int status, @RequestParam(defaultValue = "1")int page
@@ -57,6 +59,25 @@ public class MobileResearchController {
         return  result;
     }
 
+
+    @RequestMapping(value = "getPaper")
+    @ResponseBody
+    public MobileResult getPaper(HttpServletRequest httpServletRequest,int researchId, @RequestParam(defaultValue = "1")int page
+            , @RequestParam(defaultValue = "20")int rows) {
+        MobileResult result = new MobileResult();
+        try
+        {
+            List<ExamPaperDto> list=researchExamService.getExamPaperByResearchId(researchId);
+            result.setCode(200);
+            result.setData(list);
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            result.setCode(400);
+            result.setMsg("系统异常");
+        }
+        return  result;
+    }
 
 
 }
