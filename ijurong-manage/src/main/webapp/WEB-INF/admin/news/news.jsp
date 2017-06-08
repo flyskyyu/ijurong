@@ -34,10 +34,14 @@
       $('#news_grid').datagrid('load', news);
     }
     function doSubmit() {
+        var form = new FormData(document.getElementById("news_form"));
         $.ajax({
             url: news_form.action,
             type: news_form.method,
-            data: $(news_form).serialize(),
+            data: form,//$(news_form).serialize(),
+            cache: false,
+            processData: false,
+            contentType: false,
             success: function (data) {
                 if (data == "success") {
                     $('#news_dialog').dialog('close');
@@ -54,13 +58,14 @@
     }
     $(function() {
       $('#btn_add').bind('click', function() {
-        news_form.reset();
+          news_form.reset();
           TT.resetForm('news_dialog');
           ue.setContent('');
-        news_form.action = 'addNews';
-        $('#news_dialog').dialog('setTitle', '添加新闻');
-        $('#level').combobox('clear');
-        $('#news_dialog').dialog('open');
+          $("#img_uploaded_url").hide();
+          news_form.action = 'addNews';
+          $('#news_dialog').dialog('setTitle', '添加新闻');
+          $('#level').combobox('clear');
+          $('#news_dialog').dialog('open');
       });
     });
 
@@ -144,6 +149,15 @@
 
           $('#news_form').form('load', rowData);
           ue.setContent(rowData.newsContent);
+          if(rowData.url!=null&&rowData.url!="")
+          {
+              $("#img_uploaded_url").attr('src',rowData.url);
+              $("#img_uploaded_url").show();
+          }
+          else
+          {
+              $("#img_uploaded_url").hide();
+          }
 
       }
       news_form.action = "updateNews";
@@ -240,6 +254,11 @@
             <tr>
                 <td class="kv-label">来源</td>
                 <td class="kv-content" colspan="3"><input type="text" name="origin"/></td>
+            </tr>
+            <tr>
+                <td class="kv-label">图片上传</td>
+                <td class="kv-content" colspan="3"> <input type="file" name="file"><br/>
+                    <img src="#" alt="已上传图片" id ="img_uploaded_url"style="width: 72px;height: 72px;"></td><input type="hidden"  name="url"/>
             </tr>
             <%--<tr>--%>
                 <%--<td class="kv-label">点击数</td>--%>
