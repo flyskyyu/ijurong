@@ -31,25 +31,25 @@ public class MobileSecurityInterceptor implements HandlerInterceptor{
 
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-//        String token = request.getHeader("Authentication");
-//        if(StringUtils.isEmpty(token)) {
-//            printJsonMsg(401, "没有token", null, response);
-//            return false;
-//        }
-//        //从session中取user
-//        SimpleUser simpleUser = shiroService.getUser(token);
-//        if(simpleUser == null) {
-//            //查找数据库是否有登录信息
-//            StaffTokenDto dto = tokenService.queryByToken(token);
-//            if(dto == null) {
-//                printJsonMsg(401, "token失效", null, response);
-//                return false;
-//            }
-//            simpleUser = new SimpleUser(dto.getStaff());
-//            simpleUser.setToken(token);
-//            shiroService.saveUserInSession(simpleUser);
-//        }
-//        UserThreadLocal.set(simpleUser);
+        String token = request.getHeader("Authentication");
+        if(StringUtils.isEmpty(token)) {
+            printJsonMsg(401, "没有token", null, response);
+            return false;
+        }
+        //从session中取user
+        SimpleUser simpleUser = shiroService.getUser(token);
+        if(simpleUser == null) {
+            //查找数据库是否有登录信息
+            StaffTokenDto dto = tokenService.queryByToken(token);
+            if(dto == null) {
+                printJsonMsg(401, "token失效", null, response);
+                return false;
+            }
+            simpleUser = new SimpleUser(dto.getStaff());
+            simpleUser.setToken(token);
+            shiroService.saveUserInSession(simpleUser);
+        }
+        UserThreadLocal.set(simpleUser);
         return true;
     }
 
