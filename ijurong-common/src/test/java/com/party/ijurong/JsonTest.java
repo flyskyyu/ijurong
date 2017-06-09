@@ -4,12 +4,10 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.party.ijurong.bean.MobileResult;
 import com.party.ijurong.pojo.Car;
+import org.apache.commons.lang3.time.DateUtils;
 import org.junit.Test;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.Random;
+import java.util.*;
 
 /**
  * Created by Cloud on 2017/2/21.
@@ -87,5 +85,10 @@ public class JsonTest {
         System.out.println(new Date().toString());
         System.out.println(new Random().nextInt());
         System.out.println("" + null);
+    }
+
+    @Test
+    public void testDate() {
+        System.out.println(DateUtils.truncate(new Date(), Calendar.DATE));
     }
 }

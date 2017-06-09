@@ -13,6 +13,8 @@ public class MeetingRoomOrderDto extends MeetingRoomOrder {
     private Integer partyBranchId;
     @JsonIgnore
     private int typeFilter;
+    @JsonIgnore
+    private int orderType;
 
     public String getStaffName() {
         return staffName;
@@ -52,5 +54,13 @@ public class MeetingRoomOrderDto extends MeetingRoomOrder {
 
     public void setTypeFilter(int typeFilter) {
         this.typeFilter = typeFilter;
+    }
+
+    public int getOrderType() {
+        return orderType;
+    }
+
+    public void setOrderType(int orderType) {
+        this.orderType = orderType;
     }
 }

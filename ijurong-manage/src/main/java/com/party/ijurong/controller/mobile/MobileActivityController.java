@@ -86,4 +86,21 @@ public class MobileActivityController {
         result.setCode(200);
         return result;
     }
+
+    @RequestMapping("click")
+    @ResponseBody
+    public MobileResult click(Integer id) {
+        MobileResult result = new MobileResult();
+        Activity activity = activityService.queryById(id);
+        Integer clickAmount = activity.getClickAmount();
+        if(clickAmount == null) {
+            clickAmount = 1;
+        } else {
+            clickAmount += 1;
+        }
+        activity.setClickAmount(clickAmount);
+        activityService.updateSelective(activity);
+        result.setCode(200);
+        return result;
+    }
 }

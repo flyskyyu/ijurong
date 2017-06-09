@@ -60,7 +60,12 @@
                 and (is_agree is null or is_agree = 1)
             </if>
         </where>
-        ORDER BY car_order.id DESC
+        <if test="orderType == 0">
+            ORDER BY car_order.id DESC
+        </if>
+        <if test="orderType == 1">
+            ORDER BY car_order.start_time ASC
+        </if>
     </select>
 
     <select id="queryOrdeCarCount"  parameterType="CarOrder" resultType="int">

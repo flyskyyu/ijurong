@@ -26,7 +26,9 @@
           <tbody>
           <tr>
             <td class="kv-label">标题</td>
-            <td class="kv-content" colspan="5"><input type="text" name="title"></td>
+            <td class="kv-content" colspan="3"><input type="text" name="title"></td>
+            <td class="kv-label">积分</td>
+            <td class="kv-content"><input type="text" name="integral"/> </td>
           </tr>
           <tr>
             <td class="kv-label">开始时间</td>
