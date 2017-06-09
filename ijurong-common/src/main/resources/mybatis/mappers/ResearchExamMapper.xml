@@ -27,7 +27,7 @@
         <result column="question_content" property="questionContent" jdbcType="VARCHAR"/>
         <result column="question_type" property="questionType" jdbcType="INTEGER"/>
         <result column="explains" property="explains" jdbcType="VARCHAR"/>
-        <collection property="items" column="{questionId=questionId}" javaType="ArrayList"
+        <collection property="items" column="{questionId2=question_id}" javaType="ArrayList"
                     ofType="com.party.ijurong.pojo.ExamAnswer" select="getItemsByQuestionId" />
     </resultMap>
 
@@ -59,7 +59,7 @@
     </select>
 
     <select id="getItemsByQuestionId"  resultMap="ExamAnswerMap">
-        select * from exam_answer where question_id=#{questionId}
+        select * from exam_answer where question_id=#{questionId2}
     </select>
 
 

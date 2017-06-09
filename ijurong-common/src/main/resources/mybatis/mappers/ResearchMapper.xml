@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.party.ijurong.mapper.ResearchMapper">
+    <resultMap id="ResearchMap" type="Research">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="research_name" property="researchName" jdbcType="VARCHAR"/>
+        <result column="research_goal" property="researchGoal" jdbcType="VARCHAR"/>
+        <result column="start_time" property="startTime" jdbcType="TIMESTAMP"/>
+        <result column="stop_time" property="stopTime" jdbcType="TIMESTAMP"/>
+        <result column="is_open" property="isOpen" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <select id="getResearchsDoing"   resultMap="ResearchMap">
+        select * from research where start_time &lt;=now() and stop_time &gt;=now()
+    </select>
+
+    <select id="getResearchsStart"   resultMap="ResearchMap">
+        select * from research where start_time &gt;=now()
+    </select>
+
+    <select id="getResearchsOver"   resultMap="ResearchMap">
+        select * from research where stop_time &lt;=now()
+    </select>
+</mapper>
