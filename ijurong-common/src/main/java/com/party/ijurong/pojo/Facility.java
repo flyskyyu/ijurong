@@ -2,8 +2,7 @@ package com.party.ijurong.pojo;
 
 import javax.persistence.*;
 
-@Table(name = "room_facility")
-public class RoomFacility {
+public class Facility {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
@@ -16,6 +15,10 @@ public class RoomFacility {
 
     @Column(name = "party_branch_id")
     private Integer partyBranchId;
+
+    private Integer type;
+
+    private String avatar;
 
     /**
      * @return id
@@ -85,5 +88,33 @@ public class RoomFacility {
      */
     public void setPartyBranchId(Integer partyBranchId) {
         this.partyBranchId = partyBranchId;
+    }
+
+    /**
+     * @return type
+     */
+    public Integer getType() {
+        return type;
+    }
+
+    /**
+     * @param type
+     */
+    public void setType(Integer type) {
+        this.type = type;
+    }
+
+    /**
+     * @return avatar
+     */
+    public String getAvatar() {
+        return avatar;
+    }
+
+    /**
+     * @param avatar
+     */
+    public void setAvatar(String avatar) {
+        this.avatar = avatar == null ? null : avatar.trim();
     }
 }

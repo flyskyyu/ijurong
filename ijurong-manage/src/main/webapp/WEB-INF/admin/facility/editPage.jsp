@@ -18,6 +18,7 @@
          style="width: 100%;;">
       <form method="post" id="editForm">
         <input type="hidden" name="id"/>
+        <input type="hidden" name="avatar" id="avatar"/>
         <div class="column"><span class="current">设施信息</span></div>
         <table class="kv-table">
           <tbody>
@@ -30,6 +31,19 @@
                 </c:forEach>
               </select>
             </td>
+            <td class="kv-label">设施类型</td>
+            <td class="kv-content">
+              <select name="type">
+                <option value="1">会议室设施</option>
+                <option value="2">随车物品</option>
+              </select>
+            </td>
+            <td class="kv-label" rowspan="2">图片</td>
+            <td class="kv-content" rowspan="2">
+              <jsp:include page="../common/avatarUpload.jsp"/>
+            </td>
+          </tr>
+          <tr>
             <td class="kv-label">设施名称</td>
             <td class="kv-content"><input type="text" name="name"></td>
             <td class="kv-label">设施数量</td>

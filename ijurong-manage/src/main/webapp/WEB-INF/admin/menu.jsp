@@ -151,6 +151,7 @@ pageEncoding="UTF-8" %>
 					<ul class="subnav">
 						<li class="subnav-li" href="/admin/item/listPage" data-id="61"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">物品管理</span></a></li>
 						<li class="subnav-li" href="/admin/itemReceive/listPage" data-id="62"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">物品申领</span></a></li>
+						<li class="subnav-li" href="/admin/facility/listPage" data-id="63"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">设施管理</span></a></li>
 					</ul>
 				</li>
 				<li class="nav-li">
@@ -164,8 +165,7 @@ pageEncoding="UTF-8" %>
 					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">会议室管理</span></a>
 					<ul class="subnav">
 						<li class="subnav-li" href="/admin/meetingRoom/listPage" data-id="81"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">会议室管理</span></a></li>
-						<li class="subnav-li" href="/admin/roomFacility/listPage" data-id="82"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">会议室设施管理</span></a></li>
-						<li class="subnav-li" href="/admin/meetingRoomOrder/calendarListPage" data-id="83"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">会议室预约</span></a></li>
+						<li class="subnav-li" href="/admin/meetingRoomOrder/calendarListPage" data-id="82"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">会议室预约</span></a></li>
 					</ul>
 				</li>
 			</ul>

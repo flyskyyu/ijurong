@@ -102,6 +102,7 @@
                     document.getElementById('replyInput').focus()
                     $('#editForm').attr('action', '<%=basePath%>admin/carOrder/reply')
                             .form('load', rowData);
+                    reloadUPloadObjs();
                 }
             }).window('open');
         }
@@ -112,6 +113,7 @@
                 title: '查看车辆预约申请',
                 onLoad: function() {
                     $('#editForm').attr('action', '#').form('load', rowData);
+                    reloadUPloadObjs();
                     TT.disabledAll('editForm');
                     TT.createEditBtn(['cancel']);
                 }

@@ -12,6 +12,9 @@
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <title>后台帐号管理</title>
   <jsp:include page="../contentHeader.jsp"/>
+  <script type="text/javascript" src="<%=basePath%>resource/jqueryFileUpload/js/vendor/jquery.ui.widget.js"></script>
+  <script type="text/javascript" src="<%=basePath%>resource/jqueryFileUpload/js/jquery.iframe-transport.js"></script>
+  <script type="text/javascript" src="<%=basePath%>resource/jqueryFileUpload/js/jquery.fileupload.js"></script>
 </head>
 <body class="easyui-layout">
 <div region="center" style="padding: 5px;">
@@ -23,6 +26,11 @@
         <option value="${branch.id}">${branch.organizationName}</option>
       </c:forEach>
     </select>&nbsp;&nbsp;&nbsp;
+      设施类型：<select class="easyui-combobox" id="typeFilter">
+        <option>所有</option>
+      <option value="1">会议室设施</option>
+      <option value="2">随车物品</option>
+    </select>&nbsp;&nbsp;&nbsp;
       <a href="#" class="easyui-linkbutton" id="btn_Search"
                                                  data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp;
@@ -30,11 +38,12 @@
     </div>
   </div>
   <table class="easyui-datagrid" id="tableList" fitColumns="true" style="width:auto;"
-         data-options="url:'<%=basePath%>admin/roomFacility/list',rownumbers:true,singleSelect:true,collapsible:false,pagination:true,method:'get',pageSize:20">
+         data-options="url:'<%=basePath%>admin/facility/list',rownumbers:true,singleSelect:true,collapsible:false,pagination:true,method:'get',pageSize:20">
     <thead>
     <tr>
       <th data-options="field:'name',width:100,align:'center'">设施名称</th>
       <th data-options="field:'num',width:60,align:'center'">设施数量</th>
+      <th data-options="field:'type',width:60,align:'center',formatter:formatType">设施数量</th>
       <th data-options="field:'ids',width:60,align:'center',formatter:formatOperation">操作</th>
     </tr>
     </thead>
@@ -48,7 +57,17 @@
     var params = {};
     params.name = $('#nameFilter').val();
     params.partyBranchId = $('#branchFilter').val();
+    params.type = $('#typeFilter').val();
     $('#tableList').datagrid('load', params);
+  }
+
+  function formatType(val) {
+    if(val == 1) {
+      return '会议室设施';
+    } else if(val == 2) {
+      return '随车物品';
+    }
+    return '';
   }
 
   function edit(rowIndex) {
@@ -57,8 +76,9 @@
     if (rowData != null) {
       TT.resetForm();
       $('#editDialog').dialog('setTitle', '编辑设施');
-      $('#editForm').attr('action', '<%=basePath%>admin/roomFacility/update')
+      $('#editForm').attr('action', '<%=basePath%>admin/facility/update')
               .form('load', rowData);
+      resetAvatar(rowData.avatar);
       $('#editDialog').dialog('open');
     }
   }
@@ -66,7 +86,8 @@
   $('#btn_add').bind('click', function() {
     TT.resetForm();
     $('#editDialog').dialog('setTitle', '新增设施');
-    $('#editForm').attr('action', '<%=basePath%>admin/roomFacility/add');
+    $('#editForm').attr('action', '<%=basePath%>admin/facility/add');
+    resetAvatar(null);
     $('#editDialog').dialog('open');
   });
 
@@ -77,7 +98,7 @@
     $.messager.confirm('确认','确定删除设施名称为 '+rowData.name+' 的记录吗？',function(r){
       if (r){
         var params = {"id":rowData.id};
-        $.post("<%=basePath%>admin/roomFacility/delete",params, function(data){
+        $.post("<%=basePath%>admin/facility/delete",params, function(data){
           if(data == 'success'){
             $("#tableList").datagrid("reload");
           } else {

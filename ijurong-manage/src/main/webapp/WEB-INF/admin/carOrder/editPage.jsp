@@ -18,6 +18,7 @@
       <form method="post" id="editForm">
         <input type="hidden" name="isAgree" id="isAgree" data_no_disabled/>
         <input type="hidden" name="id" data_no_disabled/>
+          <input type="hidden" name="articles" data_no_disabled id="uploadObjInput"/>
         <div class="column"><span class="current">车辆预约</span></div>
         <table class="kv-table">
           <tbody>
@@ -36,7 +37,8 @@
           <tr>
               <td class="kv-label">随车用品</td>
               <td class="kv-content" colspan="3">
-                  <input type="text" name="articles" placeholder="多个物品间用英文逗号分隔"/>
+                  <img id="addObjImage" src="<%=basePath%>img/add_img_icon.png"
+                       style="width: 40px;height:40px;cursor:pointer;"/>
               </td>
           </tr>
           <tr>
@@ -70,6 +72,9 @@
     </div>
   </div>
 </div>
+<jsp:include page="../common/selectFacility.jsp">
+    <jsp:param name="type" value="2"/>
+</jsp:include>
 <script type="text/javascript">
     $('#editContainer').on('click', '#edit_btn_no', function() {
         $('#isAgree').val(0);
