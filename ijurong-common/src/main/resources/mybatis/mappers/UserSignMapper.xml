@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.party.ijurong.mapper.UserSignMapper" >
+  <resultMap id="BaseResultMap" type="com.party.ijurong.pojo.UserSign" >
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="user_id" property="userId" jdbcType="INTEGER" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="integral" property="integral" jdbcType="INTEGER" />
+  </resultMap>
+
+  <select id="findUserSignByUserIdAndDate" parameterType="Integer" resultMap="BaseResultMap">
+    select * from user_sign where to_days(create_time) =to_days(NOW()) and user_id=#{userId}
+  </select>
+</mapper>

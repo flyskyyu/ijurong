@@ -9,7 +9,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import javax.jws.Oneway;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/5/20 0020.
@@ -43,5 +47,27 @@ public class StaffService extends BaseService<Staff> {
             return null;
         }
         return staffs.get(0);
+    }
+
+    /**
+     * 加用户积分
+     * @param userId 用户id
+     * @param integral 积分数
+     * @return
+     */
+    public long updateIntegralByUserId(int userId,int integral)
+    {
+        try
+        {
+            Map<String,Object> map=new HashMap<String,Object>();
+            map.put("userId",userId);
+            map.put("integral",integral);
+            return staffMapper.updateIntegralByUserId(map);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return 0;
+        }
     }
 }

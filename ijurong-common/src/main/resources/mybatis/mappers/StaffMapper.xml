@@ -27,4 +27,10 @@
         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
         <result column="update_staff_id" property="updateStaffId" jdbcType="INTEGER"/>
     </resultMap>
+
+
+    <!--加积分-->
+    <update id="updateIntegralByUserId">
+        update staff set integral=integral+#{filter.integral} where staff_id=#{filter.userId}
+    </update>
 </mapper>
