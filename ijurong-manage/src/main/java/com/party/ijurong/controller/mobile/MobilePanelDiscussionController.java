@@ -1,8 +1,10 @@
 package com.party.ijurong.controller.mobile;
 
+import com.github.pagehelper.PageInfo;
 import com.party.ijurong.bean.MobileResult;
 import com.party.ijurong.bean.Page;
 import com.party.ijurong.bean.SimpleUser;
+import com.party.ijurong.dto.PanelDiscussionDto;
 import com.party.ijurong.pojo.PanelDiscussion;
 import com.party.ijurong.pojo.Staff;
 import com.party.ijurong.pojo.UserSign;
@@ -18,6 +20,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/5/28 0028.
@@ -32,7 +36,7 @@ public class MobilePanelDiscussionController {
 
     @RequestMapping("addDiscussion")
     @ResponseBody
-    public MobileResult addDiscussion(String title,int isShadow) {
+    public MobileResult addDiscussion(String title,int isShadow,String url) {
         MobileResult result = new MobileResult();
         try {
 
@@ -64,11 +68,15 @@ public class MobilePanelDiscussionController {
         try {
 
             SimpleUser user = shiroService.getUser();
-            PanelDiscussion panelDiscussion=new PanelDiscussion();
-            panelDiscussion.setIsShadow(isShadow);
-            Page<PanelDiscussion> p= panelDiscussionService.findPanelDiscussionsByPanelDiscussion(panelDiscussion, page, rows);
+            PageInfo<PanelDiscussionDto> p= panelDiscussionService.findPanelDiscussionsByIsShadow(isShadow, page, rows);
+            Map<String ,Object> map=new HashMap<String ,Object>();
+            map.put("list",p.getList());
+            //图片
+            //回复数量
+            //收藏数量
+            //点赞数量
             result.setCode(200);
-            result.setData(p.getRows());
+            result.setData(map);
         }
         catch (Exception e)
         {

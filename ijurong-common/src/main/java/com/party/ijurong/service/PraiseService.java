@@ -30,7 +30,7 @@ public class PraiseService extends BaseService<Praise> {
             return 2;
         }
         praiseMapper.insert(praise);
-        if (praise.getType() == ConstantOrigin.C9_REPLY) {
+        if (praise.getType() == ConstantOrigin.C20_REPLY) {
             replyMapper.increaseLikeNum(praise.getPraisedId());
         } else if (praise.getType() == ConstantOrigin.C7_ACTIVITIES) {
             activityMapper.increaseLikeNum(praise.getPraisedId());

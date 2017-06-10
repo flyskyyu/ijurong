@@ -72,7 +72,7 @@ public class MobileReplyController {
         ReplyDto dto = new ReplyDto();
         dto.setArticleId(id);
         dto.setStaffId(user.getUserId());
-        dto.setArticleType(ConstantOrigin.C9_REPLY);
+        dto.setArticleType(ConstantOrigin.C20_REPLY);
         return replyList(dto, page, rows);
     }
 
@@ -92,7 +92,7 @@ public class MobileReplyController {
         Reply reply = new Reply();
         reply.setArticleId(id);
         reply.setContent(content);
-        reply.setArticleType(ConstantOrigin.C9_REPLY);
+        reply.setArticleType(ConstantOrigin.C20_REPLY);
         return reply(reply);
     }
 

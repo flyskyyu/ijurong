@@ -38,7 +38,7 @@ public class MobilePraiseController {
     public MobileResult praiseReply(Integer id) {
         Praise praise = new Praise();
         praise.setPraisedId(id);
-        praise.setType(ConstantOrigin.C9_REPLY);
+        praise.setType(ConstantOrigin.C20_REPLY);
         return add(praise);
     }
 

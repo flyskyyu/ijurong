@@ -39,7 +39,7 @@ public class ReplyService extends BaseService<Reply> {
 
     public void reply(Reply reply) {
         replyMapper.insertSelective(reply);
-        if(reply.getArticleType() == ConstantOrigin.C9_REPLY) {
+        if(reply.getArticleType() == ConstantOrigin.C20_REPLY) {
             replyMapper.increaseReplyNum(reply.getArticleId());
         } else if(reply.getArticleType() == ConstantOrigin.C7_ACTIVITIES) {
             activityMapper.increaseReplyNum(reply.getArticleId());

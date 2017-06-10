@@ -1,6 +1,7 @@
 package com.party.ijurong.dto;
 
 import com.party.ijurong.pojo.ExamAnswer;
+import com.party.ijurong.pojo.UserAnswer;
 
 import java.util.List;
 
@@ -27,6 +28,7 @@ public class ExamPaperDto {
     private int questionType;
     private String explains;
     private List<ExamAnswer> items;
+    private List<UserAnswer> userAnswer;
 
     public List<ExamAnswer> getItems() {
         return items;
@@ -98,5 +100,13 @@ public class ExamPaperDto {
 
     public void setExplains(String explains) {
         this.explains = explains;
+    }
+
+    public List<UserAnswer> getUserAnswer() {
+        return userAnswer;
+    }
+
+    public void setUserAnswer(List<UserAnswer> userAnswer) {
+        this.userAnswer = userAnswer;
     }
 }

@@ -1,8 +1,13 @@
 package com.party.ijurong.service;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.party.ijurong.bean.Page;
+import com.party.ijurong.dto.PanelDiscussionDto;
+import com.party.ijurong.mapper.PanelDiscussionMapper;
 import com.party.ijurong.pojo.PanelDiscussion;
 import org.apache.ibatis.session.RowBounds;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
@@ -14,6 +19,15 @@ import java.util.List;
 @Service
 public class PanelDiscussionService extends BaseService<PanelDiscussion>{
 
+    @Autowired
+    private PanelDiscussionMapper panelDiscussionMapper;
+
+    public PageInfo<PanelDiscussionDto> findPanelDiscussionsByIsShadow(int isShadow, int page, int rows)
+    {
+        PageHelper.startPage(page, rows);
+        List<PanelDiscussionDto> dtos = panelDiscussionMapper.findPanelDiscussionsByIsShadow(isShadow);
+        return new PageInfo<>(dtos);
+    }
     /**
      * 查询所有讨论
      * @param panelDiscussion

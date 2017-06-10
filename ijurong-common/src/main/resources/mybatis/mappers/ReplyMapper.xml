@@ -25,7 +25,7 @@
     <select id="queryByReplyDto" parameterType="ReplyDto" resultMap="BaseResultMap">
         SELECT reply.*, staff.staff_name, staff.avatar
         <if test="staffId != null">
-            , (SELECT count(*) FROM praise WHERE staff_id = #{staffId} AND praised_id = reply.id AND type = 9) as isLiked
+            , (SELECT count(*) FROM praise WHERE staff_id = #{staffId} AND praised_id = reply.id AND type = 20) as isLiked
         </if>
         FROM reply, staff WHERE
         reply.staff_id = staff.staff_id
