@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.party.ijurong.mapper.UserAnswerMapper">
+    <resultMap id="CorrectAnswerDtoMap" type="UserAnswerDto">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="research_id" property="researchId" jdbcType="INTEGER"/>
+        <result column="question_id" property="questionId" jdbcType="INTEGER"/>
+        <result column="question_sort" property="questionSort" jdbcType="INTEGER"/>
+        <result column="question_score" property="questionScore" jdbcType="INTEGER"/>
+        <result column="answer_id" property="answerId" jdbcType="INTEGER"/>
+
+        <result column="option_content" property="optionContent" jdbcType="VARCHAR"/>
+        <result column="option_num" property="optionNum" jdbcType="INTEGER"/>
+        <result column="is_correct" property="isCorrect" jdbcType="INTEGER"/>
+    </resultMap>
+
+
+    <select id="findPanelDiscussionsByIsShadow"  parameterType="Integer" resultMap="CorrectAnswerDtoMap">
+        select a.id,a.research_id,a.question_id,a.question_sort,question_score
+        ,b.id as answer_id ,b.option_content,b.option_num,b.is_correct
+         from research_exam a left join  exam_answer b on a.question_id=b.question_id where a.id=#{researchExamId}
+    </select>
+
+</mapper>

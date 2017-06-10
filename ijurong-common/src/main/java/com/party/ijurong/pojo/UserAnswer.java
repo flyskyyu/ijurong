@@ -3,8 +3,8 @@ package com.party.ijurong.pojo;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.*;
 import java.util.Date;
+import javax.persistence.*;
 
 @Table(name = "user_answer")
 public class UserAnswer {
@@ -12,14 +12,14 @@ public class UserAnswer {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    @Column(name = "question_id")
-    private Integer questionId;
-
-    @Column(name = "research_id")
+    @Column(name="research_id")
     private Integer researchId;
 
+    @Column(name = "research_exam_id")
+    private Integer researchExamId;
+
     @Column(name = "answer_id")
-    private Integer answerId;
+    private String answerId;
 
     @Column(name = "user_id")
     private Integer userId;
@@ -29,24 +29,11 @@ public class UserAnswer {
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date answerTime;
 
+    /**
+     * 所得分值
+     */
     @Column(name = "answer_score")
     private Integer answerScore;
-
-    public Integer getResearchId() {
-        return researchId;
-    }
-
-    public void setResearchId(Integer researchId) {
-        this.researchId = researchId;
-    }
-
-    public Integer getAnswerScore() {
-        return answerScore;
-    }
-
-    public void setAnswerScore(Integer answerScore) {
-        this.answerScore = answerScore;
-    }
 
     /**
      * @return id
@@ -62,31 +49,39 @@ public class UserAnswer {
         this.id = id;
     }
 
-    /**
-     * @return question_id
-     */
-    public Integer getQuestionId() {
-        return questionId;
+    public Integer getResearchId() {
+        return researchId;
+    }
+
+    public void setResearchId(Integer researchId) {
+        this.researchId = researchId;
     }
 
     /**
-     * @param questionId
+     * @return research_exam_id
      */
-    public void setQuestionId(Integer questionId) {
-        this.questionId = questionId;
+    public Integer getResearchExamId() {
+        return researchExamId;
+    }
+
+    /**
+     * @param researchExamId
+     */
+    public void setResearchExamId(Integer researchExamId) {
+        this.researchExamId = researchExamId;
     }
 
     /**
      * @return answer_id
      */
-    public Integer getAnswerId() {
+    public String getAnswerId() {
         return answerId;
     }
 
     /**
      * @param answerId
      */
-    public void setAnswerId(Integer answerId) {
+    public void setAnswerId(String answerId) {
         this.answerId = answerId;
     }
 
@@ -116,5 +111,23 @@ public class UserAnswer {
      */
     public void setAnswerTime(Date answerTime) {
         this.answerTime = answerTime;
+    }
+
+    /**
+     * 获取所得分值
+     *
+     * @return answer_score - 所得分值
+     */
+    public Integer getAnswerScore() {
+        return answerScore;
+    }
+
+    /**
+     * 设置所得分值
+     *
+     * @param answerScore 所得分值
+     */
+    public void setAnswerScore(Integer answerScore) {
+        this.answerScore = answerScore;
     }
 }
