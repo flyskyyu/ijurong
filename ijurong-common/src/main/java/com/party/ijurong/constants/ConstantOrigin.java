@@ -14,5 +14,5 @@ public class ConstantOrigin {
     public static  final int C6_GETDOC=6;//收文
     public static  final int C7_ACTIVITIES=7;//活动
     public static  final int C8_EDU_RESOURCE=8;//教学资源
-
+    public static  final int C9_REPLY=9;//评论回复
 }

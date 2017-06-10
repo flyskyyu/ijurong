@@ -9,6 +9,7 @@
         <result column="job_info" property="jobInfo" jdbcType="VARCHAR"/>
         <result column="manager_info" property="managerInfo" jdbcType="VARCHAR"/>
         <result column="avatar" property="avatar" jdbcType="VARCHAR"/>
+        <result column="political_status" property="politicalStatus" jdbcType="INTEGER"/>
         <result column="sex" property="sex" jdbcType="TINYINT"/>
         <result column="email" property="email" jdbcType="VARCHAR"/>
         <result column="password" property="password" jdbcType="VARCHAR"/>

@@ -67,7 +67,7 @@ public class MobileDonationController {
         if(StringUtils.isEmpty(donation.getPhone())) {
             donation.setPhone(user.getPhone());
         }
-        donationService.saveSelective(donation);
+        donationService.save(donation);
         MobileResult result = new MobileResult();
         result.setCode(200);
         return  result;

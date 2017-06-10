@@ -38,6 +38,11 @@ public class Activity {
     @JsonSerialize(using = DateSerializer.class)
     private Date endTime;
 
+    @Column(name = "publish_time")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonSerialize(using = DateSerializer.class)
+    private Date publishTime;
+
     private Integer flag;
 
     private String address;
@@ -61,8 +66,19 @@ public class Activity {
     @Column(name = "click_amount")
     private Integer clickAmount;
 
+    private String avatar;
+
     @Transient
     private Integer orderType;
+
+    /**
+     * 回复数
+     */
+    @Column(name = "reply_num")
+    private Integer replyNum;
+
+    @Column(name = "like_num")
+    private Integer likeNum;
 
     /**
      * 获取主题
@@ -280,5 +296,37 @@ public class Activity {
 
     public void setClickAmount(Integer clickAmount) {
         this.clickAmount = clickAmount;
+    }
+
+    public Integer getReplyNum() {
+        return replyNum;
+    }
+
+    public void setReplyNum(Integer replyNum) {
+        this.replyNum = replyNum;
+    }
+
+    public Integer getLikeNum() {
+        return likeNum;
+    }
+
+    public void setLikeNum(Integer likeNum) {
+        this.likeNum = likeNum;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
+    }
+
+    public Date getPublishTime() {
+        return publishTime;
+    }
+
+    public void setPublishTime(Date publishTime) {
+        this.publishTime = publishTime;
     }
 }

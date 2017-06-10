@@ -2,8 +2,10 @@ package com.party.ijurong.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.party.ijurong.dto.ActivityDto;
 import com.party.ijurong.mapper.ActivityMapper;
 import com.party.ijurong.mapper.ActivityMemberMapper;
+import com.party.ijurong.mapper.StaffMapper;
 import com.party.ijurong.pojo.Activity;
 import com.party.ijurong.pojo.ActivityMember;
 import org.apache.commons.lang3.StringUtils;
@@ -12,7 +14,9 @@ import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Cloud on 2017/6/7.
@@ -23,6 +27,8 @@ public class ActivityService extends BaseService<Activity> {
     private ActivityMapper activityMapper;
     @Autowired
     private ActivityMemberMapper activityMemberMapper;
+    @Autowired
+    private StaffMapper staffMapper;
 
     public PageInfo<Activity> queryByActivity(Activity activity, int page, int rows) {
         Example example = new Example(Activity.class);
@@ -52,8 +58,18 @@ public class ActivityService extends BaseService<Activity> {
         return new PageInfo<>(activities);
     }
 
+    public PageInfo<ActivityDto> queryByDto(ActivityDto dto, int page, int rows) {
+        PageHelper.startPage(page, rows);
+        List<ActivityDto> dtos = activityMapper.queryByDto(dto);
+        return new PageInfo<>(dtos);
+    }
+
+    public void increaseClickAmount(Integer id) {
+        activityMapper.increaseClickAmount(id);
+    }
+
     public void add(Activity activity, String addStaffs) {
-        activityMapper.insert(activity);
+        activityMapper.insertSelective(activity);
         addStaffs(addStaffs, activity.getId());
     }
 
@@ -98,4 +114,20 @@ public class ActivityService extends BaseService<Activity> {
         activityMapper.deleteByPrimaryKey(id);
     }
 
+    public void finish(Integer id) {
+        Activity activity = new Activity();
+        activity.setId(id);
+        activity.setFlag(1);
+        activityMapper.updateByPrimaryKeySelective(activity);
+        ActivityMember activityMember = new ActivityMember();
+        activityMember.setActivityId(id);
+        List<ActivityMember> members = activityMemberMapper.select(activityMember);
+        int integral = activityMapper.getIntegral(id);
+        for(ActivityMember member : members) {
+            Map map = new HashMap();
+            map.put("userId", member.getStaffId());
+            map.put("integral", integral);
+            staffMapper.updateIntegralByUserId(map);
+        }
+    }
 }

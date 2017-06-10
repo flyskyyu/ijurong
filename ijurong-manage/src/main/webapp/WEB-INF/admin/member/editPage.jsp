@@ -55,17 +55,24 @@
                     <tr>
                         <td class="kv-label">身份证</td>
                         <td class="kv-content"><input type="text" name="identityId"/></td>
-                        <td class="kv-label">手机号码</td>
-                        <td class="kv-content"><input type="text" name="phoneNumber"/></td>
-
+                        <td class="kv-label">政治面貌</td>
+                        <td class="kv-content">
+                            <select name="politicalStatus" class="easyui-combobox">
+                                <option value="0">请选择</option>
+                                <option value="1">党员</option>
+                                <option value="2">预备党员</option>
+                                <option value="3">共青团员</option>
+                                <option value="4">群众</option>
+                            </select>
+                        </td>
                     </tr>
                     <tr>
                         <td class="kv-label">生日</td>
                         <td class="kv-content"><input class="easyui-datebox" name="birthday"></td>
+                        <td class="kv-label">手机号码</td>
+                        <td class="kv-content"><input type="text" name="phoneNumber"/></td>
                         <td class="kv-label">email</td>
                         <td class="kv-content"><input type="text" name="email"/></td>
-                        <td class="kv-label">备用号码</td>
-                        <td class="kv-content"><input type="text" name="sparePhone"/></td>
                     </tr>
                     <tr>
                         <td class="kv-label">籍贯</td>
@@ -168,11 +175,11 @@
                     </tr>
                     <tr>
                         <td class="kv-label">困难情况补充</td>
-                        <td class="kv-content" colspan="5"><textarea name="hardDesc" rows="8"></textarea></td>
+                        <td class="kv-content" colspan="5"><textarea name="hardDesc" rows="4"></textarea></td>
                     </tr>
                     <tr>
                         <td class="kv-label">其他说明</td>
-                        <td class="kv-content" colspan="5"><textarea name="otherDesc" rows="8"></textarea></td>
+                        <td class="kv-content" colspan="5"><textarea name="otherDesc" rows="4"></textarea></td>
                     </tr>
                     </tbody>
                 </table>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.party.ijurong.mapper.ReplyMapper">
+    <resultMap id="BaseResultMap" type="ReplyDto">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="staff_id" property="staffId" jdbcType="INTEGER"/>
+        <result column="article_id" property="articleId" jdbcType="INTEGER"/>
+        <result column="article_type" property="articleType" jdbcType="INTEGER"/>
+        <result column="content" property="content" jdbcType="VARCHAR"/>
+        <result column="publish_time" property="publishTime" jdbcType="TIMESTAMP"/>
+        <result column="reply_num" property="replyNum" jdbcType="INTEGER"/>
+        <result column="like_num" property="likeNum" jdbcType="INTEGER"/>
+        <result column="parent_id" jdbcType="INTEGER" property="parentId"/>
+        <result column="staff_name" property="staffName" jdbcType="VARCHAR"/>
+        <result column="avatar" property="avatar" jdbcType="VARCHAR"/>
+        <result column="isLiked" property="isLiked" jdbcType="INTEGER"/>
+    </resultMap>
+    <update id="increaseReplyNum" parameterType="Integer">
+        UPDATE reply set reply_num = reply_num + 1 WHERE id = #{id}
+    </update>
+    <update id="increaseLikeNum" parameterType="Integer">
+        UPDATE reply set like_num = like_num + 1 WHERE id = #{id}
+    </update>
+
+    <select id="queryByReplyDto" parameterType="ReplyDto" resultMap="BaseResultMap">
+        SELECT reply.*, staff.staff_name, staff.avatar
+        <if test="staffId != null">
+            , (SELECT count(*) FROM praise WHERE staff_id = #{staffId} AND praised_id = reply.id AND type = 9) as isLiked
+        </if>
+        FROM reply, staff WHERE
+        reply.staff_id = staff.staff_id
+        <if test="articleId != null">
+            AND reply.article_id = #{articleId}
+        </if>
+        <if test="articleType != null">
+            AND reply.article_type = #{articleType}
+        </if>
+        ORDER BY reply.id DESC
+    </select>
+</mapper>

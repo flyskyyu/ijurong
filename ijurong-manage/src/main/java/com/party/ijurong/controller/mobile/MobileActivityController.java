@@ -3,6 +3,7 @@ package com.party.ijurong.controller.mobile;
 import com.github.pagehelper.PageInfo;
 import com.party.ijurong.bean.MobileResult;
 import com.party.ijurong.bean.SimpleUser;
+import com.party.ijurong.dto.ActivityDto;
 import com.party.ijurong.pojo.Activity;
 import com.party.ijurong.pojo.ActivityMember;
 import com.party.ijurong.service.ActivityMemberService;
@@ -13,6 +14,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Cloud on 2017/6/8.
@@ -26,45 +30,74 @@ public class MobileActivityController {
     private ActivityService activityService;
     @Autowired
     private ActivityMemberService activityMemberService;
+    private long newCount = 12 * 60 * 60 * 1000;
+    private int clickCount = 500;
 
     @RequestMapping("activityList")
     @ResponseBody
-    public MobileResult activityList(Activity activity, @RequestParam(defaultValue = "1") int page
+    public MobileResult activityList(ActivityDto activity, @RequestParam(defaultValue = "1") int page
             , @RequestParam(defaultValue = "20") int rows) {
         activity.setType(1);
         SimpleUser user = shiroService.getUser();
         activity.setPartyBranchId(user.getPartyBranchId());
-        PageInfo info = activityService.queryByActivity(activity, page, rows);
+        activity.setStaffId(user.getUserId());
+        activity.setEndTime(new Date());
+        activity.setFlag(0);
+        PageInfo<ActivityDto> info = activityService.queryByDto(activity, page, rows);
         MobileResult result = new MobileResult();
         result.setCode(200);
-        result.setData(info.getList());
+        result.setData(arrange(info.getList()));
         return result;
+    }
+
+    private List arrange(List<ActivityDto> list) {
+        long now = new Date().getTime();
+        for(ActivityDto activity : list) {
+            if(now - activity.getPublishTime().getTime() < newCount) {
+                activity.setIsNew(1);
+            } else {
+                activity.setIsNew(0);
+            }
+            if(activity.getClickAmount() + activity.getReplyNum() + activity.getLikeNum() >= clickCount) {
+                activity.setIsHot(1);
+            } else {
+                activity.setIsHot(0);
+            }
+        }
+        return list;
     }
 
     @RequestMapping("volunteerList")
     @ResponseBody
-    public MobileResult volunteerList(Activity activity, @RequestParam(defaultValue = "1") int page
+    public MobileResult volunteerList(ActivityDto activity, @RequestParam(defaultValue = "1") int page
             , @RequestParam(defaultValue = "20") int rows) {
         activity.setType(2);
+        SimpleUser user = shiroService.getUser();
         activity.setPartyBranchId(null);
-        PageInfo info = activityService.queryByActivity(activity, page, rows);
+        activity.setStaffId(user.getUserId());
+        activity.setEndTime(new Date());
+        activity.setFlag(0);
+        PageInfo info = activityService.queryByDto(activity, page, rows);
         MobileResult result = new MobileResult();
         result.setCode(200);
-        result.setData(info.getList());
+        result.setData(arrange(info.getList()));
         return result;
     }
 
     @RequestMapping("specialList")
     @ResponseBody
-    public MobileResult specialList(Activity activity, @RequestParam(defaultValue = "1") int page
+    public MobileResult specialList(ActivityDto activity, @RequestParam(defaultValue = "1") int page
             , @RequestParam(defaultValue = "20") int rows) {
-        activity.setType(2);
+        activity.setType(3);
         SimpleUser user = shiroService.getUser();
         activity.setPartyBranchId(user.getPartyBranchId());
-        PageInfo info = activityService.queryByActivity(activity, page, rows);
+        activity.setStaffId(user.getUserId());
+        activity.setEndTime(new Date());
+        activity.setFlag(0);
+        PageInfo info = activityService.queryByDto(activity, page, rows);
         MobileResult result = new MobileResult();
         result.setCode(200);
-        result.setData(info.getList());
+        result.setData(arrange(info.getList()));
         return result;
     }
 
@@ -91,15 +124,7 @@ public class MobileActivityController {
     @ResponseBody
     public MobileResult click(Integer id) {
         MobileResult result = new MobileResult();
-        Activity activity = activityService.queryById(id);
-        Integer clickAmount = activity.getClickAmount();
-        if(clickAmount == null) {
-            clickAmount = 1;
-        } else {
-            clickAmount += 1;
-        }
-        activity.setClickAmount(clickAmount);
-        activityService.updateSelective(activity);
+        activityService.increaseClickAmount(id);
         result.setCode(200);
         return result;
     }

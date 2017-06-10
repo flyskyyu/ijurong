@@ -40,6 +40,9 @@ public class Staff {
     //头像
     private String avatar;
 
+    @Column(name = "political_status")
+    private Integer politicalStatus;
+
     private Byte sex;
 
     private String email;
@@ -465,5 +468,13 @@ public class Staff {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public Integer getPoliticalStatus() {
+        return politicalStatus;
+    }
+
+    public void setPoliticalStatus(Integer politicalStatus) {
+        this.politicalStatus = politicalStatus;
     }
 }

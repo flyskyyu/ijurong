@@ -20,7 +20,7 @@ public class PartyMemberService extends BaseService<PartyMember> {
     public void saveMember(Staff staff, PartyMember partyMember) {
         staff.setStaffId(null);
         staff.setIntegral(0);
-        staffMapper.insert(staff);
+        staffMapper.insertSelective(staff);
         partyMember.setUserId(staff.getStaffId());
         memberMapper.insert(partyMember);
     }

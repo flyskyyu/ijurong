@@ -17,6 +17,7 @@
          style="width: 100%;;">
       <form method="post" id="editForm">
         <input type="hidden" name="id" id="activityId"/>
+        <input type="hidden" name="avatar" id="avatar"/>
         <input type="hidden" id="oldStaffs"/>
         <input type="hidden" id="newStaffs"/>
         <input type="hidden" name="addStaffs" id="addStaffs"/>
@@ -27,16 +28,20 @@
           <tr>
             <td class="kv-label">标题</td>
             <td class="kv-content" colspan="3"><input type="text" name="title"></td>
-            <td class="kv-label">积分</td>
-            <td class="kv-content"><input type="text" name="integral"/> </td>
+            <td class="kv-label" rowspan="2">活动图标</td>
+            <td  class="kv-content" rowspan="2"><jsp:include page="../common/avatarUpload.jsp"/></td>
           </tr>
           <tr>
             <td class="kv-label">开始时间</td>
             <td class="kv-content"><input class="easyui-datetimebox" name="startTime"/></td>
             <td class="kv-label">结束时间</td>
             <td class="kv-content"><input class="easyui-datetimebox" name="endTime"/></td>
+          </tr>
+          <tr>
+            <td class="kv-label">积分</td>
+            <td class="kv-content"><input type="text" name="integral"/> </td>
             <td class="kv-label">活动类型</td>
-            <td class="kv-content">
+            <td class="kv-content" colspan="3">
               <select name="type">
                 <option value="1">组织活动</option>
                 <option value="2">志愿者活动</option>

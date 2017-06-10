@@ -11,6 +11,7 @@ import com.party.ijurong.pojo.MeetingRoom;
 import com.party.ijurong.pojo.MeetingRoomOrder;
 import com.party.ijurong.service.MeetingRoomOrderService;
 import com.party.ijurong.service.MobileShiroService;
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,8 +19,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 
 /**
  * Created by Administrator on 2017/5/29 0029.
@@ -65,8 +65,22 @@ public class MobileMeetingRoomOrderController {
         dto.setOrderType(2);
         PageInfo<MeetingRoomOrderDto> pageInfo = roomOrderService.queryRoomOrderDtoList(dto, page, rows);
         result.setCode(200);
-        result.setData(pageInfo.getList());
+        result.setData(arrangeList(pageInfo.getList()));
         return result;
+    }
+
+    private Map<String, List<MeetingRoomOrderDto>> arrangeList(List<MeetingRoomOrderDto> dtos) {
+        Map<String, List<MeetingRoomOrderDto>> map = new LinkedHashMap<>();
+        for(MeetingRoomOrderDto dto : dtos) {
+            String key = DateFormatUtils.format(dto.getStartTime(), "yyyy-MM-dd");
+            List list = map.get(key);
+            if(list == null) {
+                list = new ArrayList();
+            }
+            list.add(dto);
+            map.put(key, list);
+        }
+        return map;
     }
 
     @RequestMapping(value = "allApply")
@@ -77,10 +91,13 @@ public class MobileMeetingRoomOrderController {
         if(dto.getStartTime() == null) {
             dto.setStartTime(new Date());
         }
+        if(dto.getTypeFilter() == 0) {
+            dto.setTypeFilter(5);
+        }
         dto.setOrderType(2);
         PageInfo<MeetingRoomOrderDto> pageInfo = roomOrderService.queryRoomOrderDtoList(dto, page, rows);
         result.setCode(200);
-        result.setData(pageInfo.getList());
+        result.setData(arrangeList(pageInfo.getList()));
         return result;
     }
 }

@@ -173,4 +173,17 @@ public abstract class BaseService<T> {
     public Integer deleteByWhere(T record) {
         return this.mapper.delete(record);
     }
+
+    /**
+     * 根据条件获取记录数
+     * @param record
+     * @return
+     */
+    public int queryCount(T record) {
+        return mapper.selectCount(record);
+    }
+
+    public int queryCountByExample(Example example) {
+        return mapper.selectCountByExample(example);
+    }
 }

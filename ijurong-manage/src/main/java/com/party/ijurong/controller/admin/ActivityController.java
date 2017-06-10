@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -56,6 +57,7 @@ public class ActivityController {
         obj.setId(null);
         obj.setPartyBranchId(user.getPartyBranchId());
         obj.setPartyBranchName(user.getPartyBranchName());
+        obj.setPublishTime(new Date());
         activityService.add(obj, addStaffs);
         return "success";
     }
@@ -74,5 +76,12 @@ public class ActivityController {
         member.setActivityId(id);
         List<ActivityMember> members = memberService.queryListByWhere(member);
         return members;
+    }
+
+    @RequestMapping(value = "finish")
+    @ResponseBody
+    public String finish(Integer id) {
+        activityService.finish(id);
+        return "success";
     }
 }

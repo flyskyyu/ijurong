@@ -14,6 +14,9 @@
   <script type="text/javascript" src="<%=basePath%>ueditor/ueditor.config.js"></script>
   <script type="text/javascript" src="<%=basePath%>ueditor/ueditor.all.js"></script>
   <script type="text/javascript" charset="utf-8" src="<%=basePath%>ueditor/lang/zh-cn/zh-cn.js"></script>
+  <script type="text/javascript" src="<%=basePath%>resource/jqueryFileUpload/js/vendor/jquery.ui.widget.js"></script>
+  <script type="text/javascript" src="<%=basePath%>resource/jqueryFileUpload/js/jquery.iframe-transport.js"></script>
+  <script type="text/javascript" src="<%=basePath%>resource/jqueryFileUpload/js/jquery.fileupload.js"></script>
   <!--以下样式为了解决ue 和easyui的弹出层冲突-->
   <style type="text/css">
     .window{
@@ -92,7 +95,44 @@
               .form('load', rowData);
       uEditor.setContent(rowData.detail);
       initPerson();
+      resetAvatar(rowData.avatar);
+      $('#edit_btn_add').show();
       $('#editDialog').dialog('open');
+    }
+  }
+
+  function look(rowIndex) {
+    $('#tableList').datagrid('selectRow', rowIndex);
+    var rowData = $('#tableList').datagrid('getSelected');
+    if (rowData != null) {
+      TT.resetForm();
+      $('#editDialog').dialog('setTitle', '查看活动');
+      $('#editForm').attr('action', '#')
+              .form('load', rowData);
+      uEditor.setContent(rowData.detail);
+      initPerson();
+      resetAvatar(rowData.avatar);
+      $('#edit_btn_add').hide();
+      $('#editDialog').dialog('open');
+    }
+  }
+
+  function finish(rowIndex) {
+    $('#tableList').datagrid('selectRow', rowIndex);
+    var rowData = $('#tableList').datagrid('getSelected');
+    if (rowData != null) {
+      $.messager.confirm('确认','确定结束该活动吗？',function(r){
+        if (r){
+          var params = {"id":rowData.id};
+          $.post("<%=basePath%>admin/activity/finish",params, function(data){
+            if(data == 'success'){
+              $("#tableList").datagrid("reload");
+            } else {
+              $.messager.alert('出现错误');
+            }
+          });
+        }
+      });
     }
   }
 
@@ -101,6 +141,8 @@
     $('#editDialog').dialog('setTitle', '新增活动');
     $('#editForm').attr('action', '<%=basePath%>admin/activity/add');
     initPerson();
+    resetAvatar(null);
+    $('#edit_btn_add').show();
     $('#editDialog').dialog('open');
   });
 
@@ -124,7 +166,12 @@
 
   function formatOperation(value, rowData, rowIndex) {
     var operator = {};
-    operator.edit = '编辑';
+    if(rowData.flag == 1) {
+      operator.look = '查看';
+    } else {
+      operator.edit = '编辑';
+      operator.finish = '结束';
+    }
     operator.del = '删除';
     return TT.createOptionBtn(operator, rowIndex);
   }

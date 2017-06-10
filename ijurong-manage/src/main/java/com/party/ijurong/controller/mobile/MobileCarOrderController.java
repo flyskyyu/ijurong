@@ -2,12 +2,12 @@ package com.party.ijurong.controller.mobile;
 
 import com.github.pagehelper.PageInfo;
 import com.party.ijurong.bean.MobileResult;
-import com.party.ijurong.bean.Page;
 import com.party.ijurong.bean.SimpleUser;
 import com.party.ijurong.dto.CarOrderDto;
 import com.party.ijurong.pojo.CarOrder;
 import com.party.ijurong.service.CarOrderService;
 import com.party.ijurong.service.MobileShiroService;
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,8 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.util.*;
 
 /**
  * Created by Administrator on 2017/5/29 0029.
@@ -62,7 +61,7 @@ public class MobileCarOrderController {
         dto.setOrderType(2);
         PageInfo<CarOrderDto> pageInfo = carOrderService.queryCarOrderDtoList(dto, page, rows);
         result.setCode(200);
-        result.setData(pageInfo.getList());
+        result.setData(arrangeList(pageInfo.getList()));
         return result;
     }
 
@@ -74,10 +73,27 @@ public class MobileCarOrderController {
         if(dto.getStartTime() == null) {
             dto.setStartTime(new Date());
         }
+        if(dto.getTypeFilter() == 0) {
+            dto.setTypeFilter(5);
+        }
         dto.setOrderType(2);
         PageInfo<CarOrderDto> pageInfo = carOrderService.queryCarOrderDtoList(dto, page, rows);
         result.setCode(200);
-        result.setData(pageInfo.getList());
+        result.setData(arrangeList(pageInfo.getList()));
         return result;
+    }
+
+    private Map<String, List<CarOrderDto>> arrangeList(List<CarOrderDto> dtos) {
+        Map<String, List<CarOrderDto>> map = new LinkedHashMap<>();
+        for(CarOrderDto dto : dtos) {
+            String key = DateFormatUtils.format(dto.getStartTime(), "yyyy-MM-dd");
+            List list = map.get(key);
+            if(list == null) {
+                list = new ArrayList();
+            }
+            list.add(dto);
+            map.put(key, list);
+        }
+        return map;
     }
 }
