@@ -4,6 +4,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.party.ijurong.bean.MobileResult;
 import com.party.ijurong.pojo.Car;
+import com.taobao.api.ApiException;
+import com.taobao.api.DefaultTaobaoClient;
+import com.taobao.api.TaobaoClient;
+import com.taobao.api.request.AlibabaAliqinFcSmsNumSendRequest;
+import com.taobao.api.response.AlibabaAliqinFcSmsNumSendResponse;
 import org.apache.commons.lang3.time.DateUtils;
 import org.junit.Test;
 
@@ -90,5 +95,27 @@ public class JsonTest {
     @Test
     public void testDate() {
         System.out.println(DateUtils.truncate(new Date(), Calendar.DATE));
+    }
+
+    @Test
+    public void testDAyu() {
+        String url = "http://eco.taobao.com/router/rest";
+        String appkey = "24251394";
+        String secret = "5c558cd663dbfdba46fb75a4866cbf85";
+        TaobaoClient client = new DefaultTaobaoClient(url, appkey, secret);
+        AlibabaAliqinFcSmsNumSendRequest req = new AlibabaAliqinFcSmsNumSendRequest();
+        req.setExtend("123456");
+        req.setSmsType("normal");
+        req.setSmsFreeSignName("阿里大于");
+        req.setSmsParamString("{\"code\":\"1234\",\"product\":\"alidayu\"}");
+        req.setRecNum("18951572022");
+        req.setSmsTemplateCode("SMS_585014");
+        AlibabaAliqinFcSmsNumSendResponse rsp = null;
+        try {
+            rsp = client.execute(req);
+        } catch (ApiException e) {
+            e.printStackTrace();
+        }
+        System.out.println(rsp.getBody());
     }
 }
