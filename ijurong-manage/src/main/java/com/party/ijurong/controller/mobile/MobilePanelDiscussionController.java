@@ -4,14 +4,10 @@ import com.github.pagehelper.PageInfo;
 import com.party.ijurong.bean.MobileResult;
 import com.party.ijurong.bean.Page;
 import com.party.ijurong.bean.SimpleUser;
+import com.party.ijurong.constants.ConstantOrigin;
 import com.party.ijurong.dto.PanelDiscussionDto;
-import com.party.ijurong.pojo.PanelDiscussion;
-import com.party.ijurong.pojo.Staff;
-import com.party.ijurong.pojo.UserSign;
-import com.party.ijurong.service.MobileShiroService;
-import com.party.ijurong.service.PanelDiscussionService;
-import com.party.ijurong.service.StaffService;
-import com.party.ijurong.service.UserSignService;
+import com.party.ijurong.pojo.*;
+import com.party.ijurong.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -31,8 +28,15 @@ import java.util.Map;
 public class MobilePanelDiscussionController {
     @Autowired
     private PanelDiscussionService panelDiscussionService;
+
     @Autowired
     private MobileShiroService shiroService;
+
+    @Autowired
+    private ReplyService replyService;
+
+    @Autowired
+    private AttachmentService attachmentService;
 
     @RequestMapping("addDiscussion")
     @ResponseBody
@@ -47,6 +51,21 @@ public class MobilePanelDiscussionController {
             panelDiscussion.setTitle(title);
             panelDiscussion.setIsShadow(isShadow);
             panelDiscussionService.insertPanelDiscussion(panelDiscussion);
+            //附件
+            String[] str=url.split(",");
+            for(int i=0;i<str.length;i++)
+            {
+                Attachment attachment=new Attachment();
+                attachment.setFunction_id(panelDiscussion.getId());
+                attachment.setFunctionType(ConstantOrigin.C9_DISCUSSION);
+                attachment.setUrl(str[i]);
+                attachment.setCreateTime(new Date());
+                attachment.setCreateUserId(user.getUserId());
+                attachment.setType(str[i].split(".")[str[i].split(".").length - 1].toString());
+                attachment.setFilename(str[i].split("/")[str[i].split("/").length-1].toString());
+                attachmentService.insertAttachment(attachment);
+            }
+
             result.setCode(200);
             result.setMsg("发布成功！");
 
@@ -69,12 +88,31 @@ public class MobilePanelDiscussionController {
 
             SimpleUser user = shiroService.getUser();
             PageInfo<PanelDiscussionDto> p= panelDiscussionService.findPanelDiscussionsByIsShadow(isShadow, page, rows);
-            Map<String ,Object> map=new HashMap<String ,Object>();
-            map.put("list",p.getList());
             //图片
+            for(int i=0;i<p.getList().size();i++)
+            {
+                String url="";
+                int id=p.getList().get(i).getId();
+                List<Attachment> list= attachmentService.findAttachmentByFunction(ConstantOrigin.C9_DISCUSSION, id);
+                if(list.size()>0)
+                {
+                    for(int j=0;j<p.getList().size();j++)
+                    {
+                        url+=list.get(j).getUrl()+",";
+                    }
+                }
+                p.getList().get(i).setUrl(url.substring(0,url.length()-1));
+            }
             //回复数量
+//            Reply reply=new Reply();
+//            reply.set
+//            replyService.queryByReply()
             //收藏数量
             //点赞数量
+
+
+            Map<String ,Object> map=new HashMap<String ,Object>();
+            map.put("list",p.getList());
             result.setCode(200);
             result.setData(map);
         }

@@ -18,6 +18,7 @@ public class PanelDiscussionDto {
     private Date createTime;
     private String staffName;
     private String avatar;
+    private String url;
 
     public int getId() {
         return id;
@@ -65,5 +66,13 @@ public class PanelDiscussionDto {
 
     public void setAvatar(String avatar) {
         this.avatar = avatar;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }

@@ -1,5 +1,8 @@
 package com.party.ijurong.pojo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,11 +17,17 @@ public class Attachment {
     /**
      * 1,新闻，2，通知，3，党务，4网上办事
      */
-    private Integer origin;
+    @Column(name = "function_type")
+    private Integer functionType;
+
+    @Column(name = "functionId")
+    private Integer function_id;
 
     private String filename;
 
     @Column(name = "create_time")
+    @JsonSerialize(using = DateSerializer.class)
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
     private Date createTime;
 
     @Column(name = "create_user_id")
@@ -27,7 +36,7 @@ public class Attachment {
     /**
      * 附件类型
      */
-    private Integer type;
+    private String type;
 
     private String url;
 
@@ -45,22 +54,20 @@ public class Attachment {
         this.id = id;
     }
 
-    /**
-     * 获取1,新闻，2，通知，3，党务，4网上办事
-     *
-     * @return origin - 1,新闻，2，通知，3，党务，4网上办事
-     */
-    public Integer getOrigin() {
-        return origin;
+    public Integer getFunctionType() {
+        return functionType;
     }
 
-    /**
-     * 设置1,新闻，2，通知，3，党务，4网上办事
-     *
-     * @param origin 1,新闻，2，通知，3，党务，4网上办事
-     */
-    public void setOrigin(Integer origin) {
-        this.origin = origin;
+    public void setFunctionType(Integer functionType) {
+        this.functionType = functionType;
+    }
+
+    public Integer getFunction_id() {
+        return function_id;
+    }
+
+    public void setFunction_id(Integer function_id) {
+        this.function_id = function_id;
     }
 
     /**
@@ -110,7 +117,7 @@ public class Attachment {
      *
      * @return type - 附件类型
      */
-    public Integer getType() {
+    public String getType() {
         return type;
     }
 
@@ -119,7 +126,7 @@ public class Attachment {
      *
      * @param type 附件类型
      */
-    public void setType(Integer type) {
+    public void setType(String type) {
         this.type = type;
     }
 
