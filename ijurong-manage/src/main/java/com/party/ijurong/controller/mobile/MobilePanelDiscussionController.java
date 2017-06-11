@@ -56,12 +56,12 @@ public class MobilePanelDiscussionController {
             for(int i=0;i<str.length;i++)
             {
                 Attachment attachment=new Attachment();
-                attachment.setFunction_id(panelDiscussion.getId());
+                attachment.setFunctionId(panelDiscussion.getId());
                 attachment.setFunctionType(ConstantOrigin.C9_DISCUSSION);
                 attachment.setUrl(str[i]);
                 attachment.setCreateTime(new Date());
                 attachment.setCreateUserId(user.getUserId());
-                attachment.setType(str[i].split(".")[str[i].split(".").length - 1].toString());
+                attachment.setType(str[i].replace(".", "-----").split("-----")[str[i].replace(".", "-----").split("-----").length - 1].toString());
                 attachment.setFilename(str[i].split("/")[str[i].split("/").length-1].toString());
                 attachmentService.insertAttachment(attachment);
             }
@@ -96,25 +96,26 @@ public class MobilePanelDiscussionController {
                 List<Attachment> list= attachmentService.findAttachmentByFunction(ConstantOrigin.C9_DISCUSSION, id);
                 if(list.size()>0)
                 {
-                    for(int j=0;j<p.getList().size();j++)
+                    for(int j=0;j<list.size();j++)
                     {
                         url+=list.get(j).getUrl()+",";
                     }
+                    p.getList().get(i).setUrl(url.substring(0,url.length()-1));
                 }
-                p.getList().get(i).setUrl(url.substring(0,url.length()-1));
             }
             //回复数量
 //            Reply reply=new Reply();
 //            reply.set
 //            replyService.queryByReply()
             //收藏数量
+
             //点赞数量
 
 
-            Map<String ,Object> map=new HashMap<String ,Object>();
-            map.put("list",p.getList());
+//            Map<String ,Object> map=new HashMap<String ,Object>();
+//            map.put("list",p.getList());
             result.setCode(200);
-            result.setData(map);
+            result.setData(p.getList());
         }
         catch (Exception e)
         {

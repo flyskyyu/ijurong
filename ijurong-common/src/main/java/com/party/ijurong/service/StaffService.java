@@ -10,10 +10,7 @@ import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
 import javax.jws.Oneway;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by Administrator on 2017/5/20 0020.
@@ -69,5 +66,20 @@ public class StaffService extends BaseService<Staff> {
             e.printStackTrace();
             return 0;
         }
+    }
+
+
+    public List<Staff> getStaffByPartyId(String[] str)
+    {
+        List<Integer> list=new ArrayList<>();
+        for(String s:str)
+        {
+            list.add(Integer.parseInt(s));
+        }
+        Example example = new Example(Staff.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andIn("partyBranchId",list);
+        List<Staff> staffs = staffMapper.selectByExample(example);
+        return staffs;
     }
 }

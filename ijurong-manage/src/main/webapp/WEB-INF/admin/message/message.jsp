@@ -141,10 +141,11 @@
             $.messager.confirm('是否发布!', '发布后大家都能收到咯，请确认您的操作!', function(r){
                 if (r){
                     var n = $('#post_users').combotree('getValues');		//n 为数组["1", "11", "12"]
+                    var id=$('#post_message_id').val();
                     //post
                     $.ajax({
                         type:"POST",
-                        url:"sendMessage",
+                        url:"sendMessage/"+id,
                         data:{data:n},
                         success:function(data)
                         {
@@ -320,6 +321,7 @@
             </div>
         </div>
         <input type="hidden" value="0" name="id_post" />
+        <input type="hidden" value="0" name="id" id="post_message_id"/>
     </form>
 </div>
 </body>

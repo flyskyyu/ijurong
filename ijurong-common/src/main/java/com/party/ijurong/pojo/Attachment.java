@@ -20,8 +20,8 @@ public class Attachment {
     @Column(name = "function_type")
     private Integer functionType;
 
-    @Column(name = "functionId")
-    private Integer function_id;
+    @Column(name = "function_id")
+    private Integer functionId;
 
     private String filename;
 
@@ -62,12 +62,12 @@ public class Attachment {
         this.functionType = functionType;
     }
 
-    public Integer getFunction_id() {
-        return function_id;
+    public Integer getFunctionId() {
+        return functionId;
     }
 
-    public void setFunction_id(Integer function_id) {
-        this.function_id = function_id;
+    public void setFunctionId(Integer functionId) {
+        this.functionId = functionId;
     }
 
     /**

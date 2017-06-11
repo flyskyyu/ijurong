@@ -88,6 +88,8 @@ public class MobileMessageController {
         {
             SimpleUser user = shiroService.getUser();
             PageInfo<MessageDto> pageInfo=messageService.getMessageByUserId(user.getUserId(),page,rows);
+
+            //需要加最热...
             result.setCode(200);
             result.setData(pageInfo.getList());
         }catch (Exception e)

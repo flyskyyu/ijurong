@@ -23,6 +23,7 @@ public class MessageDto {
     @JsonSerialize(using = DateSerializer.class)
     private Date createTime;
     private Integer type;
+    private Integer isHot;
 
     public Integer getId() {
         return id;
@@ -94,5 +95,13 @@ public class MessageDto {
 
     public void setType(Integer type) {
         this.type = type;
+    }
+
+    public Integer getIsHot() {
+        return isHot;
+    }
+
+    public void setIsHot(Integer isHot) {
+        this.isHot = isHot;
     }
 }

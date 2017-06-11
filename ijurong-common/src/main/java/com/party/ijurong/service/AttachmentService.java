@@ -32,7 +32,7 @@ public class AttachmentService extends BaseService<Attachment>{
     //按功能查找
     public List<Attachment> findAttachmentByFunction(int functionType,int functionId) {
         Attachment attachment=new Attachment();
-        attachment.setFunction_id(functionId);
+        attachment.setFunctionId(functionId);
         attachment.setFunctionType(functionType);
         return  mapper.select(attachment);
     }

@@ -156,16 +156,22 @@ public class MessageController {
         return "success";
     }
 
-    @RequestMapping(value = "sendMessage", method =
+    @RequestMapping(value = "sendMessage/{id}", method =
             { RequestMethod.POST, RequestMethod.GET })
     @ResponseBody
-    public String sendMessage(HttpServletRequest httpServletRequest, @RequestBody String data)
+    public String sendMessage(HttpServletRequest httpServletRequest, @RequestBody String data, @PathVariable int id)
     {
         try
         {
             String[] str=data.replace("%5B%5D","").replace("data","").replace("=", "").trim().split("&");//获取组织ID
             //发消息
-
+            MessageSendService messageSendService=new MessageSendService(str,id);
+            messageSendService.start();
+            //更新状态
+            Message message=new Message();
+            message.setId(id);
+            message.setIsPost(1);
+            messageService.updateMessage(message);
             return "success";
         }
         catch (Exception e)
