@@ -1,6 +1,7 @@
 package com.party.ijurong.controller.mobile;
 
 import com.party.ijurong.bean.MobileResult;
+import com.party.ijurong.pojo.PartyMember;
 import com.party.ijurong.pojo.Staff;
 import com.party.ijurong.service.StaffService;
 import com.party.ijurong.service.StaffTokenService;
@@ -48,6 +49,25 @@ public class MobileLoginController {
 
         result.setCode(200);
         result.setData(token);
+        return result;
+    }
+
+    @RequestMapping("register")
+    public MobileResult register(Staff staff, String partyPosition) {
+        MobileResult result = new MobileResult();
+        Staff temp = staffService.queryByEmailOrPhoneNumber(staff.getPhoneNumber());
+        if(temp != null) {
+            result.setCode(300);
+            result.setMsg("此手机已注册，请直接登录");
+            return result;
+        }
+        staff.setPoliticalStatus(4);
+        staff.setIntegral(0);
+        staffService.saveSelective(staff);
+        PartyMember partyMember = new PartyMember();
+        partyMember.setUserId(staff.getStaffId());
+        partyMember.setPartyPosition(partyPosition);
+        result.setCode(200);
         return result;
     }
 
