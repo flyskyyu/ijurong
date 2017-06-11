@@ -8,8 +8,6 @@ import com.party.ijurong.pojo.Activity;
 public class ActivityDto extends Activity{
     private Integer isNew;
     private Integer isHot;
-    private Integer isLiked;
-    private Integer isMarked;
     private Integer staffId;
 
     public Integer getIsNew() {
@@ -26,22 +24,6 @@ public class ActivityDto extends Activity{
 
     public void setIsHot(Integer isHot) {
         this.isHot = isHot;
-    }
-
-    public Integer getIsLiked() {
-        return isLiked;
-    }
-
-    public void setIsLiked(Integer isLiked) {
-        this.isLiked = isLiked;
-    }
-
-    public Integer getIsMarked() {
-        return isMarked;
-    }
-
-    public void setIsMarked(Integer isMarked) {
-        this.isMarked = isMarked;
     }
 
     public Integer getStaffId() {

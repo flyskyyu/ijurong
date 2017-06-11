@@ -24,16 +24,9 @@ public class MobileMarkController {
     @Autowired
     private MarkService markService;
 
-    @RequestMapping("markActivity")
+    @RequestMapping("mark")
     @ResponseBody
-    private MobileResult markActivity(Integer id) {
-        Mark mark = new Mark();
-        mark.setMarkedId(4);
-        mark.setType(ConstantOrigin.C7_ACTIVITIES);
-        return mark(mark);
-    }
-
-    private MobileResult mark(Mark mark) {
+    public MobileResult mark(Mark mark) {
         MobileResult result = new MobileResult();
         SimpleUser user = shiroService.getUser();
         mark.setStaffId(user.getUserId());

@@ -62,7 +62,7 @@ public class MobileMeetingRoomOrderController {
         if(dto.getStartTime() == null) {
             dto.setStartTime(DateUtils.truncate(new Date(), Calendar.DATE));
         }
-        dto.setOrderType(2);
+        dto.setOrderType(1);
         PageInfo<MeetingRoomOrderDto> pageInfo = roomOrderService.queryRoomOrderDtoList(dto, page, rows);
         result.setCode(200);
         result.setData(arrangeList(pageInfo.getList()));
@@ -94,7 +94,7 @@ public class MobileMeetingRoomOrderController {
         if(dto.getTypeFilter() == 0) {
             dto.setTypeFilter(5);
         }
-        dto.setOrderType(2);
+        dto.setOrderType(1);
         PageInfo<MeetingRoomOrderDto> pageInfo = roomOrderService.queryRoomOrderDtoList(dto, page, rows);
         result.setCode(200);
         result.setData(arrangeList(pageInfo.getList()));

@@ -35,6 +35,12 @@
         <if test="articleType != null">
             AND reply.article_type = #{articleType}
         </if>
+        <if test="parentId != null">
+            AND reply.parent_id = #{parentId}
+        </if>
+        <if test="parentId == null">
+            AND reply.parent_id is null
+        </if>
         ORDER BY reply.id DESC
     </select>
 </mapper>

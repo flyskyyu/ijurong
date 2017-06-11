@@ -17,10 +17,11 @@
         <result column="staff_name" property="staffName" jdbcType="VARCHAR"/>
         <result column="party_branch_id" property="partyBranchId" jdbcType="INTEGER"/>
         <result column="phone_number" property="phoneNumber" jdbcType="INTEGER"/>
+        <result column="name" property="name" jdbcType="VARCHAR"/>
     </resultMap>
 
     <select id="queryByCarOrderDto"  parameterType="CarOrderDto" resultMap="CarOrderDtoMap">
-        SELECT car_order.*, staff_name,  car_num, car.party_branch_id, phone_number FROM car_order, car, staff
+        SELECT car_order.*, staff_name,  car_num, car.party_branch_id, phone_number, car.name FROM car_order, car, staff
         <where>
             car_order.car_id = car.id and car_order.staff_id = staff.staff_id
             <if test="staffName != null and staffName != ''">
@@ -60,7 +61,7 @@
                 and (is_agree is null or is_agree = 1)
             </if>
         </where>
-        <if test="orderType == 0">
+        <if test="orderType == null || orderType == 0">
             ORDER BY car_order.id DESC
         </if>
         <if test="orderType == 1">

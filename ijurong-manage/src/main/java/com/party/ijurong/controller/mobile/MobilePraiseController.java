@@ -24,25 +24,9 @@ public class MobilePraiseController {
     @Autowired
     private PraiseService praiseService;
 
-    @RequestMapping("likeActivity")
+    @RequestMapping("like")
     @ResponseBody
-    public MobileResult praiseActivity(Integer id) {
-        Praise praise = new Praise();
-        praise.setPraisedId(id);
-        praise.setType(ConstantOrigin.C7_ACTIVITIES);
-        return add(praise);
-    }
-
-    @RequestMapping("likeReply")
-    @ResponseBody
-    public MobileResult praiseReply(Integer id) {
-        Praise praise = new Praise();
-        praise.setPraisedId(id);
-        praise.setType(ConstantOrigin.C20_REPLY);
-        return add(praise);
-    }
-
-    private MobileResult add(Praise praise) {
+    public MobileResult like(Praise praise) {
         SimpleUser user = shiroService.getUser();
         praise.setStaffId(user.getUserId());
         praise.setPraisedTime(new Date());

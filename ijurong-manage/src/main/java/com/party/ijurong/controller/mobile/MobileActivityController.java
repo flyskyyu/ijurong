@@ -58,7 +58,7 @@ public class MobileActivityController {
             } else {
                 activity.setIsNew(0);
             }
-            if(activity.getClickAmount() + activity.getReplyNum() + activity.getLikeNum() >= clickCount) {
+            if(activity.getClickAmount() >= clickCount) {
                 activity.setIsHot(1);
             } else {
                 activity.setIsHot(0);

@@ -9,6 +9,7 @@ import com.party.ijurong.pojo.CarOrder;
 public class CarOrderDto extends CarOrder {
     private String staffName;
     private String carNum;
+    private String name;
     private Integer partyBranchId;
     private String phoneNumber;
     @JsonIgnore
@@ -62,5 +63,13 @@ public class CarOrderDto extends CarOrder {
 
     public void setOrderType(int orderType) {
         this.orderType = orderType;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

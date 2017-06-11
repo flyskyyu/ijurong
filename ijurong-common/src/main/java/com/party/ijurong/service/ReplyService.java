@@ -39,10 +39,8 @@ public class ReplyService extends BaseService<Reply> {
 
     public void reply(Reply reply) {
         replyMapper.insertSelective(reply);
-        if(reply.getArticleType() == ConstantOrigin.C20_REPLY) {
-            replyMapper.increaseReplyNum(reply.getArticleId());
-        } else if(reply.getArticleType() == ConstantOrigin.C7_ACTIVITIES) {
-            activityMapper.increaseReplyNum(reply.getArticleId());
+        if(reply.getParentId() != null) {
+            replyMapper.increaseReplyNum(reply.getParentId());
         }
     }
 
@@ -50,5 +48,12 @@ public class ReplyService extends BaseService<Reply> {
         PageHelper.startPage(page, rows);
         List<ReplyDto> dtos = replyMapper.queryByReplyDto(dto);
         return new PageInfo<>(dtos);
+    }
+
+    public int replyCount(int id, int type) {
+        Reply reply = new Reply();
+        reply.setArticleId(id);
+        reply.setArticleType(type);
+        return replyMapper.selectCount(reply);
     }
 }

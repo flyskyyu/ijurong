@@ -56,7 +56,7 @@
                 and (is_agree is null or is_agree = 1)
             </if>
         </where>
-        <if test="orderType == 0">
+        <if test="orderType == null || orderType == 0">
             ORDER BY meeting_room_order.id DESC
         </if>
         <if test="orderType == 1">

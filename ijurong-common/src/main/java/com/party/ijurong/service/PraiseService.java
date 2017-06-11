@@ -33,8 +33,23 @@ public class PraiseService extends BaseService<Praise> {
         if (praise.getType() == ConstantOrigin.C20_REPLY) {
             replyMapper.increaseLikeNum(praise.getPraisedId());
         } else if (praise.getType() == ConstantOrigin.C7_ACTIVITIES) {
-            activityMapper.increaseLikeNum(praise.getPraisedId());
+            //activityMapper.increaseLikeNum(praise.getPraisedId());
         }
         return 1;
+    }
+
+    public int likeCount(int id, int type) {
+        Praise praise = new Praise();
+        praise.setPraisedId(id);
+        praise.setType(type);
+        return praiseMapper.selectCount(praise);
+    }
+
+    public int isLiked(int userId, int id, int type) {
+        Praise praise = new Praise();
+        praise.setPraisedId(id);
+        praise.setType(type);
+        praise.setStaffId(userId);
+        return praiseMapper.selectCount(praise);
     }
 }

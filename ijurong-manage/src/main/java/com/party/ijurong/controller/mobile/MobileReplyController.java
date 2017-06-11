@@ -52,51 +52,9 @@ public class MobileReplyController {
         return result;
     }
 
-    @RequestMapping(value = "activityReplyList")
+    @RequestMapping(value = "reply")
     @ResponseBody
-    public MobileResult activityReplyList(Integer id, @RequestParam(defaultValue = "1") int page
-            , @RequestParam(defaultValue = "20") int rows) {
-        SimpleUser user = shiroService.getUser();
-        ReplyDto dto = new ReplyDto();
-        dto.setArticleId(id);
-        dto.setArticleType(ConstantOrigin.C7_ACTIVITIES);
-        dto.setStaffId(user.getUserId());
-        return replyList(dto, page, rows);
-    }
-
-    @RequestMapping(value = "replyReplyList")
-    @ResponseBody
-    public MobileResult replyReplyList(Integer id, @RequestParam(defaultValue = "1") int page
-            , @RequestParam(defaultValue = "20") int rows) {
-        SimpleUser user = shiroService.getUser();
-        ReplyDto dto = new ReplyDto();
-        dto.setArticleId(id);
-        dto.setStaffId(user.getUserId());
-        dto.setArticleType(ConstantOrigin.C20_REPLY);
-        return replyList(dto, page, rows);
-    }
-
-    @RequestMapping(value = "replyActivity")
-    @ResponseBody
-    public MobileResult replyActivity(Integer id, String content) {
-        Reply reply = new Reply();
-        reply.setArticleId(id);
-        reply.setContent(content);
-        reply.setArticleType(ConstantOrigin.C7_ACTIVITIES);
-        return reply(reply);
-    }
-
-    @RequestMapping(value = "replyReply")
-    @ResponseBody
-    public MobileResult replyReply(Integer id, String content) {
-        Reply reply = new Reply();
-        reply.setArticleId(id);
-        reply.setContent(content);
-        reply.setArticleType(ConstantOrigin.C20_REPLY);
-        return reply(reply);
-    }
-
-    private MobileResult reply(Reply reply) {
+    public MobileResult reply(Reply reply) {
         SimpleUser user = shiroService.getUser();
         reply.setStaffId(user.getUserId());
         reply.setPublishTime(new Date());
@@ -106,11 +64,32 @@ public class MobileReplyController {
         return result;
     }
 
-    private MobileResult replyList(ReplyDto dto, int page, int rows) {
+    @RequestMapping(value = "replyList")
+    @ResponseBody
+    public MobileResult replyList(ReplyDto dto, @RequestParam(defaultValue = "1") int page
+            , @RequestParam(defaultValue = "20") int rows) {
+        SimpleUser user = shiroService.getUser();
+        dto.setStaffId(user.getUserId());
         PageInfo<ReplyDto> dtos = replyService.queryByReplyDto(dto, page, rows);
         MobileResult result = new MobileResult();
         result.setCode(200);
         result.setData(dtos.getList());
+        return result;
+    }
+
+    @RequestMapping(value = "replyLikeAndMark")
+    @ResponseBody
+    public MobileResult replyLikeAndMark(Integer id, int type) {
+        SimpleUser user = shiroService.getUser();
+        Map map = new HashMap();
+        map.put("replyNum", replyService.replyCount(id, type));
+        map.put("likeNum", praiseService.likeCount(id, type));
+        map.put("isLiked", praiseService.isLiked(user.getUserId(), id, type));
+        map.put("markNum", markService.markCount(id, type));
+        map.put("isMarked", markService.isMarked(user.getUserId(), id, type));
+        MobileResult result = new MobileResult();
+        result.setCode(200);
+        result.setData(map);
         return result;
     }
 }

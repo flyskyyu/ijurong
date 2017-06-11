@@ -58,7 +58,7 @@ public class MobileCarOrderController {
         if(dto.getStartTime() == null) {
             dto.setStartTime(DateUtils.truncate(new Date(), Calendar.DATE));
         }
-        dto.setOrderType(2);
+        dto.setOrderType(1);
         PageInfo<CarOrderDto> pageInfo = carOrderService.queryCarOrderDtoList(dto, page, rows);
         result.setCode(200);
         result.setData(arrangeList(pageInfo.getList()));
@@ -76,7 +76,7 @@ public class MobileCarOrderController {
         if(dto.getTypeFilter() == 0) {
             dto.setTypeFilter(5);
         }
-        dto.setOrderType(2);
+        dto.setOrderType(1);
         PageInfo<CarOrderDto> pageInfo = carOrderService.queryCarOrderDtoList(dto, page, rows);
         result.setCode(200);
         result.setData(arrangeList(pageInfo.getList()));

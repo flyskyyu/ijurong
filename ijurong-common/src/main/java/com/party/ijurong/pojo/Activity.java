@@ -1,5 +1,6 @@
 package com.party.ijurong.pojo;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -75,9 +76,11 @@ public class Activity {
      * 回复数
      */
     @Column(name = "reply_num")
+    @JsonIgnore
     private Integer replyNum;
 
     @Column(name = "like_num")
+    @JsonIgnore
     private Integer likeNum;
 
     /**
