@@ -3,6 +3,7 @@ package com.party.ijurong.service;
 import com.party.ijurong.pojo.Message;
 import com.party.ijurong.pojo.MessageUser;
 import com.party.ijurong.pojo.Staff;
+import com.party.ijurong.utils.JpushClientUtil;
 import com.party.ijurong.utils.SpringContextUtil;
 
 import java.util.List;
@@ -37,9 +38,10 @@ public class MessageSendService extends Thread{
             messageUser.setUserId(userId);
             messageUser.setMessageId(id);
             messageUserService.save(messageUser);
-
-            //调用极光推送，暂缺
         }
+
+        //调用极光推送，暂缺
+//        JpushClientUtil.sendToRegistrationId()
 
         //更新通知状态
         Message message=new Message();
