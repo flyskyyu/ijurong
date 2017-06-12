@@ -47,6 +47,8 @@
             <mvc:mapping path="/mobile/**"/>
             <mvc:exclude-mapping path="/mobile/login"/>
             <mvc:exclude-mapping path="/mobile/register"/>
+            <mvc:exclude-mapping path="/mobile/validCode"/>
+            <mvc:exclude-mapping path="/mobile/logout"/>
             <bean class="com.party.ijurong.filter.MobileSecurityInterceptor"></bean>
         </mvc:interceptor>
     </mvc:interceptors>

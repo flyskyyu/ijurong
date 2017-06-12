@@ -5,7 +5,7 @@ import com.party.ijurong.dto.StaffTokenDto;
 import com.party.ijurong.mapper.StaffTokenMapper;
 import com.party.ijurong.pojo.Staff;
 import com.party.ijurong.pojo.StaffToken;
-import com.party.ijurong.utils.TokenUtils;
+import com.party.ijurong.utils.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -46,7 +46,7 @@ public class StaffTokenService extends BaseService<StaffToken> {
         if(staffToken == null) {
             staffToken = new StaffToken();
         }
-        String token = TokenUtils.generateToken(dbStaff);
+        String token = RandomUtils.generateToken(dbStaff);
         staffToken.setToken(token);
         staffToken.setStaffId(dbStaff.getStaffId());
         staffToken.setLoginTime(new Date());
