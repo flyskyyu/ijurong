@@ -4,12 +4,14 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.party.ijurong.bean.MobileResult;
 import com.party.ijurong.pojo.Car;
+import com.party.ijurong.utils.RandomUtils;
 import com.taobao.api.ApiException;
 import com.taobao.api.DefaultTaobaoClient;
 import com.taobao.api.TaobaoClient;
 import com.taobao.api.request.AlibabaAliqinFcSmsNumSendRequest;
 import com.taobao.api.response.AlibabaAliqinFcSmsNumSendResponse;
 import org.apache.commons.lang3.time.DateUtils;
+import org.junit.Assert;
 import org.junit.Test;
 
 import java.util.*;
@@ -106,10 +108,10 @@ public class JsonTest {
         AlibabaAliqinFcSmsNumSendRequest req = new AlibabaAliqinFcSmsNumSendRequest();
         req.setExtend("123456");
         req.setSmsType("normal");
-        req.setSmsFreeSignName("阿里大于");
-        req.setSmsParamString("{\"code\":\"1234\",\"product\":\"alidayu\"}");
+        req.setSmsFreeSignName("句容党建验证码");
+        req.setSmsParamString("{\"code\":\"1234\"}");
         req.setRecNum("18951572022");
-        req.setSmsTemplateCode("SMS_585014");
+        req.setSmsTemplateCode("SMS_70565468");
         AlibabaAliqinFcSmsNumSendResponse rsp = null;
         try {
             rsp = client.execute(req);
@@ -117,5 +119,13 @@ public class JsonTest {
             e.printStackTrace();
         }
         System.out.println(rsp.getBody());
+    }
+
+    @Test
+    public void testValid() {
+        for(int i = 0; i < 10000; i++) {
+            Assert.assertTrue(RandomUtils.generateValidCode().length() == 6);
+        }
+
     }
 }
