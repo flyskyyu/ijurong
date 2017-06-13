@@ -220,6 +220,10 @@
                             <td class="kv-label">备注</td>
                             <td class="kv-content" colspan="3"><textarea name="remark" rows="5"></textarea></td>
                         </tr>
+
+                        <tr>
+                            <td class="kv-label" colspan="4"><p style="color: #cc0033">注：功能代码为<br/>通知AAA 组织活动AAB 优秀党员AAC 互动资源AAD 志愿大厅AAE 问卷调查AAF 专题讨论AAG 积分商城ABA</p></td>
+                        </tr>
                         </tbody>
                     </table>
                 </div>

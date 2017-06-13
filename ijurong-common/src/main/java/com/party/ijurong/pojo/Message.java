@@ -29,6 +29,10 @@ public class Message {
     @Column(name = "news_content")
     private String newsContent;
 
+    @Column(name = "function_content")
+    private String functionContent;
+
+
     @Column(name = "is_post")
     private int isPost;
 
@@ -109,6 +113,14 @@ public class Message {
      */
     public void setNewsContent(String newsContent) {
         this.newsContent = newsContent == null ? null : newsContent.trim();
+    }
+
+    public String getFunctionContent() {
+        return functionContent;
+    }
+
+    public void setFunctionContent(String functionContent) {
+        this.functionContent = functionContent;
     }
 
     public int getIsPost() {

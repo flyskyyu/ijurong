@@ -31,6 +31,11 @@ public class MessageService extends BaseService<Message>{
         List<MessageDto> dtos = messageMapper.getMessageByUserId(userId);
         return new PageInfo<>(dtos);
     }
+
+    public Message getMessageById(int id)
+    {
+        return messageMapper.selectByPrimaryKey(id);
+    }
     /**
      * 查询所有消息
      * @param message

@@ -8,8 +8,11 @@ import com.party.ijurong.pojo.StaffToken;
 import com.party.ijurong.utils.RandomUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Administrator on 2017/5/28 0028.
@@ -61,5 +64,16 @@ public class StaffTokenService extends BaseService<StaffToken> {
         simpleUser.setToken(token);
         shiroService.saveUserInSession(simpleUser);
         return token;
+    }
+
+
+    public List<StaffToken> getStaffTokenByStaffId( List<Integer> list)
+    {
+
+        Example example = new Example(StaffToken.class);
+        Example.Criteria criteria = example.createCriteria();
+        criteria.andIn("staffId",list);
+        List<StaffToken> staffs = tokenMapper.selectByExample(example);
+        return staffs;
     }
 }
