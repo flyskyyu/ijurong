@@ -47,14 +47,14 @@ pageEncoding="UTF-8" %>
                     	<%--<li class="subnav-li" data-id="7"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党务公开</span></a></li>--%>
                     <%--</ul>--%>
                 <%--</li>--%>
-                <li class="nav-li last-nav-li">
-                	<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">网上办事</span></a>
-                    <ul class="subnav">
-                    	<li class="subnav-li" data-id="12"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">事项管理</span></a></li>
-                        <li class="subnav-li" data-id="13"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">待审核</span></a></li>
-                        <li class="subnav-li" data-id="14"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">归档管理</span></a></li>
-                    </ul>
-                </li>
+                <%--<li class="nav-li last-nav-li">--%>
+                	<%--<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">网上办事</span></a>--%>
+                    <%--<ul class="subnav">--%>
+                    	<%--<li class="subnav-li" data-id="12"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">事项管理</span></a></li>--%>
+                        <%--<li class="subnav-li" data-id="13"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">待审核</span></a></li>--%>
+                        <%--<li class="subnav-li" data-id="14"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">归档管理</span></a></li>--%>
+                    <%--</ul>--%>
+                <%--</li>--%>
 
 				<li class="nav-li last-nav-li">
 					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">系统设置</span></a>
@@ -103,18 +103,18 @@ pageEncoding="UTF-8" %>
 				<li class="nav-li">
 					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">组织活动</span></a>
 					<ul class="subnav">
-						<li class="subnav-li" href="activity/listPage" data-id="35"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党建专题活动</span></a></li>
-						<li class="subnav-li" data-id="36"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">教育教学活动</span></a></li>
-						<li class="subnav-li" data-id="37"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">志愿者活动</span></a></li>
+						<li class="subnav-li" href="activity/listPage" data-id="35"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">活动管理</span></a></li><!--党建专题活动-->
+						<%--<li class="subnav-li" data-id="36"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">教育教学活动</span></a></li>--%>
+						<%--<li class="subnav-li" data-id="37"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">志愿者活动</span></a></li>--%>
 					</ul>
 				</li>
-				<li class="nav-li last-nav-li">
-					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">教学资源</span></a>
-					<ul class="subnav">
-						<li class="subnav-li" href="company/resourceType"  data-id="38"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">教学类型定义</span></a></li>
-						<li class="subnav-li" data-id="39"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">教学资源管理</span></a></li>
-					</ul>
-				</li>
+				<%--<li class="nav-li last-nav-li">--%>
+					<%--<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">教学资源</span></a>--%>
+					<%--<ul class="subnav">--%>
+						<%--<li class="subnav-li" href="company/resourceType"  data-id="38"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">教学类型定义</span></a></li>--%>
+						<%--<li class="subnav-li" data-id="39"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">教学资源管理</span></a></li>--%>
+					<%--</ul>--%>
+				<%--</li>--%>
 			</ul>
 
 			<ul class="nav" id="nav_partyMemberManage" style="display: none;">
