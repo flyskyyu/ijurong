@@ -5,6 +5,7 @@ import com.party.ijurong.bean.Page;
 import com.party.ijurong.pojo.PartyMember;
 import com.party.ijurong.pojo.Staff;
 import com.party.ijurong.service.PartyMemberService;
+import com.party.ijurong.service.PropertyService;
 import com.party.ijurong.service.StaffService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,8 @@ public class PartyMemberController {
     private PartyMemberService partyMemberService;
     @Autowired
     private StaffService staffService;
+    @Autowired
+    private PropertyService propertyService;
 
     @RequestMapping(value = "list")
     @ResponseBody
@@ -50,6 +53,7 @@ public class PartyMemberController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
     public String add(Staff staff, PartyMember partyMember) {
+        staff.setPassword(propertyService.INIT_PASSWORD);
         partyMemberService.saveMember(staff, partyMember);
         return "success";
     }

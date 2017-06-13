@@ -8,7 +8,7 @@
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
     <!-- 使用spring自带的占位符替换功能加载properties文件 -->
-    <context:property-placeholder location="classpath:properties/*.properties" />
+    <context:property-placeholder location="classpath:properties/*.properties" file-encoding="UTF-8"/>
     <!-- 扫描包 -->
     <context:component-scan base-package="com.party.ijurong">
     	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>

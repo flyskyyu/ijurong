@@ -4,6 +4,7 @@ import com.party.ijurong.mapper.PartyMemberMapper;
 import com.party.ijurong.mapper.StaffMapper;
 import com.party.ijurong.pojo.PartyMember;
 import com.party.ijurong.pojo.Staff;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -20,6 +21,8 @@ public class PartyMemberService extends BaseService<PartyMember> {
     public void saveMember(Staff staff, PartyMember partyMember) {
         staff.setStaffId(null);
         staff.setIntegral(0);
+        String md5Password = DigestUtils.md5Hex(staff.getPassword());
+        staff.setPassword(md5Password);
         staffMapper.insertSelective(staff);
         partyMember.setUserId(staff.getStaffId());
         memberMapper.insert(partyMember);

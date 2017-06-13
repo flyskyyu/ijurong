@@ -2,6 +2,7 @@ package com.party.ijurong.filter;
 
 import com.party.ijurong.service.ShiroService;
 import com.party.ijurong.utils.AjaxUtils;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationToken;
 import org.apache.shiro.subject.Subject;
@@ -93,5 +94,11 @@ public class CustomFormAuthenticationFilter extends FormAuthenticationFilter{
             return false;
         }
         return super.onLoginFailure(token, e, request, response);
+    }
+
+    @Override
+    protected String getPassword(ServletRequest request) {
+        String password = super.getPassword(request);
+        return DigestUtils.md5Hex(password);
     }
 }
