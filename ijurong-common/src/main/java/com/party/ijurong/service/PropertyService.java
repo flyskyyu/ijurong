@@ -1,6 +1,7 @@
 package com.party.ijurong.service;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Service;
 
 /**
@@ -10,4 +11,6 @@ import org.springframework.stereotype.Service;
 public class PropertyService {
     @Value("${shiro.expire}")
     public int TOKEN_EXPIRE;
+    @Value("${initPassword}")
+    public String INIT_PASSWORD;
 }

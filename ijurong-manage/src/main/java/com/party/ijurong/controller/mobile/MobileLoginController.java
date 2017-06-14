@@ -3,13 +3,9 @@ package com.party.ijurong.controller.mobile;
 import com.party.ijurong.bean.MobileResult;
 import com.party.ijurong.pojo.PartyMember;
 import com.party.ijurong.pojo.Staff;
-import com.party.ijurong.service.PartyMemberService;
-import com.party.ijurong.service.RedisService;
-import com.party.ijurong.service.StaffService;
-import com.party.ijurong.service.StaffTokenService;
+import com.party.ijurong.service.*;
 import com.party.ijurong.utils.RandomUtils;
-import com.party.ijurong.utils.SmsUtils;
-import com.taobao.api.ApiException;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -32,20 +28,28 @@ public class MobileLoginController {
     private StaffTokenService tokenService;
     @Autowired
     private RedisService redisService;
+    @Autowired
+    private SmsService smsService;
     private String prefixValid = "ValidCode:";
 
     @RequestMapping("login")
     @ResponseBody
     public MobileResult login(String username, String password, String deviceNumber, HttpServletRequest request) {
         MobileResult result = new MobileResult();
+        if(StringUtils.isEmpty(username) || StringUtils.isEmpty(password) || StringUtils.isEmpty(deviceNumber)) {
+            result.setMsg("参数不完整");
+            result.setCode(300);
+            return result;
+        }
         Staff dbStaff = staffService.queryByEmailOrPhoneNumber(username);
         if(StringUtils.isEmpty(deviceNumber)) {
             result.setMsg("没有设备号");
             result.setCode(400);
             return result;
         }
+        String md5Password = DigestUtils.md5Hex(password);
         if(dbStaff == null
-                || !dbStaff.getPassword().equals(password)) {
+                || !dbStaff.getPassword().equals(md5Password)) {
             result.setMsg("用户名或密码错误");
             result.setCode(300);
             return result;
@@ -84,7 +88,6 @@ public class MobileLoginController {
             result.setMsg("此手机已注册，请直接登录");
             return result;
         }
-
         staff.setPoliticalStatus(4);
         PartyMember partyMember = new PartyMember();
         partyMember.setPartyPosition(partyPosition);
@@ -99,8 +102,8 @@ public class MobileLoginController {
         MobileResult result = new MobileResult();
         String validCode = RandomUtils.generateValidCode();
         try {
-            SmsUtils.sendValidCode(phoneNumber, validCode);
-        } catch (ApiException e) {
+            smsService.sendValidCode(phoneNumber, validCode);
+        } catch (Exception e) {
             e.printStackTrace();
             result.setCode(300);
             result.setMsg("短信发送失败");

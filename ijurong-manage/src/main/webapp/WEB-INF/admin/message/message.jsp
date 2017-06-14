@@ -255,6 +255,14 @@
                                        data-options="valueField:'id',textField:'name',url:'findAllMessageTypes'">
                             </td>
                         </tr>
+                        <tr>
+                            <td class="kv-label">功能代码</td>
+                            <td class="kv-content" colspan="3"><input type="text" name="functionContent"/></td>
+                            </tr>
+                        <tr>
+
+                            <td class="kv-label" colspan="4"><p style="color: #cc0033">注：功能代码为<br/>通知AAA 组织活动AAB 优秀党员AAC 互动资源AAD 志愿大厅AAE 问卷调查AAF 专题讨论AAG 积分商城ABA 消息DAA 党费缴纳DAB 帐号被顶DAC 会议室BAA 物品管理BAB 车辆管理BAC</p></td>
+                        </tr>
 
                         </tbody>
                     </table>
