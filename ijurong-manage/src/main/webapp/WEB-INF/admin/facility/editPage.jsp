@@ -15,7 +15,7 @@
   <div class="content">
     <div title="" data-options="closable:false"
          class="basic-info panel-body panel-body-noheader panel-body-noborder"
-         style="width: 100%;;">
+         style="width: 100%;">
       <form method="post" id="editForm">
         <input type="hidden" name="id"/>
         <input type="hidden" name="avatar" id="avatar"/>

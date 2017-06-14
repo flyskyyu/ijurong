@@ -17,5 +17,5 @@ public class ConstantOrigin {
     public static  final int C9_DISCUSSION=9;//论坛和光影圈
     public static  final int C10_GOODPARTYER=10;//优秀党员
 
-    public static  final int C20_REPLY=20;//评论回复 点赞用
+    public static  final int C20_REPLY=20;//评论回复
 }

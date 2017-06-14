@@ -113,7 +113,6 @@ public class MobileLoginController {
         redisService.set(key, validCode);
         redisService.expire(key, 10 * 60);
         result.setCode(200);
-        result.setData(validCode);
         return result;
     }
 
