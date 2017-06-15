@@ -57,7 +57,7 @@ pageEncoding="UTF-8" %>
                 <%--</li>--%>
 
 				<li class="nav-li last-nav-li">
-					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">系统设置</span></a>
+					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">APP管理</span></a>
 					<ul class="subnav">
 						<li class="subnav-li" href="appSet/appShufflingPic" data-id="17"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">app轮播图</span></a></li>
 						<li class="subnav-li" href="appSet/appSkins" data-id="18"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">app皮肤上传</span></a></li>

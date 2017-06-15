@@ -12,11 +12,20 @@
         <result column="parent_id" jdbcType="INTEGER" property="parentId"/>
         <result column="generate_menu" jdbcType="TINYINT" property="generateMenu"/>
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
+        <result column="checked" jdbcType="BOOLEAN" property="checked"/>
     </resultMap>
     <select id="queryAllPermissions"  parameterType="int" resultMap="BaseResultMap">
         SELECT permission.* FROM staff, staff_role, role, role_permission, permission WHERE
         staff.staff_id = staff_role.staff_id AND staff_role.role_id = role.id
         AND role.id = role_permission.role_id AND role_permission.permission_id = permission.id
         AND staff.staff_id = #{staffId}
+    </select>
+
+    <select id="queryAllByRoleId" parameterType="Integer" resultMap="BaseResultMap">
+        SELECT permission.*
+          <if test="id != null">
+              , (SELECT count(*) FROM role_permission WHERE role_id = #{id} AND permission_id = permission.id) > 0 AS  checked
+          </if>
+          FROM permission;
     </select>
 </mapper>

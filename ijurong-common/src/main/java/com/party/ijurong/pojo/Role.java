@@ -13,6 +13,8 @@ public class Role {
     @Column(name = "role_name")
     private String roleName;
 
+    private String remark;
+
     /**
      * @return id
      */
@@ -39,5 +41,13 @@ public class Role {
      */
     public void setRoleName(String roleName) {
         this.roleName = roleName == null ? null : roleName.trim();
+    }
+
+    public String getRemark() {
+        return remark;
+    }
+
+    public void setRemark(String remark) {
+        this.remark = remark;
     }
 }

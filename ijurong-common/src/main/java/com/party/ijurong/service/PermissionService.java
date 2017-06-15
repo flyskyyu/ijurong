@@ -35,4 +35,8 @@ public class PermissionService extends BaseService<Permission> {
         List<Permission> permissions = permissionMapper.selectByExample(example);
         return new PageInfo<>(permissions);
     }
+
+    public List<Permission> queryAllByRoleId(Integer roleId) {
+        return permissionMapper.queryAllByRoleId(roleId);
+    }
 }

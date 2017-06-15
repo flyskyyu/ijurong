@@ -25,7 +25,7 @@ function array_remove_repeat(a) { // 去重
         var flag = true;
         var temp = a[i];
         for(var j = 0; j < r.length; j ++) {
-            if(temp === r[j]) {
+            if(temp == r[j]) {
                 flag = false;
                 break;
             }
@@ -43,7 +43,7 @@ function array_difference(a, b) { // 差集 a - b
     for(var i = 0; i < b.length; i ++) {
         var temp = b[i];
         for(var j = 0; j < clone.length; j ++) {
-            if(temp === clone[j]) {
+            if(temp == clone[j]) {
                 //remove clone[j]
                 clone.splice(j,1);
             }

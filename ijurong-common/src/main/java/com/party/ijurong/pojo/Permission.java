@@ -1,9 +1,6 @@
 package com.party.ijurong.pojo;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 public class Permission {
     @Id
@@ -55,6 +52,9 @@ public class Permission {
     private Byte generateMenu;
 
     private String remark;
+
+    @Transient
+    private Boolean checked;
 
     /**
      * @return id
@@ -222,5 +222,13 @@ public class Permission {
      */
     public void setRemark(String remark) {
         this.remark = remark == null ? null : remark.trim();
+    }
+
+    public Boolean getChecked() {
+        return checked;
+    }
+
+    public void setChecked(Boolean checked) {
+        this.checked = checked;
     }
 }
