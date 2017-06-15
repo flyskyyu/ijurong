@@ -176,7 +176,7 @@ pageEncoding="UTF-8" %>
 					<ul class="subnav">
 						<li class="subnav-li" href="/admin/role/listPage" data-id="91"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">角色管理</span></a></li>
 						<li class="subnav-li" href="/admin/permission/listPage" data-id="92"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">权限管理</span></a></li>
-						<li class="subnav-li" href="/admin/facility/listPage" data-id="93"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">授权管理</span></a></li>
+						<li class="subnav-li" href="/admin/staffRole/listPage" data-id="93"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">授权管理</span></a></li>
 					</ul>
 				</li>
 			</ul>

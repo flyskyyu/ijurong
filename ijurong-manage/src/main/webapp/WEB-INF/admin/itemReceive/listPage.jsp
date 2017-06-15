@@ -24,7 +24,7 @@
     </select><span class="white_space"></span>
       <a href="#" class="easyui-linkbutton" id="btn_Search"
                                                  data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
-      <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" id="btn_add" style="display: none;">添加</a>&nbsp;
+      <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp;
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" id="btn_remove" style="display:none;">删除</a>
     </div>
   </div>
@@ -55,6 +55,15 @@
     $('#tableList').datagrid('load', params);
   }
 
+  $('#btn_add').bind('click', function() {
+    $("#editWindow").window({
+      title: '新增物品申领',
+      onLoad: function() {
+        $('#editForm').attr('action', '<%=basePath%>admin/itemReceive/add');
+      }
+    }).window('open');
+  });
+
   function reply(rowIndex) {
     $('#tableList').datagrid('selectRow', rowIndex);
     var rowData = $('#tableList').datagrid('getSelected');
@@ -78,7 +87,7 @@
     });
   }
 
-  function reply(rowIndex) {
+/*  function reply(rowIndex) {
     $('#tableList').datagrid('selectRow', rowIndex);
     var rowData = $('#tableList').datagrid('getSelected');
     if(rowData == null) return;
@@ -91,7 +100,7 @@
         document.getElementById('replyInput').focus()
       }
     }).window('open');
-  }
+  }*/
 
   function receive(rowIndex) {
     $('#tableList').datagrid('selectRow', rowIndex);
