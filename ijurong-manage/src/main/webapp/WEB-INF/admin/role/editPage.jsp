@@ -31,8 +31,12 @@
           <tr>
             <td class="kv-label">角色名称</td>
             <td class="kv-content"><input type="text" name="roleName"></td>
+            <td class="kv-label">角色编码</td>
+            <td class="kv-content"><input type="text" name="roleCode"></td>
+          </tr>
+          <tr>
             <td class="kv-label">备注</td>
-            <td class="kv-content" style="width:50%;"><input type="text" name="remark"></td>
+            <td class="kv-content" colspan="3"><input type="text" name="remark"></td>
           </tr>
           </tbody>
         </table>

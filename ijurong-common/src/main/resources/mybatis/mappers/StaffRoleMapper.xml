@@ -10,13 +10,17 @@
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
         <result column="staff_name" jdbcType="VARCHAR" property="staffName"/>
         <result column="role_name" jdbcType="VARCHAR" property="roleName"/>
+        <result column="role_code" jdbcType="VARCHAR" property="roleCode"/>
     </resultMap>
     <select id="queryByDto"  parameterType="StaffRoleDto" resultMap="BaseResultMap">
-        SELECT staff_role.*, staff_name, role_name FROM staff, staff_role, role
+        SELECT staff_role.*, staff_name, role_name, role_code FROM staff, staff_role, role
         <where>
             staff.staff_id = staff_role.staff_id AND staff_role.role_id = role.id
             <if test="staffName != null and staffName != ''">
                 and staff_name like concat('%', #{staffName}, '%')
+            </if>
+            <if test="staffId != null">
+                and staff_role.staff_id = #{staffId}
             </if>
         </where>
         ORDER BY staff_role.id DESC

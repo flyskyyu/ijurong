@@ -55,15 +55,16 @@
       $('#editDialog').dialog('setTitle', '编辑人员角色');
       $('#editForm').attr('action', '<%=basePath%>admin/staffRole/update')
               .form('load', rowData);
+      generateRole();
       $('#editDialog').dialog('open');
     }
   }
 
   $('#btn_add').bind('click', function() {
     TT.resetForm();
+    generateRole();
     $('#editDialog').dialog('setTitle', '新增人员角色');
     $('#editForm').attr('action', '<%=basePath%>admin/staffRole/add');
-    resetAvatar(null);
     $('#editDialog').dialog('open');
   });
 

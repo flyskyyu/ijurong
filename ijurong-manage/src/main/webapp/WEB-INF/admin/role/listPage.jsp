@@ -35,6 +35,7 @@
     <thead>
     <tr>
       <th data-options="field:'roleName',width:100,align:'center'">权限名称</th>
+      <th data-options="field:'roleCode',width:100,align:'center'">权限编码</th>
       <th data-options="field:'remark',width:200,align:'center'">备注</th>
       <th data-options="field:'ids',width:60,align:'center',formatter:formatOperation">操作</th>
     </tr>

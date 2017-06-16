@@ -4,6 +4,7 @@
     <resultMap id="BaseResultMap" type="com.party.ijurong.pojo.Role">
         <id column="id" jdbcType="INTEGER" property="id"/>
         <result column="role_name" jdbcType="VARCHAR" property="roleName"/>
+        <result column="role_code" jdbcType="VARCHAR" property="roleCode"/>
         <result column="remark" jdbcType="VARCHAR" property="remark"/>
     </resultMap>
 </mapper>

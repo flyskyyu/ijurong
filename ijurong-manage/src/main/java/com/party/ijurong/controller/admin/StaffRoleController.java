@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 /**
  * Created by Administrator on 2017/6/15 0015.
  */
@@ -28,17 +30,27 @@ public class StaffRoleController {
         return  new Page(pageInfo);
     }
 
+    @RequestMapping(value = "listRole")
+    @ResponseBody
+    public List listRole(Integer staffId, @RequestParam(defaultValue = "1")int page
+            , @RequestParam(defaultValue = "20")int rows) {
+        StaffRoleDto dto = new StaffRoleDto();
+        dto.setStaffId(staffId);
+        PageInfo<StaffRoleDto> dtos = staffRoleService.queryByDto(dto, 1, 999999);
+        return  dtos.getList();
+    }
+
     @RequestMapping(value = "update")
     @ResponseBody
-    public String update(StaffRole obj) {
-        staffRoleService.updateSelective(obj);
+    public String update(Integer staffId, String roles) {
+        staffRoleService.update(staffId, roles);
         return "success";
     }
 
     @RequestMapping(value = "add")
     @ResponseBody
-    public String add(StaffRole obj) {
-        staffRoleService.save(obj);
+    public String add(Integer staffId, String roles) {
+        staffRoleService.save(staffId, roles);
         return "success";
     }
 

@@ -13,6 +13,9 @@ public class Role {
     @Column(name = "role_name")
     private String roleName;
 
+    @Column(name = "role_code")
+    private String roleCode;
+
     private String remark;
 
     /**
@@ -49,5 +52,13 @@ public class Role {
 
     public void setRemark(String remark) {
         this.remark = remark;
+    }
+
+    public String getRoleCode() {
+        return roleCode;
+    }
+
+    public void setRoleCode(String roleCode) {
+        this.roleCode = roleCode;
     }
 }
