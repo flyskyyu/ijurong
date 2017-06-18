@@ -40,8 +40,12 @@ public class ItemReceiveController {
     @RequestMapping(value = "add")
     @ResponseBody
     public String add(ItemReceive obj) {
-        obj.setId(null);
-        itemReceiveService.save(obj);
+        int result = itemReceiveService.apply(obj);
+        if(result == 2) {
+            return "num_lack";
+        } else if(result == 3) {
+            return "integral_lack";
+        }
         return "success";
     }
 
@@ -55,12 +59,8 @@ public class ItemReceiveController {
     @RequestMapping(value = "reply")
     @ResponseBody
     public String reply(ItemReceive itemReceive) {
-        int result = itemReceiveService.reply(itemReceive);
-        if(result == ItemReceiveService.OK) {
-            return "success";
-        } else {
-            return "lack";
-        }
+        itemReceiveService.reply(itemReceive);
+        return "success";
     }
 
     @RequestMapping(value = "receive")

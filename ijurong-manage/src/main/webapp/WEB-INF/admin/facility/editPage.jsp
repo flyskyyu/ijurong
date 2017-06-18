@@ -33,7 +33,7 @@
             </td>
             <td class="kv-label">设施类型</td>
             <td class="kv-content">
-              <select name="type">
+              <select name="type" class="easyui-combobox easyui-validatebox" required="true">
                 <option value="1">会议室设施</option>
                 <option value="2">随车物品</option>
               </select>
@@ -45,9 +45,9 @@
           </tr>
           <tr>
             <td class="kv-label">设施名称</td>
-            <td class="kv-content"><input type="text" name="name"></td>
+            <td class="kv-content"><input type="text" name="name" class="easyui-validatebox" required="true"/></td>
             <td class="kv-label">设施数量</td>
-            <td class="kv-content"><input type="text" name="num"></td>
+            <td class="kv-content"><input type="text" name="num" class="easyui-validatebox" required="true"/></td>
           </tr>
           <tr>
             <td class="kv-label">备注</td>

@@ -12,6 +12,7 @@ import com.party.ijurong.pojo.Staff;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -21,6 +22,7 @@ import java.util.List;
 public class ItemReceiveService extends BaseService<ItemReceive> {
     public final static int OK = 1;
     public final static int NUM_LACK = 2;
+    public final static int INTEGRAL_LACK = 3;
     @Autowired
     private ItemReceiveMapper receiveMapper;
     @Autowired
@@ -34,15 +36,32 @@ public class ItemReceiveService extends BaseService<ItemReceive> {
         return new PageInfo<>(dtos);
     }
 
+    public int apply(ItemReceive itemReceive) {
+        itemReceive.setId(null);
+        itemReceive.setApplyTime(new Date());
+        itemReceive.setIsAgree(null);
+        Item item = itemMapper.selectByPrimaryKey(itemReceive.getItemId());
+        Staff staff = staffMapper.selectByPrimaryKey(itemReceive.getUserId());
+        int integral = item.getIntegral() * itemReceive.getNum();
+        if(staff.getIntegral() < integral) {
+            return INTEGRAL_LACK;
+        }
+        if(item.getNum() < itemReceive.getNum()) {
+            return NUM_LACK;
+        }
+        itemReceive.setItemName(item.getItemName());
+        itemReceive.setIntegral(integral);
+        receiveMapper.insertSelective(itemReceive);
+        staff.setIntegral(staff.getIntegral() - integral);
+        staffMapper.updateByPrimaryKeySelective(staff);
+        item.setNum(item.getNum() - itemReceive.getNum());
+        itemMapper.updateByPrimaryKeySelective(item);
+        return 1;
+    }
+
     public int reply(ItemReceive itemReceive) {
         ItemReceive dbReceive = receiveMapper.selectByPrimaryKey(itemReceive.getId());
         if(itemReceive.getIsAgree() == 1) {
-            Item item = itemMapper.selectByPrimaryKey(dbReceive.getItemId());
-            if(item.getNum() < dbReceive.getNum()) {
-                return NUM_LACK;
-            }
-            item.setNum(item.getNum() - dbReceive.getNum());
-            itemMapper.updateByPrimaryKey(item);
             dbReceive.setIsReceive((byte)0); //设置状态为未领取
         } else {
             if(dbReceive.getIntegral() > 0) {
@@ -50,6 +69,9 @@ public class ItemReceiveService extends BaseService<ItemReceive> {
                 staff.setIntegral(staff.getIntegral() + dbReceive.getIntegral());
                 staffMapper.updateByPrimaryKey(staff);
             }
+            Item item = itemMapper.selectByPrimaryKey(dbReceive.getItemId());
+            item.setNum(item.getNum() + dbReceive.getNum());
+            itemMapper.updateByPrimaryKey(item);
         }
         dbReceive.setIsAgree(itemReceive.getIsAgree());
         dbReceive.setReply(itemReceive.getReply());
