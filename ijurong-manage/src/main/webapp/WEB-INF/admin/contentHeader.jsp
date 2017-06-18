@@ -20,6 +20,9 @@
 <script type="text/javascript" src="<%=basePath%>easyui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="<%=basePath%>easyui/locale/easyui-lang-zh_CN.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/common.js"></script>
+
+<%--<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/jquery.validate.min.js"></script>--%>
+<%--<script src="http://static.runoob.com/assets/jquery-validation-1.14.0/dist/localization/messages_zh.js"></script>--%>
 <script>
   $( document ).ajaxComplete(function( event, xhr, settings ) {
     // session过期的情况

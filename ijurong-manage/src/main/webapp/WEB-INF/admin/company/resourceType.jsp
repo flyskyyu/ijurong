@@ -17,26 +17,30 @@
             $('#resourceType_grid').datagrid('load', resourceType);
         }
         function doSubmit() {
-            $.ajax({
-                url: resourceType_form.action,
-                type: resourceType_form.method,
-                data: $(resourceType_form).serialize(),
-                success: function (data) {
-                    if (data == "had") {
-                        $.messager.alert('提示', '资源类型已存在!');
-                        return;
+            if($("#resourceType_form").form('validate'))
+            {
+                $.ajax({
+                    url: resourceType_form.action,
+                    type: resourceType_form.method,
+                    data: $(resourceType_form).serialize(),
+                    success: function (data) {
+                        if (data == "had") {
+                            $.messager.alert('提示', '资源类型已存在!');
+                            return;
+                        }
+                        if (data == "success") {
+                            $('#resourceType_dialog').dialog('close');
+                            $('#resourceType_grid').datagrid('reload');
+                        } else {
+                            $.messager.alert('提示', '提交失败!');
+                        }
+                    },
+                    error: function() {
+                        $.messager.alert('提示', '服务器内部错误!');
                     }
-                    if (data == "success") {
-                        $('#resourceType_dialog').dialog('close');
-                        $('#resourceType_grid').datagrid('reload');
-                    } else {
-                        $.messager.alert('提示', '提交失败!');
-                    }
-                },
-                error: function() {
-                    $.messager.alert('提示', '服务器内部错误!');
-                }
-            });
+                });
+            }
+
         }
         $(function() {
             $('#btn_add').bind('click', function() {
@@ -168,7 +172,7 @@
                         <tbody>
                         <tr>
                             <td class="kv-label">资源类型名称</td>
-                            <td class="kv-content" colspan="3"><input type="text" name="type"/></td>
+                            <td class="kv-content" colspan="3"><input type="text" name="type" class="easyui-validatebox" data-options="required:true"/></td>
                         </tr>
                         <tr>
                             <td class="kv-label">备注</td>

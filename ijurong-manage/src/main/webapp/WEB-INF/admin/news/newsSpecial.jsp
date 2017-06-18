@@ -17,26 +17,29 @@
       $('#newsSpecial_grid').datagrid('load', newsSpecial);
     }
     function doSubmit() {
-        $.ajax({
-            url: newsSpecial_form.action,
-            type: newsSpecial_form.method,
-            data: $(newsSpecial_form).serialize(),
-            success: function (data) {
-                if (data == "had") {
-                    $.messager.alert('提示', '专题已存在!');
-                    return;
+        if($("#newsSpecial_form").form('validate'))
+        {
+            $.ajax({
+                url: newsSpecial_form.action,
+                type: newsSpecial_form.method,
+                data: $(newsSpecial_form).serialize(),
+                success: function (data) {
+                    if (data == "had") {
+                        $.messager.alert('提示', '专题已存在!');
+                        return;
+                    }
+                    if (data == "success") {
+                        $('#newsSpecial_dialog').dialog('close');
+                        $('#newsSpecial_grid').datagrid('reload');
+                    } else {
+                        $.messager.alert('提示', '提交失败!');
+                    }
+                },
+                error: function() {
+                    $.messager.alert('提示', '服务器内部错误!');
                 }
-                if (data == "success") {
-                    $('#newsSpecial_dialog').dialog('close');
-                    $('#newsSpecial_grid').datagrid('reload');
-                } else {
-                    $.messager.alert('提示', '提交失败!');
-                }
-            },
-            error: function() {
-                $.messager.alert('提示', '服务器内部错误!');
-            }
-        });
+            });
+        }
     }
     $(function() {
       $('#btn_add').bind('click', function() {
@@ -160,7 +163,7 @@
             <tbody>
             <tr>
               <td class="kv-label">专题名称</td>
-              <td class="kv-content" colspan="3"><input type="text" name="name"/></td>
+              <td class="kv-content" colspan="3"><input type="text" name="name" class="easyui-validatebox" data-options="required:true"/></td>
             </tr>
             <tr>
               <td class="kv-label">备注</td>

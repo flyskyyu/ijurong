@@ -17,28 +17,29 @@
       $('#programa_grid').datagrid('load', programa);
     }
     function doSubmit() {
-
-        $.ajax({
-            url: programa_form.action,
-            type: programa_form.method,
-            data: $(programa_form).serialize(),
-            success: function (data) {
-                if (data == "had") {
-                    $.messager.alert('提示', '栏目已存在!');
-                    return;
+        if($("#programa_form").form('validate'))
+        {
+            $.ajax({
+                url: programa_form.action,
+                type: programa_form.method,
+                data: $(programa_form).serialize(),
+                success: function (data) {
+                    if (data == "had") {
+                        $.messager.alert('提示', '栏目已存在!');
+                        return;
+                    }
+                    if (data == "success") {
+                        $('#programa_dialog').dialog('close');
+                        $('#programa_grid').datagrid('reload');
+                    } else {
+                        $.messager.alert('提示', '提交失败!');
+                    }
+                },
+                error: function() {
+                    $.messager.alert('提示', '服务器内部错误!');
                 }
-                if (data == "success") {
-                    $('#programa_dialog').dialog('close');
-                    $('#programa_grid').datagrid('reload');
-                } else {
-                    $.messager.alert('提示', '提交失败!');
-                }
-            },
-            error: function() {
-                $.messager.alert('提示', '服务器内部错误!');
-            }
-        });
-
+            });
+        }
     }
     $(function() {
       $('#btn_add').bind('click', function() {
@@ -162,7 +163,7 @@
             <tbody>
             <tr>
               <td class="kv-label">栏目名称</td>
-              <td class="kv-content" colspan="3"><input type="text" name="name"/></td>
+              <td class="kv-content" colspan="3"><input type="text" name="name" class="easyui-validatebox" data-options="required:true"/></td>
             </tr>
             <tr>
               <td class="kv-label">备注</td>

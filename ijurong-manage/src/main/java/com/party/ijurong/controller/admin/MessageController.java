@@ -148,12 +148,21 @@ public class MessageController {
     @ResponseBody
     public String delectMessage(HttpServletRequest httpServletRequest, @PathVariable int id)
     {
-        Message message1=messageService.findMessageById(id);
-        if (message1.getIsPost()==1) {//发布中的不能删除
+        try
+        {
+            Message message1=messageService.findMessageById(id);
+            if (message1.getIsPost()==1) {//发布中的不能删除
+                return "fail";
+            }
+            messageService.deleteMessage(id);
+            return "success";
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
             return "fail";
         }
-        messageService.deleteMessage(id);
-        return "success";
+
     }
 
     @RequestMapping(value = "sendMessage/{id}", method =
