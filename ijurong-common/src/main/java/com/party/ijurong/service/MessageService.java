@@ -85,9 +85,7 @@ public class MessageService extends BaseService<Message>{
      */
     public void deleteMessage(int id)
     {
-        Message message=new Message();
-        message.setId(id);
-        mapper.delete(message);
+        mapper.deleteByPrimaryKey(id);
     }
 
 }

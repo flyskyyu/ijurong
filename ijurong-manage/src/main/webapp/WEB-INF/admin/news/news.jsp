@@ -34,27 +34,29 @@
       $('#news_grid').datagrid('load', news);
     }
     function doSubmit() {
-        var form = new FormData(document.getElementById("news_form"));
-        $.ajax({
-            url: news_form.action,
-            type: news_form.method,
-            data: form,//$(news_form).serialize(),
-            cache: false,
-            processData: false,
-            contentType: false,
-            success: function (data) {
-                if (data == "success") {
-                    $('#news_dialog').dialog('close');
-                    $('#news_grid').datagrid('reload');
-                } else {
-                    $.newsr.alert('提示', '提交失败!');
+        if($("#news_form").form('validate'))
+        {
+            var form = new FormData(document.getElementById("news_form"));
+            $.ajax({
+                url: news_form.action,
+                type: news_form.method,
+                data: form,//$(news_form).serialize(),
+                cache: false,
+                processData: false,
+                contentType: false,
+                success: function (data) {
+                    if (data == "success") {
+                        $('#news_dialog').dialog('close');
+                        $('#news_grid').datagrid('reload');
+                    } else {
+                        $.newsr.alert('提示', '提交失败!');
+                    }
+                },
+                error: function() {
+                    $.messager.alert('提示', '服务器内部错误!');
                 }
-            },
-            error: function() {
-                $.messager.alert('提示', '服务器内部错误!');
-            }
-        });
-
+            });
+        }
     }
     $(function() {
       $('#btn_add').bind('click', function() {
@@ -233,27 +235,27 @@
             <tbody>
             <tr>
               <td class="kv-label">新闻主标题</td>
-              <td class="kv-content" colspan="3"><input type="text" name="title"/></td>
+              <td class="kv-content" colspan="3"><input type="text" name="title" class="easyui-validatebox" data-options="required:true"/></td>
             </tr>
             <tr>
                 <td class="kv-label">新闻副标题</td>
-                <td class="kv-content" colspan="3"><input type="text" name="subtitle"/></td>
+                <td class="kv-content" colspan="3"><input type="text" name="subtitle" class="easyui-validatebox" data-options="required:true"/></td>
             </tr>
             <tr>
               <td class="kv-label" >新闻所属栏目:</td>
               <td class="kv-content">
                 <input id="cc" class="easyui-combobox" name="programaId"
-                       data-options="valueField:'id',textField:'name',url:'findAllProgramas'">
+                       data-options="valueField:'id',textField:'name',url:'findAllProgramas',required:true">
               </td>
                 <td class="kv-label" >新闻所属专题:</td>
                 <td class="kv-content">
                     <input id="cc2" class="easyui-combobox" name="specialId"
-                           data-options="valueField:'id',textField:'name',url:'findAllNewsSpecials'">
+                           data-options="valueField:'id',textField:'name',url:'findAllNewsSpecials',required:true">
                 </td>
             </tr>
             <tr>
                 <td class="kv-label">来源</td>
-                <td class="kv-content" colspan="3"><input type="text" name="origin"/></td>
+                <td class="kv-content" colspan="3"><input type="text" name="origin" class="easyui-validatebox" data-options="required:true"/></td>
             </tr>
             <tr>
                 <td class="kv-label">图片上传</td>

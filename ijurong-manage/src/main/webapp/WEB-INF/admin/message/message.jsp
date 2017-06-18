@@ -34,23 +34,25 @@
             $('#message_grid').datagrid('load', message);
         }
         function doSubmit() {
-            $.ajax({
-                url: message_form.action,
-                type: message_form.method,
-                data: $(message_form).serialize(),
-                success: function (data) {
-                    if (data == "success") {
-                        $('#message_dialog').dialog('close');
-                        $('#message_grid').datagrid('reload');
-                    } else {
-                        $.messager.alert('提示', '提交失败!');
+            if($("#message_form").form('validate'))
+            {
+                $.ajax({
+                    url: message_form.action,
+                    type: message_form.method,
+                    data: $(message_form).serialize(),
+                    success: function (data) {
+                        if (data == "success") {
+                            $('#message_dialog').dialog('close');
+                            $('#message_grid').datagrid('reload');
+                        } else {
+                            $.messager.alert('提示', '提交失败!');
+                        }
+                    },
+                    error: function() {
+                        $.messager.alert('提示', '服务器内部错误!');
                     }
-                },
-                error: function() {
-                    $.messager.alert('提示', '服务器内部错误!');
-                }
-            });
-
+                });
+            }
         }
         $(function() {
             $('#btn_add').bind('click', function() {
@@ -246,18 +248,18 @@
                         <tbody>
                         <tr>
                             <td class="kv-label">通知名称</td>
-                            <td class="kv-content" colspan="3"><input type="text" name="title"/></td>
+                            <td class="kv-content" colspan="3"><input type="text" name="title"  class="easyui-validatebox" data-options="required:true"/></td>
                         </tr>
                         <tr>
                             <td class="kv-label" >通知类型:</td>
                             <td class="kv-content" colspan="3">
                                 <input id="cc" class="easyui-combobox" name="type"
-                                       data-options="valueField:'id',textField:'name',url:'findAllMessageTypes'">
+                                       data-options="valueField:'id',textField:'name',url:'findAllMessageTypes',required:true">
                             </td>
                         </tr>
                         <tr>
                             <td class="kv-label">功能代码</td>
-                            <td class="kv-content" colspan="3"><input type="text" name="functionContent"/></td>
+                            <td class="kv-content" colspan="3"><input type="text" name="functionContent" data-options="required:true"/></td>
                             </tr>
                         <tr>
 

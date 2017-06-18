@@ -17,30 +17,33 @@
             $('#appShufflingPic_grid').datagrid('load', appShufflingPic);
         }
         function doSubmit() {
-            var form = new FormData(document.getElementById("appShufflingPic_form"));
-            $.ajax({
-                url: appShufflingPic_form.action,
-                type: appShufflingPic_form.method,
-                data: form,//$(appShufflingPic_form).serialize(),
-                cache: false,
-                processData: false,
-                contentType: false,
-                success: function (data) {
-                    if (data == "had") {
-                        $.messager.alert('提示', '轮播图名称已存在!');
-                        return;
+            if($("#appShufflingPic_form").form('validate'))
+            {
+                var form = new FormData(document.getElementById("appShufflingPic_form"));
+                $.ajax({
+                    url: appShufflingPic_form.action,
+                    type: appShufflingPic_form.method,
+                    data: form,//$(appShufflingPic_form).serialize(),
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        if (data == "had") {
+                            $.messager.alert('提示', '轮播图名称已存在!');
+                            return;
+                        }
+                        if (data == "success") {
+                            $('#appShufflingPic_dialog').dialog('close');
+                            $('#appShufflingPic_grid').datagrid('reload');
+                        } else {
+                            $.messager.alert('提示', '提交失败!');
+                        }
+                    },
+                    error: function() {
+                        $.messager.alert('提示', '服务器内部错误!');
                     }
-                    if (data == "success") {
-                        $('#appShufflingPic_dialog').dialog('close');
-                        $('#appShufflingPic_grid').datagrid('reload');
-                    } else {
-                        $.messager.alert('提示', '提交失败!');
-                    }
-                },
-                error: function() {
-                    $.messager.alert('提示', '服务器内部错误!');
-                }
-            });
+                });
+            }
         }
         $(function() {
             $('#btn_add').bind('click', function() {
@@ -197,7 +200,7 @@
                         <tbody>
                         <tr>
                             <td class="kv-label">轮播图名称</td>
-                            <td class="kv-content" colspan="3"><input type="text" name="name"/></td>
+                            <td class="kv-content" colspan="3"><input type="text" name="name"  class="easyui-validatebox" data-options="required:true"/></td>
                         </tr>
                         <tr>
                             <td class="kv-label">图片上传</td>
@@ -206,7 +209,7 @@
                         </tr>
                         <tr>
                             <td class="kv-label">功能类型</td>
-                            <td class="kv-content" colspan="3"><select name="type" id="detail_type" class="easyui-combobox">
+                            <td class="kv-content" colspan="3"><select name="type" id="detail_type" class="easyui-combobox" data-options="required:true">
                                 <option value="1">url</option>
                                 <option value="2">功能</option>
                             </select> </td>

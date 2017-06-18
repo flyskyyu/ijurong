@@ -22,38 +22,42 @@
             $('.tr_class').remove();
         }
         function doSubmit() {
-            var length=document.getElementById("tab_answer").rows.length;
-            var jsonArray = [];
-            for(var i=1;i<length;i++)
+            if($("#examQuestion_form").form('validate'))
             {
-                var json = new Object;
-                json.optionContent=document.getElementById("tab_answer").rows[i].cells[0].firstChild.value;
-                json.isCorrect=$(document.getElementById("tab_answer").rows[i].cells[1]).find('input:checked').val();
-                json.optionNum=document.getElementById("tab_answer").rows[i].cells[2].firstChild.value;
-                jsonArray.push(json);
-            }
-            var formData=$(examQuestion_form).serialize();
-            formData += '&opt=' + JSON.stringify(jsonArray);
-            $.ajax({
-                url: examQuestion_form.action,
-                type: examQuestion_form.method,
-                data: formData,
-                success: function (data) {
-                    if (data == "had") {
-                        $.messager.alert('提示', '题目已存在!');
-                        return;
-                    }
-                    if (data == "success") {
-                        $('#examQuestion_dialog').dialog('close');
-                        $('#examQuestion_grid').datagrid('reload');
-                    } else {
-                        $.messager.alert('提示', '提交失败!');
-                    }
-                },
-                error: function() {
-                    $.messager.alert('提示', '服务器内部错误!');
+                var length=document.getElementById("tab_answer").rows.length;
+                var jsonArray = [];
+                for(var i=1;i<length;i++)
+                {
+                    var json = new Object;
+                    json.optionContent=document.getElementById("tab_answer").rows[i].cells[0].firstChild.value;
+                    json.isCorrect=$(document.getElementById("tab_answer").rows[i].cells[1]).find('input:checked').val();
+                    json.optionNum=document.getElementById("tab_answer").rows[i].cells[2].firstChild.value;
+                    jsonArray.push(json);
                 }
-            });
+                var formData=$(examQuestion_form).serialize();
+                formData += '&opt=' + JSON.stringify(jsonArray);
+                $.ajax({
+                    url: examQuestion_form.action,
+                    type: examQuestion_form.method,
+                    data: formData,
+                    success: function (data) {
+                        if (data == "had") {
+                            $.messager.alert('提示', '题目已存在!');
+                            return;
+                        }
+                        if (data == "success") {
+                            $('#examQuestion_dialog').dialog('close');
+                            $('#examQuestion_grid').datagrid('reload');
+                        } else {
+                            $.messager.alert('提示', '提交失败!');
+                        }
+                    },
+                    error: function() {
+                        $.messager.alert('提示', '服务器内部错误!');
+                    }
+                });
+            }
+
         }
         $(function() {
             $('#btn_add').bind('click', function() {
@@ -229,7 +233,7 @@
                         <tbody>
                         <tr>
                             <td class="kv-label">题目</td>
-                            <td class="kv-content" colspan="3"><input type="text"name="questionContent"/></td>
+                            <td class="kv-content" colspan="3"><input type="text"name="questionContent" class="easyui-validatebox" data-options="required:true"/></td>
                         </tr>
                         <tr>
                             <td class="kv-label">类型</td>

@@ -17,26 +17,29 @@
       $('#enterpriseInfo_grid').datagrid('load', enterpriseInfo);
     }
     function doSubmit() {
-        $.ajax({
-            url: enterpriseInfo_form.action,
-            type: enterpriseInfo_form.method,
-            data: $(enterpriseInfo_form).serialize(),
-            success: function (data) {
-                if (data == "had") {
-                    $.messager.alert('提示', '企业名已存在!');
-                    return;
+        if($("#enterpriseInfo_form").form('validate'))
+        {
+            $.ajax({
+                url: enterpriseInfo_form.action,
+                type: enterpriseInfo_form.method,
+                data: $(enterpriseInfo_form).serialize(),
+                success: function (data) {
+                    if (data == "had") {
+                        $.messager.alert('提示', '企业名已存在!');
+                        return;
+                    }
+                    if (data == "success") {
+                        $('#enterpriseInfo_dialog').dialog('close');
+                        $('#enterpriseInfo_grid').datagrid('reload');
+                    } else {
+                        $.messager.alert('提示', '提交失败!');
+                    }
+                },
+                error: function() {
+                    $.messager.alert('提示', '服务器内部错误!');
                 }
-                if (data == "success") {
-                    $('#enterpriseInfo_dialog').dialog('close');
-                    $('#enterpriseInfo_grid').datagrid('reload');
-                } else {
-                    $.messager.alert('提示', '提交失败!');
-                }
-            },
-            error: function() {
-                $.messager.alert('提示', '服务器内部错误!');
-            }
-        });
+            });
+        }
     }
     $(function() {
       $('#btn_add').bind('click', function() {
@@ -178,10 +181,10 @@
             <tbody>
             <tr>
               <td class="kv-label">企业名称</td>
-              <td class="kv-content"><input type="text" name="name"/></td>
+              <td class="kv-content"><input type="text" name="name" class="easyui-validatebox" data-options="required:true"/></td>
               <td class="kv-label">公司类型</td>
               <td class="kv-content">
-                <select name="type" class="easyui-combobox">
+                <select name="type" class="easyui-combobox" data-options="required:true">
                   <option value="1">国企</option>
                   <option value="2">民营</option>
                   <option value="3">外资</option>
@@ -195,7 +198,7 @@
               <td class="kv-label">公司地址</td>
               <td class="kv-content"><input type="text" name="address"/></td>
               <td class="kv-label">公司电话</td>
-              <td class="kv-content"><input type="text" name="phone"/></td>
+              <td class="kv-content"><input type="text" name="phone" /></td>
             </tr>
             <tr>
               <td class="kv-label">组织机构代码</td>

@@ -22,38 +22,41 @@
             $('.tr_class').remove();
         }
         function doSubmit() {
-            var length=document.getElementById("tab_answer").rows.length;
-            var jsonArray = [];
-            for(var i=1;i<length;i++)
+            if($("#research_form").form('validate'))
             {
-                var json = new Object;
-                json.questionScore=document.getElementById("tab_answer").rows[i].cells[1].firstChild.value;
-                json.questionSort=document.getElementById("tab_answer").rows[i].cells[2].firstChild.value;
-                json.questionId=document.getElementById("tab_answer").rows[i].cells[3].firstChild.value;
-                jsonArray.push(json);
-            }
-            var formData=$(research_form).serialize();
-            formData += '&opt=' + JSON.stringify(jsonArray);
-            $.ajax({
-                url: research_form.action,
-                type: research_form.method,
-                data: formData,
-                success: function (data) {
-                    if (data == "had") {
-                        $.messager.alert('提示', '卷子名已存在!');
-                        return;
-                    }
-                    if (data == "success") {
-                        $('#research_dialog').dialog('close');
-                        $('#research_grid').datagrid('reload');
-                    } else {
-                        $.messager.alert('提示', '提交失败!');
-                    }
-                },
-                error: function() {
-                    $.messager.alert('提示', '服务器内部错误!');
+                var length=document.getElementById("tab_answer").rows.length;
+                var jsonArray = [];
+                for(var i=1;i<length;i++)
+                {
+                    var json = new Object;
+                    json.questionScore=document.getElementById("tab_answer").rows[i].cells[1].firstChild.value;
+                    json.questionSort=document.getElementById("tab_answer").rows[i].cells[2].firstChild.value;
+                    json.questionId=document.getElementById("tab_answer").rows[i].cells[3].firstChild.value;
+                    jsonArray.push(json);
                 }
-            });
+                var formData=$(research_form).serialize();
+                formData += '&opt=' + JSON.stringify(jsonArray);
+                $.ajax({
+                    url: research_form.action,
+                    type: research_form.method,
+                    data: formData,
+                    success: function (data) {
+                        if (data == "had") {
+                            $.messager.alert('提示', '卷子名已存在!');
+                            return;
+                        }
+                        if (data == "success") {
+                            $('#research_dialog').dialog('close');
+                            $('#research_grid').datagrid('reload');
+                        } else {
+                            $.messager.alert('提示', '提交失败!');
+                        }
+                    },
+                    error: function() {
+                        $.messager.alert('提示', '服务器内部错误!');
+                    }
+                });
+            }
         }
         $(function() {
             $('#btn_add').bind('click', function() {
@@ -246,7 +249,7 @@
                         <tbody>
                         <tr>
                             <td class="kv-label">問卷名称</td>
-                            <td class="kv-content" colspan="3"><input type="text"name="researchName"/></td>
+                            <td class="kv-content" colspan="3"><input type="text"name="researchName" class="easyui-validatebox" data-options="required:true"/></td>
                         </tr>
                         <tr>
                             <td class="kv-label">调查目的</td>
@@ -259,9 +262,9 @@
                         </tr>
                         <tr>
                             <td class="kv-label">调查开始时间</td>
-                            <td class="kv-content" ><input class="easyui-datetimebox" name="startTime"/></td>
+                            <td class="kv-content" ><input class="easyui-datetimebox" name="startTime" data-options="required:true"/></td>
                             <td class="kv-label">调查结束时间</td>
-                            <td class="kv-content" ><input class="easyui-datetimebox" name="stopTime"/></td>
+                            <td class="kv-content" ><input class="easyui-datetimebox" name="stopTime" data-options="required:true"/></td>
                         </tr>
 
                         </tbody>

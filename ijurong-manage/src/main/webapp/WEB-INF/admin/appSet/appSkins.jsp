@@ -17,30 +17,33 @@
             $('#appSkins_grid').datagrid('load', appSkins);
         }
         function doSubmit() {
-            var form = new FormData(document.getElementById("appSkins_form"));
-            $.ajax({
-                url: appSkins_form.action,
-                type: appSkins_form.method,
-                data: form,//$(appSkins_form).serialize(),
-                cache: false,
-                processData: false,
-                contentType: false,
-                success: function (data) {
-                    if (data == "had") {
-                        $.messager.alert('提示', '皮肤图名称已存在!');
-                        return;
+            if($("#appSkins_form").form('validate'))
+            {
+                var form = new FormData(document.getElementById("appSkins_form"));
+                $.ajax({
+                    url: appSkins_form.action,
+                    type: appSkins_form.method,
+                    data: form,//$(appSkins_form).serialize(),
+                    cache: false,
+                    processData: false,
+                    contentType: false,
+                    success: function (data) {
+                        if (data == "had") {
+                            $.messager.alert('提示', '皮肤图名称已存在!');
+                            return;
+                        }
+                        if (data == "success") {
+                            $('#appSkins_dialog').dialog('close');
+                            $('#appSkins_grid').datagrid('reload');
+                        } else {
+                            $.messager.alert('提示', '提交失败!');
+                        }
+                    },
+                    error: function() {
+                        $.messager.alert('提示', '服务器内部错误!');
                     }
-                    if (data == "success") {
-                        $('#appSkins_dialog').dialog('close');
-                        $('#appSkins_grid').datagrid('reload');
-                    } else {
-                        $.messager.alert('提示', '提交失败!');
-                    }
-                },
-                error: function() {
-                    $.messager.alert('提示', '服务器内部错误!');
-                }
-            });
+                });
+            }
         }
         $(function() {
             $('#btn_add').bind('click', function() {
@@ -176,7 +179,7 @@
                         <tbody>
                         <tr>
                             <td class="kv-label">皮肤图名称</td>
-                            <td class="kv-content" colspan="3"><input type="text" name="name"/></td>
+                            <td class="kv-content" colspan="3"><input type="text" name="name" class="easyui-validatebox" data-options="required:true"/></td>
                         </tr>
                         <tr>
                             <td class="kv-label">图片上传</td>

@@ -17,26 +17,29 @@
             $('#messageType_grid').datagrid('load', messageType);
         }
         function doSubmit() {
-            $.ajax({
-                url: messageType_form.action,
-                type: messageType_form.method,
-                data: $(messageType_form).serialize(),
-                success: function (data) {
-                    if (data == "had") {
-                        $.messager.alert('提示', '通知类型已存在!');
-                        return;
+            if($("#messageType_form").form('validate'))
+            {
+                $.ajax({
+                    url: messageType_form.action,
+                    type: messageType_form.method,
+                    data: $(messageType_form).serialize(),
+                    success: function (data) {
+                        if (data == "had") {
+                            $.messager.alert('提示', '通知类型已存在!');
+                            return;
+                        }
+                        if (data == "success") {
+                            $('#messageType_dialog').dialog('close');
+                            $('#messageType_grid').datagrid('reload');
+                        } else {
+                            $.messager.alert('提示', '提交失败!');
+                        }
+                    },
+                    error: function() {
+                        $.messager.alert('提示', '服务器内部错误!');
                     }
-                    if (data == "success") {
-                        $('#messageType_dialog').dialog('close');
-                        $('#messageType_grid').datagrid('reload');
-                    } else {
-                        $.messager.alert('提示', '提交失败!');
-                    }
-                },
-                error: function() {
-                    $.messager.alert('提示', '服务器内部错误!');
-                }
-            });
+                });
+            }
         }
         $(function() {
             $('#btn_add').bind('click', function() {
@@ -158,7 +161,7 @@
                         <tbody>
                         <tr>
                             <td class="kv-label">通知类型名称</td>
-                            <td class="kv-content" colspan="3"><input type="text" name="name"/></td>
+                            <td class="kv-content" colspan="3"><input type="text" name="name" class="easyui-validatebox" data-options="required:true"></td>
                         </tr>
                         <tr>
                             <td class="kv-label">备注</td>
