@@ -6,6 +6,7 @@ import com.party.ijurong.pojo.Staff;
 import com.party.ijurong.pojo.UserSign;
 import com.party.ijurong.service.MobileShiroService;
 import com.party.ijurong.service.StaffService;
+import com.party.ijurong.service.SysManageService;
 import com.party.ijurong.service.UserSignService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +25,8 @@ public class MobileStaffController {
     private StaffService staffService;
     @Autowired
     private MobileShiroService shiroService;
+    @Autowired
+    private SysManageService sysManageService;
 
     @Autowired
     private UserSignService userSignService;
@@ -52,7 +55,15 @@ public class MobileStaffController {
             }
             else
             {
-                int integral=1;//暂时默认签到得一个积分
+                int integral=1;//默认签到得一个积分
+                try
+                {
+                   integral=Integer.parseInt(sysManageService.findSysManageBySysName("sign_integral").getSysValue());
+                }
+                catch (Exception e)
+                {
+                    e.printStackTrace();
+                }
                 UserSign userSign=new UserSign();
                 userSign.setUserId(user.getUserId());
                 userSign.setIntegral(integral);
