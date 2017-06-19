@@ -2,6 +2,7 @@ package com.party.ijurong.controller.mobile;
 
 import com.party.ijurong.bean.MobileResult;
 import com.party.ijurong.pojo.PartyMember;
+import com.party.ijurong.pojo.PartyPosition;
 import com.party.ijurong.pojo.Staff;
 import com.party.ijurong.service.*;
 import com.party.ijurong.utils.RandomUtils;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by Cloud on 2017/5/27.
@@ -30,6 +32,8 @@ public class MobileLoginController {
     private RedisService redisService;
     @Autowired
     private SmsService smsService;
+    @Autowired
+    private PartyPositionService partyPositionService;
     private String prefixValid = "ValidCode:";
 
     @RequestMapping("login")
@@ -116,4 +120,42 @@ public class MobileLoginController {
         return result;
     }
 
+    @RequestMapping("changePassword")
+    @ResponseBody
+    public MobileResult changePassword(String phoneNumber, String password, String validCode) {
+        MobileResult result = new MobileResult();
+        if(StringUtils.isEmpty(phoneNumber) || StringUtils.isEmpty(password)
+                || StringUtils.isEmpty(validCode)) {
+            result.setCode(300);
+            result.setMsg("参数不完整");
+            return result;
+        }
+        String key = prefixValid + phoneNumber;
+        if(!validCode.equals(redisService.get(key))) {
+            result.setCode(300);
+            result.setMsg("验证码不正确");
+            return result;
+        }
+        Staff staff = staffService.queryByEmailOrPhoneNumber(phoneNumber);
+        if(staff == null) {
+            result.setCode(300);
+            result.setMsg("用户不存在");
+            return result;
+        }
+        String md5Password = DigestUtils.md5Hex(password);
+        staff.setPassword(md5Password);
+        staffService.updateSelective(staff);
+        result.setCode(200);
+        return result;
+    }
+
+    @RequestMapping("listPartyPosition")
+    @ResponseBody
+    public MobileResult listPartyPosition() {
+        MobileResult result = new MobileResult();
+        List<PartyPosition> list = partyPositionService.queryAll();
+        result.setCode(200);
+        result.setData(list);
+        return result;
+    }
 }
