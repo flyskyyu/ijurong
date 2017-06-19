@@ -34,4 +34,10 @@ public class CarService extends BaseService<Car> {
         List<Car> objs = carMapper.selectByExample(example);
         return new PageInfo<>(objs);
     }
+
+    public PageInfo<Car> queryIsUsingByCar(Car car, int page, int rows) {
+        PageHelper.startPage(page, rows);
+        List<Car> list = carMapper.queryIsUsingByCar(car);
+        return new PageInfo<>(list);
+    }
 }

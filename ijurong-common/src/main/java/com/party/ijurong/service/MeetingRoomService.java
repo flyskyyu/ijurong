@@ -34,4 +34,10 @@ public class MeetingRoomService extends BaseService<MeetingRoom> {
         List<MeetingRoom> rooms = roomMapper.selectByExample(example);
         return new PageInfo<>(rooms);
     }
+
+    public PageInfo<MeetingRoom> queryIsUsingByRoom(MeetingRoom room, int page, int rows) {
+        PageHelper.startPage(page, rows);
+        List<MeetingRoom> list = roomMapper.queryIsUsingByRoom(room);
+        return new PageInfo<>(list);
+    }
 }

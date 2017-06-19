@@ -27,7 +27,7 @@
             <if test="staffName != null and staffName != ''">
                 and staff_name like concat('%', #{staffName}, '%')
             </if>
-            <if test="carNum != null">
+            <if test="carNum != null and carNum !=''">
                 and car_num like concat('%', #{carNum}, '%')
             </if>
             <if test="staffId != null">
