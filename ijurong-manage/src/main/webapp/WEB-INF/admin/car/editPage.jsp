@@ -32,9 +32,9 @@
               </select>
             </td>
             <td class="kv-label">车辆名</td>
-            <td class="kv-content"><input type="text" name="name"></td>
+            <td class="kv-content"><input type="text" name="name" class="easyui-validatebox" required="true"></td>
             <td class="kv-label">车牌号</td>
-            <td class="kv-content"><input type="text" name="carNum"></td>
+            <td class="kv-content"><input type="text" name="carNum" class="easyui-validatebox" required="true"></td>
           </tr>
           <tr>
             <td class="kv-label">车辆型号</td>
@@ -81,6 +81,7 @@
 
   function onSubmit() {
     if($('#editContainer').data('disabled')) return;
+    if(!$('#editForm').form('validate')) return;
     TT.disabledAllBtns('editContainer');
     $('#editForm').form('submit', {
       success: function (data) {

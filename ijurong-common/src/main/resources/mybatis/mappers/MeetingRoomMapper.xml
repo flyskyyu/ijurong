@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.party.ijurong.mapper.MeetingRoomMapper">
+    <resultMap id="BaseResultMap" type="com.party.ijurong.pojo.MeetingRoom">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="name" jdbcType="VARCHAR" property="name"/>
+        <result column="capacity" jdbcType="VARCHAR" property="capacity"/>
+        <result column="location" jdbcType="VARCHAR" property="location"/>
+        <result column="manager" jdbcType="VARCHAR" property="manager"/>
+        <result column="phone" jdbcType="VARCHAR" property="phone"/>
+        <result column="introduce" jdbcType="VARCHAR" property="introduce"/>
+        <result column="party_branch_id" jdbcType="INTEGER" property="partyBranchId"/>
+        <result column="isUsing" jdbcType="BOOLEAN" property="isUsing"/>
+    </resultMap>
+
+    <select id="queryIsUsingByRoom" parameterType="MeetingRoom" resultMap="BaseResultMap">
+        SELECT meeting_room.*,((SELECT count(*) FROM meeting_room_order WHERE room_id = meeting_room.id AND is_agree = 1 AND now() BETWEEN start_time AND end_time) &gt; 0) as isUsing
+          FROM meeting_room
+        WHERE 1 = 1
+        <if test="name != null and name != ''">
+            and name like concat('%', #{name}, '%')
+        </if>
+        <if test="partyBranchId != null">
+            and party_branch_id = #{partyBranchId}
+        </if>
+        ORDER BY id DESC
+    </select>
+</mapper>

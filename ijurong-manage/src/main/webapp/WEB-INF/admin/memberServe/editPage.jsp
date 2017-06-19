@@ -23,13 +23,13 @@
           <tbody>
           <tr>
             <td class="kv-label">组织名称</td>
-            <td class="kv-content"><input type="text" name="organizationName"/></td>
+            <td class="kv-content"><input type="text" name="organizationName" class="easyui-validatebox" required="true"/></td>
             <td class="kv-label">负责人姓名</td>
-            <td class="kv-content"><input type="text" name="contactPersonName"/></td>
+            <td class="kv-content"><input type="text" name="contactPersonName" class="easyui-validatebox" required="true"/></td>
           </tr>
           <tr>
             <td class="kv-label">被服务党员</td>
-            <td class="kv-content"><input type="text" id="servicedUserName" readonly style="cursor:pointer;" name="staffName"></td>
+            <td class="kv-content"><input type="text" id="servicedUserName" readonly style="cursor:pointer;" name="staffName" class="easyui-validatebox" required="true"></td>
             <td class="kv-label">服务时间</td>
             <td class="kv-content"><input class="easyui-datebox" name="serviceDate"></td>
           </tr>
@@ -84,6 +84,7 @@
 
   function onSubmit() {
     if($('#editContainer').data('disabled')) return;
+    if(!$('#editForm').form('validate')) return;
     TT.disabledAllBtns('editContainer');
     $('#editForm').form('submit', {
       success: function (data) {

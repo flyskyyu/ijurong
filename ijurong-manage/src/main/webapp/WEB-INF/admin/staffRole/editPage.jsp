@@ -113,27 +113,32 @@
   }
 
   function onSubmit() {
-    if($('#editContainer').data('disabled')) return;
-    TT.disabledAllBtns('editContainer');
-    var roles = $('#uploadObjInput').val();
-    roles = roles.split(',');
-    roles = array_remove_repeat(roles);
-    $('#uploadObjInput').val(roles.join(','));
-    $.ajax({
-      url: editForm.action,
-      type: editForm.method,
-      data: $(editForm).serialize(),
-      success: function (data) {
-        if (data == "success") {
-          $('#editDialog').dialog('close');
-          $('#tableList').datagrid('reload');
-        } else {
-          $.messager.alert('提示', '提交失败!');
-        }
-      },
-      error: function() {
-        $.messager.alert('提示', '服务器内部错误!');
+      if ($('#editContainer').data('disabled')) return;
+      if (!$('#editForm').form('validate')) return;
+      var roles = $('#uploadObjInput').val();
+      if(!roles) {
+          $.messager.alert('提示', '请添加角色!');
+          return;
       }
-    });
+      TT.disabledAllBtns('editContainer');
+      roles = roles.split(',');
+      roles = array_remove_repeat(roles);
+      $('#uploadObjInput').val(roles.join(','));
+      $.ajax({
+          url: editForm.action,
+          type: editForm.method,
+          data: $(editForm).serialize(),
+          success: function (data) {
+              if (data == "success") {
+                  $('#editDialog').dialog('close');
+                  $('#tableList').datagrid('reload');
+              } else {
+                  $.messager.alert('提示', '提交失败!');
+              }
+          },
+          error: function () {
+              $.messager.alert('提示', '服务器内部错误!');
+          }
+      });
   }
 </script>

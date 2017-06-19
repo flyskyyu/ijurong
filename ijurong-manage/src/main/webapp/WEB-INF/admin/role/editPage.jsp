@@ -30,9 +30,9 @@
           <tbody>
           <tr>
             <td class="kv-label">角色名称</td>
-            <td class="kv-content"><input type="text" name="roleName"></td>
+            <td class="kv-content"><input type="text" name="roleName" class="easyui-validatebox" required="true"></td>
             <td class="kv-label">角色编码</td>
-            <td class="kv-content"><input type="text" name="roleCode"></td>
+            <td class="kv-content"><input type="text" name="roleCode" class="easyui-validatebox" required="true"></td>
           </tr>
           <tr>
             <td class="kv-label">备注</td>
@@ -116,6 +116,7 @@
 
   function onSubmit() {
     if($('#editContainer').data('disabled')) return;
+    if(!$('#editForm').form('validate')) return;
     var treeObj = $.fn.zTree.getZTreeObj("permissionTree");//获得页面中的ztree对象
     var nodes = treeObj.getCheckedNodes(true);//在提交表单之前将选中的checkbox收集
     var newObjs = new Array();

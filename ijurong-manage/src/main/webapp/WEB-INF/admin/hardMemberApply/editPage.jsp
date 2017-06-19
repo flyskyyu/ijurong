@@ -24,7 +24,7 @@
           <tbody>
           <tr>
             <td class="kv-label">困难党员姓名</td>
-            <td class="kv-content"><input type="text" name="staffName" id="editUserName" readonly style="cursor:pointer;"></td>
+            <td class="kv-content"><input type="text" name="staffName" id="editUserName" readonly style="cursor:pointer;" class="easyui-validatebox" required="true"></td>
             <td class="kv-label">是否困难党员</td>
             <td class="kv-content">
               <input type="radio" name="isHardMember" value="1"/>是&nbsp;&nbsp;
@@ -128,6 +128,7 @@
 
   function onSubmit() {
     if($('#editContainer').data('disabled')) return;
+      if(!$('#editForm').form('validate')) return;
     TT.disabledAllBtns('editContainer');
     $('#editForm').form('submit', {
       success: function (data) {

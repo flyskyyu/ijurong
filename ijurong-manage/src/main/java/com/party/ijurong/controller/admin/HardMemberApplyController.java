@@ -58,7 +58,7 @@ public class HardMemberApplyController {
     @RequestMapping(value = "reply")
     @ResponseBody
     public String reply(HardMemberApply apply) {
-        applyService.apply(apply);
+        applyService.reply(apply);
         return "success";
     }
 }

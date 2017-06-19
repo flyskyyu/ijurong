@@ -44,7 +44,7 @@ public class HardMemberApplyService extends BaseService<HardMemberApply> {
      * 回复申请
      * @param apply
      */
-    public void apply(HardMemberApply apply) {
+    public void reply(HardMemberApply apply) {
         //不能被更新的设成空
         apply.setApplyTime(null);
         applyMapper.updateByPrimaryKeySelective(apply);

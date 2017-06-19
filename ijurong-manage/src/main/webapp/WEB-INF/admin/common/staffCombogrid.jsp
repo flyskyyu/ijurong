@@ -10,7 +10,7 @@
   String path = request.getContextPath();
   String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
-<select id="editUserName" class="easyui-combogrid" name="staffId"
+<select id="editUserName" class="easyui-combogrid" name="staffId" required="true"
         style="width: 230px"
         data-options="mode:'remote',
                             delay: 700,
