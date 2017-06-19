@@ -33,7 +33,7 @@ public class MobileCarController {
             SimpleUser user = shiroService.getUser();
             car.setPartyBranchId(user.getPartyBranchId());
         }
-        PageInfo<Car> pageInfo = carService.queryByCar(car, page, rows);
+        PageInfo<Car> pageInfo = carService.queryIsUsingByCar(car, page, rows);
         MobileResult result = new MobileResult();
         result.setCode(200);
         result.setData(pageInfo.getList());

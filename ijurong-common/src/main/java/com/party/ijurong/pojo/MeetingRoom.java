@@ -25,6 +25,9 @@ public class MeetingRoom {
 
     private String imgs;
 
+    @Transient
+    private Boolean isUsing;
+
     /**
      * @return id
      */
@@ -149,5 +152,13 @@ public class MeetingRoom {
      */
     public void setImgs(String imgs) {
         this.imgs = imgs == null ? null : imgs.trim();
+    }
+
+    public Boolean getIsUsing() {
+        return isUsing;
+    }
+
+    public void setIsUsing(Boolean isUsing) {
+        this.isUsing = isUsing;
     }
 }

@@ -32,7 +32,7 @@
               </select>
             </td>
             <td class="kv-label">会议室</td>
-            <td class="kv-content"><input type="text" name="name"></td>
+            <td class="kv-content"><input type="text" name="name" class="easyui-validatebox" required="true"></td>
             <td class="kv-label">容纳人数</td>
             <td class="kv-content"><input type="text" name="capacity"></td>
           </tr>
@@ -78,6 +78,7 @@
 
   function onSubmit() {
     if($('#editContainer').data('disabled')) return;
+    if(!$('#editForm').form('validate')) return;
     TT.disabledAllBtns('editContainer');
     $('#editForm').form('submit', {
       success: function (data) {

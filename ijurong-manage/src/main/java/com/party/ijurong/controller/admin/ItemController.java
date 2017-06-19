@@ -28,6 +28,16 @@ public class ItemController {
         return  new Page(pageInfo);
     }
 
+    @RequestMapping(value = "listByQ")
+    @ResponseBody
+    public Page<Item> listByQ(String q, @RequestParam(defaultValue = "1")int page
+            , @RequestParam(defaultValue = "20")int rows) {
+        Item item = new Item();
+        item.setItemName(q);
+        PageInfo<Item> pageInfo = itemService.queryByItem(item, page, rows);
+        return  new Page(pageInfo);
+    }
+
     @RequestMapping(value = "update")
     @ResponseBody
     public String update(Item obj) {

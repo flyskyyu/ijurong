@@ -126,6 +126,7 @@ pageEncoding="UTF-8" %>
 						<li class="subnav-li" href="memberServe/listPage" data-id="43"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党员服务记录</span></a></li>
 						<li class="subnav-li" href="excellentMember/listPage" data-id="44"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">优秀党员管理</span></a></li>
 						<li class="subnav-li" href="hardMemberApply/listPage" data-id="45"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">困难/老党员申请</span></a></li>
+						<li class="subnav-li" href="partyPosition/listPage" data-id="46"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党内职务管理</span></a></li>
 					</ul>
 				</li>
 			</ul>

@@ -1,9 +1,8 @@
 package com.party.ijurong.pojo;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import com.sun.org.apache.xpath.internal.operations.Bool;
+
+import javax.persistence.*;
 
 public class Car {
     @Id
@@ -34,6 +33,9 @@ public class Car {
     private Integer partyBranchId;
 
     private String imgs;
+
+    @Transient
+    private Boolean isUsing;
 
     /**
      * @return id
@@ -185,5 +187,13 @@ public class Car {
 
     public void setDisplacement(String displacement) {
         this.displacement = displacement;
+    }
+
+    public Boolean getIsUsing() {
+        return isUsing;
+    }
+
+    public void setIsUsing(Boolean isUsing) {
+        this.isUsing = isUsing;
     }
 }

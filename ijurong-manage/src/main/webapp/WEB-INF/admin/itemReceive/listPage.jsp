@@ -1,3 +1,4 @@
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%
@@ -24,7 +25,9 @@
     </select><span class="white_space"></span>
       <a href="#" class="easyui-linkbutton" id="btn_Search"
                                                  data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
+      <shiro:hasPermission name="itemReceive:add">
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp;
+      </shiro:hasPermission>
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" id="btn_remove" style="display:none;">删除</a>
     </div>
   </div>
@@ -59,12 +62,13 @@
     $("#editWindow").window({
       title: '新增物品申领',
       onLoad: function() {
+        TT.createEditBtn(['ok', 'cancel']);
         $('#editForm').attr('action', '<%=basePath%>admin/itemReceive/add');
       }
     }).window('open');
   });
 
-  function reply(rowIndex) {
+  /*function reply(rowIndex) {
     $('#tableList').datagrid('selectRow', rowIndex);
     var rowData = $('#tableList').datagrid('getSelected');
     if(rowData == null) return;
@@ -85,9 +89,9 @@
         }
       });
     });
-  }
+  }*/
 
-/*  function reply(rowIndex) {
+  function reply(rowIndex) {
     $('#tableList').datagrid('selectRow', rowIndex);
     var rowData = $('#tableList').datagrid('getSelected');
     if(rowData == null) return;
@@ -97,10 +101,11 @@
         $('#editForm').attr('action', '<%=basePath%>admin/itemReceive/reply')
                 .form('load', rowData);
         TT.disabledAllExcept('editForm');
+        TT.createEditBtn(['yes','no', 'cancel']);
         document.getElementById('replyInput').focus()
       }
     }).window('open');
-  }*/
+  }
 
   function receive(rowIndex) {
     $('#tableList').datagrid('selectRow', rowIndex);
@@ -129,8 +134,7 @@
       onLoad: function() {
         $('#editForm').attr('action', '<%=basePath%>admin/itemReceive/reply').form('load', rowData);
         TT.disabledAll('editForm');
-        $('#edit_btn_add').hide();
-        $('#edit_btn_no').hide();
+        TT.createEditBtn(['cancel']);
       }
     }).window('open');
   }
@@ -139,10 +143,10 @@
     $('#tableList').datagrid('selectRow', rowIndex);
     var rowData = $('#tableList').datagrid('getSelected');
     if(rowData == null) return;
-    $.messager.confirm('确认','确定删除物品名称为 '+rowData.itemName+' 的记录吗？',function(r){
+    $.messager.confirm('确认','确定删除该记录吗？',function(r){
       if (r){
         var params = {"id":rowData.id};
-        $.post("<%=basePath%>admin/item/delete",params, function(data){
+        $.post("<%=basePath%>admin/itemReceive/delete",params, function(data){
           if(data == 'success'){
             $("#tableList").datagrid("reload");
           } else {
@@ -156,15 +160,20 @@
   function formatOperation(value, rowData, rowIndex) {
     var operator = {};
     if(rowData.isAgree == null) {
+      <shiro:hasPermission name="itemReceive:check">
       operator.reply = '回复';
+      </shiro:hasPermission>
     } else {
       if(rowData.isAgree == 1 && rowData.isReceive == 0) {
+        <shiro:hasPermission name="itemReceive:check">
         operator.receive = '领取';
+        </shiro:hasPermission>
       }
       operator.look = '查看';
     }
-
+    <shiro:hasPermission name="itemReceive:delete">
     operator.del = '删除';
+    </shiro:hasPermission>
     return TT.createOptionBtn(operator, rowIndex);
   }
 </script>

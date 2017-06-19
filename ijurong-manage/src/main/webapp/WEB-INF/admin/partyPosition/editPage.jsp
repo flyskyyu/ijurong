@@ -18,47 +18,12 @@
          style="width: 100%;;">
       <form method="post" id="editForm">
         <input type="hidden" name="id"/>
-        <input type="hidden" name="imgs" id="uploadImagesInput"/>
-        <div class="column"><span class="current">车辆信息</span></div>
+        <div class="column"><span class="current">党内职务信息</span></div>
         <table class="kv-table">
           <tbody>
           <tr>
-            <td class="kv-label">所属支部</td>
-            <td class="kv-content">
-              <select class="easyui-combobox" name="partyBranchId">
-                <c:forEach var="branch" items="${sessionScope.USER_KEY.branchInfos}">
-                  <option value="${branch.id}">${branch.organizationName}</option>
-                </c:forEach>
-              </select>
-            </td>
-            <td class="kv-label">车辆名</td>
+            <td class="kv-label">党内职务</td>
             <td class="kv-content"><input type="text" name="name" class="easyui-validatebox" required="true"></td>
-            <td class="kv-label">车牌号</td>
-            <td class="kv-content"><input type="text" name="carNum" class="easyui-validatebox" required="true"></td>
-          </tr>
-          <tr>
-            <td class="kv-label">车辆型号</td>
-            <td class="kv-content"><input type="text" name="model"></td>
-            <td class="kv-label">容纳人员</td>
-            <td class="kv-content"><input type="text" name="capacity"></td>
-            <td class="kv-label">汽车排量</td>
-            <td class="kv-content"><input type="text" name="displacement"></td>
-          </tr>
-          <tr>
-            <td class="kv-label">司机</td>
-            <td class="kv-content"><input type="text" name="driver"></td>
-            <td class="kv-label">联系电话</td>
-            <td class="kv-content" colspan="3"><input type="text" name="phone"></td>
-          </tr>
-          <tr>
-            <td class="kv-label">车辆介绍</td>
-            <td class="kv-content" colspan="5"><textarea name="introduce" rows="3"></textarea></td>
-          </tr>
-          <tr>
-            <td class="kv-label">车辆图片(最多8张)</td>
-            <td class="kv-content" colspan="5" data_id="uploadImagesInput" data_num="8">
-            <jsp:include page="../common/fileUpload.jsp"/>
-            </td>
           </tr>
           </tbody>
         </table>

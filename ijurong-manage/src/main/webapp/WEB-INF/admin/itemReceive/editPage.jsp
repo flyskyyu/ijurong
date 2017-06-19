@@ -22,34 +22,46 @@
         <table class="kv-table">
           <tbody>
           <tr>
-            <td class="kv-label">领取人姓名</td>
-            <td class="kv-content"><input type="text" name="staffName"></td>
+            <td class="kv-label">领取人</td>
+            <td class="kv-content"><select id="editUserName" class="easyui-combogrid easyui-validatebox" name="userId" required="true"
+                                           style="width: 230px"
+                                           data-options="mode:'remote',
+                            delay: 700,
+							panelWidth: 350,
+							loadMsg: '正在搜索，请稍等...',
+							pagination : true,
+							idField: 'staffId',
+							textField: 'staffName',
+							url: '<%=basePath%>admin/staff/listByQ',
+				            columns: [[
+				            {field:'staffName',title:'姓名',width:100},
+				                 {field:'phoneNumber',title:'电话',width:120}
+				            ]],
+				            fitColumns: true
+				            "></select></td>
             <td class="kv-label">电话</td>
             <td class="kv-content"><input type="text" name="phoneNumber"></td>
-            <td class="kv-label">申请时间</td>
-            <td class="kv-content"><input type="text" name="applyTime"></td>
-          </tr>
-          <tr>
-            <td class="kv-label">是否同意</td>
-            <td class="kv-content">
-              <input type="radio" name="isAgree" value="1"/>是&nbsp;&nbsp;
-              <input type="radio" name="isAgree" value="0"/>否
-            </td>
-            <td class="kv-label">是否领取</td>
-            <td class="kv-content">
-              <input type="radio" name="isReceive" value="1"/>是&nbsp;&nbsp;
-              <input type="radio" name="isReceive" value="0"/>否
-            </td>
-            <td class="kv-label">领取时间</td>
-            <td class="kv-content"><input class="easyui-datetimebox" name="receiveTime"/></td>
           </tr>
           <tr>
             <td class="kv-label">领取物品</td>
-            <td class="kv-content"><input type="text" name="itemName"></td>
+            <td class="kv-content"><select id="itemCombogrid" class="easyui-combogrid easyui-validatebox" name="itemId" required="true"
+                                           style="width: 230px"
+                                           data-options="mode:'remote',
+                            delay: 700,
+							panelWidth: 350,
+							loadMsg: '正在搜索，请稍等...',
+							pagination : true,
+							idField: 'id',
+							textField: 'itemName',
+							url: '<%=basePath%>admin/item/listByQ',
+				            columns: [[
+				            {field:'itemName',title:'物品',width:100},
+				                 {field:'num',title:'数量',width:100}
+				            ]],
+				            fitColumns: true
+				            "></select></td>
             <td class="kv-label">领取数量</td>
-            <td class="kv-content"><input type="text" name="num"></td>
-            <td class="kv-label">所需积分</td>
-            <td class="kv-content"><input type="text" name="integral"></td>
+            <td class="kv-content"><input class="easyui-validatebox" required="true" type="text" name="num"></td>
           </tr>
           </tbody>
         </table>
@@ -84,33 +96,33 @@
           </tbody>
         </table>
       </form>
-      <div style="text-align: center;">
-        <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-ok'"
-                                          id="edit_btn_add">同意</a>&nbsp;&nbsp;&nbsp;
-        <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-no'" id="edit_btn_no">不同意</a>
-        &nbsp;&nbsp;&nbsp;
-        <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-cancel'" id="edit_btn_cancel">返回</a>
+      <div style="text-align: center;" id="editBtnGroup">
       </div>
     </div>
   </div>
 </div>
 <script type="text/javascript">
-  $('#edit_btn_no').click(function () {
+  $('#editContainer').on('click', '#edit_btn_no', function() {
     $('#isAgree').val(0);
     onSubmit();
   });
 
-  $('#edit_btn_cancel').click(function () {
+  $('#editContainer').on('click', '#edit_btn_cancel', function() {
     $("#editWindow").window('close');
   });
 
-  $('#edit_btn_add').click(function () {
+  $('#editContainer').on('click', '#edit_btn_yes', function() {
     $('#isAgree').val(1);
+    onSubmit();
+  });
+
+  $('#editContainer').on('click', '#edit_btn_ok', function() {
     onSubmit();
   });
 
   function onSubmit() {
     if($('#editContainer').data('disabled')) return;
+    if(!$('#editForm').form('validate')) return;
     TT.disabledAllBtns('editContainer');
     $('#editForm').form('submit', {
       success: function (data) {
@@ -118,8 +130,10 @@
           $('#editWindow').dialog('close');
           $('#tableList').datagrid('reload');
           return;
-        } else if(data == 'lack') {
+        } else if(data == 'num_lack') {
           $.messager.alert('提示', '物品数量不足!');
+        } else if(data == 'integral_lack') {
+          $.messager.alert('提示', '积分不足!');
         } else {
           $.messager.alert('提示', '提交失败!');
         }

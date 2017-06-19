@@ -22,17 +22,16 @@
           <tbody>
           <tr>
             <td class="kv-label">物品名称</td>
-            <td class="kv-content"><input type="text" name="itemName"></td>
+            <td class="kv-content"><input type="text" name="itemName" class="easyui-validatebox" required="true"></td>
             <td class="kv-label">物品数量</td>
-            <td class="kv-content"><input type="text" name="num"></td>
+            <td class="kv-content"><input type="text" name="num" class="easyui-validatebox" required="true"></td>
             <td class="kv-label">所需积分</td>
             <td class="kv-content"><input type="text" name="integral"></td>
           </tr>
           <tr>
             <td class="kv-label">物品类型</td>
             <td class="kv-content">
-              <select name="type">
-                <option value="0">请选择</option>
+              <select name="type" class="easyui-combobox easyui-validatebox" required="true">
                 <option value="1">实物</option>
                 <option value="2">虚拟物品</option>
                 <option value="3">其它</option>
@@ -40,7 +39,7 @@
             </td>
             <td class="kv-label">物品所属</td>
             <td class="kv-content" colspan="3">
-              <select name="belong">
+              <select name="belong" class="easyui-combobox easyui-validatebox" required="true">
                 <option value="0">请选择</option>
                 <option value="1">党员回馈</option>
                 <option value="2">员工物品</option>
@@ -76,6 +75,7 @@
 
   function onSubmit() {
     if($('#editContainer').data('disabled')) return;
+    if(!$('#editForm').form('validate')) return;
     TT.disabledAllBtns('editContainer');
     $.ajax({
       url: editForm.action,

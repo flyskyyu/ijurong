@@ -23,9 +23,9 @@
           <tbody>
           <tr>
             <td class="kv-label">权限名称</td>
-            <td class="kv-content"><input type="text" name="permissionName"></td>
+            <td class="kv-content"><input type="text" name="permissionName" class="easyui-validatebox" required="true"></td>
             <td class="kv-label">权限编码</td>
-            <td class="kv-content"><input type="text" name="permissionCode"></td>
+            <td class="kv-content"><input type="text" name="permissionCode" class="easyui-validatebox" required="true"></td>
             <td class="kv-label">父权限</td>
             <td class="kv-content">
               <select id="permissionCombogridId" class="easyui-combogrid" name="parentId"
@@ -96,6 +96,7 @@
       return;
     }
     if($('#editContainer').data('disabled')) return;
+    if(!$('#editForm').form('validate')) return;
     TT.disabledAllBtns('editContainer');
     $.ajax({
       url: editForm.action,

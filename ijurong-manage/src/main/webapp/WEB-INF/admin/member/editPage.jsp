@@ -23,7 +23,7 @@
                     <tbody>
                     <tr>
                         <td class="kv-label">姓名</td>
-                        <td class="kv-content"><input type="text" name="staffName"/></td>
+                        <td class="kv-content"><input type="text" name="staffName" class="easyui-validatebox" required="true"/></td>
                         <td class="kv-label">性别</td>
                         <td class="kv-content">
                             <input type="radio" name="sex" value="0"> 男
@@ -70,7 +70,7 @@
                         <td class="kv-label">生日</td>
                         <td class="kv-content"><input class="easyui-datebox" name="birthday"></td>
                         <td class="kv-label">手机号码</td>
-                        <td class="kv-content"><input type="text" name="phoneNumber"/></td>
+                        <td class="kv-content"><input type="text" name="phoneNumber" class="easyui-validatebox" required="true"/></td>
                         <td class="kv-label">email</td>
                         <td class="kv-content"><input type="text" name="email"/></td>
                     </tr>
@@ -99,7 +99,10 @@
                     <tbody>
                     <tr>
                         <td class="kv-label">所在支部</td>
-                        <td class="kv-content"><input type="text" name="partyBranchId"/></td>
+                        <td class="kv-content">
+                            <select id="post_users"  name="partyBranchId" class="easyui-combotree" style="width:200px;"
+                                    data-options="url:'/admin/company/findAllPartyBranchTreeMenuList',multiple:false" required="true">
+                            </select>
                         <td class="kv-label">党内职务</td>
                         <td class="kv-content"><input type="text" name="partyPosition"/></td>
                         <td class="kv-label">月缴党费</td>
@@ -202,6 +205,7 @@
 
     function onSubmit() {
         if($('#editContainer').data('disabled')) return;
+        if(!$('#editForm').form('validate')) return;
         TT.disabledAllBtns('editContainer');
         $('#editForm').form('submit', {
             success: function (data) {

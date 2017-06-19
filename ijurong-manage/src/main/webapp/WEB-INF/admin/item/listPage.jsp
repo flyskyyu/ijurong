@@ -105,8 +105,12 @@
 
   function formatOperation(value, rowData, rowIndex) {
     var operator = {};
+    <shiro:hasPermission name="item:update">
     operator.edit = '编辑';
+    </shiro:hasPermission>
+    <shiro:hasPermission name="item:delete">
     operator.del = '删除';
+    </shiro:hasPermission>
     return TT.createOptionBtn(operator, rowIndex);
   }
 </script>

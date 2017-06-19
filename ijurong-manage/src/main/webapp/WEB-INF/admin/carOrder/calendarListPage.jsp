@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%
@@ -19,6 +20,14 @@
     <script src='<%=basePath%>resource/fullcalendar/fullcalendar.min.js'></script>
     <script src='<%=basePath%>resource/fullcalendar/locale/zh-cn.js'></script>
     <script>
+        var checkPermission = false;
+        var addPermission = false;
+        <shiro:hasPermission name="carOrder:add">
+        addPermission = true;
+        </shiro:hasPermission>
+        <shiro:hasPermission name="carOrder:check">
+        checkPermission = true;
+        </shiro:hasPermission>
         $(function () {
             //页面加载完初始化日历
             $('#calendar').fullCalendar({

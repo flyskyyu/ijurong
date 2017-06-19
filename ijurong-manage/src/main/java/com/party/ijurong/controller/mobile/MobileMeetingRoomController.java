@@ -32,7 +32,7 @@ public class MobileMeetingRoomController {
             SimpleUser user = shiroService.getUser();
             room.setPartyBranchId(user.getPartyBranchId());
         }
-        PageInfo<MeetingRoom> pageInfo = roomService.queryByRoom(room, page, rows);
+        PageInfo<MeetingRoom> pageInfo = roomService.queryIsUsingByRoom(room, page, rows);
         MobileResult result = new MobileResult();
         result.setCode(200);
         result.setData(pageInfo.getList());

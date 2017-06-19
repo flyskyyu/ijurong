@@ -133,3 +133,9 @@
     height: 300px;
     cursor: pointer;
 }
+.textbox-invalid {
+    border: 1px solid #D3D3D3;
+}
+.validatebox-invalid {
+     background-color: white;
+}

@@ -30,9 +30,9 @@
           </tr>
           <tr>
             <td class="kv-label">借取时间</td>
-            <td class="kv-content"><input class="easyui-datetimebox" name="startTime"></td>
+            <td class="kv-content"><input class="easyui-datetimebox" name="startTime" required="true"></td>
             <td class="kv-label">返还时间</td>
-            <td class="kv-content"><input class="easyui-datetimebox" name="endTime"></td>
+            <td class="kv-content"><input class="easyui-datetimebox" name="endTime" required="true"></td>
           </tr>
           <tr>
               <td class="kv-label">随车用品</td>
@@ -110,6 +110,7 @@
 
   function onSubmit() {
     if($('#editContainer').data('disabled')) return;
+      if(!$('#editForm').form('validate')) return;
     TT.disabledAllBtns('editContainer');
     $('#editForm').form('submit', {
       success: function (data) {
