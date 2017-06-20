@@ -49,6 +49,8 @@ public class Item {
      */
     private Integer integral;
 
+    private String avatar;
+
     /**
      * @return id
      */
@@ -201,5 +203,13 @@ public class Item {
      */
     public void setIntegral(Integer integral) {
         this.integral = integral;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

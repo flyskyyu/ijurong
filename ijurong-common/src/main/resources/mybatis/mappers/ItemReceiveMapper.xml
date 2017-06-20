@@ -14,6 +14,7 @@
         <result column="address" property="address" jdbcType="VARCHAR"/>
         <result column="name" property="name" jdbcType="VARCHAR"/>
         <result column="phone" property="phone" jdbcType="VARCHAR"/>
+        <result column="avatar" property="avatar" jdbcType="VARCHAR"/>
         <result column="courier_no" property="courierNo" jdbcType="VARCHAR"/>
         <result column="courier_name" property="courierName" jdbcType="VARCHAR"/>
         <result column="staff_name" property="staffName" jdbcType="VARCHAR"/>

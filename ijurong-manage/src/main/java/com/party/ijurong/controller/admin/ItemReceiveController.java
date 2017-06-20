@@ -26,7 +26,7 @@ public class ItemReceiveController {
     @ResponseBody
     public Page<ItemReceive> list(ItemReceiveDto dto, @RequestParam(defaultValue = "1")int page
             , @RequestParam(defaultValue = "20")int rows) {
-        PageInfo<ItemReceiveDto> pageInfo = itemReceiveService.queryByItemReceive(dto, page, rows);
+        PageInfo<ItemReceiveDto> pageInfo = itemReceiveService.queryByItemReceiveDto(dto, page, rows);
         return  new Page(pageInfo);
     }
 
