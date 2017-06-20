@@ -81,6 +81,10 @@
 
         function add(startTime, endTime) {
             var carId = $('#carComogrid1').combogrid('getValue');
+            if(!addPermission) {
+                $.messager.alert('提示', '没有添加权限!');
+                return;
+            }
             if(!carId) {
                 $.messager.alert('提示', '请选择车辆!');
                 return;
@@ -101,6 +105,10 @@
         }
 
         function reply(rowData) {
+            if(!checkPermission) {
+                $.messager.alert('提示', '没有审核权限!');
+                return;
+            }
             if(rowData == null) return;
             $("#editWindow").window({
                 title: '审核车辆预约申请',

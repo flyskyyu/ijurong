@@ -1,4 +1,5 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%
@@ -19,8 +20,16 @@
     <script src='<%=basePath%>resource/fullcalendar/fullcalendar.min.js'></script>
     <script src='<%=basePath%>resource/fullcalendar/locale/zh-cn.js'></script>
     <script>
+        var addPermission = false;
+        var checkPermission = false;
+        <shiro:hasPermission name="roomOrder:add">
+        addPermission = true;
+        </shiro:hasPermission>
+        <shiro:hasPermission name="roomOrder:check">
+        checkPermission = true;
+        </shiro:hasPermission>
         $(function () {
-//页面加载完初始化日历
+            //页面加载完初始化日历
             $('#calendar').fullCalendar({
                 //设置选项和回调
                 theme: true,
@@ -71,6 +80,10 @@
         });
 
         function add(startTime, endTime) {
+            if(!addPermission) {
+                $.messager.alert('提示', '没有添加权限!');
+                return;
+            }
             var roomId = $('#roomComogrid1').combogrid('getValue');
             if(!roomId) {
                 $.messager.alert('提示', '请选择会议室!');
@@ -92,6 +105,10 @@
         }
 
         function reply(rowData) {
+            if(!checkPermission) {
+                $.messager.alert('提示', '没有审核权限!');
+                return;
+            }
             if(rowData == null) return;
             $("#editWindow").window({
                 title: '审核会议室预约申请',

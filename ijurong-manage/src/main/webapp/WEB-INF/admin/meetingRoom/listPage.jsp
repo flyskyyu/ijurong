@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%
   String path = request.getContextPath();
   String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
@@ -27,7 +28,9 @@
           </c:forEach>
         </select>&nbsp;&nbsp;&nbsp;
         <a href="#" class="easyui-linkbutton" id="btn_Search"  data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;&nbsp;&nbsp;
+      <shiro:hasPermission name="room:add">
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp;
+      </shiro:hasPermission>
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" id="btn_remove" style="display:none;">删除</a>
     </div>
   </div>
@@ -102,8 +105,12 @@
 
   function formatOperation(value, rowData, rowIndex) {
     var operator = {};
+    <shiro:hasPermission name="room:update">
     operator.edit = '编辑';
+    </shiro:hasPermission>
+    <shiro:hasPermission name="room:delete">
     operator.del = '删除';
+    </shiro:hasPermission>
     return TT.createOptionBtn(operator, rowIndex);
   }
 </script>
