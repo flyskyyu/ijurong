@@ -4,13 +4,9 @@ import com.github.pagehelper.PageInfo;
 import com.party.ijurong.bean.MobileResult;
 import com.party.ijurong.bean.Page;
 import com.party.ijurong.bean.SimpleUser;
-import com.party.ijurong.pojo.AppShufflingPic;
-import com.party.ijurong.pojo.AppSkinVersion;
-import com.party.ijurong.pojo.Car;
-import com.party.ijurong.service.AppShufflingPicService;
-import com.party.ijurong.service.AppSkinVersionService;
-import com.party.ijurong.service.CarService;
-import com.party.ijurong.service.MobileShiroService;
+import com.party.ijurong.dto.ActivityDto;
+import com.party.ijurong.pojo.*;
+import com.party.ijurong.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,6 +14,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Cloud on 2017/5/27.
@@ -31,6 +30,15 @@ public class MobileAppSetController {
 
     @Autowired
     private AppSkinVersionService appSkinVersionService;
+
+    @Autowired
+    private NewsService newsService;
+
+    @Autowired
+    private ActivityService activityService;
+
+    @Autowired
+    private MobileShiroService shiroService;
 
     @RequestMapping(value = "getShuffling")
     @ResponseBody
@@ -69,4 +77,53 @@ public class MobileAppSetController {
         }
         return  result;
     }
+
+    @RequestMapping(value = "getSearchInfo")
+    @ResponseBody
+    public MobileResult getSearch(HttpServletRequest httpServletRequest, @RequestParam(defaultValue = "1")int page
+            , @RequestParam(defaultValue = "10")int rows,String title) {
+        MobileResult result = new MobileResult();
+        try
+        {
+            News news=new News();
+            news.setTitle(title);
+            Page<News> newsPage = newsService.findNewssByNews(news, page, rows,"create_time DESC");
+
+            Activity activity=new Activity();
+            activity.setTitle(title);
+            activity.setType(1);
+            SimpleUser user = shiroService.getUser();
+            activity.setPartyBranchId(user.getPartyBranchId());
+            activity.setEndTime(new Date());
+            activity.setFlag(0);
+            PageInfo<Activity> activityList = activityService.queryByActivity(activity, page, rows);
+
+            activity.setType(2);
+            activity.setPartyBranchId(null);
+            activity.setEndTime(new Date());
+            activity.setFlag(0);
+            PageInfo<Activity> volunteerList = activityService.queryByActivity(activity, page, rows);
+
+            activity.setType(3);
+            activity.setPartyBranchId(user.getPartyBranchId());
+            activity.setEndTime(new Date());
+            activity.setFlag(0);
+            PageInfo<Activity> specialList = activityService.queryByActivity(activity, page, rows);
+
+            Map<String,Object> map=new HashMap<String,Object>();
+            map.put("newsList",newsPage.getRows());
+            map.put("activityList",activityList.getList());
+            map.put("volunteerList",volunteerList.getList());
+            map.put("specialList",specialList.getList());
+
+            result.setCode(200);
+            result.setData(map);
+        }catch (Exception e)
+        {
+            result.setCode(400);
+            result.setMsg("系统异常");
+        }
+        return  result;
+    }
+
 }
