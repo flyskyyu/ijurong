@@ -26,6 +26,9 @@ public class ItemService extends BaseService<Item> {
         if(itemName != null && StringUtils.isNotEmpty(itemName.trim())) {
             criteria.andLike("itemName", "%" + itemName+ "%");
         }
+        if(item.getBelong() != null) {
+            criteria.andEqualTo("belong", item.getBelong());
+        }
         example.orderBy("id").desc();
         PageHelper.startPage(page, rows);
         List<Item> items = itemMapper.selectByExample(example);

@@ -9,8 +9,10 @@ import com.party.ijurong.mapper.StaffMapper;
 import com.party.ijurong.pojo.Item;
 import com.party.ijurong.pojo.ItemReceive;
 import com.party.ijurong.pojo.Staff;
+import javafx.scene.shape.Circle;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import tk.mybatis.mapper.entity.Example;
 
 import java.util.Date;
 import java.util.List;
@@ -30,10 +32,22 @@ public class ItemReceiveService extends BaseService<ItemReceive> {
     @Autowired
     private StaffMapper staffMapper;
 
-    public PageInfo<ItemReceiveDto> queryByItemReceive(ItemReceiveDto dto, int page, int rows) {
+    public PageInfo<ItemReceiveDto> queryByItemReceiveDto(ItemReceiveDto dto, int page, int rows) {
         PageHelper.startPage(page, rows);
         List<ItemReceiveDto> dtos = receiveMapper.queryReceiveDtoList(dto);
         return new PageInfo<>(dtos);
+    }
+
+    public PageInfo<ItemReceive> queryByItemReceive(ItemReceive itemReceive, int page, int rows) {
+        Example example = new Example(ItemReceive.class);
+        Example.Criteria criteria = example.createCriteria();
+        if(itemReceive.getUserId() != null) {
+            criteria.andEqualTo("userId", itemReceive.getUserId());
+        }
+        example.orderBy("id").desc();
+        PageHelper.startPage(page, rows);
+        List<ItemReceive> list = receiveMapper.selectByExample(example);
+        return new PageInfo<>(list);
     }
 
     public int apply(ItemReceive itemReceive) {

@@ -15,6 +15,9 @@
   <script type="text/javascript" src="<%=basePath%>ueditor/ueditor.config.js"></script>
   <script type="text/javascript" src="<%=basePath%>ueditor/ueditor.all.js"></script>
   <script type="text/javascript" charset="utf-8" src="<%=basePath%>ueditor/lang/zh-cn/zh-cn.js"></script>
+  <script type="text/javascript" src="<%=basePath%>resource/jqueryFileUpload/js/vendor/jquery.ui.widget.js"></script>
+  <script type="text/javascript" src="<%=basePath%>resource/jqueryFileUpload/js/jquery.iframe-transport.js"></script>
+  <script type="text/javascript" src="<%=basePath%>resource/jqueryFileUpload/js/jquery.fileupload.js"></script>
   <!--以下样式为了解决ue 和easyui的弹出层冲突-->
   <style type="text/css">
     .window{
@@ -73,6 +76,7 @@
       $('#editDialog').dialog('setTitle', '编辑物品');
       $('#editForm').attr('action', '<%=basePath%>admin/item/update')
               .form('load', rowData);
+      resetAvatar(rowData.avatar);
       uEditor.setContent(rowData.introduce);
       $('#editDialog').dialog('open');
     }
@@ -80,6 +84,7 @@
 
   $('#btn_add').bind('click', function() {
     TT.resetForm();
+    resetAvatar(null);
     $('#editDialog').dialog('setTitle', '新增物品');
     $('#editForm').attr('action', '<%=basePath%>admin/item/add');
     $('#editDialog').dialog('open');

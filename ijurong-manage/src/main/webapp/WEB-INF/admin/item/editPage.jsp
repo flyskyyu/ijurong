@@ -17,6 +17,7 @@
          style="width: 100%;;">
       <form method="post" id="editForm">
         <input type="hidden" name="id"/>
+        <input type="hidden" name="avatar" id="avatar"/>
         <div class="column"><span class="current">物品信息</span></div>
         <table class="kv-table">
           <tbody>
@@ -25,8 +26,10 @@
             <td class="kv-content"><input type="text" name="itemName" class="easyui-validatebox" required="true"></td>
             <td class="kv-label">物品数量</td>
             <td class="kv-content"><input type="text" name="num" class="easyui-validatebox" required="true"></td>
-            <td class="kv-label">所需积分</td>
-            <td class="kv-content"><input type="text" name="integral"></td>
+            <td class="kv-label" rowspan="2">图片</td>
+            <td class="kv-content" rowspan="2">
+              <jsp:include page="../common/avatarUpload.jsp"/>
+            </td>
           </tr>
           <tr>
             <td class="kv-label">物品类型</td>
@@ -38,13 +41,17 @@
               </select>
             </td>
             <td class="kv-label">物品所属</td>
-            <td class="kv-content" colspan="3">
+            <td class="kv-content">
               <select name="belong" class="easyui-combobox easyui-validatebox" required="true">
                 <option value="0">请选择</option>
                 <option value="1">党员回馈</option>
                 <option value="2">员工物品</option>
-              </select> <span class="white_space"></span>提示：员工物品所需积分为0
+              </select>
             </td>
+          </tr>
+          <tr>
+            <td class="kv-label">所需积分</td>
+            <td class="kv-content" colspan="5"><input type="text" name="integral"></td>
           </tr>
           <tr>
             <td class="kv-label">领取条件</td>
