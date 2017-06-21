@@ -24,11 +24,13 @@ pageEncoding="UTF-8" %>
         	<div class="sidebar-bg"></div>
             <i class="sidebar-hide"></i>
             <h2><a href="javascript:;"><i class="h2-icon" title="切换到树型结构"></i><span>管理平台</span></a></h2>
+			<div id="subMenu">
+
             <ul class="nav" id="nav_platformManage">
                 <li class="nav-li  current">
                 	<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">新闻管理</span></a>
                     <ul class="subnav  current">
-						<li class="subnav-li" href="index" data-id="1"style="display: none" ><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">首页</span></a></li>
+						<li class="subnav-li" href="index" data-id="0"style="display: none" ><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">首页</span></a></li>
 						<li class="subnav-li" href="news/newsPrograma" data-id="2"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻栏目管理</span></a></li>
 						<li class="subnav-li" href="news/newsSpecial" data-id="3"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻专题管理</span></a></li>
 						<li class="subnav-li" href="news/news" data-id="4"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">新闻管理</span></a></li>
@@ -41,20 +43,6 @@ pageEncoding="UTF-8" %>
                         <li class="subnav-li" href="message/message" data-id="6"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">发送通知公告</span></a></li>
                     </ul>
                 </li>
-                <%--<li class="nav-li">--%>
-                	<%--<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">党务公开</span></a>--%>
-                    <%--<ul class="subnav">--%>
-                    	<%--<li class="subnav-li" data-id="7"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">党务公开</span></a></li>--%>
-                    <%--</ul>--%>
-                <%--</li>--%>
-                <%--<li class="nav-li last-nav-li">--%>
-                	<%--<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">网上办事</span></a>--%>
-                    <%--<ul class="subnav">--%>
-                    	<%--<li class="subnav-li" data-id="12"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">事项管理</span></a></li>--%>
-                        <%--<li class="subnav-li" data-id="13"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">待审核</span></a></li>--%>
-                        <%--<li class="subnav-li" data-id="14"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">归档管理</span></a></li>--%>
-                    <%--</ul>--%>
-                <%--</li>--%>
 
 				<li class="nav-li last-nav-li">
 					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">APP管理</span></a>
@@ -64,16 +52,6 @@ pageEncoding="UTF-8" %>
 						<li class="subnav-li" href="appSet/appSkinVersion" data-id="19"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">皮肤版本发布</span></a></li>
 					</ul>
 				</li>
-
-				<%--<li class="nav-li">--%>
-					<%--<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">参考页</span></a>--%>
-					<%--<ul class="subnav">--%>
-						<%--<li class="subnav-li" href="index.html" data-id="8"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">参考1</span></a></li>--%>
-						<%--<li class="subnav-li" href="form.html" data-id="9"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">参考2</span></a></li>--%>
-						<%--<li class="subnav-li" href="table.html" data-id="10"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">参考3</span></a></li>--%>
-						<%--<li class="subnav-li" data-id="11"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">自定义设置1</span></a></li>--%>
-					<%--</ul>--%>
-				<%--</li>--%>
             </ul>
 
 			<%--<ul class="nav" id="nav_officialManage" style="display: none;">--%>
@@ -181,6 +159,7 @@ pageEncoding="UTF-8" %>
 					</ul>
 				</li>
 			</ul>
+			</div>
             <div class="tree-list outwindow">
             	<div class="tree ztree"></div>
             </div>
@@ -214,42 +193,20 @@ pageEncoding="UTF-8" %>
 <script type="text/javascript" src="<%=basePath%>js/nav.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/Menu.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/jquery.ztree.core-3.5.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/myMenu.js"></script>
+
 <script type="text/javascript">
+	var menus = JSON.parse('${menus}');
+	menuGenerator.init(menus);
+	//menuGenerator.generateSubMenu();
 	var menu = new Menu({
-		defaultSelect: $('.nav').find('li[data-id="1"]')	
+		defaultSelect: $('.nav').find('li[data-id="0"]')
 	});
-	
+
 	// 左侧树结构加载
 	var setting = {};
 
 		var zNodes =[
-			{ name:"新闻管理",
-			   children: [
-				 { name:"新闻视频管理",icon:'/img/skin_/leftlist.png'},
-				 { name:"新闻频道管理",icon:'/img/skin_/leftlist.png'},
-				 { name:"地方新闻管理",icon:'/img/skin_/leftlist.png'}
-			]},
-			{ name:"用户信息设置", open:true,
-			   children: [
-				 { name:"首页", checked:true,icon:'/img/skin_/leftlist.png'},
-				 { name:"表单",icon:'/img/skin_/leftlist.png'},
-				 { name:"表格",icon:'/img/skin_/leftlist.png'},
-				 { name:"自定义设置",icon:'/img/skin_/leftlist.png'}
-			]},
-			{ name:"工作安排",
-			   children: [
-				 { name:"工作安排",icon:'/img/skin_/leftlist.png'},
-				 { name:"安排管理",icon:'/img/skin_/leftlist.png'},
-				 { name:"类型选择",icon:'/img/skin_/leftlist.png'},
-				 { name:"自定义设置",icon:'/img/skin_/leftlist.png'}
-			]},
-			{ name:"数据管理",
-			   children: [
-				 { name:"工作安排",icon:'/img/skin_/leftlist.png'},
-				 { name:"安排管理",icon:'/img/skin_/leftlist.png'},
-				 { name:"类型选择",icon:'/img/skin_/leftlist.png'},
-				 { name:"自定义设置",icon:'/img/skin_/leftlist.png'}
-			]}
 		];
 
 	//$.fn.zTree.init($(".tree"), setting, zNodes);

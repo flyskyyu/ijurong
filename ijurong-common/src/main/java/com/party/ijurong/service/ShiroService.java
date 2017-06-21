@@ -2,6 +2,7 @@ package com.party.ijurong.service;
 
 import com.party.ijurong.bean.SimpleUser;
 import com.party.ijurong.pojo.PartyBranchInfo;
+import com.party.ijurong.pojo.Permission;
 import com.party.ijurong.pojo.Staff;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationToken;
@@ -12,6 +13,7 @@ import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -29,6 +31,8 @@ public class ShiroService {
     private PartyBranchInfoService branchInfoService;
     @Autowired
     private StaffService staffService;
+    @Autowired
+    private PermissionService permissionService;
 
 
     public int login(String username, String password) {
@@ -60,5 +64,30 @@ public class ShiroService {
             session.setAttribute(USER_KEY, user);
         }
         return user;
+    }
+
+    public List<Permission> getAllPermissions() {
+        String key = "MyPermissions";
+        SimpleUser user = getUser();
+        Subject subject = SecurityUtils.getSubject();
+        Session session = subject.getSession();
+        List<Permission> permissions = null;
+        permissions = (List)session.getAttribute(key);
+        if(permissions == null) {
+            permissions = permissionService.queryAllPermissions(user.getUserId());
+            session.setAttribute(key, permissions);
+        }
+        return permissions;
+    }
+
+    public List<Permission> getAllMenus() {
+        List<Permission> permissions = getAllPermissions();
+        List<Permission> menus = new ArrayList<>();
+        for(Permission permission : permissions) {
+            if(permission.getGenerateMenu() == 1) {
+                menus.add(permission);
+            }
+        }
+        return menus;
     }
 }

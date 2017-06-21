@@ -2,12 +2,14 @@ package com.party.ijurong.controller.admin;
 
 import com.github.pagehelper.PageInfo;
 import com.party.ijurong.bean.Page;
+import com.party.ijurong.bean.SimpleUser;
 import com.party.ijurong.pojo.Item;
 import com.party.ijurong.pojo.Permission;
 import com.party.ijurong.pojo.Role;
 import com.party.ijurong.pojo.RolePermission;
 import com.party.ijurong.service.PermissionService;
 import com.party.ijurong.service.RolePermissionService;
+import com.party.ijurong.service.ShiroService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,6 +30,8 @@ public class PermissionController {
     private PermissionService permissionService;
     @Autowired
     private RolePermissionService rolePermissionService;
+    @Autowired
+    private ShiroService shiroService;
 
 
     @RequestMapping(value = "list")

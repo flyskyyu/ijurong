@@ -51,7 +51,7 @@ pageEncoding="UTF-8" %>
         <div class="hd-bottom">
         	<i class="home"><a href="javascript:;"></a></i>
         	<div class="nav-wrap">
-                <ul class="nav ue-clear">
+                <ul class="nav ue-clear" id="topMenu">
                     <li><a href="javascript:;" id="platformManage">平台管理</a></li>
                     <%--<li><a href="javascript:;" id="officialManage">公文流转</a></li>--%>
                     <li><a href="javascript:;" id="companyManage">单位支部</a></li>
@@ -85,7 +85,7 @@ pageEncoding="UTF-8" %>
     </div>
 </div>
 
-<div class="exitDialog">
+<div class="exitDialog" style="display:none;">
 	<div class="content">
     	<div class="ui-dialog-icon"></div>
         <div class="ui-dialog-text">
@@ -123,7 +123,11 @@ pageEncoding="UTF-8" %>
 </body>
 <script type="text/javascript" src="<%=basePath%>js/core.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/jquery.dialog.js"></script>
+<script type="text/javascript" src="<%=basePath%>js/myMenu.js"></script>
 <script type="text/javascript">
+    var menus = JSON.parse('${menus}');
+    menuGenerator.init(menus);
+    //menuGenerator.generateMain();
 $("#bd").height($(window).height()-$("#hd").outerHeight()-26);
 
 $(window).resize(function(e) {
@@ -208,6 +212,13 @@ $('.exitDialog input[type=button]').click(function(e) {
          $(this).toggleClass('active'); 
 	     $('.system-switch').toggle();
     });
+
+    /*$('#topMenu').on('click', 'a', function() {
+        var id = $(this).attr('id');
+        $($('#mainIframe')[0].contentWindow.document).find(".nav").hide();
+        var subId = '#nav_' + id;
+        $($('#mainIframe')[0].contentWindow.document).find(subId).show();
+    });*/
 
     $('#platformManage').click(function()
     {

@@ -103,7 +103,6 @@ public class JsonTest {
         System.out.println(DateUtils.truncate(new Date(), Calendar.DATE));
     }
 
-    @Test
     public void testAliyunDuanxin() {
         /**
          * Step 1. 获取主题引用
@@ -150,7 +149,6 @@ public class JsonTest {
         client.close();
     }
 
-    @Test
     public void testValid() {
         for(int i = 0; i < 10000; i++) {
             Assert.assertTrue(RandomUtils.generateValidCode().length() == 6);
