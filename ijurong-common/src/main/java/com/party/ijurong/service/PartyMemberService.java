@@ -25,7 +25,7 @@ public class PartyMemberService extends BaseService<PartyMember> {
         staff.setPassword(md5Password);
         staffMapper.insertSelective(staff);
         partyMember.setUserId(staff.getStaffId());
-        memberMapper.insert(partyMember);
+        memberMapper.insertSelective(partyMember);
     }
 
     public void updateMember(Staff staff, PartyMember partyMember) {

@@ -3,7 +3,6 @@ package com.party.ijurong.controller.admin;
 import com.github.pagehelper.PageInfo;
 import com.party.ijurong.bean.Page;
 import com.party.ijurong.pojo.Item;
-import com.party.ijurong.pojo.Staff;
 import com.party.ijurong.service.ItemService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

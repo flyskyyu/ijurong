@@ -53,6 +53,7 @@
         <springfox-swagger.version>2.4.0</springfox-swagger.version>
         <org.mapstruct.version>1.1.0.Final</org.mapstruct.version>
         <shiro.version>1.2.3</shiro.version>
+        <fastjson.version>1.2.31</fastjson.version>
     </properties>
     <dependencyManagement>
         <dependencies>
@@ -83,6 +84,11 @@
                 <groupId>com.fasterxml.jackson.core</groupId>
                 <artifactId>jackson-databind</artifactId>
                 <version>${jackson.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>fastjson</artifactId>
+                <version>${fastjson.version}</version>
             </dependency>
             <!-- httpclient -->
             <dependency>
@@ -400,6 +406,10 @@
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>
             <artifactId>jackson-databind</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba</groupId>
+            <artifactId>fastjson</artifactId>
         </dependency>
         <!-- JSP相关 -->
         <dependency>

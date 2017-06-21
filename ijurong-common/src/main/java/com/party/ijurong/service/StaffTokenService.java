@@ -37,15 +37,20 @@ public class StaffTokenService extends BaseService<StaffToken> {
     public StaffToken queryByStaffId(Integer id) {
         StaffToken token = new StaffToken();
         token.setStaffId(id);
-        return tokenMapper.selectOne(token);
+        List<StaffToken> list = tokenMapper.select(token);
+        if(list.size() == 0) {
+            return null;
+        } else {
+            return list.get(0);
+        }
     }
 
     public String saveStaffToken(Staff dbStaff, String deviceNumber, String ip) {
         StaffToken staffToken = queryByStaffId(dbStaff.getStaffId());
-        if(staffToken != null && !deviceNumber.equals(staffToken.getDeviceNumber())) {
+        /*if(staffToken != null && !deviceNumber.equals(staffToken.getDeviceNumber())) {
             //手机已经更换
             return null;
-        }
+        }*/
         if(staffToken == null) {
             staffToken = new StaffToken();
         }

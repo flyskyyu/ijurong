@@ -1,13 +1,14 @@
 package com.party.ijurong.controller.mobile;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.party.ijurong.bean.MobileResult;
 import com.party.ijurong.bean.SimpleUser;
+import com.party.ijurong.pojo.PartyMember;
 import com.party.ijurong.pojo.Staff;
 import com.party.ijurong.pojo.UserSign;
-import com.party.ijurong.service.MobileShiroService;
-import com.party.ijurong.service.StaffService;
-import com.party.ijurong.service.SysManageService;
-import com.party.ijurong.service.UserSignService;
+import com.party.ijurong.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,15 +31,29 @@ public class MobileStaffController {
 
     @Autowired
     private UserSignService userSignService;
+    @Autowired
+    private PartyMemberService memberService;
 
     @RequestMapping("get")
     @ResponseBody
     public MobileResult get() {
-        SimpleUser user = shiroService.getUser();
-        Staff staff = staffService.queryById(user.getUserId());
         MobileResult  result = new MobileResult();
         result.setCode(200);
-        result.setData(staff);
+        try {
+            SimpleUser user = shiroService.getUser();
+            Staff staff = staffService.queryById(user.getUserId());
+            staff.setPassword(null);
+            PartyMember member = memberService.queryById(staff.getStaffId());
+            JSONObject jsonObject= (JSONObject)JSON.toJSON(staff);
+            jsonObject.put("isHardMember", member.getIsHardMember());
+            jsonObject.put("isOldMember", member.getIsOldMember());
+            result.setCode(200);
+            result.setData(jsonObject);
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.setCode(500);
+            result.setMsg("服务器异常");
+        }
         return result;
     }
 
