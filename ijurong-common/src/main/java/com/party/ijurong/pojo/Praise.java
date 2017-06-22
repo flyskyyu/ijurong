@@ -1,5 +1,8 @@
 package com.party.ijurong.pojo;
 
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import org.springframework.format.annotation.DateTimeFormat;
+
 import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -20,7 +23,13 @@ public class Praise {
     private Integer type;
 
     @Column(name = "praised_time")
+    @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
+    @JsonSerialize(using = DateSerializer.class)
     private Date praisedTime;
+
+    private String title;
+
+    private String cover;
 
     /**
      * @return id
@@ -94,5 +103,21 @@ public class Praise {
      */
     public void setPraisedTime(Date praisedTime) {
         this.praisedTime = praisedTime;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 }

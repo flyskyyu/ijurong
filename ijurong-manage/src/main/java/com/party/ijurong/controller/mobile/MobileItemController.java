@@ -2,13 +2,10 @@ package com.party.ijurong.controller.mobile;
 
 import com.github.pagehelper.PageInfo;
 import com.party.ijurong.bean.MobileResult;
+import com.party.ijurong.bean.Page;
 import com.party.ijurong.bean.SimpleUser;
-import com.party.ijurong.pojo.Car;
-import com.party.ijurong.pojo.Item;
-import com.party.ijurong.pojo.ItemReceive;
-import com.party.ijurong.service.ItemReceiveService;
-import com.party.ijurong.service.ItemService;
-import com.party.ijurong.service.MobileShiroService;
+import com.party.ijurong.pojo.*;
+import com.party.ijurong.service.*;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -16,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by Cloud on 2017/6/20.
@@ -30,6 +29,10 @@ public class MobileItemController {
     private ItemReceiveService itemReceiveService;
     @Autowired
     private MobileShiroService shiroService;
+    @Autowired
+    private StaffService staffService;
+    @Autowired
+    private AppShufflingPicService appShufflingPicService;
 
     @RequestMapping(value = "list")
     @ResponseBody
@@ -45,13 +48,22 @@ public class MobileItemController {
         return  result;
     }
 
-    @RequestMapping(value = "hotList")
+    @RequestMapping(value = "integralMall")
     @ResponseBody
-    public MobileResult hotList() {
+    public MobileResult integralMall() {
+        Map map = new HashMap();
+        SimpleUser user = shiroService.getUser();
+        Staff staff = staffService.queryById(user.getUserId());
+        map.put("integral", staff.getIntegral());
         List<Item> list = itemService.queryHotList();
+        map.put("hotList", list);
+        AppShufflingPic appShufflingPic=new AppShufflingPic();
+        appShufflingPic.setFlag(1);
+        Page<AppShufflingPic> page = appShufflingPicService.findAppShufflingPicsByAppShufflingPic(appShufflingPic, 1, 3);
+        map.put("picList", page.getRows());
         MobileResult result = new MobileResult();
         result.setCode(200);
-        result.setData(list);
+        result.setData(map);
         return  result;
     }
 
