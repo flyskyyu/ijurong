@@ -172,16 +172,25 @@ public class MessageController {
     {
         try
         {
-            String[] str=data.replace("%5B%5D","").replace("data","").replace("=", "").trim().split("&");//获取组织ID
-            //发消息
-            MessageSendService messageSendService=new MessageSendService(str,id);
-            messageSendService.start();
-            //更新状态
-            Message message=new Message();
-            message.setId(id);
-            message.setIsPost(1);
-            messageService.updateMessage(message);
-            return "success";
+            Message message1 = messageService.getMessageById(id);
+            if(message1.getIsPost()==0)
+            {
+                String[] str=data.replace("%5B%5D","").replace("data","").replace("=", "").trim().split("&");//获取组织ID
+                //发消息
+                MessageSendService messageSendService=new MessageSendService(str,id);
+                messageSendService.start();
+                //更新状态
+                Message message=new Message();
+                message.setId(id);
+                message.setIsPost(1);
+                messageService.updateMessage(message);
+                return "success";
+            }
+            else
+            {
+                return "fail";
+            }
+
         }
         catch (Exception e)
         {
