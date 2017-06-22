@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.party.ijurong.mapper.ItemMapper">
+    <resultMap id="BaseResultMap" type="com.party.ijurong.pojo.Item">
+        <id column="id" jdbcType="INTEGER" property="id"/>
+        <result column="party_branch_id" jdbcType="INTEGER" property="partyBranchId"/>
+        <result column="item_name" jdbcType="VARCHAR" property="itemName"/>
+        <result column="type" jdbcType="INTEGER" property="type"/>
+        <result column="num" jdbcType="INTEGER" property="num"/>
+        <result column="conditions" jdbcType="VARCHAR" property="conditions"/>
+        <result column="belong" jdbcType="INTEGER" property="belong"/>
+        <result column="integral" jdbcType="INTEGER" property="integral"/>
+        <result column="avatar" jdbcType="VARCHAR" property="avatar"/>
+    </resultMap>
+
+    <select id="queryHotList" resultMap="BaseResultMap">
+        SELECT item.* from item LEFT JOIN item_receive ON item.id = item_receive.item_id GROUP BY item.id ORDER BY count(item.id) DESC
+    </select>
+</mapper>

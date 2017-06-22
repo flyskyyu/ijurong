@@ -2,6 +2,7 @@ package com.party.ijurong.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.party.ijurong.bean.Page;
 import com.party.ijurong.mapper.ItemMapper;
 import com.party.ijurong.pojo.Item;
 import org.apache.commons.lang3.StringUtils;
@@ -33,5 +34,11 @@ public class ItemService extends BaseService<Item> {
         PageHelper.startPage(page, rows);
         List<Item> items = itemMapper.selectByExample(example);
         return new PageInfo<>(items);
+    }
+
+    public List<Item> queryHotList() {
+        PageHelper.startPage(1, 4);
+        List<Item> list = itemMapper.queryHotList();
+        return list;
     }
 }

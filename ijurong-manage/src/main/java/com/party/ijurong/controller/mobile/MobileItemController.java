@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import java.util.List;
+
 /**
  * Created by Cloud on 2017/6/20.
  */
@@ -33,10 +35,23 @@ public class MobileItemController {
     @ResponseBody
     public MobileResult list(Item item, @RequestParam(defaultValue = "1")int page
             , @RequestParam(defaultValue = "20")int rows) {
+        if(item.getBelong() == null) {
+            item.setBelong(1);
+        }
         PageInfo<Item> pageInfo = itemService.queryByItem(item, page, rows);
         MobileResult result = new MobileResult();
         result.setCode(200);
         result.setData(pageInfo.getList());
+        return  result;
+    }
+
+    @RequestMapping(value = "hotList")
+    @ResponseBody
+    public MobileResult hotList() {
+        List<Item> list = itemService.queryHotList();
+        MobileResult result = new MobileResult();
+        result.setCode(200);
+        result.setData(list);
         return  result;
     }
 
