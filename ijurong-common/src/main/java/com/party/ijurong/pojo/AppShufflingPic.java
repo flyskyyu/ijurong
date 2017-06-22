@@ -15,6 +15,8 @@ public class AppShufflingPic {
 
     private Integer type;
 
+    private Integer flag;//0为首页 1为物品兑换
+
     /**
      * 图片功能（app提供一下，用来返回给app，app点击后跳转到相应的界面）可以是url
      */
@@ -168,5 +170,13 @@ public class AppShufflingPic {
      */
     public void setIsDelete(Integer isDelete) {
         this.isDelete = isDelete;
+    }
+
+    public Integer getFlag() {
+        return flag;
+    }
+
+    public void setFlag(Integer flag) {
+        this.flag = flag;
     }
 }

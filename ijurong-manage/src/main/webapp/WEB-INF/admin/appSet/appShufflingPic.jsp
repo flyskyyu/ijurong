@@ -50,6 +50,7 @@
                 appShufflingPic_form.reset();
                 TT.resetForm('appShufflingPic_dialog');
                 $('#detail_type').combobox('setValue', '');
+                $('#flag').combobox('setValue', '');
                 $("#img_uploaded_url").hide();
                 appShufflingPic_form.action = 'addAppShufflingPic';
                 $('#appShufflingPic_dialog').dialog('setTitle', '添加轮播图');
@@ -108,6 +109,7 @@
             appShufflingPic_form.reset();
             TT.resetForm('appShufflingPic_dialog');
             $('#detail_type').combobox('setValue', '');
+            $('#flag').combobox('setValue', '');
 
             $('#appShufflingPic_grid').datagrid('selectRow', id);
             var rowData = $('#appShufflingPic_grid').datagrid('getSelected');
@@ -206,6 +208,14 @@
                             <td class="kv-label">图片上传</td>
                             <td class="kv-content" colspan="3"> <input type="file" name="file"><br/>
                             <img src="#" alt="已上传图片" id ="img_uploaded_url"style="width: 72px;height: 40px;"></td><input type="hidden"  name="url"/>
+                        </tr>
+                        <tr>
+                            <td class="kv-label">展示地址</td>
+                            <td class="kv-content" colspan="3"><select name="flag" id="flag" class="easyui-combobox" data-options="required:true">
+                                <option value="0">首页轮播</option>
+                                <option value="1">物品商城</option>
+                            </select> </td>
+
                         </tr>
                         <tr>
                             <td class="kv-label">功能类型</td>
