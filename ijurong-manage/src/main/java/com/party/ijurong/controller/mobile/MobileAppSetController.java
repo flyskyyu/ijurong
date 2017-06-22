@@ -47,6 +47,7 @@ public class MobileAppSetController {
         try
         {
             AppShufflingPic appShufflingPic=new AppShufflingPic();
+            appShufflingPic.setFlag(0);
             Page<AppShufflingPic> page = appShufflingPicService.findAppShufflingPicsByAppShufflingPic(appShufflingPic, 1, 3);
 
 
