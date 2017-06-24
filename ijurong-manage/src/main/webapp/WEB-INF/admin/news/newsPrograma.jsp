@@ -72,12 +72,10 @@
 
     function formatOperation(value, rowData, rowIndex) {
       var result = "";
-//      if (rowData.level == '0') {
-//        result = '<a style="color:red;text-decoration:none;">管理员</a>';
-//      } else {
+        <shiro:hasPermission name="programa:update">
       result = '<a href="#" onclick="openDialog(' + rowIndex
               + ')" style="color:green;text-decoration:none;">操作</a>';
-//      }
+        </shiro:hasPermission>
       return result;
     }
 
@@ -105,14 +103,18 @@
   <div id="programa_toolbar" style="padding: 5px; height: auto">
     <div style="padding: 5px;">
       栏目名：<input type="text" id="name">&nbsp;
+        <shiro:hasPermission name="programa:query">
       <a href="#" class="easyui-linkbutton" id="btn_Search"
          data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
+        </shiro:hasPermission>
         <shiro:hasPermission name="programa:add">
       <a href="#" class="easyui-linkbutton"
          data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp;
         </shiro:hasPermission>
+        <shiro:hasPermission name="programa:delete">
       <a ref="#" class="easyui-linkbutton"
          data-options="iconCls:'icon-remove'" id="btn_remove">删除</a>
+        </shiro:hasPermission>
     </div>
   </div>
   <table id="programa_grid"

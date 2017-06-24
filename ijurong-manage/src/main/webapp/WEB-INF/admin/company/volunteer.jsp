@@ -1,3 +1,4 @@
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%
@@ -73,12 +74,10 @@
 
         function formatOperation(value, rowData, rowIndex) {
             var result = "";
-//      if (rowData.level == '0') {
-//        result = '<a style="color:red;text-decoration:none;">管理员</a>';
-//      } else {
+            <shiro:hasPermission name="volunteer:update">
             result = '<a href="#" onclick="openDialog(' + rowIndex
             + ')" style="color:green;text-decoration:none;">操作</a>';
-//      }
+            </shiro:hasPermission>
             return result;
         }
 
@@ -138,12 +137,19 @@
                 <option value="2">不通过</option>
                 <option value="3">暂退</option>
             </select>
-            <a href="#" class="easyui-linkbutton" id="btn_Search"
-               data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
+            <shiro:hasPermission name="volunteer:query">
+                <a href="#" class="easyui-linkbutton" id="btn_Search"
+                   data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
+
+            </shiro:hasPermission>
+            <%--<shiro:hasPermission name="volunteer:add">--%>
             <%--<a href="#" class="easyui-linkbutton"--%>
             <%--data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp;--%>
-            <a ref="#" class="easyui-linkbutton"
-               data-options="iconCls:'icon-remove'" id="btn_remove">删除</a>
+            <%--</shiro:hasPermission>--%>
+            <shiro:hasPermission name="volunteer:delete">
+                <a ref="#" class="easyui-linkbutton"
+                   data-options="iconCls:'icon-remove'" id="btn_remove">删除</a>
+            </shiro:hasPermission>
         </div>
     </div>
     <table id="volunteer_grid"
@@ -205,7 +211,8 @@
                         <tbody>
                         <tr>
                             <td class="kv-label">志愿者名称</td>
-                            <td class="kv-content"><input type="text" name="name"  class="easyui-validatebox" data-options="required:true"/></td>
+                            <td class="kv-content"><input type="text" name="name" class="easyui-validatebox"
+                                                          data-options="required:true"/></td>
                             <td class="kv-label">性别</td>
                             <td class="kv-content">
                                 <input type="radio" name="sex" value="1"> 男
@@ -214,9 +221,11 @@
                         </tr>
                         <tr>
                             <td class="kv-label">年龄</td>
-                            <td class="kv-content"><input type="text" name="age"  class="easyui-validatebox" data-options="required:true"></td>
+                            <td class="kv-content"><input type="text" name="age" class="easyui-validatebox"
+                                                          data-options="required:true"></td>
                             <td class="kv-label">联系电话</td>
-                            <td class="kv-content"><input type="text" name="phoneNumber" class="easyui-validatebox" data-options="required:true"></td>
+                            <td class="kv-content"><input type="text" name="phoneNumber" class="easyui-validatebox"
+                                                          data-options="required:true"></td>
                         </tr>
                         <tr>
                             <td class="kv-label">地址</td>

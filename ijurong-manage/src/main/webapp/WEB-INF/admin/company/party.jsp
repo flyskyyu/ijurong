@@ -1,3 +1,4 @@
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%
@@ -156,14 +157,12 @@
 
         function formatOperation(value, rowData, rowIndex) {
             var result = "";
-//      if (rowData.level == '0') {
-//        result = '<a style="color:red;text-decoration:none;">管理员</a>';
-//      } else {
+            <shiro:hasPermission name="party:update">
             result = '<a href="#" onclick="openDialog(' + rowIndex
             + ')" style="color:green;text-decoration:none;">操作</a>'
             + '  ' + '<a href="#" onclick="openMapDialog(' + rowIndex
             + ')" style="color:green;text-decoration:none;">地图</a>';
-//      }
+            </shiro:hasPermission>
             return result;
         }
 
@@ -252,14 +251,21 @@
 <div region="center" style="padding: 5px;">
     <div id="partyBranchInfo_toolbar" style="padding: 5px; height: auto">
         <div style="padding: 5px;">
-            支部名称：<input type="text" id="organizationName">&nbsp;<a href="#"
-                                                                   class="easyui-linkbutton" id="btn_Search"
-                                                                   data-options="iconCls:'icon-search'"
-                                                                   onclick="doSearch()">查找</a>&nbsp;
-            <a href="#" class="easyui-linkbutton"
-               data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp; <a
-                href="#" class="easyui-linkbutton"
-                data-options="iconCls:'icon-remove'" id="btn_remove">删除</a>
+            支部名称：<input type="text" id="organizationName">&nbsp;
+            <shiro:hasPermission name="party:query">
+                <a href="#"
+                   class="easyui-linkbutton" id="btn_Search"
+                   data-options="iconCls:'icon-search'"
+                   onclick="doSearch()">查找</a>&nbsp;
+            </shiro:hasPermission>
+            <shiro:hasPermission name="party:add">
+                <a href="#" class="easyui-linkbutton"
+                   data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp;
+            </shiro:hasPermission>
+            <shiro:hasPermission name="party:delete"> <a
+                    href="#" class="easyui-linkbutton"
+                    data-options="iconCls:'icon-remove'" id="btn_remove">删除</a>
+            </shiro:hasPermission>
         </div>
     </div>
     <table id="partyBranchInfo_grid"
@@ -318,16 +324,19 @@
                         <tbody>
                         <tr>
                             <td class="kv-label">组织名称</td>
-                            <td class="kv-content"><input type="text" name="organizationName" class="easyui-validatebox" data-options="required:true"/></td>
+                            <td class="kv-content"><input type="text" name="organizationName" class="easyui-validatebox"
+                                                          data-options="required:true"/></td>
                             <td class="kv-label">组织代码</td>
                             <td class="kv-content"><input type="text" name="organizationCode"/></td>
                         </tr>
 
                         <tr>
                             <td class="kv-label">组织地址</td>
-                            <td class="kv-content"><input type="text" name="address" class="easyui-validatebox" data-options="required:true"/></td>
+                            <td class="kv-content"><input type="text" name="address" class="easyui-validatebox"
+                                                          data-options="required:true"/></td>
                             <td class="kv-label">组织电话</td>
-                            <td class="kv-content"><input type="text" name="phoneNumber" class="easyui-validatebox" data-options="required:true"/></td>
+                            <td class="kv-content"><input type="text" name="phoneNumber" class="easyui-validatebox"
+                                                          data-options="required:true"/></td>
                         </tr>
 
                         <tr>
@@ -436,9 +445,9 @@
                         <tbody>
                         <tr>
                             <td class="kv-label">经度</td>
-                            <td class="kv-content"><input type="text" id="longitude" name="longitude" readonly /></td>
+                            <td class="kv-content"><input type="text" id="longitude" name="longitude" readonly/></td>
                             <td class="kv-label">纬度</td>
-                            <td class="kv-content"><input type="text" id="latitude" name="latitude" readonly /></td>
+                            <td class="kv-content"><input type="text" id="latitude" name="latitude" readonly/></td>
                         </tr>
                         </tbody>
                     </table>

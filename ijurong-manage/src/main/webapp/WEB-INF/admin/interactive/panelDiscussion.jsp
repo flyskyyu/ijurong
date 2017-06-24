@@ -1,8 +1,9 @@
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
+         pageEncoding="UTF-8" %>
 <%
     String path = request.getContextPath();
-    String basePath = request.getScheme()+"://" +request.getServerName()+":" +request.getServerPort()+path+"/" ;
+    String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -14,12 +15,12 @@
         function doSearch() {
             var panelDiscussion = {};
             panelDiscussion.name = $('#name').val();
-            panelDiscussion.isShadow=$('#isShadow').combobox('getValue');
+            panelDiscussion.isShadow = $('#isShadow').combobox('getValue');
             $('#panelDiscussion_grid').datagrid('load', panelDiscussion);
         }
         function doSubmit() {
             $('#panelDiscussion_form').form('submit', {
-                success : function(data) {
+                success: function (data) {
                     if (data == "had") {
                         $.messager.alert('提示', '发表信息已存在!');
                         return;
@@ -33,8 +34,8 @@
                 }
             });
         }
-        $(function() {
-            $('#btn_add').bind('click', function() {
+        $(function () {
+            $('#btn_add').bind('click', function () {
                 panelDiscussion_form.reset();
                 panelDiscussion_form.action = 'addPanelDiscussion';
                 $('#panelDiscussion_dialog').dialog('setTitle', '添加发表信息');
@@ -43,14 +44,14 @@
             });
         });
 
-        $(function() {
-            $('#btn_remove').bind('click', function() {
+        $(function () {
+            $('#btn_remove').bind('click', function () {
                 var rowData = $('#panelDiscussion_grid').datagrid('getSelected');
                 if (rowData == null) {
                     return;
                 }
                 var url = 'delectPanelDiscussion/' + rowData.id;
-                $.post(url, function(data) {
+                $.post(url, function (data) {
                     if (data == 'success') {
                         $('#panelDiscussion_grid').datagrid('reload');
                     } else {
@@ -62,22 +63,18 @@
 
         function formatOperation(value, rowData, rowIndex) {
             var result = "";
-//      if (rowData.level == '0') {
-//        result = '<a style="color:red;text-decoration:none;">管理员</a>';
-//      } else {
+            <shiro:hasPermission name="panelDiscussion:update">
             result = '<a href="#" onclick="openDialog(' + rowIndex
             + ')" style="color:green;text-decoration:none;">操作</a>';
-//      }
+            </shiro:hasPermission>
             return result;
         }
         function formatType(value, rowData, rowIndex) {
             var result = "";
-            if(rowData.isShadow==0)
-            {
+            if (rowData.isShadow == 0) {
                 result = '<a style="color:green;text-decoration:none;">员工论坛</a>';
             }
-            else
-            {
+            else {
                 result = '<a style="color:red;text-decoration:none;">光影圈</a>';
             }
             return result;
@@ -85,12 +82,10 @@
 
         function formattitle(value, rowData, rowIndex) {
             var result = "";
-            if(rowData.title.length > 20)
-            {
-                result = rowData.title.substring(0,17)+"...";
+            if (rowData.title.length > 20) {
+                result = rowData.title.substring(0, 17) + "...";
             }
-            else
-            {
+            else {
                 result = rowData.title;
             }
             return result;
@@ -118,31 +113,39 @@
     <div id="panelDiscussion_toolbar" style="padding: 5px; height: auto">
         <div style="padding: 5px;">
             发表信息名：<input type="text" id="name">&nbsp;
-            类别：<select  id="isShadow" class="easyui-combobox">
+            类别：<select id="isShadow" class="easyui-combobox">
             <option selected>请选择</option>
             <option value="0">员工论坛</option>
             <option value="1">光影圈</option>
         </select>&nbsp;
-            <a href="#" class="easyui-linkbutton" id="btn_Search"
-               data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
+            <shiro:hasPermission name="panelDiscussion:query">
+                <a href="#" class="easyui-linkbutton" id="btn_Search"
+                   data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
+            </shiro:hasPermission>
+            <%--<shiro:hasPermission name="panelDiscussion:add">--%>
             <%--<a href="#" class="easyui-linkbutton"--%>
-               <%--data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp;--%>
-            <a ref="#" class="easyui-linkbutton"
-               data-options="iconCls:'icon-remove'" id="btn_remove">删除</a>
+            <%--data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp;--%>
+            <%--</shiro:hasPermission>--%>
+            <shiro:hasPermission name="panelDiscussion:delete">
+                <a ref="#" class="easyui-linkbutton"
+                   data-options="iconCls:'icon-remove'" id="btn_remove">删除</a>
+            </shiro:hasPermission>
         </div>
     </div>
     <table id="panelDiscussion_grid"
            class="easyui-datagrid" fitColumns="true" pagination="true"
-           url="findPanelDiscussions" toolbar="#tb" rownumbers="true" pageSize="20" style="width:auto;" singleSelect="true" >
+           url="findPanelDiscussions" toolbar="#tb" rownumbers="true" pageSize="20" style="width:auto;"
+           singleSelect="true">
         <thead>
         <tr>
             <th field="id" hidden="true"></th>
             <th data-options="field:'title',align:'center',formatter:formattitle" width="30">发表信息名称</th>
-            <th data-options="field:'isShadow',align:'center',formatter:formatType"  width="20">类别</th>
-            <th data-options="field:'createTime',align:'center'"  width="20">创建时间</th>
+            <th data-options="field:'isShadow',align:'center',formatter:formatType" width="20">类别</th>
+            <th data-options="field:'createTime',align:'center'" width="20">创建时间</th>
             <th
                     data-options="field:'id1',align:'center',width:50,formatter:formatOperation"
-                    width="20">操作</th>
+                    width="20">操作
+            </th>
         </tr>
         </thead>
     </table>
@@ -191,7 +194,7 @@
                         </tr>
                         <tr>
                             <td class="kv-label">类别</td>
-                            <td class="kv-content" colspan="3"><select  name="isShadow" class="easyui-combobox">
+                            <td class="kv-content" colspan="3"><select name="isShadow" class="easyui-combobox">
                                 <option value="0">员工论坛</option>
                                 <option value="1">光影圈</option>
                             </select></td>
@@ -201,7 +204,7 @@
                 </div>
             </div>
         </div>
-        <input type="hidden" value="0" name="userId"  />
+        <input type="hidden" value="0" name="userId"/>
         <input type="hidden" value="0" name="id"/>
     </form>
 </div>
