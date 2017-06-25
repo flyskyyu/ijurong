@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+    <!-- 定义注解驱动 -->
+    <mvc:annotation-driven/>
+    <!--swagger配置-->
+    <bean class="com.party.ijurong.swagger.CustomSwaggerConfig"/>
+
+    <!-- 定义Controller的扫描包 -->
+    <context:component-scan base-package="com.party.ijurong.controller"/>
+
+    <!-- 不处理静态资源 -->
+    <mvc:default-servlet-handler/>
+
+    <!-- 静态资源(js、image等)的访问 -->
+    <mvc:resources mapping="/css/**" location="/css/"/>
+    <mvc:resources mapping="/img/**" location="/img/"/>
+    <mvc:resources mapping="/js/**" location="/js/"/>
+    <mvc:resources mapping="/ueditor/**" location="/ueditor/"/>
+    <mvc:resources mapping="/lang/**" location="/lang/"/>
+    <mvc:resources mapping="/easyui/**" location="/easyui/"/>
+    <mvc:resources mapping="/resource/**" location="/resource/"/>
+
+
+    <!-- 定义试图解析器 -->
+    <!--
+        Example: prefix="/WEB-INF/jsp/", suffix=".jsp", viewname="test" -> "/WEB-INF/jsp/test.jsp"
+     -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+    <!-- 文件上传解析器 -->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <!-- 限制文件的最大大小,单位字节 -->
+        <property name="maxUploadSize" value="5242880"/>
+    </bean>
+
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/mobile/**"/>
+            <mvc:exclude-mapping path="/mobile/login"/>
+            <mvc:exclude-mapping path="/mobile/register"/>
+            <mvc:exclude-mapping path="/mobile/validCode"/>
+            <mvc:exclude-mapping path="/mobile/logout"/>
+            <mvc:exclude-mapping path="/mobile/branchInfo/listAll"/>
+            <mvc:exclude-mapping path="/mobile/changePassword"/>
+            <mvc:exclude-mapping path="/mobile/listPartyPosition"/>
+            <bean class="com.party.ijurong.filter.MobileSecurityInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
+</beans>
