@@ -1,3 +1,4 @@
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%
@@ -19,7 +20,9 @@
       被服务党员名称：<input type="text" id="name">&nbsp;<a href="#"
                                                  class="easyui-linkbutton" id="btn_Search"
                                                  data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
+      <shiro:hasPermission name="memberServe:add">
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp;
+      </shiro:hasPermission>
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" id="btn_remove" style="display:none;">删除</a>
     </div>
   </div>
@@ -89,8 +92,13 @@
   }
 
   function formatOperation(value, rowData, rowIndex) {
-    var result = '<a href="#" onclick="edit(' + rowIndex + ')" class="operate_btn">编辑</a>';
+    var result = '';
+    <shiro:hasPermission name="memberServe:update">
+    result = '<a href="#" onclick="edit(' + rowIndex + ')" class="operate_btn">编辑</a>';
+    </shiro:hasPermission>
+    <shiro:hasPermission name="memberServe:delete">
     result += '&nbsp;&nbsp;&nbsp;<a href="#" onclick="del(' + rowIndex +  ')" class="operate_btn">删除</a>';
+    </shiro:hasPermission>
     return result;
   }
 </script>

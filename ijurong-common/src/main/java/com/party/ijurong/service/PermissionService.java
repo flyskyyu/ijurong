@@ -25,10 +25,12 @@ public class PermissionService extends BaseService<Permission> {
 
     public PageInfo<Permission> queryByPermission(Permission permission, int page, int rows) {
         Example example = new Example(Permission.class);
-        Example.Criteria criteria = example.createCriteria();
-        String name = permission.getPermissionName();
-        if(name != null && StringUtils.isNotEmpty(name.trim())) {
-            criteria.andLike("permissionName", "%" + name+ "%");
+        if(permission != null) {
+            Example.Criteria criteria = example.createCriteria();
+            String name = permission.getPermissionName();
+            if(name != null && StringUtils.isNotEmpty(name.trim())) {
+                criteria.andLike("permissionName", "%" + name+ "%");
+            }
         }
         example.orderBy("showOrder").asc();
         PageHelper.startPage(page, rows);

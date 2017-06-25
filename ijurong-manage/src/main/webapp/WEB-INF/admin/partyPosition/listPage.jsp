@@ -22,7 +22,9 @@
   <div id="search_toolbar" style="padding: 5px; height: auto">
     <div style="padding: 5px;">
         <a href="#" class="easyui-linkbutton" id="btn_Search"  data-options="iconCls:'icon-search'" onclick="doSearch()">刷新</a>&nbsp;&nbsp;&nbsp;
+      <shiro:hasPermission name="partyPosition:add">
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp;
+      </shiro:hasPermission>
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" id="btn_remove" style="display:none;">删除</a>
     </div>
   </div>
@@ -89,8 +91,12 @@
 
   function formatOperation(value, rowData, rowIndex) {
     var operator = {};
+    <shiro:hasPermission name="partyPosition:update">
     operator.edit = '编辑';
+    </shiro:hasPermission>
+    <shiro:hasPermission name="partyPosition:delete">
     operator.del = '删除';
+    </shiro:hasPermission>
     return TT.createOptionBtn(operator, rowIndex);
   }
 </script>

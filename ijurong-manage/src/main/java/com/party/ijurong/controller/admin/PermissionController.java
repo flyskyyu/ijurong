@@ -46,7 +46,8 @@ public class PermissionController {
     @ResponseBody
     public Map listAll(Integer roleId) {
         Map map = new HashMap();
-        List<Permission> list = permissionService.queryAll();
+        PageInfo<Permission> pageInfo = permissionService.queryByPermission(null, 1, 999999);
+        List<Permission> list = pageInfo.getList();
         map.put("permissions", list);
         if(roleId != null) {
             RolePermission rolePermission = new RolePermission();

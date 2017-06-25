@@ -198,7 +198,7 @@ pageEncoding="UTF-8" %>
 <script type="text/javascript">
 	var menus = JSON.parse('${menus}');
 	menuGenerator.init(menus);
-	//menuGenerator.generateSubMenu();
+	menuGenerator.generateSubMenu();
 	var menu = new Menu({
 		defaultSelect: $('.nav').find('li[data-id="0"]')
 	});

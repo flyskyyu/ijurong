@@ -19,6 +19,7 @@
         staff.staff_id = staff_role.staff_id AND staff_role.role_id = role.id
         AND role.id = role_permission.role_id AND role_permission.permission_id = permission.id
         AND staff.staff_id = #{staffId}
+        ORDER BY show_order ASC
     </select>
 
     <select id="queryAllByRoleId" parameterType="Integer" resultMap="BaseResultMap">
@@ -27,5 +28,6 @@
               , (SELECT count(*) FROM role_permission WHERE role_id = #{id} AND permission_id = permission.id) > 0 AS  checked
           </if>
           FROM permission;
+        ORDER BY show_order ASC
     </select>
 </mapper>

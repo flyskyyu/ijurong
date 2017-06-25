@@ -98,7 +98,7 @@
           $('#oldObjs').val(oldObjs.join(','));
         }
         $.fn.zTree.init($("#permissionTree"), treeSetting, permissions);
-        $.fn.zTree.getZTreeObj("permissionTree").expandAll(true);
+        //$.fn.zTree.getZTreeObj("permissionTree").expandAll(true);
       },
       error : function(msg) {
         alert('树加载异常!');

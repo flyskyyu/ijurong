@@ -127,7 +127,7 @@ pageEncoding="UTF-8" %>
 <script type="text/javascript">
     var menus = JSON.parse('${menus}');
     menuGenerator.init(menus);
-    //menuGenerator.generateMain();
+    menuGenerator.generateMain();
 $("#bd").height($(window).height()-$("#hd").outerHeight()-26);
 
 $(window).resize(function(e) {
@@ -213,12 +213,12 @@ $('.exitDialog input[type=button]').click(function(e) {
 	     $('.system-switch').toggle();
     });
 
-    /*$('#topMenu').on('click', 'a', function() {
+    $('#topMenu').on('click', 'a', function() {
         var id = $(this).attr('id');
         $($('#mainIframe')[0].contentWindow.document).find(".nav").hide();
         var subId = '#nav_' + id;
         $($('#mainIframe')[0].contentWindow.document).find(subId).show();
-    });*/
+    });
 
     $('#platformManage').click(function()
     {

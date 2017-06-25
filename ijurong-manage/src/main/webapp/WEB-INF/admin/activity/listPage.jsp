@@ -1,3 +1,4 @@
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8" %>
 <%
@@ -45,7 +46,9 @@
       结束时间：<input class="easyui-datetimebox" id="endTime"/><span class="white_space"></span>
       <a href="#" class="easyui-linkbutton" id="btn_Search"
                                                  data-options="iconCls:'icon-search'" onclick="doSearch()">查找</a>&nbsp;
+      <shiro:hasPermission name="activity:add">
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-add'" id="btn_add">添加</a>&nbsp;
+      </shiro:hasPermission>
       <a href="#" class="easyui-linkbutton" data-options="iconCls:'icon-remove'" id="btn_remove" style="display:none;">删除</a>
     </div>
   </div>
@@ -169,10 +172,16 @@
     if(rowData.flag == 1) {
       operator.look = '查看';
     } else {
+      <shiro:hasPermission name="activity:update">
       operator.edit = '编辑';
+      </shiro:hasPermission>
+      <shiro:hasPermission name="activity:check">
       operator.finish = '结束';
+      </shiro:hasPermission>
     }
+    <shiro:hasPermission name="activity:delete">
     operator.del = '删除';
+    </shiro:hasPermission>
     return TT.createOptionBtn(operator, rowIndex);
   }
 </script>
