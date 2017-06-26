@@ -8,12 +8,12 @@
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
 	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd http://www.springframework.org/schema/websocket http://www.springframework.org/schema/websocket/spring-websocket.xsd">
 
-    <!-- 使用spring自带的占位符替换功能加载properties文件 -->
-    <context:property-placeholder location="classpath:properties/*.properties" file-encoding="UTF-8"/>
-    <!-- 扫描包 -->
-    <context:component-scan base-package="com.party.ijurong">
-    	<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
-    </context:component-scan>
+    <bean id="myWSHandler" class="com.party.ijurong.websocket.MyWSHandler"/>
 
-    <bean id="objectMapper" class="com.fasterxml.jackson.databind.ObjectMapper"/>
+    <websocket:handlers>
+        <websocket:mapping path="/websocket" handler="myWSHandler"/>
+        <websocket:handshake-interceptors>
+            <bean class="com.party.ijurong.filter.HandshakeInterceptor"/>
+        </websocket:handshake-interceptors>
+    </websocket:handlers>
 </beans>

@@ -120,30 +120,20 @@
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
         <init-param>
             <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring/springmvc-admin.xml</param-value>
+            <param-value>classpath:spring/springmvc.xml</param-value>
         </init-param>
         <load-on-startup>1</load-on-startup>
     </servlet>
 
     <servlet-mapping>
         <servlet-name>ijurongServlet</servlet-name>
-        <url-pattern>/admin/*</url-pattern>
+        <url-pattern>/</url-pattern>
     </servlet-mapping>
 
-    <!-- 配置SpringMVC框架入口 -->
-    <servlet>
-        <servlet-name>client</servlet-name>
-        <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
-        <init-param>
-            <param-name>contextConfigLocation</param-name>
-            <param-value>classpath:spring/springmvc-client.xml</param-value>
-        </init-param>
-        <load-on-startup>1</load-on-startup>
-    </servlet>
 
     <servlet-mapping>
-        <servlet-name>client</servlet-name>
-        <url-pattern>/client/*</url-pattern>
+        <servlet-name>ijurongServlet</servlet-name>
+        <url-pattern>*.html</url-pattern>
     </servlet-mapping>
 
 

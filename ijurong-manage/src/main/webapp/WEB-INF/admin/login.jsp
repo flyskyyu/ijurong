@@ -109,23 +109,24 @@ pageEncoding="UTF-8" %>
         $('#randomcode_img').attr('src', '<%=basePath%>validatecode.jsp?t=' + new Date().getTime());
    }
 
-    /*var websocket;
+    var websocket;
     if ('WebSocket' in window) {
-        websocket = new WebSocket("ws://localhost:8080/Origami/webSocketServer");
+        websocket = new WebSocket("ws://localhost:8080/websocket/webSocketServer");
     } else if ('MozWebSocket' in window) {
         websocket = new MozWebSocket("ws://localhost:8080/Origami/webSocketServer");
-    } else {
-        websocket = new SockJS("http://localhost:8080/Origami/sockjs/webSocketServer");
     }
-    websocket.onopen = function (evnt) {
-    };
-    websocket.onmessage = function (evnt) {
-        $("#msgcount").html("(<font color='red'>"+evnt.data+"</font>)")
-    };
-    websocket.onerror = function (evnt) {
-    };
-    websocket.onclose = function (evnt) {
-    }*/
+    if(websocket) {
+        websocket.onopen = function (evnt) {
+        };
+        websocket.onmessage = function (evnt) {
+            $("#msgcount").html("(<font color='red'>"+evnt.data+"</font>)")
+        };
+        websocket.onerror = function (evnt) {
+        };
+        websocket.onclose = function (evnt) {
+        }
+    } else {
 
+    }
 </script>
 </html>

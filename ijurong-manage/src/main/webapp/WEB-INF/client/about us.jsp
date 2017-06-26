@@ -1,13 +1,19 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8" %>
+<%
+    String path = request.getContextPath();
+    String basePath = request.getScheme()+"://" +request.getServerName()+":" +request.getServerPort()+path+"/" ;
+%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=gb18030" />
-<title>¿ª·¢Çøµ³½¨</title>
+<title>å¼€å‘åŒºå…šå»º</title>
 <link rel="stylesheet" href="css/css.css" type="text/css" />
 </head>
 <body>
 <div class="nav-bar">
-    <div class="welcome"><div class="wel-text">»¶Ó­½øÈë¿ª·¢Çøµ³½¨Æ½Ì¨£¡</div></div>
+    <div class="welcome"><div class="wel-text">æ¬¢è¿Žè¿›å…¥å¼€å‘åŒºå…šå»ºå¹³å°ï¼</div></div>
     <!--<hr class="welcom_hr"/>-->
     <div class="header" style="">
   <div class="header-wrap">
@@ -15,11 +21,11 @@
 
             <div class="nav_top">
                 <ul>
-                    <a href="index.html"><li class="home_nav">µ³½¨Ê×Ò³</li></a>
-       	      		<a href="newslist.html"><li class="news_nav">µ³½¨ÒªÎÅ</li></a>
-                    <a href="reportlist.html"><li class="report_nav">µ³½¨¿ì±¨</li></a>
-                     <a href="expertlist.html"><li class="expert_nav">ÓÅÐãµ³Ô±</li></a>
-                    <a href="about us.html"><li class="contact_us_nav_a">ÁªÏµÎÒÃÇ</li></a>
+                    <a href="index.html"><li class="home_nav">å…šå»ºé¦–é¡µ</li></a>
+       	      		<a href="newslist.html"><li class="news_nav">å…šå»ºè¦é—»</li></a>
+                    <a href="reportlist.html"><li class="report_nav">å…šå»ºå¿«æŠ¥</li></a>
+                     <a href="expertlist.html"><li class="expert_nav">ä¼˜ç§€å…šå‘˜</li></a>
+                    <a href="about us.html"><li class="contact_us_nav_a">è”ç³»æˆ‘ä»¬</li></a>
                     <div class="sreach_icon" active="off" id="navSearch">
                     <img src="images/sreach.png" width="40"height="34"/>
                     </div>
@@ -29,22 +35,22 @@
         </div>
   <div id="searchWarp" class="search-wrap">
 			
-            <button type="submit" class="submit">ËÑË÷</button>
+            <button type="submit" class="submit">æœç´¢</button>
             <input type="text"  class="fd_sreach" />
         </div>
     </div>
 </div>
 <div class="aboutus_bg">
 	<dl>
-    	<dt><span>¿ª·¢Çøµ³½¨Æ½Ì¨</span></dt>
-        <dd>ÔÚÕâÀï£¬Ã¿Ò»¸öÈË¶¼¿ÉÒÔ»ñµÃ×îÐÂ×î¿ìµÄµ³ÄÚÐÅÏ¢¡£</dd>
+    	<dt><span>å¼€å‘åŒºå…šå»ºå¹³å°</span></dt>
+        <dd>åœ¨è¿™é‡Œï¼Œæ¯ä¸€ä¸ªäººéƒ½å¯ä»¥èŽ·å¾—æœ€æ–°æœ€å¿«çš„å…šå†…ä¿¡æ¯ã€‚</dd>
     </dl>
 </div>
 <Div class="aboutus_menu">
 	<ul>
-    	<li><a href="#">¹«Ë¾½éÉÜ</a></li>
-        <li><a href="#">ÁªÏµÎÒÃÇ</a></li>
-<!--        <li><a href="#">Òâ¼û½¨Òé</a></li>
+    	<li><a href="#">å…¬å¸ä»‹ç»</a></li>
+        <li><a href="#">è”ç³»æˆ‘ä»¬</a></li>
+<!--        <li><a href="#">æ„è§å»ºè®®</a></li>
 -->    </ul>
 </Div>
 <div class="aboutus_txt">
@@ -55,13 +61,13 @@
 <li>Web: www.123123.com</li>
 </ul>
 </div>
-<div class="footer"><p>2007-2014°æÈ¨ËùÓÐ</p>
+<div class="footer"><p>2007-2014ç‰ˆæƒæ‰€æœ‰</p>
 
     <p>Tel: 123123123 Email: service@123.comQQ: 123123</p>
 
     <p>Web: www.123.com</p></div>
 <div class="footer_menu">
-    <a href="#">¹ØÓÚÎÒÃÇ</a>|<a href="#">ÁªÏµÎÒÃÇ</a>|<a href="#">ÉÌÎñºÏ×÷</a>|<a href="#">ÆäËû</a> Copyright2000-2014 
+    <a href="#">å…³äºŽæˆ‘ä»¬</a>|<a href="#">è”ç³»æˆ‘ä»¬</a>|<a href="#">å•†åŠ¡åˆä½œ</a>|<a href="#">å…¶ä»–</a> Copyright2000-2014 
     Co.,Ltd
 </div>
 <div class="erweima1"></div>
