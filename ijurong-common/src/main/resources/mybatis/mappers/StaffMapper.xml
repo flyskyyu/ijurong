@@ -27,6 +27,7 @@
         <result column="remark" property="remark" jdbcType="VARCHAR"/>
         <result column="update_time" property="updateTime" jdbcType="TIMESTAMP"/>
         <result column="update_staff_id" property="updateStaffId" jdbcType="INTEGER"/>
+        <result column="active" property="active" jdbcType="INTEGER"/>
     </resultMap>
 
 

@@ -52,8 +52,13 @@ public class MobileLoginController {
             return result;
         }
         Staff dbStaff = staffService.queryByEmailOrPhoneNumber(username);
-        if(StringUtils.isEmpty(deviceNumber)) {
-            result.setMsg("没有设备号");
+        if(dbStaff == null) {
+            result.setMsg("用户不存在");
+            result.setCode(400);
+            return result;
+        }
+        if(dbStaff.getActive().equals(0)) {
+            result.setMsg("用户未激活,请注册激活");
             result.setCode(400);
             return result;
         }
@@ -93,15 +98,22 @@ public class MobileLoginController {
             return result;
         }
         Staff temp = staffService.queryByEmailOrPhoneNumber(staff.getPhoneNumber());
-        if(temp != null) {
+        if(temp == null) {
             result.setCode(300);
-            result.setMsg("此手机已注册，请直接登录");
+            result.setMsg("此用户未注册，请联系支部管理员");
             return result;
         }
-        staff.setPoliticalStatus(4);
-        PartyMember partyMember = new PartyMember();
+        temp.setPassword(staff.getPassword());
+        temp.setStaffName(staff.getStaffName());
+        temp.setActive(1);
+        temp.setPartyBranchId(staff.getPartyBranchId());
+        temp.setSex(staff.getSex());
+        String md5Password = DigestUtils.md5Hex(staff.getPassword());
+        temp.setPassword(md5Password);
+        temp.setIdentityId(staff.getIdentityId());
+        PartyMember partyMember = partyMemberService.queryById(temp.getStaffId());
         partyMember.setPartyPosition(partyPosition);
-        partyMemberService.saveMember(staff, partyMember);
+        partyMemberService.updateMember(temp, partyMember);
         result.setCode(200);
         return result;
     }

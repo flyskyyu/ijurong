@@ -111,6 +111,8 @@ public class Staff {
     @Column(name = "update_staff_id")
     private Integer updateStaffId;
 
+    private Integer active;
+
     /**
      * @return staff_id
      */
@@ -476,5 +478,13 @@ public class Staff {
 
     public void setPoliticalStatus(Integer politicalStatus) {
         this.politicalStatus = politicalStatus;
+    }
+
+    public Integer getActive() {
+        return active;
+    }
+
+    public void setActive(Integer active) {
+        this.active = active;
     }
 }
