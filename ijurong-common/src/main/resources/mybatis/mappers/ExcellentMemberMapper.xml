@@ -10,17 +10,25 @@
         <result column="staff_name" property="staffName" jdbcType="VARCHAR"/>
         <result column="sex" property="sex" jdbcType="TINYINT"/>
         <result column="phone_number" property="phoneNumber" jdbcType="VARCHAR"/>
+        <result column="head_char" property="headChar" jdbcType="VARCHAR"/>
     </resultMap>
 
     <select id="queryExcellentMemberDtoList"  parameterType="ExcellentMemberDto" resultMap="ExcellentMemberMap">
-        SELECT member.*, staff_name, sex, phone_number FROM excellent_member member, staff
+        SELECT member.*, staff_name, sex, phone_number, head_char FROM excellent_member member, staff
         <where>
             member.user_id = staff.staff_id
             <if test="staffName != null and staffName != ''">
                 and staff_name like concat('%', #{staffName}, '%')
             </if>
+            <if test="id != null">
+                AND member.id = #{id}
+            </if>
         </where>
-        ORDER BY member.id DESC
+        ORDER BY
+        <if test="headChar != null and headChar != ''">
+            staff.head_char ASC,
+        </if>
+         member.id DESC
     </select>
 
 </mapper>

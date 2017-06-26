@@ -112,6 +112,8 @@ public class Staff {
     private Integer updateStaffId;
 
     private Integer active;
+    @Column(name = "head_char")
+    private String headChar;
 
     /**
      * @return staff_id
@@ -486,5 +488,13 @@ public class Staff {
 
     public void setActive(Integer active) {
         this.active = active;
+    }
+
+    public String getHeadChar() {
+        return headChar;
+    }
+
+    public void setHeadChar(String headChar) {
+        this.headChar = headChar;
     }
 }

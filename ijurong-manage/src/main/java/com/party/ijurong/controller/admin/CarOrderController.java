@@ -55,7 +55,7 @@ public class CarOrderController {
         dto.setStartTime(calendarDto.getStart());
         dto.setEndTime(calendarDto.getEnd());
         dto.setTypeFilter(calendarDto.getTypeFilter());
-        PageInfo<CarOrderDto> pageInfo = carOrderService.queryCarOrderDtoList(dto, 1, 999999);
+        PageInfo<CarOrderDto> pageInfo = carOrderService.queryCarOrderDtoList(dto, 1, 9999999);
         for(CarOrderDto orderDto : pageInfo.getList()) {
             CalendarDto temp = new CalendarDto();
             temp.setId(orderDto.getId());

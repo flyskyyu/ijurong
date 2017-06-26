@@ -24,7 +24,7 @@
                     <a href="index.html"><li class="home_nav">党建首页</li></a>
        	      		<a href="newslist.html"><li class="news_nav_a">党建要闻</li></a>
                     <a href="reportlist.html"><li class="report_nav">党建快报</li></a>
-                    <a href="expertlist.html"><li class="expert_nav">优秀党员</li></a>
+                    <a href="excellentMember.html"><li class="expert_nav">优秀党员</li></a>
                     <a href="about us.html"><li class="contact_us_nav">联系我们</li></a>
                     <div class="sreach_icon" active="off" id="navSearch">
                     <img src="images/sreach.png" width="40"height="34"/>

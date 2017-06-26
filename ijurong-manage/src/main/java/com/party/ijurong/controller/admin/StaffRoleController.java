@@ -36,7 +36,7 @@ public class StaffRoleController {
             , @RequestParam(defaultValue = "20")int rows) {
         StaffRoleDto dto = new StaffRoleDto();
         dto.setStaffId(staffId);
-        PageInfo<StaffRoleDto> dtos = staffRoleService.queryByDto(dto, 1, 999999);
+        PageInfo<StaffRoleDto> dtos = staffRoleService.queryByDto(dto, 1, 9999999);
         return  dtos.getList();
     }
 

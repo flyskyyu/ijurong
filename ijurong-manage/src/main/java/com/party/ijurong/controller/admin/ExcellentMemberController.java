@@ -39,6 +39,7 @@ public class ExcellentMemberController {
     @ResponseBody
     public String add(ExcellentMember member) {
         member.setId(null);
+
         excellentMemberService.save(member);
         return "success";
     }

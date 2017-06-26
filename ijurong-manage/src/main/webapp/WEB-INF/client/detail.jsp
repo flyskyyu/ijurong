@@ -24,7 +24,7 @@
                    <a href="index.html"><li class="home_nav">智库首页</li></a>
                    <a href="newslist.html"><li class="news_nav_a">智库要闻</li></a>
                    <a href="#"><li class="report_nav">智库报告</li></a>
-                    <a href="expertlist.html"><li class="expert_nav">专家库</li></a>
+                    <a href="excellentMember.html"><li class="expert_nav">专家库</li></a>
                     <a href="literary.html"><li class="experttxt_nav">专家文章</li></a>
                     <a href="microclass_home.html"><li class="learn_nav">智库微课</li></a>
                     <a href="about us.html"><li class="contact_us_nav">关于我们</li></a>

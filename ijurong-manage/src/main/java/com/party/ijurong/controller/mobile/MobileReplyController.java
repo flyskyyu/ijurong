@@ -59,8 +59,13 @@ public class MobileReplyController {
         reply.setStaffId(user.getUserId());
         reply.setPublishTime(new Date());
         replyService.reply(reply);
+        Reply record = new Reply();
+        record.setArticleId(reply.getArticleId());
+        record.setArticleType(reply.getArticleType());
+        int count = replyService.queryCount(record);
         MobileResult result = new MobileResult();
         result.setCode(200);
+        result.setData(count);
         return result;
     }
 

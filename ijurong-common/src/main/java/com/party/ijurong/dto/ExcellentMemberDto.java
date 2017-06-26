@@ -9,6 +9,7 @@ public class ExcellentMemberDto extends ExcellentMember {
     private String staffName;
     private Byte sex;
     private String phoneNumber;
+    private String headChar;
 
     public String getStaffName() {
         return staffName;
@@ -32,5 +33,13 @@ public class ExcellentMemberDto extends ExcellentMember {
 
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
+    }
+
+    public String getHeadChar() {
+        return headChar;
+    }
+
+    public void setHeadChar(String headChar) {
+        this.headChar = headChar;
     }
 }

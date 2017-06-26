@@ -61,7 +61,7 @@ public class MeetingRoomOrderController {
         dto.setStartTime(calendarDto.getStart());
         dto.setEndTime(calendarDto.getEnd());
         dto.setTypeFilter(calendarDto.getTypeFilter());
-        PageInfo<MeetingRoomOrderDto> pageInfo = roomOrderService.queryRoomOrderDtoList(dto, 1, 999999);
+        PageInfo<MeetingRoomOrderDto> pageInfo = roomOrderService.queryRoomOrderDtoList(dto, 1, 9999999);
         for(MeetingRoomOrderDto orderDto : pageInfo.getList()) {
             CalendarDto temp = new CalendarDto();
             temp.setId(orderDto.getId());
