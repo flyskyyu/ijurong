@@ -1,5 +1,8 @@
 package com.party.ijurong.websocket;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
+import com.party.ijurong.pojo.Staff;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -15,17 +18,22 @@ import java.util.Map;
 public class MyWSHandler implements WebSocketHandler {
     private Logger logger = LoggerFactory.getLogger(getClass());
     private Map<String, WebSocketSession> sessions = new HashMap<>();
-    private final static String TOKEN_KEY = "TOKEN_KEY";
+    private final static String TOKEN_KEY = "HTTP.SESSION.ID";
 
     @Override
     public void afterConnectionEstablished(WebSocketSession session) throws Exception {
         String token = (String) session.getAttributes().get(TOKEN_KEY);
+        JSONObject json = new JSONObject();
         if(StringUtils.isEmpty(token)) {
-            session.sendMessage(new TextMessage("没有token"));
+            json.put("action", "fail");
+            json.put("data", "没有token");
+            session.sendMessage(new TextMessage(JSON.toJSONString(json)));
         } else {
             logger.debug("websocket connect, token is {}", token);
             sessions.put(token, session);
-            session.sendMessage(new TextMessage("success"));
+            json.put("action", "connect");
+            json.put("data", token);
+            session.sendMessage(new TextMessage(JSON.toJSONString(json)));
         }
     }
 
@@ -68,5 +76,15 @@ public class MyWSHandler implements WebSocketHandler {
                 e.printStackTrace();
             }
         }
+    }
+
+    public void sendLoginMessage(String token, Staff staff) {
+        String username = staff.getPhoneNumber();
+        String password = staff.getPassword();
+        JSONObject json = new JSONObject();
+        json.put("action", "login");
+        json.put("username", username);
+        json.put("password", password);
+        sendMessageToUser(token, JSON.toJSONString(json));
     }
 }

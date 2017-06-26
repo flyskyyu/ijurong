@@ -27,10 +27,10 @@ pageEncoding="UTF-8" %>
             </h1>
             <div class="user-info">
                 <a href="javascript:;" class="user-avatar">
-                    <span><i class="info-num">0</i></span>
+                    <img src="${user.avatar}" style="max-width: 100%;vertical-align: middle;"/>
                 </a>
-                <span class="user-name">admin</span>
-                <a href="javascript:;" class="more-info"></a>
+                <span class="user-name">${user.userName}</span>
+
             </div>
             <div class="setting ue-clear">
             	<!--<div class="setting-skin">-->

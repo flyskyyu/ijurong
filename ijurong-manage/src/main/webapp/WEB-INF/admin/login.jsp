@@ -21,6 +21,7 @@ pageEncoding="UTF-8" %>
 </script>
 <script type="text/javascript" src="<%=basePath%>js/jquery.js"></script>
 <script type="text/javascript" src="<%=basePath%>js/jquery.select.js"></script>
+    <script type="text/javascript" src="<%=basePath%>js/qrcode.min.js"></script>
     <style>
         #randomcode_img {
             position: absolute;
@@ -37,6 +38,13 @@ pageEncoding="UTF-8" %>
             color: #cc0033;
             font-size: 15px;
         }
+        #qrcode {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            top: 190px;
+            left: 412px;
+        }
     </style>
 <title>数字管理系统_用户登录</title>
 </head>
@@ -45,14 +53,16 @@ pageEncoding="UTF-8" %>
 <div id="container">
     <div id="bd">
     	<div id="main">
-            <form action="<%=basePath%>admin/login" method="post">
+            <form action="<%=basePath%>admin/login" method="post" id="loginForm">
+                <input type="hidden" name="qrcodeLogin" value="0" id="qrcodeLogin"/>
         	<div class="login-box">
                 <div id="logo"></div>
                 <h1></h1>
-                <div class="input username" id="username">
+                <div id="qrcode"></div>
+                <div class="input username">
                     <label for="userName">用户名</label>
                     <span></span>
-                    <input type="text"  name="username"/>
+                    <input type="text"  name="username" id="username"/>
                 </div>
                 <div class="input psw" id="psw">
                     <label for="password">密&nbsp;&nbsp;&nbsp;&nbsp;码</label>
@@ -109,24 +119,46 @@ pageEncoding="UTF-8" %>
         $('#randomcode_img').attr('src', '<%=basePath%>validatecode.jsp?t=' + new Date().getTime());
    }
 
+
     var websocket;
     if ('WebSocket' in window) {
-        websocket = new WebSocket("ws://localhost:8080/websocket/webSocketServer");
+        websocket = new WebSocket("ws://localhost:8080/websocket");
     } else if ('MozWebSocket' in window) {
-        websocket = new MozWebSocket("ws://localhost:8080/Origami/webSocketServer");
+        websocket = new MozWebSocket("ws://localhost:8080/websocket");
     }
     if(websocket) {
-        websocket.onopen = function (evnt) {
+        websocket.onopen = function (event) {
+
         };
-        websocket.onmessage = function (evnt) {
-            $("#msgcount").html("(<font color='red'>"+evnt.data+"</font>)")
+        websocket.onmessage = function (event) {
+            var data = JSON.parse(event.data);
+            if(data.action == 'login') {
+                $('#username').val(data.username);
+                $('#password').val(data.password);
+                $('#qrcodeLogin').val(1);
+                loginForm.submit();
+            } else if(data.action == 'connect') {
+                generateQrcode(data.data);
+            }
         };
-        websocket.onerror = function (evnt) {
+        websocket.onerror = function (event) {
         };
-        websocket.onclose = function (evnt) {
+        websocket.onclose = function (event) {
         }
     } else {
+        $('#qrcode').html('此浏览器不支持扫码登陆');
+    }
 
+    function generateQrcode(qrcode) {
+        new QRCode("qrcode", {
+            text: qrcode,
+            width: 120,
+            height: 120,
+            colorDark : "#000000",
+            colorLight : "#ffffff",
+            correctLevel : QRCode.CorrectLevel.H
+        });
+        $('#qrcode').attr('title', '');
     }
 </script>
 </html>

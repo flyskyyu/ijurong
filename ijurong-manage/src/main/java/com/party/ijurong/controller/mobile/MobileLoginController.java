@@ -1,11 +1,13 @@
 package com.party.ijurong.controller.mobile;
 
 import com.party.ijurong.bean.MobileResult;
+import com.party.ijurong.bean.SimpleUser;
 import com.party.ijurong.pojo.PartyMember;
 import com.party.ijurong.pojo.PartyPosition;
 import com.party.ijurong.pojo.Staff;
 import com.party.ijurong.service.*;
 import com.party.ijurong.utils.RandomUtils;
+import com.party.ijurong.websocket.MyWSHandler;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +36,10 @@ public class MobileLoginController {
     private SmsService smsService;
     @Autowired
     private PartyPositionService partyPositionService;
+    @Autowired
+    private MyWSHandler myWSHandler;
+    @Autowired
+    private MobileShiroService shiroService;
     private String prefixValid = "ValidCode:";
 
     @RequestMapping("login")
@@ -156,6 +162,17 @@ public class MobileLoginController {
         List<PartyPosition> list = partyPositionService.queryAll();
         result.setCode(200);
         result.setData(list);
+        return result;
+    }
+
+    @RequestMapping("qrcodeLogin")
+    @ResponseBody
+    public MobileResult qrcodeLogin(String token) {
+        MobileResult result = new MobileResult();
+        SimpleUser simpleUser = shiroService.getUser();
+        Staff staff = staffService.queryById(simpleUser.getUserId());
+        myWSHandler.sendLoginMessage(token, staff);
+        result.setCode(200);
         return result;
     }
 }

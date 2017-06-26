@@ -36,6 +36,11 @@ public class CustomFormAuthenticationFilter extends FormAuthenticationFilter{
 
             //取出用户输入的验证码
             String randomcode = servletRequest.getParameter("randomcode");
+            String qrcodeLogin = servletRequest.getParameter("qrcodeLogin");
+            if("1".equals(qrcodeLogin)) {
+                //qrcode登陆的场合，不判断验证码，直接登陆
+                return super.onAccessDenied(request, response);
+            }
             if(randomcode == null) {
                 //第一次进入登录页面的场合
                 servletRequest.setAttribute(getFailureKeyAttribute(), "firstToLogin");
@@ -98,7 +103,11 @@ public class CustomFormAuthenticationFilter extends FormAuthenticationFilter{
 
     @Override
     protected String getPassword(ServletRequest request) {
+        String qrcodeLogin = request.getParameter("qrcodeLogin");
         String password = super.getPassword(request);
+        if("1".equals(qrcodeLogin)) {
+            return password;
+        }
         return DigestUtils.md5Hex(password);
     }
 }

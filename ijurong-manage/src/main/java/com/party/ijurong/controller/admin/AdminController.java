@@ -2,6 +2,7 @@ package com.party.ijurong.controller.admin;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.party.ijurong.bean.SimpleUser;
 import com.party.ijurong.pojo.Permission;
 import com.party.ijurong.service.ShiroService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,7 @@ public class AdminController {
     public ModelAndView main() {
         ModelAndView mv = new ModelAndView();
         List<Permission> menus = shiroService.getAllMenus();
+        SimpleUser user = shiroService.getUser();
         String json = "";
         try {
             json = objectMapper.writeValueAsString(menus);
@@ -33,6 +35,7 @@ public class AdminController {
             e.printStackTrace();
         }
         mv.addObject("menus", json);
+        mv.addObject("user", user);
         mv.setViewName("admin/main");
         return mv;
     }

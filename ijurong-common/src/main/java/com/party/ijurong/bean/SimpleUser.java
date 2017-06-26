@@ -16,6 +16,7 @@ public class SimpleUser implements Serializable{
     private Integer partyBranchId;
     private String partyBranchName;
     private String token;
+    private String avatar;
     private List<PartyBranchInfo> branchInfos;
 
     public SimpleUser() {
@@ -27,6 +28,7 @@ public class SimpleUser implements Serializable{
         this.userName = staff.getStaffName();
         this.partyBranchId = staff.getPartyBranchId();
         this.phone = staff.getPhoneNumber();
+        this.avatar = staff.getAvatar();
     }
 
     public Integer getUserId() {
@@ -83,5 +85,13 @@ public class SimpleUser implements Serializable{
 
     public void setPartyBranchName(String partyBranchName) {
         this.partyBranchName = partyBranchName;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }
