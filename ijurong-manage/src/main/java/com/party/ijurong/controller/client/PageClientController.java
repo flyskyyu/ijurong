@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
  */
 @RequestMapping("client")
 @Controller
-public class PageController {
+public class PageClientController {
 
     @RequestMapping(value = "{page}", method = RequestMethod.GET)
     public String toPage1(@PathVariable("page") String pageName) {
