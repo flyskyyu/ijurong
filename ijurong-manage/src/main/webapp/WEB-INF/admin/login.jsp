@@ -150,6 +150,7 @@ pageEncoding="UTF-8" %>
     }
 
     function generateQrcode(qrcode) {
+        qrcode = 'qrcodeLogin:' + qrcode;
         new QRCode("qrcode", {
             text: qrcode,
             width: 120,
