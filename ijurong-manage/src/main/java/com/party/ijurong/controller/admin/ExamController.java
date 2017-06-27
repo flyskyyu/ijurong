@@ -69,6 +69,7 @@ public class ExamController {
     {
         try {
             research.setId(0);
+            research.setIsDeleted(0);
             researchService.insertResearch(research);
 
             List<ResearchExam> list = new ArrayList<ResearchExam>();
