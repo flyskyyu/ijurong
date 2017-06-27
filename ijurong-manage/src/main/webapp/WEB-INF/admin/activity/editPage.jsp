@@ -27,15 +27,15 @@
           <tbody>
           <tr>
             <td class="kv-label">标题</td>
-            <td class="kv-content" colspan="3"><input type="text" name="title"></td>
+            <td class="kv-content" colspan="3"><input type="text" name="title" class="easyui-validatebox" required="true"></td>
             <td class="kv-label" rowspan="2">活动图标</td>
             <td  class="kv-content" rowspan="2"><jsp:include page="../common/avatarUpload.jsp"/></td>
           </tr>
           <tr>
             <td class="kv-label">开始时间</td>
-            <td class="kv-content"><input class="easyui-datetimebox" name="startTime"/></td>
+            <td class="kv-content"><input class="easyui-datetimebox" name="startTime" required="true"/></td>
             <td class="kv-label">结束时间</td>
-            <td class="kv-content"><input class="easyui-datetimebox" name="endTime"/></td>
+            <td class="kv-content"><input class="easyui-datetimebox" name="endTime" required="true"/></td>
           </tr>
           <tr>
             <td class="kv-label">积分</td>
@@ -105,6 +105,7 @@
 
   function onSubmit() {
     if($('#editContainer').data('disabled')) return;
+    if(!$('#editForm').form('validate')) return;
     TT.disabledAllBtns('editContainer');
     var oldStaffs = $('#oldStaffs').val().split(',');
     var newStaffs = $('#newStaffs').val().split(',');
