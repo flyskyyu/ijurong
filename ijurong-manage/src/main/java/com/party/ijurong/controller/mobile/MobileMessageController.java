@@ -124,4 +124,49 @@ public class MobileMessageController {
         return  result;
     }
 
+
+    @RequestMapping(value = "getSysMessages")
+    @ResponseBody
+    public MobileResult getSysMessages(HttpServletRequest httpServletRequest,@RequestParam(defaultValue = "1")int page
+            , @RequestParam(defaultValue = "20")int rows) {
+        MobileResult result = new MobileResult();
+        try
+        {
+            SimpleUser user = shiroService.getUser();
+            Page<MessageSys> pages=messageService.getMessageSysByUserId(user.getUserId(), page, rows);
+
+            //需要加最热...
+            result.setCode(200);
+            result.setData(pages.getRows());
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            result.setCode(400);
+            result.setMsg("系统异常");
+        }
+        return  result;
+    }
+
+
+    @RequestMapping(value = "readSysMessages")
+    @ResponseBody
+    public MobileResult readSysMessages(HttpServletRequest httpServletRequest,@RequestParam int id) {
+        MobileResult result = new MobileResult();
+        try
+        {
+            MessageSys messageSys=new MessageSys();
+            messageSys.setId(id);
+            messageSys.setReadTime(new Date());
+            messageSys.setIsRead(1);
+            messageService.updateMessageSys(messageSys);
+            result.setCode(200);
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            result.setCode(400);
+            result.setMsg("系统异常");
+        }
+        return  result;
+    }
+
 }

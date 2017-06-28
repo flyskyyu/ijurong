@@ -149,7 +149,7 @@
                     if (data == 'success') {
                         $('#partyBranchInfo_grid').datagrid('reload');
                     } else {
-                        $.messager.alert('提示', '删除失败：' + data);
+                        $.messager.alert('提示', '删除失败，支部有下级支部或有其他关联信息，不允许删除！');
                     }
                 });
             });

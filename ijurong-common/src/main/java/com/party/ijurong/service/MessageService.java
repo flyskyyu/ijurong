@@ -5,14 +5,15 @@ import com.github.pagehelper.PageInfo;
 import com.party.ijurong.bean.Page;
 import com.party.ijurong.dto.MessageDto;
 import com.party.ijurong.mapper.MessageMapper;
-import com.party.ijurong.pojo.Message;
-import com.party.ijurong.pojo.MessageType;
-import com.party.ijurong.pojo.Volunteer;
+import com.party.ijurong.mapper.MessageSysMapper;
+import com.party.ijurong.pojo.*;
+import com.party.ijurong.utils.JpushClientUtil;
 import org.apache.ibatis.session.RowBounds;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tk.mybatis.mapper.entity.Example;
 
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -24,6 +25,12 @@ public class MessageService extends BaseService<Message>{
 
     @Autowired
     private MessageMapper messageMapper;
+
+    @Autowired
+    private MessageSysMapper messageSysMapper;
+
+    @Autowired
+    private StaffTokenService staffTokenService;
 
     public PageInfo<MessageDto> getMessageByUserId(int userId, int page, int rows)
     {
@@ -86,6 +93,49 @@ public class MessageService extends BaseService<Message>{
     public void deleteMessage(int id)
     {
         mapper.deleteByPrimaryKey(id);
+    }
+
+
+    //发送系统消息
+    /**
+     * functionContent如下
+     //    通知AAA 组织活动AAB 优秀党员AAC
+     //    互动资源AAD 志愿大厅AAE 问卷调查AAF
+     //    专题讨论AAG 积分商城ABA 消息DAA 党费缴纳DAB
+     //    帐号被顶DAC 会议室BAA 物品管理BAB 车辆管理BAC
+     *
+     * origin就是ConstantOrigin
+     *
+     * messageSys不需要给值以上2个参数 需要title，messagecontent，userid
+     */
+    public void sendSystemMessage(MessageSys messageSys,String functionContent,int origin) throws Exception
+    {
+        messageSys.setCreateTime(new Date());
+        messageSys.setFunctionContent(functionContent);
+        messageSys.setIsRead(0);
+        messageSys.setType(origin);
+        messageSysMapper.insertSelective(messageSys);
+        //极光推送
+        StaffToken staffToken=staffTokenService.queryByStaffId(messageSys.getUserId());
+        String deviceNumber=staffToken.getDeviceNumber();
+        JpushClientUtil.sendToRegistrationId(deviceNumber, messageSys.getTitle(), messageSys.getTitle(), messageSys.getNewsContent(), messageSys.getFunctionContent());
+    }
+
+
+    public Page<MessageSys> getMessageSysByUserId(int userId, int page, int rows)
+    {
+        RowBounds rowBounds=new RowBounds((page - 1) * rows,page*rows);
+        Example example = new Example(MessageSys.class);
+        example.createCriteria().andEqualTo("userId",userId);
+        example.setOrderByClause("create_time DESC");
+        List<MessageSys> list =messageSysMapper.selectByExampleAndRowBounds(example,rowBounds);
+        long count = messageSysMapper.selectCountByExample(example);
+        return new Page<MessageSys>(count, list);
+    }
+
+    public void updateMessageSys(MessageSys messageSys)
+    {
+        messageSysMapper.updateByPrimaryKeySelective(messageSys);
     }
 
 }

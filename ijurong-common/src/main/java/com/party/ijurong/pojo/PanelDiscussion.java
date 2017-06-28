@@ -26,6 +26,9 @@ public class PanelDiscussion {
 
     @Column(name = "is_shadow")
     private Integer isShadow;
+
+    @Column(name = "is_admin")
+    private Integer isAdmin;
     /**
      * @return id
      */
@@ -102,5 +105,13 @@ public class PanelDiscussion {
 
     public void setIsShadow(Integer isShadow) {
         this.isShadow = isShadow;
+    }
+
+    public Integer getIsAdmin() {
+        return isAdmin;
+    }
+
+    public void setIsAdmin(Integer isAdmin) {
+        this.isAdmin = isAdmin;
     }
 }

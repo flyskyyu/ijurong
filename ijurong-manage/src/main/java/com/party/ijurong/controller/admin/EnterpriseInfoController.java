@@ -187,8 +187,18 @@ public class EnterpriseInfoController {
     @ResponseBody
     public String delectPartyBranchInfo(HttpServletRequest httpServletRequest, @PathVariable int id)
     {
-        partyBranchInfoService.deletePartyBranchInfo(id);
-        return "success";
+        try {
+            if (partyBranchInfoService.findPartyBranchInfoByFatherId(id).size() == 0) {
+                partyBranchInfoService.deletePartyBranchInfo(id);
+                return "success";
+            } else {
+                return "fail";
+            }
+        }catch (Exception e)
+        {
+            e.printStackTrace();
+            return "fail";
+        }
     }
 
 

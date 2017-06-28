@@ -8,10 +8,11 @@
         <result column="create_time" property="createTime" jdbcType="TIMESTAMP"/>
         <result column="staff_name" property="staffName" jdbcType="VARCHAR"/>
         <result column="avatar" property="avatar" jdbcType="VARCHAR"/>
+        <result column="is_admin" property="isAdmin" jdbcType="INTEGER"/>
     </resultMap>
 
     <select id="findPanelDiscussionsByIsShadow"  parameterType="Integer" resultMap="DiscussionDtoMap">
-        select a.id,a.user_id,a.title,a.create_time,b.staff_name,b.avatar from panel_discussion a
+        select a.id,a.user_id,a.title,a.create_time,b.staff_name,b.avatar,a.is_admin from panel_discussion a
         LEFT JOIN staff b on a.user_id=b.staff_id
         where a.is_shadow=#{isShadow}  ORDER BY a.create_time desc
     </select>

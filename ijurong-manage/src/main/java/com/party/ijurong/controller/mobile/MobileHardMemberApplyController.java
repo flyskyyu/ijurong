@@ -28,14 +28,17 @@ public class MobileHardMemberApplyController {
 
     @RequestMapping(value = "add")
     @ResponseBody
-    public String add(HardMemberApply obj) {
+    public MobileResult add(HardMemberApply obj) {
         SimpleUser user = shiroService.getUser();
         obj.setId(null);
         obj.setStaffId(user.getUserId());
         obj.setApplyTime(new Date());
         obj.setIsAgree(null);
         applyService.save(obj);
-        return "success";
+        MobileResult result = new MobileResult();
+        result.setCode(200);
+        result.setData("success");
+        return result;
     }
 
     @RequestMapping(value = "myApply")

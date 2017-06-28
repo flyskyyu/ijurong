@@ -205,6 +205,7 @@ public class NewsController {
             news.setUrl(url);
             news.setId(0);
             news.setStatus(1);
+            news.setCheckNum(0);
             newsService.insertNews(news);
             return "success";
         }

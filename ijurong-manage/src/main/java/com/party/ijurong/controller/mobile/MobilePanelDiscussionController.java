@@ -50,6 +50,7 @@ public class MobilePanelDiscussionController {
             panelDiscussion.setCreateTime(new Date());
             panelDiscussion.setTitle(title);
             panelDiscussion.setIsShadow(isShadow);
+            panelDiscussion.setIsAdmin(0);
             panelDiscussionService.insertPanelDiscussion(panelDiscussion);
             //附件
             String[] str=url.split(",");

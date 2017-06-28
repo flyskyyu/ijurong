@@ -63,4 +63,5 @@ public class MessageSendService extends Thread{
         message.setIsPost(2);
         messageService.updateMessage(message);
     }
+
 }
