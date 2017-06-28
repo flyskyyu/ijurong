@@ -12,7 +12,7 @@ public class ActivityDto extends Activity{
     private Integer isNew;
     private Integer isHot;
     private Integer staffId;
-    private List<CombotreeResult> branchInfos;
+    private List<Integer> branchInfoIds;
 
     public Integer getIsNew() {
         return isNew;
@@ -38,11 +38,11 @@ public class ActivityDto extends Activity{
         this.staffId = staffId;
     }
 
-    public List<CombotreeResult> getBranchInfos() {
-        return branchInfos;
+    public List<Integer> getBranchInfoIds() {
+        return branchInfoIds;
     }
 
-    public void setBranchInfos(List<CombotreeResult> branchInfos) {
-        this.branchInfos = branchInfos;
+    public void setBranchInfoIds(List<Integer> branchInfoIds) {
+        this.branchInfoIds = branchInfoIds;
     }
 }

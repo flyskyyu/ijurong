@@ -8,6 +8,7 @@ import com.party.ijurong.pojo.Staff;
 import com.party.ijurong.service.PartyBranchInfoService;
 import com.party.ijurong.service.ShiroService;
 import com.party.ijurong.service.StaffService;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,17 +40,32 @@ public class StaffController {
         return  new Page(pageInfo);
     }
 
+    @RequestMapping(value = "changePassword")
+    @ResponseBody
+    public String changePassword(String password, String oldPassword) {
+        SimpleUser user = shiroService.getUser();
+        Staff staff = staffService.queryById(user.getUserId());
+        if(!staff.getPassword().equals(DigestUtils.md5Hex(oldPassword))) {
+            return "password_recorrect";
+        }
+        String md5Password = DigestUtils.md5Hex(password);
+        staff.setPassword(md5Password);
+        staffService.updateSelective(staff);
+        return  "success";
+    }
+
     @RequestMapping(value = "listByQ")
     @ResponseBody
     public Page<Staff> listByQ(String q, Integer branchId, @RequestParam(defaultValue = "1")int page
             , @RequestParam(defaultValue = "20")int rows) {
         Staff staff = new Staff();
         staff.setStaffName(q);
+        SimpleUser user = shiroService.getUser();
         if(branchId == null) {
-            SimpleUser user = shiroService.getUser();
+
             staff.setPartyBranchId(user.getPartyBranchId());
         } else {
-            List<CombotreeResult> results = branchInfoService.findTreeMenuListById(branchId);
+            List<CombotreeResult> results = branchInfoService.findTreeMenuListById(user.getPartyBranchId());
             staff.setBranchInfos(results);
         }
         PageInfo<Staff> pageInfo = staffService.queryByStaff(staff, page, rows);

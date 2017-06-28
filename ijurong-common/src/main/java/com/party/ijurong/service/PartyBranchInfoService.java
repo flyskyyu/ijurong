@@ -134,17 +134,26 @@ public class PartyBranchInfoService extends BaseService<PartyBranchInfo> {
     public List<CombotreeResult> findTreeMenuListById(int id) {
         List<PartyBranchInfo> list = mapper.selectAll();
         List<CombotreeResult> results = new ArrayList<CombotreeResult>();
+        List<CombotreeResult> subMenus = new ArrayList<>();
+        CombotreeResult parentMenu = null;
         if (list.size() > 0) {
             for (PartyBranchInfo partyBranchInfo : list) {
-                if(id==partyBranchInfo.getId()) {
-                    CombotreeResult combotreeResult = new CombotreeResult();
-                    combotreeResult.setId(partyBranchInfo.getId());
-                    combotreeResult.setText(partyBranchInfo.getOrganizationName());
-                    combotreeResult.setFatherId(partyBranchInfo.getFatherId());
-                    results.add(combotreeResult);
+                CombotreeResult combotreeResult = new CombotreeResult();
+                combotreeResult.setId(partyBranchInfo.getId());
+                combotreeResult.setText(partyBranchInfo.getOrganizationName());
+                combotreeResult.setFatherId(partyBranchInfo.getFatherId());
+                results.add(combotreeResult);
+                if(combotreeResult.getId() == id) {
+                    parentMenu = combotreeResult;
                 }
             }
-            return treeMenuList(results, id);
+            if(parentMenu != null) {
+                parentMenu.setChildren(treeMenuList(results, id));
+                subMenus.add(parentMenu);
+            } else {
+                subMenus = treeMenuList(results, id);
+            }
+            return subMenus;
         } else {
             return null;
         }
@@ -162,6 +171,15 @@ public class PartyBranchInfoService extends BaseService<PartyBranchInfo> {
             }
         }
         return childMenu;
+    }
+
+    public List<Integer> getBranchIds(List<CombotreeResult> results) {
+        List<Integer> ids = new ArrayList<>();
+        for(CombotreeResult result : results) {
+            ids.add(result.getId());
+            ids.addAll(getBranchIds(result.getChildren()));
+        }
+        return ids;
     }
 
 
