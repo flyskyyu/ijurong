@@ -20,6 +20,8 @@ import java.util.*;
 public class StaffService extends BaseService<Staff> {
     @Autowired
     private StaffMapper staffMapper;
+    @Autowired
+    private PartyBranchInfoService branchInfoService;
 
     public PageInfo<Staff> queryByStaff(Staff staff, int page, int rows) {
         Example example = new Example(Staff.class);
@@ -32,10 +34,7 @@ public class StaffService extends BaseService<Staff> {
         }
         if(staff.getBranchInfos() != null && staff.getBranchInfos().size() > 0) {
             List<CombotreeResult> results = staff.getBranchInfos();
-            List<Integer> ids = new ArrayList<>();
-            for(CombotreeResult result : results) {
-                ids.add(result.getId());
-            }
+            List ids = branchInfoService.getBranchIds(results);
             criteria.andIn("partyBranchId", ids);
         }
         PageHelper.startPage(page, rows);

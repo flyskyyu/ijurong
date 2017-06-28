@@ -1,6 +1,7 @@
 package com.party.ijurong.controller.mobile;
 
 import com.github.pagehelper.PageInfo;
+import com.party.ijurong.bean.CombotreeResult;
 import com.party.ijurong.bean.MobileResult;
 import com.party.ijurong.bean.SimpleUser;
 import com.party.ijurong.dto.ActivityDto;
@@ -9,6 +10,7 @@ import com.party.ijurong.pojo.ActivityMember;
 import com.party.ijurong.service.ActivityMemberService;
 import com.party.ijurong.service.ActivityService;
 import com.party.ijurong.service.MobileShiroService;
+import com.party.ijurong.service.PartyBranchInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -30,6 +32,8 @@ public class MobileActivityController {
     private ActivityService activityService;
     @Autowired
     private ActivityMemberService activityMemberService;
+    @Autowired
+    private PartyBranchInfoService branchInfoService;
     private long newCount = 12 * 60 * 60 * 1000;
     private int clickCount = 500;
 
@@ -39,7 +43,9 @@ public class MobileActivityController {
             , @RequestParam(defaultValue = "20") int rows) {
         activity.setType(1);
         SimpleUser user = shiroService.getUser();
-        activity.setPartyBranchId(user.getPartyBranchId());
+        List<CombotreeResult> results = branchInfoService.findTreeMenuListById(user.getPartyBranchId());
+        List<Integer> ids = branchInfoService.getBranchIds(results);
+        activity.setBranchInfoIds(ids);
         activity.setStaffId(user.getUserId());
         activity.setEndTime(new Date());
         activity.setFlag(0);
@@ -73,7 +79,9 @@ public class MobileActivityController {
             , @RequestParam(defaultValue = "20") int rows) {
         activity.setType(2);
         SimpleUser user = shiroService.getUser();
-        activity.setPartyBranchId(null);
+        List<CombotreeResult> results = branchInfoService.findTreeMenuListById(user.getPartyBranchId());
+        List<Integer> ids = branchInfoService.getBranchIds(results);
+        activity.setBranchInfoIds(ids);
         activity.setStaffId(user.getUserId());
         activity.setEndTime(new Date());
         activity.setFlag(0);
@@ -90,7 +98,9 @@ public class MobileActivityController {
             , @RequestParam(defaultValue = "20") int rows) {
         activity.setType(3);
         SimpleUser user = shiroService.getUser();
-        activity.setPartyBranchId(user.getPartyBranchId());
+        List<CombotreeResult> results = branchInfoService.findTreeMenuListById(user.getPartyBranchId());
+        List<Integer> ids = branchInfoService.getBranchIds(results);
+        activity.setBranchInfoIds(ids);
         activity.setStaffId(user.getUserId());
         activity.setEndTime(new Date());
         activity.setFlag(0);
