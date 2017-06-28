@@ -47,6 +47,12 @@
         <if test="flag != null">
             AND flag = #{flag}
         </if>
+        <if test="branchInfos != null">
+            AND party_branch_id IN
+            <foreach item="branchInfo" index="index" collection="branchInfos" open="(" separator="," close=")">
+                #{branchInfo.id}
+            </foreach>
+        </if>
         <if test="orderType == null || orderType == 1">
             ORDER BY id DESC
         </if>

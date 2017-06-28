@@ -138,7 +138,7 @@ public class PartyBranchInfoService extends BaseService<PartyBranchInfo> {
                     results.add(combotreeResult);
                 }
             }
-            return treeMenuList(results, 0);
+            return treeMenuList(results, id);
         } else {
             return null;
         }

@@ -2,6 +2,7 @@ package com.party.ijurong.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.party.ijurong.bean.CombotreeResult;
 import com.party.ijurong.mapper.StaffMapper;
 import com.party.ijurong.pojo.Staff;
 import org.apache.commons.lang3.StringUtils;
@@ -28,6 +29,14 @@ public class StaffService extends BaseService<Staff> {
         }
         if(staff.getPartyBranchId() != null) {
             criteria.andEqualTo("partyBranchId", staff.getPartyBranchId());
+        }
+        if(staff.getBranchInfos() != null && staff.getBranchInfos().size() > 0) {
+            List<CombotreeResult> results = staff.getBranchInfos();
+            List<Integer> ids = new ArrayList<>();
+            for(CombotreeResult result : results) {
+                ids.add(result.getId());
+            }
+            criteria.andIn("partyBranchId", ids);
         }
         PageHelper.startPage(page, rows);
         List<Staff> staffs = staffMapper.selectByExample(example);

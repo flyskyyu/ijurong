@@ -87,7 +87,9 @@
       <tr>
         <td class="kv-label">参与人</td>
         <td class="kv-content">
-          <jsp:include page="../common/staffCombogrid.jsp"/>
+          <jsp:include page="../common/staffCombogrid.jsp">
+            <jsp:param name="branchId" value="0"/>
+            </jsp:include>
         </td>
       </tr>
     </table>

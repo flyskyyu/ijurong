@@ -65,8 +65,10 @@
                 onLoad: function() {
                     $('#editForm').attr('action', '<%=basePath%>admin/member/update')
                             .form('load', rowData);
+                    TT.disabledAllBtns('editContainer');
                     $.get('<%=basePath%>admin/member/getMember', {id:rowData.staffId}, function(data) {
                         $('#editForm').form('load', data);
+                        TT.enabledAllBtns();
                     });
                     if(rowData.avatar) {
                         $('#avatarImg').attr('src', rowData.avatar);

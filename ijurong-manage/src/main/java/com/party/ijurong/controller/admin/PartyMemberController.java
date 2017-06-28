@@ -46,6 +46,16 @@ public class PartyMemberController {
     @RequestMapping(value = "update")
     @ResponseBody
     public String update(Staff staff, PartyMember partyMember) {
+        try {
+            Staff record = new Staff();
+            record.setPhoneNumber(staff.getPhoneNumber());
+            record = staffService.queryOne(record);
+            if(record != null && !record.getStaffId().equals(staff.getStaffId())) {
+                return "phoneExist";
+            }
+        } catch (Exception e) {
+            return "phoneExist";
+        }
         partyMemberService.updateMember(staff, partyMember);
         return "success";
     }
@@ -53,6 +63,12 @@ public class PartyMemberController {
     @RequestMapping(value = "add", method = RequestMethod.POST)
     @ResponseBody
     public String add(Staff staff, PartyMember partyMember) {
+        Staff record = new Staff();
+        record.setPhoneNumber(staff.getPhoneNumber());
+        int count = staffService.queryCount(record);
+        if(count > 0) {
+            return "phoneExist";
+        }
         staff.setPassword(propertyService.INIT_PASSWORD);
         partyMemberService.saveMember(staff, partyMember);
         return "success";

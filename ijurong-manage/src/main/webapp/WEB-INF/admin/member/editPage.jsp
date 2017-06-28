@@ -101,7 +101,7 @@
                         <td class="kv-label">所在支部</td>
                         <td class="kv-content">
                             <select id="post_users"  name="partyBranchId" class="easyui-combotree" style="width:200px;"
-                                    data-options="url:'/admin/company/findAllPartyBranchTreeMenuList',multiple:false" required="true">
+                                    data-options="url:'/admin/company/findAllPartyBranchTreeMenuList',multiple:false,required:true">
                             </select>
                         <td class="kv-label">党内职务</td>
                         <td class="kv-content"><input type="text" name="partyPosition"/></td>
@@ -212,6 +212,9 @@
                 if (data == "success") {
                     $('#editWindow').dialog('close');
                     $('#tableList').datagrid('reload');
+                } else if(data == 'phoneExist') {
+                    $.messager.alert('提示', '手机号码已存在!');
+                    TT.enabledAllBtns();
                 } else {
                     $.messager.alert('提示', '提交失败!');
                 }

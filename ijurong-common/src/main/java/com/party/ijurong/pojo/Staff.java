@@ -2,13 +2,12 @@ package com.party.ijurong.pojo;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.party.ijurong.bean.CombotreeResult;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
+import java.util.List;
 
 public class Staff {
     @Id
@@ -114,6 +113,9 @@ public class Staff {
     private Integer active;
     @Column(name = "head_char")
     private String headChar;
+
+    @Transient
+    private List<CombotreeResult> branchInfos;
 
     /**
      * @return staff_id
@@ -496,5 +498,13 @@ public class Staff {
 
     public void setHeadChar(String headChar) {
         this.headChar = headChar;
+    }
+
+    public List<CombotreeResult> getBranchInfos() {
+        return branchInfos;
+    }
+
+    public void setBranchInfos(List<CombotreeResult> branchInfos) {
+        this.branchInfos = branchInfos;
     }
 }

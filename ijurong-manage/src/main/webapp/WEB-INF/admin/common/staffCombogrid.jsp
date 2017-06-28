@@ -18,6 +18,9 @@
 							loadMsg: '正在搜索，请稍等...',
 							pagination : true,
 							idField: 'staffId',
+							queryParams : {
+                             	branchId: ${param.branchId}
+                             },
 							textField: 'staffName',
 							url: '<%=basePath%>admin/staff/listByQ',
 				            columns: [[
