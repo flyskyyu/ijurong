@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.party.ijurong.mapper.MessageSysMapper" >
+  <resultMap id="BaseResultMap" type="com.party.ijurong.pojo.MessageSys">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="title" jdbcType="VARCHAR" property="title" />
+    <result column="news_content" jdbcType="VARCHAR" property="newsContent" />
+    <result column="user_id" jdbcType="INTEGER" property="userId" />
+    <result column="function_content" jdbcType="VARCHAR" property="functionContent" />
+    <result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
+    <result column="type" jdbcType="INTEGER" property="type" />
+    <result column="is_read" jdbcType="INTEGER" property="isRead" />
+    <result column="read_time" jdbcType="TIMESTAMP" property="readTime" />
+  </resultMap>
+</mapper>
