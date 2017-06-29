@@ -125,12 +125,15 @@ pageEncoding="UTF-8" %>
         $('#randomcode_img').attr('src', '<%=basePath%>validatecode.jsp?t=' + new Date().getTime());
    }
 
-
+    var baseUrl = '<%=basePath%>';
+    baseUrl = baseUrl.replace('http://', 'ws://');
+    baseUrl = baseUrl.replace('https://', 'ws://');
+    var url = baseUrl + 'websocket';
     var websocket;
     if ('WebSocket' in window) {
-        websocket = new WebSocket("ws://localhost:8080/websocket");
+        websocket = new WebSocket(url);
     } else if ('MozWebSocket' in window) {
-        websocket = new MozWebSocket("ws://localhost:8080/websocket");
+        websocket = new MozWebSocket(url);
     }
     if(websocket) {
         websocket.onopen = function (event) {

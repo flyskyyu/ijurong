@@ -2,12 +2,14 @@ package com.party.ijurong.service;
 
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
+import com.party.ijurong.constants.ConstantOrigin;
 import com.party.ijurong.dto.ActivityDto;
 import com.party.ijurong.mapper.ActivityMapper;
 import com.party.ijurong.mapper.ActivityMemberMapper;
 import com.party.ijurong.mapper.StaffMapper;
 import com.party.ijurong.pojo.Activity;
 import com.party.ijurong.pojo.ActivityMember;
+import com.party.ijurong.pojo.MessageSys;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -29,6 +31,8 @@ public class ActivityService extends BaseService<Activity> {
     private ActivityMemberMapper activityMemberMapper;
     @Autowired
     private StaffMapper staffMapper;
+    @Autowired
+    private MessageService messageService;
 
     public PageInfo<Activity> queryByActivity(Activity activity, int page, int rows) {
         Example example = new Example(Activity.class);
@@ -76,6 +80,7 @@ public class ActivityService extends BaseService<Activity> {
     private void addStaffs(String addStaffs, Integer activityId) {
         if(StringUtils.isEmpty(addStaffs)) return;
         String[] datas = addStaffs.split(",");
+        Activity activity = activityMapper.selectByPrimaryKey(activityId);
         for(String data : datas) {
             String[] staff = data.split(":");
             ActivityMember member = new ActivityMember();
@@ -83,6 +88,23 @@ public class ActivityService extends BaseService<Activity> {
             member.setStaffName(staff[1]);
             member.setActivityId(activityId);
             activityMemberMapper.insert(member);
+            MessageSys messageSys = new MessageSys();
+            messageSys.setTitle("有新活动了");
+            messageSys.setNewsContent("你有活动需要参加");
+            messageSys.setUserId(member.getStaffId());
+            String functionContent = "";
+            if(activity.getType().equals(1)) {
+                functionContent = "AAB";
+            } else if(activity.getType().equals(2)) {
+                functionContent = "AAE ";
+            } else if(activity.getType().equals(3)) {
+                functionContent = "AAG";
+            }
+            try {
+                messageService.sendSystemMessage(messageSys, functionContent, ConstantOrigin.C7_ACTIVITIES);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
     }
 
