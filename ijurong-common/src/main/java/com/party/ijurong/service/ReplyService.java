@@ -39,9 +39,9 @@ public class ReplyService extends BaseService<Reply> {
 
     public void reply(Reply reply) {
         replyMapper.insertSelective(reply);
-        if(reply.getParentId() != null) {
+        /*if(reply.getParentId() != null) {
             replyMapper.increaseReplyNum(reply.getParentId());
-        }
+        }*/
     }
 
     public PageInfo<ReplyDto> queryByReplyDto(ReplyDto dto, int page, int rows) {

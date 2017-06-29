@@ -40,10 +40,16 @@ pageEncoding="UTF-8" %>
         }
         #qrcode {
             position: absolute;
-            width: 120px;
-            height: 120px;
-            top: 190px;
-            left: 412px;
+            width: 100px;
+            height: 100px;
+            top: 211px;
+            left: 422px;
+        }
+        #qrcode h2 {
+            position: absolute;
+            top: -24px;
+            font-weight: bold;
+            left: 9px;
         }
     </style>
 <title>数字管理系统_用户登录</title>
@@ -58,7 +64,7 @@ pageEncoding="UTF-8" %>
         	<div class="login-box">
                 <div id="logo"></div>
                 <h1></h1>
-                <div id="qrcode"></div>
+                <div id="qrcode"><h2>APP扫码登陆</h2></div>
                 <div class="input username">
                     <label for="userName">用户名</label>
                     <span></span>
@@ -153,8 +159,8 @@ pageEncoding="UTF-8" %>
         qrcode = 'qrcodeLogin:' + qrcode;
         new QRCode("qrcode", {
             text: qrcode,
-            width: 120,
-            height: 120,
+            width: 100,
+            height: 100,
             colorDark : "#000000",
             colorLight : "#ffffff",
             correctLevel : QRCode.CorrectLevel.H

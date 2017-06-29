@@ -8,10 +8,8 @@ import com.party.ijurong.dto.ReplyDto;
 import com.party.ijurong.pojo.Mark;
 import com.party.ijurong.pojo.Praise;
 import com.party.ijurong.pojo.Reply;
-import com.party.ijurong.service.MarkService;
-import com.party.ijurong.service.MobileShiroService;
-import com.party.ijurong.service.PraiseService;
-import com.party.ijurong.service.ReplyService;
+import com.party.ijurong.pojo.Staff;
+import com.party.ijurong.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,15 +35,18 @@ public class MobileReplyController {
     private PraiseService praiseService;
     @Autowired
     private MarkService markService;
+    @Autowired
+    private StaffService staffService;
 
     @RequestMapping(value = "myList")
     @ResponseBody
     public MobileResult myList(@RequestParam(defaultValue = "1") int page
             , @RequestParam(defaultValue = "20") int rows) {
         SimpleUser user = shiroService.getUser();
-        Reply reply = new Reply();
-        reply.setStaffId(user.getUserId());
-        PageInfo<Reply> pageInfo = replyService.queryByReply(reply, page, rows);
+        ReplyDto dto = new ReplyDto();
+        dto.setStaffId(user.getUserId());
+        dto.setShowMyReply(true);
+        PageInfo<ReplyDto> pageInfo = replyService.queryByReplyDto(dto, page, rows);
         MobileResult result = new MobileResult();
         result.setCode(200);
         result.setData(pageInfo.getList());
@@ -75,6 +76,7 @@ public class MobileReplyController {
             , @RequestParam(defaultValue = "20") int rows) {
         SimpleUser user = shiroService.getUser();
         dto.setStaffId(user.getUserId());
+        dto.setShowMyReply(false);
         PageInfo<ReplyDto> dtos = replyService.queryByReplyDto(dto, page, rows);
         MobileResult result = new MobileResult();
         result.setCode(200);

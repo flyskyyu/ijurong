@@ -14,6 +14,8 @@
         <result column="staff_name" property="staffName" jdbcType="VARCHAR"/>
         <result column="avatar" property="avatar" jdbcType="VARCHAR"/>
         <result column="isLiked" property="isLiked" jdbcType="INTEGER"/>
+        <result column="title" property="title" jdbcType="VARCHAR"/>
+        <result column="cover" property="cover" jdbcType="INTEGER"/>
     </resultMap>
     <update id="increaseReplyNum" parameterType="Integer">
         UPDATE reply set reply_num = reply_num + 1 WHERE id = #{id}
@@ -24,22 +26,29 @@
 
     <select id="queryByReplyDto" parameterType="ReplyDto" resultMap="BaseResultMap">
         SELECT reply.*, staff.staff_name, staff.avatar
+        , (SELECT count(*) FROM reply as r WHERE r.parent_id = reply.id) as reply_num
+        , (SELECT count(*) FROM praise as pra WHERE  pra.praised_id = reply.id AND pra.type = 20) as like_num
         <if test="staffId != null">
-            , (SELECT count(*) FROM praise WHERE staff_id = #{staffId} AND praised_id = reply.id AND type = 20) as isLiked
+            , (SELECT count(*) FROM praise as p WHERE p.staff_id = #{staffId} AND p.praised_id = reply.id AND p.type = 20) as isLiked
         </if>
         FROM reply, staff WHERE
         reply.staff_id = staff.staff_id
+        <if test="showMyReply and staffId != null">
+            AND reply.staff_id = #{staffId}
+        </if>
         <if test="articleId != null">
             AND reply.article_id = #{articleId}
         </if>
         <if test="articleType != null">
             AND reply.article_type = #{articleType}
         </if>
-        <if test="parentId != null">
-            AND reply.parent_id = #{parentId}
-        </if>
-        <if test="parentId == null">
-            AND reply.parent_id is null
+        <if test="showMyReply == false">
+            <if test="parentId != null">
+                AND reply.parent_id = #{parentId}
+            </if>
+            <if test="parentId == null">
+                AND reply.parent_id is null
+            </if>
         </if>
         ORDER BY reply.id DESC
     </select>

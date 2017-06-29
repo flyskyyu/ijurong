@@ -3,10 +3,7 @@ package com.party.ijurong.pojo;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.springframework.format.annotation.DateTimeFormat;
 
-import javax.persistence.Column;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.util.Date;
 
 public class Reply {
@@ -34,14 +31,16 @@ public class Reply {
     /**
      * 回复数
      */
-    @Column(name = "reply_num")
+    @Transient
     private Integer replyNum;
 
-    @Column(name = "like_num")
+    @Transient
     private Integer likeNum;
 
     @Column(name = "parent_id")
     private Integer parentId;
+    private String title;
+    private String cover;
 
     /**
      * @return id
@@ -165,5 +164,21 @@ public class Reply {
 
     public void setParentId(Integer parentId) {
         this.parentId = parentId;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getCover() {
+        return cover;
+    }
+
+    public void setCover(String cover) {
+        this.cover = cover;
     }
 }
