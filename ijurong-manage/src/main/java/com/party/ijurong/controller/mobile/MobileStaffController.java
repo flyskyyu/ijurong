@@ -2,20 +2,23 @@ package com.party.ijurong.controller.mobile;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
+import com.github.pagehelper.PageInfo;
 import com.party.ijurong.bean.MobileResult;
 import com.party.ijurong.bean.SimpleUser;
-import com.party.ijurong.pojo.PartyMember;
-import com.party.ijurong.pojo.Staff;
-import com.party.ijurong.pojo.UserSign;
+import com.party.ijurong.dto.ReplyDto;
+import com.party.ijurong.pojo.*;
 import com.party.ijurong.service.*;
 import com.party.ijurong.utils.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Created by Administrator on 2017/5/28 0028.
@@ -36,7 +39,40 @@ public class MobileStaffController {
     private UserSignService userSignService;
     @Autowired
     private PartyMemberService memberService;
+    @Autowired
+    private ReplyService replyService;
+    @Autowired
+    private PraiseService praiseService;
+    @Autowired
+    private MarkService markService;
 
+    @RequestMapping(value = "myFollowList")
+    @ResponseBody
+    public MobileResult myList(@RequestParam(defaultValue = "1") int page
+            , @RequestParam(defaultValue = "20") int rows) {
+        Map map = new HashMap();
+        SimpleUser user = shiroService.getUser();
+        ReplyDto dto = new ReplyDto();
+        dto.setStaffId(user.getUserId());
+        dto.setShowMyReply(true);
+        PageInfo<ReplyDto> pageInfo = replyService.queryByReplyDto(dto, page, rows);
+
+        Praise praise = new Praise();
+        praise.setStaffId(user.getUserId());
+        PageInfo<Praise> praisePageInfo = praiseService.queryByPraise(praise, page, rows);
+
+        Mark mark = new Mark();
+        mark.setStaffId(user.getUserId());
+        PageInfo<Mark> markPageInfo = markService.queryByMark(mark, page, rows);
+
+        MobileResult result = new MobileResult();
+        result.setCode(200);
+        map.put("replyList", pageInfo.getList());
+        map.put("likeList", praisePageInfo.getList());
+        map.put("markList", markPageInfo.getList());
+        result.setData(map);
+        return result;
+    }
     @RequestMapping("get")
     @ResponseBody
     public MobileResult get() {
