@@ -122,11 +122,12 @@ public class MessageService extends BaseService<Message>{
     }
 
 
-    public Page<MessageSys> getMessageSysByUserId(int userId, int page, int rows)
+    public Page<MessageSys> getMessageSysByUserId(int isRead,int userId, int page, int rows)
     {
         RowBounds rowBounds=new RowBounds((page - 1) * rows,page*rows);
         Example example = new Example(MessageSys.class);
         example.createCriteria().andEqualTo("userId",userId);
+        example.createCriteria().andEqualTo("isRead",isRead);
         example.setOrderByClause("create_time DESC");
         List<MessageSys> list =messageSysMapper.selectByExampleAndRowBounds(example,rowBounds);
         long count = messageSysMapper.selectCountByExample(example);

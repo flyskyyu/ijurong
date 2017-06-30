@@ -127,15 +127,13 @@ public class MobileMessageController {
 
     @RequestMapping(value = "getSysMessages")
     @ResponseBody
-    public MobileResult getSysMessages(HttpServletRequest httpServletRequest,@RequestParam(defaultValue = "1")int page
+    public MobileResult getSysMessages(HttpServletRequest httpServletRequest,int isRead,@RequestParam(defaultValue = "1")int page
             , @RequestParam(defaultValue = "20")int rows) {
         MobileResult result = new MobileResult();
         try
         {
             SimpleUser user = shiroService.getUser();
-            Page<MessageSys> pages=messageService.getMessageSysByUserId(user.getUserId(), page, rows);
-
-            //需要加最热...
+            Page<MessageSys> pages=messageService.getMessageSysByUserId(isRead,user.getUserId(), page, rows);
             result.setCode(200);
             result.setData(pages.getRows());
         }catch (Exception e)

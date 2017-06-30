@@ -11,4 +11,5 @@ import java.util.Map;
 public interface MessageMapper extends Mapper<Message> {
 
     List<MessageDto> getMessageByUserId(@Param("userId") int userId);
+
 }

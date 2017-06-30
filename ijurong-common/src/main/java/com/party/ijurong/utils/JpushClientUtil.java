@@ -338,7 +338,7 @@ public class JpushClientUtil {
     }
 
     public static void main(String[] args){
-        if(JpushClientUtil.sendToAllAndroid("11","22","this is a android Dev test","")==1){
+        if(JpushClientUtil.sendToRegistrationId("867246020993680","测试2","测试22","测试222","AAA")==1){
             System.out.println("success");
         }
     }

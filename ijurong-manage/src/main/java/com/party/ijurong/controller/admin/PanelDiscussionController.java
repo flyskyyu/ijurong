@@ -34,6 +34,16 @@ public class PanelDiscussionController {
         return result;
     }
 
+    @RequestMapping(value = "/findAdvisorys", method = { RequestMethod.POST, RequestMethod.GET })
+    @ResponseBody
+    public Page<PanelDiscussion> findAdvisorys(HttpServletRequest httpServletRequest,
+                                                      @ModelAttribute PanelDiscussion panelDiscussion, @RequestParam int page, @RequestParam int rows) {
+        Page<PanelDiscussion> result = panelDiscussionService.findAdvisorys(panelDiscussion, page, rows);
+        return result;
+    }
+
+
+
 
     @RequestMapping(value = "updatePanelDiscussion", method =
             { RequestMethod.POST, RequestMethod.GET })

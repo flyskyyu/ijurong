@@ -27,8 +27,8 @@ public class PanelDiscussion {
     @Column(name = "is_shadow")
     private Integer isShadow;
 
-    @Column(name = "is_admin")
-    private Integer isAdmin;
+    @Column(name = "admin_reply")
+    private String adminReply;
     /**
      * @return id
      */
@@ -107,11 +107,11 @@ public class PanelDiscussion {
         this.isShadow = isShadow;
     }
 
-    public Integer getIsAdmin() {
-        return isAdmin;
+    public String getAdminReply() {
+        return adminReply;
     }
 
-    public void setIsAdmin(Integer isAdmin) {
-        this.isAdmin = isAdmin;
+    public void setAdminReply(String adminReply) {
+        this.adminReply = adminReply;
     }
 }
