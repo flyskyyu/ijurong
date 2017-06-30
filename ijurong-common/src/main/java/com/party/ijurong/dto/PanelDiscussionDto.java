@@ -19,14 +19,14 @@ public class PanelDiscussionDto {
     private String staffName;
     private String avatar;
     private String url;
-    private int isAdmin;//是否为管理员
+    private int adminReply;//管理员回复
 
-    public int getIsAdmin() {
-        return isAdmin;
+    public int getAdminReply() {
+        return adminReply;
     }
 
-    public void setIsAdmin(int isAdmin) {
-        this.isAdmin = isAdmin;
+    public void setAdminReply(int adminReply) {
+        this.adminReply = adminReply;
     }
 
     public int getId() {

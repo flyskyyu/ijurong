@@ -113,6 +113,7 @@ pageEncoding="UTF-8" %>
 				<li class="nav-li">
 					<a href="javascript:;" class="ue-clear"><i class="nav-ivon"></i><span class="nav-text">互动交流</span></a>
 					<ul class="subnav">
+						<li class="subnav-li" href="interactive/advisory" data-id="50"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">互动交流</span></a></li>
 						<li class="subnav-li" href="interactive/panelDiscussion" data-id="52"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">论坛管理</span></a></li>
 						<li class="subnav-li" href="reply/listPage" data-id="51"><a href="javascript:;" class="ue-clear"><i class="subnav-icon"></i><span class="subnav-text">评论管理</span></a></li>
 					</ul>
