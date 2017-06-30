@@ -1,14 +1,12 @@
 package com.party.ijurong.controller.mobile;
 
+import com.alibaba.fastjson.JSONObject;
 import com.github.pagehelper.PageInfo;
 import com.party.ijurong.bean.MobileResult;
 import com.party.ijurong.bean.SimpleUser;
 import com.party.ijurong.constants.ConstantOrigin;
 import com.party.ijurong.dto.ReplyDto;
-import com.party.ijurong.pojo.Mark;
-import com.party.ijurong.pojo.Praise;
-import com.party.ijurong.pojo.Reply;
-import com.party.ijurong.pojo.Staff;
+import com.party.ijurong.pojo.*;
 import com.party.ijurong.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,6 +35,16 @@ public class MobileReplyController {
     private MarkService markService;
     @Autowired
     private StaffService staffService;
+    @Autowired
+    private NewsService newsService;
+    @Autowired
+    private MessageService messageService;
+    @Autowired
+    private ActivityService activityService;
+    @Autowired
+    private PanelDiscussionService panelDiscussionService;
+    @Autowired
+    private ExcellentMemberService excellentMemberService;
 
     @RequestMapping(value = "myList")
     @ResponseBody
@@ -52,6 +60,59 @@ public class MobileReplyController {
         result.setData(pageInfo.getList());
         return result;
     }
+
+    @RequestMapping(value = "followDetail")
+    @ResponseBody
+    public MobileResult followDetail(int id, int type) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            if(type == 20) {
+                Reply reply = replyService.queryById(id);
+                jsonObject = getFollow(reply.getArticleId(), reply.getArticleType());
+            } else {
+                jsonObject = getFollow(id, type);
+            }
+        } catch (Exception e) {
+            jsonObject.put("title", "");
+            jsonObject.put("detail", "");
+        }
+        MobileResult result = new MobileResult();
+        result.setCode(200);
+        result.setData(jsonObject);
+        return result;
+    }
+
+    private JSONObject getFollow(int id, int type) {
+        JSONObject jsonObject = new JSONObject();
+        String title = "";
+        String detail = "";
+        if(type == ConstantOrigin.C1_NEWS) {
+            News news = newsService.queryById(id);
+            title = news.getTitle();
+            detail = news.getNewsContent();
+
+        } else if(type == ConstantOrigin.C2_MESSAGE) {
+            Message message = messageService.queryById(id);
+            title = message.getTitle();
+            detail = message.getNewsContent();
+        } else if(type == ConstantOrigin.C7_ACTIVITIES) {
+            Activity activity = activityService.queryById(id);
+            title = activity.getTitle();
+            detail = activity.getDetail();
+        } else if(type == ConstantOrigin.C9_DISCUSSION) {
+            PanelDiscussion panelDiscussion = panelDiscussionService.queryById(id);
+            title = panelDiscussion.getTitle();
+            detail = panelDiscussion.getContent();
+        } else if(type == ConstantOrigin.C10_GOODPARTYER) {
+            ExcellentMember member = excellentMemberService.queryById(id);
+            title = member.getTitle();
+            detail = member.getMeritoriousDeeds();
+        }
+        jsonObject.put("title", title);
+        jsonObject.put("detail", detail);
+        return jsonObject;
+    }
+
 
     @RequestMapping(value = "reply")
     @ResponseBody
