@@ -33,6 +33,7 @@ public class ReplyService extends BaseService<Reply> {
             criteria.andEqualTo("staffId", reply.getStaffId());
         }
         example.orderBy("id").desc();
+        PageHelper.startPage(page, rows);
         List<Reply> list = replyMapper.selectByExample(example);
         return new PageInfo<>(list);
     }

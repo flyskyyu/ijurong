@@ -10,6 +10,7 @@
   String path = request.getContextPath();
   String basePath = request.getScheme() + "://" + request.getServerName() + ":" + request.getServerPort() + path + "/";
 %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <select id="editUserName" class="easyui-combogrid" name="staffId" required="true"
         style="width: 230px"
         data-options="mode:'remote',
@@ -19,7 +20,9 @@
 							pagination : true,
 							idField: 'staffId',
 							queryParams : {
-                             	branchId: ${param.branchId}
+								<c:if test="${param.branchId != null}">
+								branchId: ${param.branchId}
+								</c:if>
                              },
 							textField: 'staffName',
 							url: '<%=basePath%>admin/staff/listByQ',
