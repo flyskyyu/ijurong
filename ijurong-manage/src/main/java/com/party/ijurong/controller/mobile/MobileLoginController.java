@@ -86,7 +86,7 @@ public class MobileLoginController {
     public MobileResult register(Staff staff, String partyPosition, String validCode) {
         MobileResult result = new MobileResult();
         if(StringUtils.isEmpty(staff.getPhoneNumber()) || StringUtils.isEmpty(staff.getPassword())
-            || StringUtils.isEmpty(validCode)) {
+            || staff.getPartyBranchId() == null || StringUtils.isEmpty(validCode)) {
             result.setCode(300);
             result.setMsg("参数不完整");
             return result;
@@ -98,15 +98,16 @@ public class MobileLoginController {
             return result;
         }
         Staff temp = staffService.queryByEmailOrPhoneNumber(staff.getPhoneNumber());
-        if(temp == null) {
+        if(temp != null) {
             result.setCode(300);
-            result.setMsg("此用户未注册，请联系支部管理员");
+            result.setMsg("此手机已注册，请直接登录");
             return result;
         }
-        temp.setActive(1);
-        String md5Password = DigestUtils.md5Hex(staff.getPassword());
-        temp.setPassword(md5Password);
-        partyMemberService.updateMember(temp, null);
+        staff.setPoliticalStatus(4);
+        staff.setActive(1);
+        PartyMember partyMember = new PartyMember();
+        partyMember.setPartyPosition(partyPosition);
+        partyMemberService.saveMember(staff, partyMember);
         result.setCode(200);
         return result;
     }
