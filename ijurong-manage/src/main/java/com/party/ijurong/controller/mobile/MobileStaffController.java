@@ -73,6 +73,22 @@ public class MobileStaffController {
         result.setData(map);
         return result;
     }
+
+    @RequestMapping("update")
+    @ResponseBody
+    public MobileResult update(Staff staff) {
+        SimpleUser user = shiroService.getUser();
+        Staff record = new Staff();
+        record.setStaffId(user.getUserId());
+        record.setStaffName(staff.getStaffName());
+        record.setSex(staff.getSex());
+        record.setSignature(staff.getSignature());
+        staffService.updateSelective(record);
+        MobileResult result = new MobileResult();
+        result.setCode(200);
+        return result;
+    }
+
     @RequestMapping("get")
     @ResponseBody
     public MobileResult get() {

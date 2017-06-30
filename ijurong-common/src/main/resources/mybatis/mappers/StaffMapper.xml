@@ -29,6 +29,7 @@
         <result column="update_staff_id" property="updateStaffId" jdbcType="INTEGER"/>
         <result column="active" property="active" jdbcType="INTEGER"/>
         <result column="head_char" property="headChar" jdbcType="VARCHAR"/>
+        <result column="signature" property="signature" jdbcType="VARCHAR"/>
     </resultMap>
 
 

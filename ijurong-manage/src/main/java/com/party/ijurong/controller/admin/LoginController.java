@@ -7,8 +7,10 @@ import org.apache.shiro.authc.UnknownAccountException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by Cloud on 2017/5/25.
@@ -42,5 +44,14 @@ public class LoginController {
         }
         //登录失败还到login页面
         return "admin/login";
+    }
+
+    @RequestMapping("validateCode")
+    @ResponseBody
+    public boolean validateCode(String validateCode, HttpServletRequest request) {
+        HttpSession session = request.getSession();
+        String sessionCode = (String) session.getAttribute("validateCode");
+        if(sessionCode == null) return false;
+        return sessionCode.equalsIgnoreCase(validateCode);
     }
 }

@@ -117,6 +117,8 @@ public class Staff {
     @Transient
     private List<CombotreeResult> branchInfos;
 
+    private String signature;
+
     /**
      * @return staff_id
      */
@@ -506,5 +508,13 @@ public class Staff {
 
     public void setBranchInfos(List<CombotreeResult> branchInfos) {
         this.branchInfos = branchInfos;
+    }
+
+    public String getSignature() {
+        return signature;
+    }
+
+    public void setSignature(String signature) {
+        this.signature = signature;
     }
 }

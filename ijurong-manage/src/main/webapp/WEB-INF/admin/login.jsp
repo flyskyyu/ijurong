@@ -77,11 +77,11 @@ pageEncoding="UTF-8" %>
                 </div>
                 <div class="input validate" id="validate">
                     <label for="valiDate">验证码</label>
-                    <input type="text" name="randomcode"/>
+                    <input type="text" name="randomcode" id="randomcode"/>
                     <img id="randomcode_img" src="/findValidateImage" alt=""
                             width="56" height="20" align='absMiddle'  onclick="javascript:refresh(this);"/>
                 </div>
-                <div class="err_msg">
+                <div class="err_msg" id="err_msg">
                     ${errMsg}
                 </div>
                 <!--<div class="styleArea">-->
@@ -169,6 +169,22 @@ pageEncoding="UTF-8" %>
             correctLevel : QRCode.CorrectLevel.H
         });
         $('#qrcode').attr('title', '');
+    }
+
+    loginForm.onsubmit = function() {
+        if($('#qrcodeLogin').val() == 1) return true;
+        var params = {};
+        params.validateCode = $('#randomcode').val();
+        var result = $.ajax({
+            url: "<%=basePath%>validateCode",
+            data:params,
+            async: false
+        }).responseText;
+        if(result == 'false') {
+            $('#err_msg').html('验证码错误');
+            return false;
+        }
+        return true;
     }
 </script>
 </html>
