@@ -59,6 +59,8 @@ public class ItemReceive {
 
     private String name;
 
+    private String avatar;
+
     /**
      * 联系电话
      */
@@ -303,5 +305,13 @@ public class ItemReceive {
 
     public void setReply(String reply) {
         this.reply = reply;
+    }
+
+    public String getAvatar() {
+        return avatar;
+    }
+
+    public void setAvatar(String avatar) {
+        this.avatar = avatar;
     }
 }

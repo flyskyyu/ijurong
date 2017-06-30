@@ -40,7 +40,9 @@ public class PartyMemberService extends BaseService<PartyMember> {
             staff.setHeadChar(headChar.toLowerCase());
         }
         staffMapper.updateByPrimaryKeySelective(staff);
-        partyMember.setUserId(staff.getStaffId());
-        memberMapper.updateByPrimaryKeySelective(partyMember);
+        if(partyMember != null) {
+            partyMember.setUserId(staff.getStaffId());
+            memberMapper.updateByPrimaryKeySelective(partyMember);
+        }
     }
 }

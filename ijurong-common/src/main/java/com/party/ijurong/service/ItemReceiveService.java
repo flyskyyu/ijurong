@@ -63,6 +63,7 @@ public class ItemReceiveService extends BaseService<ItemReceive> {
             return NUM_LACK;
         }
         itemReceive.setItemName(item.getItemName());
+        itemReceive.setAvatar(item.getAvatar());
         itemReceive.setIntegral(integral);
         receiveMapper.insertSelective(itemReceive);
         staff.setIntegral(staff.getIntegral() - integral);
