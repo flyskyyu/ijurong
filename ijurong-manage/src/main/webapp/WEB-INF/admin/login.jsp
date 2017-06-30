@@ -182,6 +182,7 @@ pageEncoding="UTF-8" %>
         }).responseText;
         if(result == 'false') {
             $('#err_msg').html('验证码错误');
+            randomcode_refresh();
             return false;
         }
         return true;
