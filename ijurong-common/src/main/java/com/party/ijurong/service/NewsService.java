@@ -28,11 +28,15 @@ public class NewsService extends BaseService<News>{
     public Page<News> findNewssByNews(News news, int page, int rows,String order) {
         RowBounds rowBounds=new RowBounds((page - 1) * rows,page*rows);
         Example example = new Example(News.class);
+        Example.Criteria criteria = example.createCriteria();
         if(news.getTitle()!=null&&news.getTitle()!="") {
-            example.createCriteria().andLike("title", "%" + news.getTitle() + "%");
+            criteria.andLike("title", "%" + news.getTitle() + "%");
         }
         if(news.getProgramaId()!=null) {
-            example.createCriteria().andEqualTo("programaId",news.getProgramaId());
+            criteria.andEqualTo("programaId", news.getProgramaId());
+        }
+        if(news.getStatus() != null) {
+            criteria.andEqualTo("status", news.getStatus());
         }
         example.setOrderByClause(order);
         List<News> list =mapper.selectByExampleAndRowBounds(example,rowBounds);

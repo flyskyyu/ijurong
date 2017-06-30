@@ -104,7 +104,7 @@ public class MobileResearchController {
 
     @RequestMapping(value = "postAnswer")
     @ResponseBody
-    public MobileResult postAnswer(HttpServletRequest httpServletRequest,String paperAnswer) {
+    public MobileResult postAnswer(String paperAnswer) {
         MobileResult result = new MobileResult();
         try
         {

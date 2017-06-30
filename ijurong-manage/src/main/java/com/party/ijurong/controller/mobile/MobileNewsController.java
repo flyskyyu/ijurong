@@ -62,6 +62,7 @@ public class MobileNewsController {
                 result.setMsg("参数错误");
                 return  result;
             }
+            news.setStatus(2);
             Page<News> p = newsService.findNewssByNews(news, page, rows,"create_time DESC");
             result.setCode(200);
             result.setData(p.getRows());
@@ -88,6 +89,7 @@ public class MobileNewsController {
                 result.setMsg("参数错误");
                 return  result;
             }
+            news.setStatus(2);
             Page<News> p = newsService.findNewssByNews(news, page, rows,"check_num DESC");
             result.setCode(200);
             result.setData(p.getRows());
