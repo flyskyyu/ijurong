@@ -116,6 +116,12 @@ public class MobileLoginController {
     @ResponseBody
     public MobileResult validCode(String phoneNumber) {
         MobileResult result = new MobileResult();
+        Staff temp = staffService.queryByEmailOrPhoneNumber(phoneNumber);
+        if(temp != null) {
+            result.setCode(300);
+            result.setMsg("此手机已注册，请直接登录");
+            return result;
+        }
         String validCode = RandomUtils.generateValidCode();
         try {
             smsService.sendValidCode(phoneNumber, validCode);
