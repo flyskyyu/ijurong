@@ -138,6 +138,26 @@ public class MobileLoginController {
         return result;
     }
 
+    @RequestMapping("otherValidCode")
+    @ResponseBody
+    public MobileResult otherValidCode(String phoneNumber) {
+        MobileResult result = new MobileResult();
+        String validCode = RandomUtils.generateValidCode();
+        try {
+            smsService.sendValidCode(phoneNumber, validCode);
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.setCode(300);
+            result.setMsg("短信发送失败");
+            return result;
+        }
+        String key = prefixValid + phoneNumber;
+        redisService.set(key, validCode);
+        redisService.expire(key, 10 * 60);
+        result.setCode(200);
+        return result;
+    }
+
     @RequestMapping("changePassword")
     @ResponseBody
     public MobileResult changePassword(String phoneNumber, String password, String validCode) {
